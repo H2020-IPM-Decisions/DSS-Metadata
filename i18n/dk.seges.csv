@@ -1,0 +1,67 @@
+KEY,default
+dk.seges.1_0.models.CPO.description.age,
+dk.seges.1_0.models.CPO.description.assumptions,
+dk.seges.1_0.models.CPO.description.created_by,
+dk.seges.1_0.models.CPO.description.other,"The system has been developed by Aarhus University and SEGES and covers main diseases and pest in cereal crops.
+The models have been developed for guidance related to leaf and stem diseases in cereals including
+winter Wheat, spring barley, winter barley, spring oat, winter triticale and winter rye.
+The system also includes models for pest control in cereals.
+The models require information from field registration typically in the period from GS 30-31 to GS 65-71
+(assessments of frequency of plants attacked) and for some diseases also precipitation is required
+(days with more than 1 mm rain). Before getting information on need for treatments – information on crop,
+cultivars susceptibility and growth stage (BBCH) is required.
+
+The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.
+
+The models have been validated in Denmark and has also been tested in the Baltic and Nordic
+countries. It is expected to be valid in the northern part of Europe, given that the monitoring part of
+the system is followed.
+"
+dk.seges.1_0.models.CPO.name,CPO model
+dk.seges.1_0.models.CPO.output.chart_heading,
+dk.seges.1_0.models.CPO.output.result_parameters.TREATMENT_ID.description,The CPO's traffic light counterpart. 0 = No need for treatment. 1 = Treat if other problem needs treatment. 2 = Treat if other problem has treatmentId = 2 3 = Need for treatment
+dk.seges.1_0.models.CPO.output.result_parameters.TREATMENT_ID.title,The risk assessment
+dk.seges.1_0.models.CPO.output.warning_status_interpretation,"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
+precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given."
+dk.seges.1_0.models.SEPTORIAHU.description.age,
+dk.seges.1_0.models.SEPTORIAHU.description.assumptions,
+dk.seges.1_0.models.SEPTORIAHU.description.created_by,
+dk.seges.1_0.models.SEPTORIAHU.description.other,"Fuktmodellen er et beslutningsstøtteverktøy for å kunne vurdere risiko for 
+angrep av hvetebladprikk i høsthvete under danske forhold. Modellen er basert 
+på antall timer med bladfuktighet. Bladfuktighet er definert som nedbør (0,2 mm) 
+eller 85 % luftfuktighet i minst 30 min/time målt fra den nærmeste værstasjonen.
+
+Værdata brukes fra de siste 3 dagene og prognosen for de neste 3 dagene fremover. 
+I tillegg legges det inn dato for når utviklingsstadium BBCH 31 eller 32 inntreffer. 
+Modellen beregner forventet dato for de andre utviklingsstadiene, som kan justeres manuelt ved avvik.
+
+Det er også viktig å legge inn data for evt. gjennomførte sprøytinger. Etter sprøyting med 
+fungicider som er effektive mot bladflekksjukdommer (*) går modellen ut fra at plantene er 
+beskyttet i en periode på 10 dager.
+
+Antall timer med bladfuktighet som utløser et varsel og prosent luftfuktighet som definerer en 
+fuktig time kan justeres manuelt pga. aktuelle informasjon fra det aktuelle feltet for eksempel 
+sortsresistens, sjukdomspress i åkeren, forgrøde.
+"
+dk.seges.1_0.models.SEPTORIAHU.name,Septoria Humidity Model
+dk.seges.1_0.models.SEPTORIAHU.output.chart_groups.G1.title,Disease development
+dk.seges.1_0.models.SEPTORIAHU.output.chart_heading,Septoria humidity model in wheat
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HH.description,"Current hour is humid hour? 1 = true, 0 = false"
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HH.title,"Current hour is humid hour? 1 = true, 0 = false"
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HHS.description,Humid hour sum for sliding middle
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HHS.title,Humid hour sum for sliding middle
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPH.description,Humid period hour (consecutive humid hours)
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPH.title,Humid period hour (consecutive humid hours)
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPHPP.description,Humid period hour (consecutive humid hours) corrected for protection period
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPHPP.title,Humid period hour (consecutive humid hours) corrected for protection period
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.SPP.description,Indicates the protection period after spraying
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.SPP.title,Crop is protected after spraying
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.THPHPP.description,Threshold for consecutive humid hours
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.THPHPP.title,Threshold for consecutive humid hours
+dk.seges.1_0.models.SEPTORIAHU.output.warning_status_interpretation,"Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område og direkte 
+bekjempingstiltak skal vurderes pga. økt infeksjonsrisiko. "
+dk.seges.1_0.name,SEGES DSS models

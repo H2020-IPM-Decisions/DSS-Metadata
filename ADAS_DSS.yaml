@@ -1,6 +1,6 @@
 #General info about the DSS
 id: adas.dss
-version: 0.0.3
+version: 0.0.4
 name: Models
 url: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss
 organization:
@@ -604,6 +604,7 @@ models:
   - name: AHDB
     email: NA
     organization: AHDB
+  platform_validated: true
   pests:
   - RHOPPA
   crops:

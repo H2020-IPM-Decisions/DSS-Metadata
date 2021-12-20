@@ -633,7 +633,7 @@ models:
       interval: 3600
     weather_data_period_start:
       determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR-1}-09-01'
+      value: '{PREVIOUS_YEAR}-09-01'
     weather_data_period_end:
       determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-08-31'

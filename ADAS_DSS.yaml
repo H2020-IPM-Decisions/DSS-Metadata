@@ -629,11 +629,11 @@ models:
       {}
   input:
     weather_parameters:
-    - parameter_code: 1002
+    - parameter_code: 1001
       interval: 3600
     weather_data_period_start:
       determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-09-01'
+      value: '{PREVIOUS_YEAR}-09-01'
     weather_data_period_end:
       determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-08-31'

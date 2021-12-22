@@ -1,0 +1,185 @@
+"KEY","default"
+"adas.dss.0_0_4.models.CARPPO.description.age",""
+"adas.dss.0_0_4.models.CARPPO.description.assumptions",""
+"adas.dss.0_0_4.models.CARPPO.description.created_by",""
+"adas.dss.0_0_4.models.CARPPO.description.other","This is a simple risk based DSS for the Codling Moth, Cydia pomonella, based on the work of Damos et al., (2018) in Greece. A 3-paramater non-linear regression model was constructed to fit cumulative moth captures as a function of accumulated day degrees (Biofix 1st January) for all three of the male flights.
+The model requires minimum and maximum temperature from the 1st of January as an input, and will return the male flight, associated risk and recommended action.
+"
+"adas.dss.0_0_4.models.CARPPO.execution.input_schema.properties.modelId.description","Must be CARPPO"
+"adas.dss.0_0_4.models.CARPPO.execution.input_schema.properties.modelId.title","Model Id"
+"adas.dss.0_0_4.models.CARPPO.execution.input_schema.properties.optionalData.title","Optional parameters for the DSS"
+"adas.dss.0_0_4.models.CARPPO.name","Codling Moth Model"
+"adas.dss.0_0_4.models.CARPPO.output.chart_groups.G1.title","Cumulative Captures"
+"adas.dss.0_0_4.models.CARPPO.output.chart_heading","Cumulative Captures"
+"adas.dss.0_0_4.models.CARPPO.output.result_parameters.First_Flight_Cumulative_Captures.description","The cumulative captures of the Codling Moth during their first flight."
+"adas.dss.0_0_4.models.CARPPO.output.result_parameters.First_Flight_Cumulative_Captures.title","First Flight Cumulative Captures"
+"adas.dss.0_0_4.models.CARPPO.output.result_parameters.Second_Flight_Cumulative_Captures.description","The cumulative captures of the Codling Moth during their second flight."
+"adas.dss.0_0_4.models.CARPPO.output.result_parameters.Second_Flight_Cumulative_Captures.title","Second Flight Cumulative Captures"
+"adas.dss.0_0_4.models.CARPPO.output.result_parameters.Third_Flight_Cumulative_Captures.description","The cumulative captures of the Codling Moth during their third flight."
+"adas.dss.0_0_4.models.CARPPO.output.result_parameters.Third_Flight_Cumulative_Captures.title","Third Flight Cumulative Captures"
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.0.explanation",""
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.0.recommended_action",""
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.1.explanation","Missing data."
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.1.recommended_action","Review error message."
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.2.explanation","This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
+Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
+The timing of treatment might need to be adjusted depending on the type of insecticide used. 
+In southern Europe there can be three flights in a season.     
+The prediction is about timing and does not predict the number of codling moths.
+Green warning indicates that cumulative catches are below 10% or above 65% in all the flights."
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.2.recommended_action","The risk is low, and no action is required but it is recommended to revisit regularly as risk can change rapidly."
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.3.explanation","This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
+Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
+The timing of treatment might need to be adjusted depending on the type of insecticide used. 
+In southern Europe there can be three flights in a season.     
+The prediction is about timing and does not predict the number of codling moths.
+Yellow warning indicates that cumulative catches are between 10% and 35% in at least one of the flights. "
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.3.recommended_action","The risk is moderate, and you should walk around your field as soon as possible to enable you to make a decision on which action to take."
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.4.explanation","This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
+Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
+The timing of treatment might need to be adjusted depending on the type of insecticide used. 
+In southern Europe there can be three flights in a season.     
+The prediction is about timing and does not predict the number of codling moths.
+Red warning indicates that cumulative catches are between 35% and 65% in at least one of the flights. "
+"adas.dss.0_0_4.models.CARPPO.output.warning_status_interpretation.4.recommended_action","The risk is high and you should immediately take a decision for action to manage the pest."
+"adas.dss.0_0_4.models.DASGPA.description.age",""
+"adas.dss.0_0_4.models.DASGPA.description.assumptions",""
+"adas.dss.0_0_4.models.DASGPA.description.created_by",""
+"adas.dss.0_0_4.models.DASGPA.description.other","This model assesses Cutworm risk in crops based on the work of Bowden et al., (1982). The model was originally devised to estimate an index of larval survival to third instar, based on temperature rate of development relationships and mortality due to daily rainfall.
+The default model start date is defined as the first day after 1st June where temperature exceeds 12 degrees. The model will end on the 31st October.
+Any spray dates can be inputted into the model and are deemed to be 100% effective at removing cutworm from the model.
+The model will return the number of batches that survive to the third instar, the associated risk and the recommended action.
+"
+"adas.dss.0_0_4.models.DASGPA.execution.input_schema.properties.modelId.description","Must be DASGPA"
+"adas.dss.0_0_4.models.DASGPA.execution.input_schema.properties.modelId.title","Model Id"
+"adas.dss.0_0_4.models.DASGPA.execution.input_schema.properties.optionalData.properties.sprayDates.properties.date.title","Date of Spray (YYYY-MM-DD)"
+"adas.dss.0_0_4.models.DASGPA.execution.input_schema.properties.optionalData.properties.sprayDates.title","Spray Dates"
+"adas.dss.0_0_4.models.DASGPA.execution.input_schema.properties.optionalData.title","Optional parameters for the DSS"
+"adas.dss.0_0_4.models.DASGPA.name","Cutworm Model"
+"adas.dss.0_0_4.models.DASGPA.output.chart_groups.G1.title","Instar Count"
+"adas.dss.0_0_4.models.DASGPA.output.chart_heading","Larval Batches Surviving to Third Instar."
+"adas.dss.0_0_4.models.DASGPA.output.result_parameters.Third_Instar_Count.description","Number of larval batches surviving to third instar."
+"adas.dss.0_0_4.models.DASGPA.output.result_parameters.Third_Instar_Count.title","Larval Batches Surviving to Third Instar."
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.0.explanation",""
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.0.recommended_action",""
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.1.explanation","Missing data."
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.1.recommended_action","Review error message."
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.2.explanation","Green warning indicates that the number of larval batches surviving to third instar is zero."
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.2.recommended_action","No Action Required."
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.3.explanation","Yellow warning indicates that the larval batches surviving to third instar is between 1 and 4. "
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.3.recommended_action","Should check field to obtain first-hand information about the need to take action."
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.4.explanation","Red warning indicates that there are over 4 larval batches surviving to third instar. "
+"adas.dss.0_0_4.models.DASGPA.output.warning_status_interpretation.4.recommended_action","Advised to walk around your field as soon as possible to enable you to make a decision on which action to take."
+"adas.dss.0_0_4.models.HAPDMA.description.age",""
+"adas.dss.0_0_4.models.HAPDMA.description.assumptions",""
+"adas.dss.0_0_4.models.HAPDMA.description.created_by",""
+"adas.dss.0_0_4.models.HAPDMA.description.other","A simple DSS which predicts the dates of emergence for the Saddle Gall Midge based on a model derived by Rowley et al., 2017. Rainfall events followed by an accumulation of 512 degree days above 0 degrees C can be used to predict peaks.
+Cumulative emergence as a function of degree day accumulations was best described using a probit model.
+The model will start on the date of first rainfall on or after the 1st March and will end at the end of July.
+A Rainfall event is described as daily rainfall over the rainfall threshold (default 1mm) following 3 days without precipitation.
+Optional parameters can be inputted to set the thresholds. If not inputted, the defaults described above will be set.
+The model will return the dates of peak emergence, cumulative emergence, the associated risk and recommended action.
+"
+"adas.dss.0_0_4.models.HAPDMA.execution.input_schema.properties.modelId.description","Must be HAPDMA"
+"adas.dss.0_0_4.models.HAPDMA.execution.input_schema.properties.modelId.title","Model Id"
+"adas.dss.0_0_4.models.HAPDMA.execution.input_schema.properties.optionalData.title","Optional parameters for the DSS"
+"adas.dss.0_0_4.models.HAPDMA.name","Saddle Gall Midge Model"
+"adas.dss.0_0_4.models.HAPDMA.output.chart_groups.G1.title","Emergence"
+"adas.dss.0_0_4.models.HAPDMA.output.chart_heading","Cumulative Emergence"
+"adas.dss.0_0_4.models.HAPDMA.output.result_parameters.Cumulative_Emergence.description","Cumulative percentage emergence as a function of degree day accumulations."
+"adas.dss.0_0_4.models.HAPDMA.output.result_parameters.Cumulative_Emergence.title","Cumulative Emergence."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.0.explanation",""
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.0.recommended_action",""
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.1.explanation","Missing data."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.1.recommended_action","Review error message."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.2.explanation","Green warning indicates that there is below 10% cumulative emergence. Currently low risk."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.2.recommended_action","Revisit regularly as risk can change rapidly."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.3.explanation","Yellow warning indicates that there is up to 50% cumulative emergence."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.3.recommended_action","Check field to obtain first hand information about the need to take action."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.4.explanation","Red warning indicates that there is up to or over 90% cumulative emergence."
+"adas.dss.0_0_4.models.HAPDMA.output.warning_status_interpretation.4.recommended_action","Walk around your field as soon as possible to enable you to decide on which action to take."
+"adas.dss.0_0_4.models.MELIAE.description.age",""
+"adas.dss.0_0_4.models.MELIAE.description.assumptions",""
+"adas.dss.0_0_4.models.MELIAE.description.created_by",""
+"adas.dss.0_0_4.models.MELIAE.description.other","This model is based on the work of Ferguson et al., (2015) to predict migration risk Pollen Beetle.
+Daily maximum air temperature is used to predict Migration Risk. The default value of 15 degrees celsius is used, as that is the temperature advised in the UK at which pollen beetles will fly. 
+Threshold however can also be overwritten by the user.
+The model can only be used between growth stage 51 and 59.
+"
+"adas.dss.0_0_4.models.MELIAE.execution.input_schema.properties.modelId.description","Must be MELIAE"
+"adas.dss.0_0_4.models.MELIAE.execution.input_schema.properties.modelId.title","Model Id"
+"adas.dss.0_0_4.models.MELIAE.execution.input_schema.properties.optionalData.title","Optional parameters for the DSS"
+"adas.dss.0_0_4.models.MELIAE.name","Pollen Beetle Model"
+"adas.dss.0_0_4.models.MELIAE.output.chart_groups..title",""
+"adas.dss.0_0_4.models.MELIAE.output.chart_heading",""
+"adas.dss.0_0_4.models.MELIAE.output.result_parameters..description",""
+"adas.dss.0_0_4.models.MELIAE.output.result_parameters..title",""
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.0.explanation",""
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.0.recommended_action",""
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.1.explanation","Missing data."
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.1.recommended_action","Review error message."
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.2.explanation","Green Warning indicates that the maximum temperature is lower than threshold at which pollen beetles fly at air temperatures to crops. "
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.2.recommended_action","Revisit regularly as risk can change rapidly."
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.3.explanation",""
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.3.recommended_action",""
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.4.explanation","Red Warning indicates that the maximum temperature is higher than threshold at which pollen beetles fly at air temperatures to crops."
+"adas.dss.0_0_4.models.MELIAE.output.warning_status_interpretation.4.recommended_action","Walk around your field to enable you to decide on which action to take."
+"adas.dss.0_0_4.models.RHOPPA.description.age",""
+"adas.dss.0_0_4.models.RHOPPA.description.assumptions","Second generation aphids are likely to be present when the accumulated daily air temperatures, above a baseline temperature of 3 degrees, reached T-Sum 170."
+"adas.dss.0_0_4.models.RHOPPA.description.created_by",""
+"adas.dss.0_0_4.models.RHOPPA.description.other","This is a simple risk DSS for predicting BYDV risk from aphids. Second generation aphids move away from the plant originally colonised and are therefore likely to be a greater risk. 
+"
+"adas.dss.0_0_4.models.RHOPPA.execution.input_schema.properties.modelId.description","Must be RHOPPA"
+"adas.dss.0_0_4.models.RHOPPA.execution.input_schema.properties.modelId.title","Model Id"
+"adas.dss.0_0_4.models.RHOPPA.execution.input_schema.properties.optionalData.properties.sprayDates.properties.Date.title","Date of Spray (YYYY-MM-DD)"
+"adas.dss.0_0_4.models.RHOPPA.execution.input_schema.properties.optionalData.properties.sprayDates.title","Spray Dates"
+"adas.dss.0_0_4.models.RHOPPA.execution.input_schema.properties.optionalData.title","Optional parameters for the DSS"
+"adas.dss.0_0_4.models.RHOPPA.name","TSUM Model"
+"adas.dss.0_0_4.models.RHOPPA.output.chart_groups.G1.title","TSUM"
+"adas.dss.0_0_4.models.RHOPPA.output.chart_heading","TSUM Model"
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.Proportion_1.description","Proportion of day where temperature exceeds 11 degrees C"
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.Proportion_1.title","Proportion of day where temperature exceeds 11 degrees C"
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.Proportion_2.description","Proportion of day where temperature was below 6 degrees C"
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.Proportion_2.title","Proportion of day where temperature was below 6 degrees C"
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.Proportion_3.description","Proportion of day where temperature was below 3 degrees C"
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.Proportion_3.title","Proportion of day where temperature was below 3 degrees C"
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.T-Sum.description","Cumulative day degrees over 3 degrees celsius."
+"adas.dss.0_0_4.models.RHOPPA.output.result_parameters.T-Sum.title","T-Sum"
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.0.explanation",""
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.0.recommended_action",""
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.1.explanation","Missing data."
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.1.recommended_action","Review error message."
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.2.explanation","Green risk status: T-SUM is below 50. Low risk of spread of BYDV in crops at this time. "
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.2.recommended_action","Review risk status every 7 days during vulnerable crop growth stages regularly as risk conditions can change rapidly."
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.3.explanation","Yellow risk status: T-SUM is between 50 and 100. "
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.3.recommended_action","Review risk status within next 3 days. Field inspections recommended within the next 3-5 days to assess aphid infestations and consider treatment where winged aphids are easily found."
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.4.explanation","Red risk status: T-SUM is 100 and over."
+"adas.dss.0_0_4.models.RHOPPA.output.warning_status_interpretation.4.recommended_action","Review risk status daily. Field inspections recommended within the next 1-3 days to assess aphid infestations and consider treatment where winged aphids are easily found."
+"adas.dss.0_0_4.models.SITDMO.description.age",""
+"adas.dss.0_0_4.models.SITDMO.description.assumptions",""
+"adas.dss.0_0_4.models.SITDMO.description.created_by",""
+"adas.dss.0_0_4.models.SITDMO.description.other","This is a simple Phase Indication DSS based on the work of Jacquemin et al., (2013).   
+It uses daily temperature (degrees celsius) and rainfall (mm) data to identify emergence in the Orange Wheat Blossom Midge. 
+Optional parameters can be inputted to set the thresholds at each of the phases of the Orange Wheat Blossom Midge Lifecycle. If not inputted, the defaults will be set.
+The model only runs between the months May and June but requires weather data from the 1st of January.
+The model will return, what Phase the insect is in. If the insect has emerged it will also provide the dates of the emergence. It will also provide a risk and the recommended action.
+"
+"adas.dss.0_0_4.models.SITDMO.execution.input_schema.properties.modelId.description","Must be SITDMO"
+"adas.dss.0_0_4.models.SITDMO.execution.input_schema.properties.modelId.title","Model Id"
+"adas.dss.0_0_4.models.SITDMO.execution.input_schema.properties.optionalData.title","Optional parameters for the DSS"
+"adas.dss.0_0_4.models.SITDMO.name","Orange Wheat Blossom Midge Model"
+"adas.dss.0_0_4.models.SITDMO.output.chart_groups..title",""
+"adas.dss.0_0_4.models.SITDMO.output.chart_heading",""
+"adas.dss.0_0_4.models.SITDMO.output.result_parameters..description",""
+"adas.dss.0_0_4.models.SITDMO.output.result_parameters..title",""
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.0.explanation",""
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.0.recommended_action",""
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.1.explanation","Missing data."
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.1.recommended_action","Review error message."
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.2.explanation","Green warning indicates that Orange Wheat Blossom Midge is in Phase 1 of development. There is currently a low risk."
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.2.recommended_action","Revisit regularly as risk can change rapidly."
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.3.explanation","Yellow warning indicates that Orange Wheat Blossom Midge is in Phase 2 of development. "
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.3.recommended_action","Should check field to obtain first-hand information about the need to act."
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.4.explanation","Red warning indicates that Orange Wheat Blossom Midge is in Phase 3 of development or have emerged."
+"adas.dss.0_0_4.models.SITDMO.output.warning_status_interpretation.4.recommended_action","Advised to walk around your field as soon as possible to enable you to decide on which action to take."
+"adas.dss.0_0_4.name","Models"

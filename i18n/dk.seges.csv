@@ -1,4 +1,56 @@
 KEY,default,nb
+dk.seges.1_1.models.CPO.description.age,,
+dk.seges.1_1.models.CPO.description.assumptions,,
+dk.seges.1_1.models.CPO.description.created_by,,
+dk.seges.1_1.models.CPO.description.other,"The system has been developed by Aarhus University and SEGES and covers main diseases and pest in cereal crops.
+The models have been developed for guidance related to leaf and stem diseases in cereals including
+winter Wheat, spring barley, winter barley, spring oat, winter triticale and winter rye.
+The system also includes models for pest control in cereals.
+The models require information from field registration typically in the period from GS 30-31 to GS 65-71
+(assessments of frequency of plants attacked) and for some diseases also precipitation is required
+(days with more than 1 mm rain). Before getting information on need for treatments – information on crop,
+cultivars susceptibility and growth stage (BBCH) is required.
+
+The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.
+
+The models have been validated in Denmark and has also been tested in the Baltic and Nordic
+countries. It is expected to be valid in the northern part of Europe, given that the monitoring part of
+the system is followed.
+",
+dk.seges.1_1.models.CPO.execution.input_schema.properties.GrowthStage.title,Growth stage,
+dk.seges.1_1.models.CPO.execution.input_schema.properties.Severity.title,"Severity (% infected plants). 0=0%, 1=1-5%,2=6-10%,3=11-100%",
+dk.seges.1_1.models.CPO.execution.input_schema.properties.Susceptibility.title,Susceptibility,
+dk.seges.1_1.models.CPO.name,CPO model,
+dk.seges.1_1.models.CPO.output.chart_heading,,
+dk.seges.1_1.models.CPO.output.result_parameters.TREATMENT_ID.description,The CPO's traffic light counterpart. 0 = No need for treatment. 1 = Treat if other problem needs treatment. 2 = Treat if other problem has treatmentId = 2 3 = Need for treatment,
+dk.seges.1_1.models.CPO.output.result_parameters.TREATMENT_ID.title,The risk assessment,
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.0.explanation,"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
+precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.",
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.0.recommended_action,,
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.1.explanation,"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
+precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.",
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.1.recommended_action,,
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.2.explanation,"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
+precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.",
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.2.recommended_action,,
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.3.explanation,"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
+precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.",
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.3.recommended_action,,
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.4.explanation,"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
+precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.",
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.4.recommended_action,,
 dk.seges.1_1.models.SEPTORIAHU.description.age,,
 dk.seges.1_1.models.SEPTORIAHU.description.assumptions,,
 dk.seges.1_1.models.SEPTORIAHU.description.created_by,,

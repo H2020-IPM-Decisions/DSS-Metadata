@@ -1,18 +1,36 @@
-KEY,default,nb
-dk.seges.1_1.models.SEPTORIAHU.description.age,,
-dk.seges.1_1.models.SEPTORIAHU.description.assumptions,,
-dk.seges.1_1.models.SEPTORIAHU.description.created_by,,
-dk.seges.1_1.models.SEPTORIAHU.description.other,"The humidity model is a decision support system for risk evaluation of Septoria infections in winter wheat under 
-Danish conditions. The model is based on the number of wet hours. A wet hour is defined as minimum 0,2 mm 
-or 85% relative humidity for at least 30 minutes/hour – measured from the nearest weather station.
+KEY,default
+dk.seges.1_0.models.CPO.description.age,
+dk.seges.1_0.models.CPO.description.assumptions,
+dk.seges.1_0.models.CPO.description.created_by,
+dk.seges.1_0.models.CPO.description.other,"The system has been developed by Aarhus University and SEGES and covers main diseases and pest in cereal crops.
+The models have been developed for guidance related to leaf and stem diseases in cereals including
+winter Wheat, spring barley, winter barley, spring oat, winter triticale and winter rye.
+The system also includes models for pest control in cereals.
+The models require information from field registration typically in the period from GS 30-31 to GS 65-71
+(assessments of frequency of plants attacked) and for some diseases also precipitation is required
+(days with more than 1 mm rain). Before getting information on need for treatments – information on crop,
+cultivars susceptibility and growth stage (BBCH) is required.
 
-Weather data from the past three days and forecasts for the upcoming three days are used. In addition, the dates of 
-occurence of phenological stages BBCH 31 and 32 are entered. The model calculates the expected date for the other 
-stages. This can be adjusted manually. 
+The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.
 
-Spraying information is vital for the model. After spraying, the model expectes that the crop is protected for 10 days.
-
-The thresholds for number of wet hours and RH can be adjusted manually.","Fuktmodellen er et beslutningsstøtteverktøy for å kunne vurdere risiko for 
+The models have been validated in Denmark and has also been tested in the Baltic and Nordic
+countries. It is expected to be valid in the northern part of Europe, given that the monitoring part of
+the system is followed.
+"
+dk.seges.1_0.models.CPO.name,CPO model
+dk.seges.1_0.models.CPO.output.chart_heading,
+dk.seges.1_0.models.CPO.output.result_parameters.TREATMENT_ID.description,The CPO's traffic light counterpart. 0 = No need for treatment. 1 = Treat if other problem needs treatment. 2 = Treat if other problem has treatmentId = 2 3 = Need for treatment
+dk.seges.1_0.models.CPO.output.result_parameters.TREATMENT_ID.title,The risk assessment
+dk.seges.1_0.models.CPO.output.warning_status_interpretation,"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
+precipitation
+or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
+recommended. In the IPM-decision system only a recommendation to treat or not to treat is given."
+dk.seges.1_0.models.SEPTORIAHU.description.age,
+dk.seges.1_0.models.SEPTORIAHU.description.assumptions,
+dk.seges.1_0.models.SEPTORIAHU.description.created_by,
+dk.seges.1_0.models.SEPTORIAHU.description.other,"Fuktmodellen er et beslutningsstøtteverktøy for å kunne vurdere risiko for 
 angrep av hvetebladprikk i høsthvete under danske forhold. Modellen er basert 
 på antall timer med bladfuktighet. Bladfuktighet er definert som nedbør (0,2 mm) 
 eller 85 % luftfuktighet i minst 30 min/time målt fra den nærmeste værstasjonen.
@@ -29,48 +47,21 @@ Antall timer med bladfuktighet som utløser et varsel og prosent luftfuktighet s
 fuktig time kan justeres manuelt pga. aktuelle informasjon fra det aktuelle feltet for eksempel 
 sortsresistens, sjukdomspress i åkeren, forgrøde.
 "
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.date2ndUpperLeafEmerging.title,Date of 2nd upper leaf emerging (GS33) (YYYY-MM-DD),Dato for BBCH 32: Andre leddknute synlig
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.date3rdUpperLeafEmerging.title,Date of 3rd upper leaf emerging (GS32) (YYYY-MM-DD),Dato for BBCH 33: Tredje leddknute synlig
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateGs31.title,Date of growth stage 31 (YYYY-MM-DD),Dato for BBCH 31: Begynnende strekning
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateGs75.title,Date of all kernels fully developed (GS75) (YYYY-MM-DD),Dato for BBCH 75: Melkemodning
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateSpraying1.title,Date of first spraying,Sprøytedato 1
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateSpraying2.title,Date of second spraying,Sprøytedato 2
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateUpperLeafEmerging.title,Date of upper leaf emerging (GS37-39) (YYYY-MM-DD),Dato for BBCH 37-39: Flaggblad under utvikling
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.leafLifeTime.title,Expected life time of a leaf (in days),Levetid for blad (dager)
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.slidingHoursAhead.title,Number of hours to consider after current hour,"Prognoseperiode, fremover (timer)"
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.slidingHoursPast.title,Number of hours to consider before current hour,"Referanseperiode, bakover (timer)"
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.sprayingProtectionDays.title,Number of days the crop is protected,Forventet antall dager beskyttelse etter sprøyting
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdHumidPeriodHours.title,Threshold number of hours for a 'wet period',Terskelverdi antall sammenhengende ’fuktige timer’
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdLeafWetness.title,Threshold Leaf wetness for wet hour,Terskelverdi bladfuktverdi (min/time)
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdPrecipitation.title,Threshold precipitation for wet hour,Terskeverdi nedbør (mm)
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdRelativeHumidity.title,Threshold RH for wet hour,Terskelverdi RH
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.timeZone.title,Time zone (e.g. Europe/Oslo),Tidssone (f.eks. Europe/Oslo)
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.title,Configuration parameters,Konfigurasjonsparametre
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.modelId.description,Must be SEPTORIAHU,Må være SEPTORIAHU
-dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.modelId.title,Model Id,Modell-id
-dk.seges.1_1.models.SEPTORIAHU.name,Septoria Humidity Model,Septoria fuktmodell i hvete
-dk.seges.1_1.models.SEPTORIAHU.output.chart_groups.G1.title,Disease development,Sykdomsutvikling
-dk.seges.1_1.models.SEPTORIAHU.output.chart_heading,Septoria humidity model in wheat,Septoria fuktmodell i hvete
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HH.description,"Current hour is humid hour? 1 = true, 0 = false","Fuktig time? 1=ja,0= nei"
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HH.title,"Current hour is humid hour? 1 = true, 0 = false","Fuktig time? 1=ja,0= nei"
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HHS.description,Humid hour sum for sliding middle,"Sum fuktige timer, glidende middelverdi"
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HHS.title,Humid hour sum for sliding middle,"Sum fuktige timer, glidende middelverdi"
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPH.description,Humid period hour (consecutive humid hours),Antall sammenhengende fuktige timer
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPH.title,Humid period hour (consecutive humid hours),Antall sammenhengende fuktige timer
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPHPP.description,Humid period hour (consecutive humid hours) corrected for protection period,"Antall sammenhengende fuktige timer, korrigert for sprøytebeskyttelsesperiode"
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPHPP.title,Humid period hour (consecutive humid hours) corrected for protection period,"Antall sammenhengende fuktige timer, korrigert for sprøytebeskyttelsesperiode"
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.SPP.description,Indicates the protection period after spraying,Indikerer periode for beskyttelse etter sprøyting
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.SPP.title,Crop is protected after spraying,Avlingen er beskyttet etter sprøyting
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.THPHPP.description,Threshold for consecutive humid hours,Terskel for sammenhengende fuktige timer
-dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.THPHPP.title,Threshold for consecutive humid hours,Terskel for sammenhengende fuktige timer
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.0.explanation,"When the number of wet hours approaches 20, and the crop is considered susceptible, the infection risk will be high","Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område."
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.0.recommended_action,Consult your advisory service,Søk råd hos landbruksrådgivning
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.1.explanation,"When the number of wet hours approaches 20, and the crop is considered susceptible, the infection risk will be high","Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område."
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.1.recommended_action,Consult your advisory service,Søk råd hos landbruksrådgivning
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.2.explanation,"When the number of wet hours approaches 20, and the crop is considered susceptible, the infection risk will be high","Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område."
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.2.recommended_action,Consult your advisory service,Søk råd hos landbruksrådgivning
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.3.explanation,"When the number of wet hours approaches 20, and the crop is considered susceptible, the infection risk will be high","Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område."
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.3.recommended_action,Consult your advisory service,Søk råd hos landbruksrådgivning
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.4.explanation,"When the number of wet hours approaches 20, and the crop is considered susceptible, the infection risk will be high","Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område."
-dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.4.recommended_action,Consult your advisory service,Søk råd hos landbruksrådgivning
-dk.seges.1_1.name,SEGES DSS models,Varslingsmodeller fra SEGES
+dk.seges.1_0.models.SEPTORIAHU.name,Septoria Humidity Model
+dk.seges.1_0.models.SEPTORIAHU.output.chart_groups.G1.title,Disease development
+dk.seges.1_0.models.SEPTORIAHU.output.chart_heading,Septoria humidity model in wheat
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HH.description,"Current hour is humid hour? 1 = true, 0 = false"
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HH.title,"Current hour is humid hour? 1 = true, 0 = false"
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HHS.description,Humid hour sum for sliding middle
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HHS.title,Humid hour sum for sliding middle
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPH.description,Humid period hour (consecutive humid hours)
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPH.title,Humid period hour (consecutive humid hours)
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPHPP.description,Humid period hour (consecutive humid hours) corrected for protection period
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.HPHPP.title,Humid period hour (consecutive humid hours) corrected for protection period
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.SPP.description,Indicates the protection period after spraying
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.SPP.title,Crop is protected after spraying
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.THPHPP.description,Threshold for consecutive humid hours
+dk.seges.1_0.models.SEPTORIAHU.output.result_parameters.THPHPP.title,Threshold for consecutive humid hours
+dk.seges.1_0.models.SEPTORIAHU.output.warning_status_interpretation,"Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område og direkte 
+bekjempingstiltak skal vurderes pga. økt infeksjonsrisiko. "
+dk.seges.1_0.name,SEGES DSS models

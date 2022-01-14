@@ -40,10 +40,12 @@ for file_name in files:
 if not files_ok:
     exit(1)
 
+separator = ";"
+
 # Let's do this!
 for file_name in files:
     with open(file_name) as csvfile:
-        rowreader = csv.DictReader(csvfile, delimiter=",", quotechar="\"")
+        rowreader = csv.DictReader(csvfile, delimiter=separator, quotechar="\"")
         ## Checking field names
         if rowreader.fieldnames == None or not rowreader.fieldnames[0] == "KEY" or not rowreader.fieldnames[1] == "default":
             print("WARNING: Illegal or missing field headers in %s. Ignoring it." % file_name)

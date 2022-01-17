@@ -1,6 +1,6 @@
 # General info about the DSS
 id: no.nibio.vips
-version: '2.0'
+version: '2.0.1'
 name: VIPS
 url: https://www.vips-landbruk.no/
 organization:
@@ -871,7 +871,7 @@ models:
   - name: Ragnhild Nærstad
     email: ragnhild.naerstad@syngenta.com
     organization: Syngenta
-  platform_validated: true
+  platform_validated: false
   pests:
   - PHYTIN # EPPO code for Potato late blight (Phytophthora infestans)
   crops:

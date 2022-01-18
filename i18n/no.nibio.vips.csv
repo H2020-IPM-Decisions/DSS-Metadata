@@ -1,8 +1,8 @@
-"KEY";"default";"nb"
-"no.nibio.vips.2_0.models.DELIARADIC.description.age";;
-"no.nibio.vips.2_0.models.DELIARADIC.description.assumptions";;
-"no.nibio.vips.2_0.models.DELIARADIC.description.created_by";"Dr. Tor J. Johansen, NIBIO";"Dr. Tor J. Johansen, NIBIO"
-"no.nibio.vips.2_0.models.DELIARADIC.description.other";"The model determines the flight period. It gives information about the expected time of the first 
+KEY;default;no
+no.nibio.vips.2_0.models.DELIARADIC.description.age;;
+no.nibio.vips.2_0.models.DELIARADIC.description.assumptions;;
+no.nibio.vips.2_0.models.DELIARADIC.description.created_by;Dr. Tor J. Johansen, NIBIO;Dr. Tor J. Johansen, NIBIO
+no.nibio.vips.2_0.models.DELIARADIC.description.other;"The model determines the flight period. It gives information about the expected time of the first 
 oviposition and continued oviposition of the cabbage maggot in cruciferous crops. The model only 
 applies for cabbage maggot, not turnip fly.
 
@@ -17,41 +17,41 @@ due to large variability and to get an idea of the severity of attack.
 Det benyttes historiske værdata og værprognoser (2 dagers) i modellen. Målte parametere som inngår i modellen er standard lufttemperatur (TM) eller jordtemperatur i 10 cm (TMJ 10), timesverdier. Jordtemperatur benyttes dersom denne er tilgjengelig. Beregnede parametere: Døgnmiddelverdier med 4 °C basistemperatur (dvs. døgnmiddel minus 4 °C). 4 °C er en teoretisk beregnet nedre temperatursum for post-diapauseutvikling.
 
 Grunnlaget for varslingen er data fra studier av klekke og eggleggingstid hos kålfluene i Norgesprosjektet (LR, 1999-2001), Nye metoder for bekjempelse av kålfluer (forskerprosjekt, NFR, 2004-2007) samt et brukerstyrt prosjekt i regi av Norges Gartnerforbund (2005-2007). Dette er publisert i Johansen og Meadow (2002, 2005, 2006), Johansen (2007) og Meadow m. flere (2008). Kålfluene begynner å legge egg 5-7 dager etter klekking. Våre data tilsier at begynnende egglegging i gjennomsnitt krever en temperatursum på rundt 160 graddager (døgngrader) basert på jordtemperaturer (10 cm) (døgngrader > 4 °C). Basert på standard lufttemperaturer (2 m over bakken) de samme stedene, ble begynnende egglegging registrert når gjennomsnittlig temperatursum passerte ca 210 graddager. Resultatene understøttes av britiske observasjoner (Collier og Finch, 1985, 179 og 230 graddager til 50 % klekking, for jord og lufttemperaturer). Våre beregninger viste til dels stor variasjon og varslingen vil dermed bare være rådgivende. Bruk av denne varslingsmodellen bør kombineres med direkte eggobservasjoner i åkeren for å få begrep om angrepsgraden også"
-"no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeEnd.title";"End date of calculation (YYYY-MM-DD)";"Siste beregningsdato"
-"no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeStart.title";"Start date of calculation (YYYY-MM-DD)";"Første beregningsdato"
-"no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeZone.title";"Time zone (e.g. Europe/Oslo)";"Tidssone"
-"no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.title";"Configuration parameters";"Konfigurasjonsparametre"
-"no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.description";"Must be DELIARADIC";"Må være DELIARADIC"
-"no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.title";"Model Id";"Modell-id"
-"no.nibio.vips.2_0.models.DELIARADIC.name";"Cabbage fly flight period temperature model";"Liten kålflue-modell"
-"no.nibio.vips.2_0.models.DELIARADIC.output.chart_groups.G1.title";"Day degrees";"Døgngrader"
-"no.nibio.vips.2_0.models.DELIARADIC.output.chart_heading";"Day degrees";"Døgngrader"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.description";"The accumulated soil temperature day degrees with a base temperature of 4 degrees celcius";"Akkumulerte døgngrader for jordtemperatur med basetemp=4 grader C"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.title";"Accumulated soil temperature day degrees";"Akkumulerte døgngrader for jordtemperatur"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.description";"When this threshold is reached, the flight period is beginning and the first oviposition is close";"Terskel for begynnende sverming, første egglegging nærmer seg."
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.title";"Lower threshold value for TJM10DD4C";"Terskel for begynnende sverming, første egglegging nærmer seg."
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.description";"When this threshold is reached, it is likely that oviposition has begun.";"Terskel for begynnende egglegging"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.title";"Upper threshold value for TJM10DD4C";"Terskel for begynnende egglegging"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.description";"The accumulated air temperature day degrees with a base temperature of 4 degrees celcius";"Akkumulerte døgngrader for lufttemperatur med basetemp=4 grader C"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.title";"Accumulated air temperature day degrees";"Akkumulerte døgngrader for lufttemperatur"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.description";"When this threshold is reached, the flight period is beginning and the first oviposition is close";"Terskel for begynnende sverming, første egglegging nærmer seg."
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.title";"Lower threshold value for TMDD4C";"Terskel for begynnende sverming, første egglegging nærmer seg."
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.description";"When this threshold is reached, it is likely that oviposition has begun.";"Terskel for begynnende egglegging"
-"no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.title";"Upper threshold value for TMDD4C";"Terskel for begynnende egglegging"
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.explanation";"The flight period is over.";"Svermingen er over og varslingen er avsluttet"
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.recommended_action";"No action needed.";"Ingen tiltak er nødvendige"
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.explanation";"Data is missing, warnings can not be produced.";"Data mangler."
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.recommended_action";"Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 140 degree-days (10 cm soil temperature) or 185 degree-dys (air temperature).";"Konsulter din rådgiver dersom forrige varsel var gult/rødt eller om akkumulerte døgngrader nærmet seg 140 døgngrader (10 cm jordtemperatur) eller 185 døgngrader (lufttempertur). "
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.2.explanation";"The flight period has not yet begun and oviposition is not expected.";"Svermingen har ikke begynt enda."
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.2.recommended_action";"No action needed. Be aware that in areas with field covers (plastic, single or double non-woven covers, etc.) with early crops the preceding season (either on the current field or neighboring fields), the flight period can start earlier due to higher soil temperature under the covers.";"Ingen tiltak er nødvendige. Vær klar over at i områder med dekke (plast, enkel og dobbel fiberduk e.l.) (enten på samme jorde eller nabojorder) året før, kan svermingen starte tidligere på grunn av høyere jordtemperatur under dekket. Vurder utplassering av sandfeller for eggregistrering. "
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.3.explanation";"The flight period is beginning and that the first oviposition is close. ";"Begynnende sverming. Første egglegging nærmer seg."
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.3.recommended_action";"Check for eggs in the field. Consult your advisory service.";"Vær observant og sjekk egen åker. Det anbefales sandfeller for eggregistrering. Konsulter evt din rådgiver."
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.4.explanation";"The requirement for the flight period has been reached. It is likely that oviposition has begun.";"Svermings-topp. Forventet påbegynt egglegging."
-"no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.4.recommended_action";"Consult your advisory service. Consider action to protect your crop based on observations in your own field.";"Sjekk egglegging i egen åker, vurder tiltak. Konsulter evt din rådgiver."
-"no.nibio.vips.2_0.models.NAERSTADMO.description.age";;
-"no.nibio.vips.2_0.models.NAERSTADMO.description.assumptions";;
-"no.nibio.vips.2_0.models.NAERSTADMO.description.created_by";"Ragnhild Nærstad, Syngenta (formerly NIBIO)";"Ragnhild Nærstad, Syngenta (tidl. NIBIO)"
-"no.nibio.vips.2_0.models.NAERSTADMO.description.other";"The model is based on several years of experiments where trap plants have been placed next to a potato field infected with late blight. Infections on these plants have been correlated with weather conditions the day of exposure, and this is the data the model is based on. The model predicts if there are favourable conditions for spore production and the following spread, survival and infection of these spores. The model produces an infection risk, and a value of 2.5 corresponds to one spot of late blight on each trap plant exposed. This value of 2.5 is the threshold where the model issues a warning.
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeEnd.title;End date of calculation (YYYY-MM-DD);Siste beregningsdato
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeStart.title;Start date of calculation (YYYY-MM-DD);Første beregningsdato
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Tidssone
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurasjonsparametre
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.description;Must be DELIARADIC;Må være DELIARADIC
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.title;Model Id;Modell-id
+no.nibio.vips.2_0.models.DELIARADIC.name;Cabbage fly flight period temperature model;Liten kålflue-modell
+no.nibio.vips.2_0.models.DELIARADIC.output.chart_groups.G1.title;Day degrees;Døgngrader
+no.nibio.vips.2_0.models.DELIARADIC.output.chart_heading;Day degrees;Døgngrader
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.description;The accumulated soil temperature day degrees with a base temperature of 4 degrees celcius;Akkumulerte døgngrader for jordtemperatur med basetemp=4 grader C
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.title;Accumulated soil temperature day degrees;Akkumulerte døgngrader for jordtemperatur
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.description;When this threshold is reached, the flight period is beginning and the first oviposition is close;Terskel for begynnende sverming, første egglegging nærmer seg.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.title;Lower threshold value for TJM10DD4C;Terskel for begynnende sverming, første egglegging nærmer seg.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.description;When this threshold is reached, it is likely that oviposition has begun.;Terskel for begynnende egglegging
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.title;Upper threshold value for TJM10DD4C;Terskel for begynnende egglegging
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.description;The accumulated air temperature day degrees with a base temperature of 4 degrees celcius;Akkumulerte døgngrader for lufttemperatur med basetemp=4 grader C
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.title;Accumulated air temperature day degrees;Akkumulerte døgngrader for lufttemperatur
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.description;When this threshold is reached, the flight period is beginning and the first oviposition is close;Terskel for begynnende sverming, første egglegging nærmer seg.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.title;Lower threshold value for TMDD4C;Terskel for begynnende sverming, første egglegging nærmer seg.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.description;When this threshold is reached, it is likely that oviposition has begun.;Terskel for begynnende egglegging
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.title;Upper threshold value for TMDD4C;Terskel for begynnende egglegging
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.explanation;The flight period is over.;Svermingen er over og varslingen er avsluttet
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.recommended_action;No action needed.;Ingen tiltak er nødvendige
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.explanation;Data is missing, warnings can not be produced.;Data mangler.
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.recommended_action;Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 140 degree-days (10 cm soil temperature) or 185 degree-dys (air temperature).;Konsulter din rådgiver dersom forrige varsel var gult/rødt eller om akkumulerte døgngrader nærmet seg 140 døgngrader (10 cm jordtemperatur) eller 185 døgngrader (lufttempertur). 
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.2.explanation;The flight period has not yet begun and oviposition is not expected.;Svermingen har ikke begynt enda.
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.2.recommended_action;No action needed. Be aware that in areas with field covers (plastic, single or double non-woven covers, etc.) with early crops the preceding season (either on the current field or neighboring fields), the flight period can start earlier due to higher soil temperature under the covers.;Ingen tiltak er nødvendige. Vær klar over at i områder med dekke (plast, enkel og dobbel fiberduk e.l.) (enten på samme jorde eller nabojorder) året før, kan svermingen starte tidligere på grunn av høyere jordtemperatur under dekket. Vurder utplassering av sandfeller for eggregistrering. 
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.3.explanation;The flight period is beginning and that the first oviposition is close. ;Begynnende sverming. Første egglegging nærmer seg.
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.3.recommended_action;Check for eggs in the field. Consult your advisory service.;Vær observant og sjekk egen åker. Det anbefales sandfeller for eggregistrering. Konsulter evt din rådgiver.
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.4.explanation;The requirement for the flight period has been reached. It is likely that oviposition has begun.;Svermings-topp. Forventet påbegynt egglegging.
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.4.recommended_action;Consult your advisory service. Consider action to protect your crop based on observations in your own field.;Sjekk egglegging i egen åker, vurder tiltak. Konsulter evt din rådgiver.
+no.nibio.vips.2_0.models.NAERSTADMO.description.age;;
+no.nibio.vips.2_0.models.NAERSTADMO.description.assumptions;;
+no.nibio.vips.2_0.models.NAERSTADMO.description.created_by;Ragnhild Nærstad, Syngenta (formerly NIBIO);Ragnhild Nærstad, Syngenta (tidl. NIBIO)
+no.nibio.vips.2_0.models.NAERSTADMO.description.other;"The model is based on several years of experiments where trap plants have been placed next to a potato field infected with late blight. Infections on these plants have been correlated with weather conditions the day of exposure, and this is the data the model is based on. The model predicts if there are favourable conditions for spore production and the following spread, survival and infection of these spores. The model produces an infection risk, and a value of 2.5 corresponds to one spot of late blight on each trap plant exposed. This value of 2.5 is the threshold where the model issues a warning.
 ";"Modellen er laget av forsker Ragnhild Nærstad, på grunnlag av resultater fra forskingsprosjektet NORPHYT. Modellen beregner risiko for sporeproduksjon med påfølgende spredning, overlevelse og infeksjon på grunnlag av værdata. For at infeksjonen virkelig skal skje må det være smitte til stede.
 
 Modellen er basert på forsøk over flere år hvor testplanter av potet, dyrket i veksthus, har blitt eksponert et døgn for smitte fra et potetfelt med tørråte på friland. Tørråteangrepet på disse testplantene har blitt sammenholdt med værforholdene dagen de ble eksponert, og basert på dette er det laget en modell. Modellen beregner hvor gunstig været er for sporeproduksjon med påfølgende sporespredning, overlevelse og infeksjon av sporene. Modellen er laget slik at risikotallene øker med angrepet i testplantene. Terskelverdien på 2,5 som gjør at varslet blir rødt, tilsvarer at det i gjennomsnitt ble funnet en tørråteflekk per testplante. Høye verdier betyr at værforholdene gir stor risiko for infeksjon hvis det er smitte til stede.
@@ -83,64 +83,64 @@ Risiko= (TSWH(t) /40)*VRS(t) *IR(t)
 TSWH(t) =temperatursum for timer med bladfukt
 VRS(t) =tilgjengelige sporer som er spredt
 IR(t) = Infeksjonsrisiko"
-"no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.properties.timeEnd.title";"End date of calculation (YYYY-MM-DD)";"Siste beregningsdato"
-"no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.properties.timeStart.title";"Start date of calculation (YYYY-MM-DD)";"Første beregningsdato"
-"no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.properties.timeZone.title";"Time zone (e.g. Europe/Oslo)";"Tidssone (f.eks. Europe/Oslo)"
-"no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.title";"Configuration parameters";"Konfigurasjonsparametre"
-"no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.modelId.title";"Model Id (Must be NAERSTADMO)";"Modell-id (må være NAERSTADMO)"
-"no.nibio.vips.2_0.models.NAERSTADMO.name";"Nærstad model";"Nærstads modell"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.chart_groups.G1.title";"Risk";"Risiko"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.chart_heading";"Infection risk";"Infeksjonsrisiko"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.RISK.description";"Calculated risk value";"Beregnet risikoverdi"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.RISK.title";"Calculated risk value";"Beregnet risikoverdi"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_HIGH.description";"When the calculated risk exceeds this threshold, the infection risk changes from some risk to high risk";"Øvre terskel for risikoverdi"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_HIGH.title";"Threshold high infection risk";"Øvre terskel for risikoverdi"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_LOW.description";"When the calculated risk exceeds this threshold, the infection risk changes from low risk to some risk";"Nedre terskel for risikoverdi"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_LOW.title";"Threshold low infection risk";"Nedre terskel for risikoverdi"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.0.explanation";"Model not running. Out of season?";"Modellen kjører ikke, muligens utenfor vekstesong"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.0.recommended_action";"No action needed.";"Ingen tiltak er nødvendige"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.1.explanation";"Missing data";"Manglende data"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.1.recommended_action";"Check your weather data source";"Sjekk værdatakilden din"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.2.explanation";"No warning";"Lav risiko"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.2.recommended_action";"No action needed.";"Ingen tiltak er nødvendige"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.3.explanation";"Warning coming up if conditions persists";"Hvis forholdene vedvarer, er høy risiko nært forestående"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.3.recommended_action";"Be alert. Possible warning coming up";"Vær på vakt. Mulig varsel på vei"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.4.explanation";"Infection warning";"Infeksjonsvarsel"
-"no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.4.recommended_action";"Action needed if late blight is present in your area. Consider applying a protectant if your crop is not covered by previous sprays";"Tiltak nødvendig hvis tørråte er tilstede i ditt nærområde. Vurder sprøyting hvis din avling ikke er beskyttet av tidligere sprøytinger"
-"no.nibio.vips.2_0.models.PSILARTEMP.description.age";;
-"no.nibio.vips.2_0.models.PSILARTEMP.description.assumptions";;
-"no.nibio.vips.2_0.models.PSILARTEMP.description.created_by";;
-"no.nibio.vips.2_0.models.PSILARTEMP.description.other";"The warning system model «Carrot rust fly temperature» is based on a Finnish temperature-based model (Markkula et al, 1998; Tiilikkala & Ojanen, 1999; Markkula et al, 2000). The model determines the start of the flight period for the 1st and 2nd generation of carrot rust fly based on accumuleted degree-days (day-degrees) over a base temperature of 5,0 °C. VIPS uses the model for the 1st generation only. 
+no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.properties.timeEnd.title;End date of calculation (YYYY-MM-DD);Siste beregningsdato
+no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.properties.timeStart.title;Start date of calculation (YYYY-MM-DD);Første beregningsdato
+no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Tidssone (f.eks. Europe/Oslo)
+no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurasjonsparametre
+no.nibio.vips.2_0.models.NAERSTADMO.execution.input_schema.properties.modelId.title;Model Id (Must be NAERSTADMO);Modell-id (må være NAERSTADMO)
+no.nibio.vips.2_0.models.NAERSTADMO.name;Nærstad model;Nærstads modell
+no.nibio.vips.2_0.models.NAERSTADMO.output.chart_groups.G1.title;Risk;Risiko
+no.nibio.vips.2_0.models.NAERSTADMO.output.chart_heading;Infection risk;Infeksjonsrisiko
+no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.RISK.description;Calculated risk value;Beregnet risikoverdi
+no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.RISK.title;Calculated risk value;Beregnet risikoverdi
+no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_HIGH.description;When the calculated risk exceeds this threshold, the infection risk changes from some risk to high risk;Øvre terskel for risikoverdi
+no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_HIGH.title;Threshold high infection risk;Øvre terskel for risikoverdi
+no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_LOW.description;When the calculated risk exceeds this threshold, the infection risk changes from low risk to some risk;Nedre terskel for risikoverdi
+no.nibio.vips.2_0.models.NAERSTADMO.output.result_parameters.THRESHOLD_LOW.title;Threshold low infection risk;Nedre terskel for risikoverdi
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.0.explanation;Model not running. Out of season?;Modellen kjører ikke, muligens utenfor vekstesong
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.0.recommended_action;No action needed.;Ingen tiltak er nødvendige
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.1.explanation;Missing data;Manglende data
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.1.recommended_action;Check your weather data source;Sjekk værdatakilden din
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.2.explanation;No warning;Lav risiko
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.2.recommended_action;No action needed.;Ingen tiltak er nødvendige
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.3.explanation;Warning coming up if conditions persists;Hvis forholdene vedvarer, er høy risiko nært forestående
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.3.recommended_action;Be alert. Possible warning coming up;Vær på vakt. Mulig varsel på vei
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.4.explanation;Infection warning;Infeksjonsvarsel
+no.nibio.vips.2_0.models.NAERSTADMO.output.warning_status_interpretation.4.recommended_action;Action needed if late blight is present in your area. Consider applying a protectant if your crop is not covered by previous sprays;Tiltak nødvendig hvis tørråte er tilstede i ditt nærområde. Vurder sprøyting hvis din avling ikke er beskyttet av tidligere sprøytinger
+no.nibio.vips.2_0.models.PSILARTEMP.description.age;;
+no.nibio.vips.2_0.models.PSILARTEMP.description.assumptions;;
+no.nibio.vips.2_0.models.PSILARTEMP.description.created_by;;
+no.nibio.vips.2_0.models.PSILARTEMP.description.other;"The warning system model «Carrot rust fly temperature» is based on a Finnish temperature-based model (Markkula et al, 1998; Tiilikkala & Ojanen, 1999; Markkula et al, 2000). The model determines the start of the flight period for the 1st and 2nd generation of carrot rust fly based on accumuleted degree-days (day-degrees) over a base temperature of 5,0 °C. VIPS uses the model for the 1st generation only. 
 Standard air temperature (temperature measured 2 m above ground) is used in the model. Degree-days are defined for this model as the sum of the difference between a base temperature of 5,0 °C and the mean temperature for all days with a temperature >5,0 °C, in other words (daily mean temperature – 5,0 °C) from 1 March (beginning when the ground has thawed).
 ";"Varslingsmodellen «Gulrotflue svermetidspunkt» er basert på en finsk, temperaturbasert modell (Markkula et al, 1998; Tiilikkala & Ojanen, 1999; Markkula et al, 2000). Modellen beregner tidspunkt for sverming av 1. generasjon og 2. generasjon av gulrotflue basert på akkumulering av graddager (døgngrader) over en basistemperatur på 5 °C. I VIPS benyttes modellen kun for 1. generasjon.
 
 Det er standard lufttemperatur (temperatur målt 2 m over bakken) som benyttes i modellen. Graddager er her definert som summen av differansen mellom en basistemperatur på 5 °C og døgnmiddeltemperatur for alle døgn med temperatur >5 °C dvs. summen av (døgnmiddeltemperatur - 5 °C) fra 1. mars (fra det er telefritt i jorda)."
-"no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeEnd.title";"End date of calculation (YYYY-MM-DD)";"Siste beregningsdato"
-"no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeStart.title";"Start date of calculation (YYYY-MM-DD)";"Første beregningsdato"
-"no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.options.infoText";"The time zone information is used when hourly temperature values need to be converted to daily.";"Tidssone brukes hvis timeverdier av værdata skal aggregeres til døgnverdier"
-"no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.title";"Time zone (e.g. Europe/Oslo)";"Tidssone (f.eks. Europe/Oslo)"
-"no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.title";"Configuration parameters";"Konfigurasjonsparametre"
-"no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.description";"Must be PSILARTEMP";"Må være PSILARTEMP"
-"no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.title";"Model Id";"Modell-id"
-"no.nibio.vips.2_0.models.PSILARTEMP.name";"Carrot rust fly temperature model";"Gulrotflue svermetidspunktmodell"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.chart_groups.G1.title";"Day degrees";"Døgngrader"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.chart_heading";"Accumulated day degrees";"Akkumulerte døgngrader"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.description";"When the accumulated day degrees exceed this threshold, the flight period is starting up";"Terskel for begynnende sverming"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.title";"Threshold for start of flight period";"Terskel for begynnende sverming"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.description";"When the accumulated day degrees exceed this threshold, you enter the peak flight period";"Terskel for svermings-topp"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.title";"Threshold for peak flight period";"Terskel for svermings-topp"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.description";"When the accumulated day degrees exceed this threshold, the 1st generation flight period is over";"Terskel for slutten på svermingen"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.title";"Threshold for end of 1st generation flight period";"Terskel for slutten på svermingen"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.description";"The accumulated day degrees with a base temperature of 5 degrees celcius";"Akkumulerte døgngrader med basetemp på 5 grader C"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.title";"Accumulated day degrees";"Akkumulerte døgngrader med basetemp på 5 grader C"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.explanation";"The flight period of the 1st generation is over.";"Svermingen av 1. generasjon er over og varslingen er avsluttet."
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.recommended_action";"Consult your advisory service for action conserning the 2nd generation.";"Konsulter evt din rådgiver for håndtering av 2. generasjon gulrotflue"
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.explanation";"Data is missing, warnings can not be produced.";"Data mangler."
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.recommended_action";"Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 260 degree-days";"Konsulter din rådgiver dersom forrige varsel var gult/rødt eller om akkumulerte døgngrader nærmet seg 260 døgngrader. "
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.2.explanation";"The flight period has not yet begun.";"Svermingen har ikke begynt enda."
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.2.recommended_action";"No action needed. Consider deploying yellow sticky traps in your fields when 260 degree-days is approching.";"Ingen tiltak er nødvendige. Vurder utplassering av gule limfeller for overvåking når akkumulering av døgngrader nærmer seg 260 døgngrader. "
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.3.explanation";"The flight period is beginning and flies can be coming into the field.";"Begynnende svermingen. Gulrotfluer kan bli observert i åkeren."
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.3.recommended_action";"Deploy yellow sticky traps in your fields if not already done. Consult your advisory service.";"Vær observant og sjekk egen åker. Det anbefales gule limfeller for overvåking i egen åker. Konsulter evt din rådgiver."
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.4.explanation";"Peak flight period for 1st generation.";"Svermingstopp for 1. generasjon."
-"no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.4.recommended_action";"Consult your advisory service. Consider action to protect your crop based on observations in your own field.";"Sjekk fellefangst i egen åker, vurder tiltak. Konsulter evt din rådgiver."
-"no.nibio.vips.2_0.name";"VIPS";
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeEnd.title;End date of calculation (YYYY-MM-DD);Siste beregningsdato
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeStart.title;Start date of calculation (YYYY-MM-DD);Første beregningsdato
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.options.infoText;The time zone information is used when hourly temperature values need to be converted to daily.;Tidssone brukes hvis timeverdier av værdata skal aggregeres til døgnverdier
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Tidssone (f.eks. Europe/Oslo)
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurasjonsparametre
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.description;Must be PSILARTEMP;Må være PSILARTEMP
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.title;Model Id;Modell-id
+no.nibio.vips.2_0.models.PSILARTEMP.name;Carrot rust fly temperature model;Gulrotflue svermetidspunktmodell
+no.nibio.vips.2_0.models.PSILARTEMP.output.chart_groups.G1.title;Day degrees;Døgngrader
+no.nibio.vips.2_0.models.PSILARTEMP.output.chart_heading;Accumulated day degrees;Akkumulerte døgngrader
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.description;When the accumulated day degrees exceed this threshold, the flight period is starting up;Terskel for begynnende sverming
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.title;Threshold for start of flight period;Terskel for begynnende sverming
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.description;When the accumulated day degrees exceed this threshold, you enter the peak flight period;Terskel for svermings-topp
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.title;Threshold for peak flight period;Terskel for svermings-topp
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.description;When the accumulated day degrees exceed this threshold, the 1st generation flight period is over;Terskel for slutten på svermingen
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.title;Threshold for end of 1st generation flight period;Terskel for slutten på svermingen
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.description;The accumulated day degrees with a base temperature of 5 degrees celcius;Akkumulerte døgngrader med basetemp på 5 grader C
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.title;Accumulated day degrees;Akkumulerte døgngrader med basetemp på 5 grader C
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.explanation;The flight period of the 1st generation is over.;Svermingen av 1. generasjon er over og varslingen er avsluttet.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.recommended_action;Consult your advisory service for action conserning the 2nd generation.;Konsulter evt din rådgiver for håndtering av 2. generasjon gulrotflue
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.explanation;Data is missing, warnings can not be produced.;Data mangler.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.recommended_action;Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 260 degree-days;Konsulter din rådgiver dersom forrige varsel var gult/rødt eller om akkumulerte døgngrader nærmet seg 260 døgngrader. 
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.2.explanation;The flight period has not yet begun.;Svermingen har ikke begynt enda.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.2.recommended_action;No action needed. Consider deploying yellow sticky traps in your fields when 260 degree-days is approching.;Ingen tiltak er nødvendige. Vurder utplassering av gule limfeller for overvåking når akkumulering av døgngrader nærmer seg 260 døgngrader. 
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.3.explanation;The flight period is beginning and flies can be coming into the field.;Begynnende svermingen. Gulrotfluer kan bli observert i åkeren.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.3.recommended_action;Deploy yellow sticky traps in your fields if not already done. Consult your advisory service.;Vær observant og sjekk egen åker. Det anbefales gule limfeller for overvåking i egen åker. Konsulter evt din rådgiver.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.4.explanation;Peak flight period for 1st generation.;Svermingstopp for 1. generasjon.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.4.recommended_action;Consult your advisory service. Consider action to protect your crop based on observations in your own field.;Sjekk fellefangst i egen åker, vurder tiltak. Konsulter evt din rådgiver.
+no.nibio.vips.2_0.name;VIPS;

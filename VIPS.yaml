@@ -61,11 +61,11 @@ models:
     - parameter_code: 1002 # = Mean air temp at 2m
       interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/PSILARTEMP/run/ipmd
@@ -230,11 +230,11 @@ models:
     - parameter_code: 1112 # Mean soil temp at 10cm depth
       interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/DELIARADIC/run/ipmd
@@ -412,11 +412,11 @@ models:
     - parameter_code: 1112 # Mean soil temp at 10cm depth
       interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/MAMESTRABR/run/ipmd
@@ -910,11 +910,11 @@ models:
     - parameter_code: 3101 # Leaf wetness duration. Measured in minutes with wetness per period 
       interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/NAERSTADMO/run/ipmd
@@ -1045,11 +1045,11 @@ models:
     - parameter_code: 3101 # Leaf wetness duration. Measured in minutes with wetness per period 
       interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/ALTERNARIA/run/ipmd
@@ -1170,11 +1170,11 @@ models:
     - parameter_code: 3002 # Mean relative humidity (%)
       interval: 3600
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeStart ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.timeEnd ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/NEGPROGMOD/run/ipmd
@@ -1318,11 +1318,11 @@ models:
     - parameter_code: 3002 # Mean relative humidity (%)
       interval: 3600
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.startDateGrowth ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.startDateGrowth ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.endDateCalculation ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: configParameters.endDateCalculation ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
     field_observation:
       species:
       - SEPTAP # EPPO Code for the disease
@@ -1472,11 +1472,11 @@ models:
     - parameter_code: 3002 # Mean RH at 2m
       interval: 3600
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: '{CURRENT_YEAR}-04-01' ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: '{CURRENT_YEAR}-04-01' ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: '{CURRENT_YEAR}-09-01' ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+        value: '{CURRENT_YEAR}-09-01' ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/run/ipmd

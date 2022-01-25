@@ -632,7 +632,11 @@ models:
     - parameter_code: 1001
       interval: 3600
     weather_data_period_start:
-      determined_by: FIXED_DATE
+    - determined_by: INPUT_SCHEMA_PROPERTY
+      value: properties.optionalData.sprayDate
+    - determined_by: INPUT_SCHEMA_PROPERTY
+      value: properties.optionalData.emergenceDate
+    - determined_by: FIXED_DATE
       value: '{PREVIOUS_YEAR}-09-01'
     weather_data_period_end:
       determined_by: FIXED_DATE

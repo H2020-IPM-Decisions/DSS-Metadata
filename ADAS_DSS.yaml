@@ -67,10 +67,10 @@ models:
     - parameter_code: 2001
       interval: 86400
     weather_data_period_start:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-06-01'
     weather_data_period_end:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-10-31'
   execution:
     type: ONTHEFLY
@@ -177,10 +177,10 @@ models:
     - parameter_code: 2001
       interval: 86400
     weather_data_period_start:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-01-01'
     weather_data_period_end:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-06-30'
   execution:
     type: ONTHEFLY
@@ -280,10 +280,10 @@ models:
     - parameter_code: 1004
       interval: 86400
     weather_data_period_start:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-03-01'
     weather_data_period_end:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-05-31'
   execution:
     type: ONTHEFLY
@@ -385,10 +385,10 @@ models:
     - parameter_code: 2001
       interval: 3600
     weather_data_period_start:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-03-01'
     weather_data_period_end:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-07-31'
   execution:
     type: ONTHEFLY
@@ -488,10 +488,10 @@ models:
     - parameter_code: 1004 # = Max air temp at 2m
       interval: 86400
     weather_data_period_start:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-01-01'
     weather_data_period_end:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-09-30'
   execution:
     type: ONTHEFLY
@@ -632,10 +632,14 @@ models:
     - parameter_code: 1001
       interval: 3600
     weather_data_period_start:
-      determined_by: FIXED_DATE
-      value: '{PREVIOUS_YEAR}-09-01'
+    - determined_by: INPUT_SCHEMA_PROPERTY
+      value: properties.optionalData.sprayDate
+    - determined_by: INPUT_SCHEMA_PROPERTY
+      value: properties.optionalData.emergenceDate
+    - determined_by: FIXED_DATE
+      value: '{CURRENT_YEAR}-09-01'
     weather_data_period_end:
-      determined_by: FIXED_DATE
+    - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-08-31'
   execution:
     type: ONTHEFLY

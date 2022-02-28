@@ -99,7 +99,7 @@ models:
               }
             }
         },
-        "required": ["modelId","weatherData"]
+        "required": ["modelId"]
       }
 
     input_schema_categories:
@@ -208,7 +208,7 @@ models:
             }
           }  
         },
-        "required": ["modelId","weatherData"]
+        "required": ["modelId"]
       }
     input_schema_categories:
       hidden:
@@ -307,7 +307,7 @@ models:
             }
           }
         },
-        "required": ["modelId", "weatherData", "growthStage"]
+        "required": ["modelId", "growthStage"]
       }  
     input_schema_categories:
       hidden:
@@ -414,7 +414,7 @@ models:
               }
             }
           },
-          "required": ["modelId","weatherData"]
+          "required": ["modelId"]
       }
     input_schema_categories:
       hidden:
@@ -459,6 +459,7 @@ models:
     email: petrosdamos@gmail.com
     organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture,
       Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
+  platform_validated: true
   pests:
   - CARPPO
   crops:
@@ -524,7 +525,7 @@ models:
             }
           }            
         },
-        "required": ["modelId", "weatherData"]
+        "required": ["modelId"]
       }  
     input_schema_categories:
       hidden:
@@ -637,7 +638,7 @@ models:
     - determined_by: INPUT_SCHEMA_PROPERTY
       value: properties.optionalData.emergenceDate
     - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-09-01'
+      value: '{PREVIOUS_YEAR}-09-01'
     weather_data_period_end:
     - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-08-31'
@@ -668,7 +669,7 @@ models:
               }
             }
           },
-          "required": ["modelId","weatherData"]
+          "required": ["modelId"]
         }  
     input_schema_categories:
       hidden:

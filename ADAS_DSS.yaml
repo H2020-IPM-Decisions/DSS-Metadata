@@ -1,7 +1,7 @@
 #General info about the DSS
 id: adas.dss
 version: 0.0.4
-name: Models
+name: IPM Decisions
 url: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss
 organization:
   name: ADAS
@@ -199,12 +199,12 @@ models:
             "title":"Optional parameters for the DSS",
             "type": "object",
             "properties": {
-              "Temperature Threshold Phase 1": {"type": "number", "default":"3"},
-              "Degree Day Threshold Phase 1": {"type": "number", "default":"250"},
-              "Temperature Threshold Phase 2": {"type": "number", "default":"13"},
-              "Rainfall Threshold Phase 2": {"type": "number", "default":"0"},
-              "Temperature Threshold Phase 3": {"type": "number", "default":"7"},
-              "Degree Day Threshold Phase 3": {"type": "number", "default":"160"}
+              "temp_threshold1": {"type": "number", "default":"3", "title": "Temperature Threshold Phase 1"},
+              "DD1": {"type": "number", "default":"250, "title": "Degree Day Threshold Phase 1"},
+              "temp_threshold2": {"type": "number", "default":"13", "title": "Temperature Threshold Phase 2"},
+              "rain_threshold2": {"type": "number", "default":"0", "title": "Rainfall Threshold Phase 2"},
+              "temp_threshold3": {"type": "number", "default":"7","title": "Temperature Threshold Phase 3"},
+              "DD3": {"type": "number", "default":"160", "title": "Degree Day Threshold Phase 3"}
             }
           }  
         },
@@ -213,6 +213,13 @@ models:
     input_schema_categories:
       hidden:
       - modelId
+      internal:
+      - optionalData.temp_threshold1
+      - optionalData.DD1
+      - optionalData.temp_threshold2
+      - optionalData.rain_threshold2
+      - optionalData.temp_threshold3
+      - optionalData.DD3
   output:
     warning_status_interpretation:
     - explanation: |-
@@ -303,7 +310,7 @@ models:
             "title":"Optional parameters for the DSS", 
             "type": "object",
             "properties": {
-              "Temperature Threshold": {"type": "number", "default":"15"}
+              "temp_threshold": {"type": "number", "default":"15", "title": "Temperature Threshold"}
             }
           }
         },
@@ -312,6 +319,8 @@ models:
     input_schema_categories:
       hidden:
       - modelId
+      internal:
+      - optionalData.temp_threshold
   output:
     warning_status_interpretation:
     - explanation: ''
@@ -407,10 +416,10 @@ models:
               "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
-                "Rainfall Threshold": {"type": "number", "default":"1"},
-                "Dry Day Threshold": {"type": "number", "default":"3"},
-                "Temperature Threshold": {"type": "number", "default":"0"},
-                "Degree Days": {"type": "number", "default":"512"}
+                "rain_threshold": {"type": "number", "default":"1","title": "Rainfall Threshold" },
+                "dry_day": {"type": "number", "default":"3", "title": "Dry Day Threshold"},
+                "temp_threshold": {"type": "number", "default":"0", "title": "Temperature Threshold"},
+                "degree_day": {"type": "number", "default":"512", "title": "Degree Days"}
               }
             }
           },
@@ -419,6 +428,11 @@ models:
     input_schema_categories:
       hidden:
       - modelId
+      internal:
+      - optionalData.rain_threshold
+      - optionalData.dry_day
+      - optionalData.temp_threshold
+      - optionalData.degree_day
   output:
     warning_status_interpretation:
     - explanation: ''
@@ -459,7 +473,7 @@ models:
     email: petrosdamos@gmail.com
     organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture,
       Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
-  platform_validated: true
+  platform_validated: false
   pests:
   - CARPPO
   crops:
@@ -479,7 +493,20 @@ models:
   citation:
   valid_spatial:
     countries:
-    - ALB, AND, BIH, HRV, GRC, ITA, MLT, MNE, MKD, PRT, SMR, SRB, SVN, ESP
+    - ALB
+    - AND
+    - BIH 
+    - HRV
+    - GRC 
+    - ITA
+    - MLT
+    - MNE 
+    - MKD
+    - PRT
+    - SMR
+    - SRB
+    - SVN
+    - ESP
     geoJSON: |-
       {}
   input:
@@ -511,17 +538,17 @@ models:
             "title":"Optional parameters for the DSS",
             "type": "object",
             "properties": {		  
-              "Lower Temperature Threshold": {"type": "number", "default":"10.1"},	
-              "Upper Temperature Threshold": {"type": "number", "default": "34.3"},
-              "First Flight: Parameter a": {"type": "number", "default": "98.7583"},
-              "First Flight: Parameter b": {"type": "number", "default": "69.5118"},        
-              "First Flight: Parameter y": {"type": "number", "default": "468.8300"},         
-              "Second Flight: Parameter a": {"type": "number", "default": "98.7505"},
-              "Second Flight: Parameter b": {"type": "number", "default": "99.9595"},
-              "Second Flight: Parameter y": {"type": "number", "default": "1130.9937"},
-              "Third Flight: Parameter a": {"type": "number", "default": "106.1449"},
-              "Third Flight: Parameter b": {"type": "number", "default": "110.2595"},        
-              "Third Flight: Parameter y": {"type": "number", "default": "1815.8485"} 
+              "lower_threshold": {"type": "number", "default":"10.1", "title": "Lower Temperature Threshold" },	
+              "upper_threshold": {"type": "number", "default": "34.3", "title": "Upper Temperature Threshold" },
+              "firstFlight_a": {"type": "number", "default": "98.7583", "title": "First Flight: Parameter a" },
+              "firstFlight_b": {"type": "number", "default": "69.5118", "title": "First Flight: Parameter b" },        
+              "firstFlight_y": {"type": "number", "default": "468.8300", "title": "First Flight: Parameter y" },         
+              "secondFlight_a": {"type": "number", "default": "98.7505", "title": "Second Flight: Parameter a" },
+              "secondFlight_b": {"type": "number", "default": "99.9595", "title": "Second Flight: Parameter b" },
+              "secondFlight_y": {"type": "number", "default": "1130.9937", "title": "Second Flight: Parameter y" },
+              "thirdFlight_a": {"type": "number", "default": "106.1449", "title": "Third Flight: Parameter a" },
+              "thirdFlight_b": {"type": "number", "default": "110.2595", "title": "Third Flight: Parameter b" },        
+              "thirdFlight_y": {"type": "number", "default": "1815.8485", "title": "Third Flight: Parameter y" } 
             }
           }            
         },
@@ -530,6 +557,18 @@ models:
     input_schema_categories:
       hidden:
       - modelId
+      internal:
+      - optionalData.lower_threshold
+      - optionalData.upper_threshold
+      - optionalData.firstFlight_a
+      - optionalData.firstFlight_b
+      - optionalData.firstFlight_y
+      - optionalData.secondFlight_a
+      - optionalData.secondFlight_b
+      - optionalData.secondFlight_y
+      - optionalData.thirdFlight_a
+      - optionalData.thirdFlight_b
+      - optionalData.thirdFlight_y
   output:
     warning_status_interpretation:
     - explanation: |-
@@ -634,12 +673,16 @@ models:
       interval: 3600
     weather_data_period_start:
     - determined_by: INPUT_SCHEMA_PROPERTY
-      value: properties.optionalData.sprayDate
+      value: properties.optionalData.dateOfLastSpray
     - determined_by: INPUT_SCHEMA_PROPERTY
       value: properties.optionalData.emergenceDate
+    - determined_by: INPUT_SCHEMA_PROPERTY 
+      value: configParameters.startDate 
     - determined_by: FIXED_DATE
       value: '{PREVIOUS_YEAR}-09-01'
     weather_data_period_end:
+    - determined_by: INPUT_SCHEMA_PROPERTY 
+      value: configParameters.endDate 
     - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-08-31'
   execution:
@@ -659,14 +702,11 @@ models:
               "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
-                "sprayDates": {
-                  "title": "Spray Dates",
-                  "type": "object",
-                  "properties":{
-                    "Date": {"type":"string","format": "date", "title": "Date of Spray (YYYY-MM-DD)"}
-                  }
-               }           
-              }
+                "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"},
+                "emergenceDate": {"type":"string","format": "date", "title": "Date of Emergence (YYYY-MM-DD)"},
+                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-09-01"},
+                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-08-31"}
+              }            
             }
           },
           "required": ["modelId"]
@@ -733,4 +773,230 @@ models:
         unit: Count
         chart_type: line
         color: blue
+##########
+- name: Hutton Criteria Model
+  id: CHOACU
+  version: 0.0.1
+  authors:
+  - name: James Hutton
+    email: NA
+    organization: James Hutton institute, UK. 
+    platform_validated: false
+  pests:
+  - CHOACU
+  crops:
+  - SOLTU #EPPO for potatos
+  keywords: none
+  type_of_decision: Short-term tactical
+  type_of_output: Risk indication
+  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/Help/Api/POST-api-CHOACU
+  description:
+    other: |
+      Potato blight (also known as late blight) is a disease caused by a fungus-like organism (Phytophthora infestans) that spreads rapidly through the foliage and tubers of potatoes in warm wet weather, causing collapse and decay. The model determines the conditions for development of late blight on potatoes, where treatment may be targeted. A Hutton Criteria occurs when two consecutive days have a minimum temperature of 10°C, and at least six hours of relative humidity at or above 90%.
+    created_by: James Hutton institute, UK. 
+    age: ''
+    assumptions:
+    peer_review: ''
+  citation:
+  valid_spatial:
+    countries:
+    - GBR
+    geoJSON: |-
+      {}
+  input:
+    weather_parameters:
+    - parameter_code: 1001 # air temperature
+      interval: 3600
+    - parameter_code: 3001 # relative humidity
+      interval: 3600
+    weather_data_period_start:
+    - determined_by: FIXED_DATE
+      value: '{CURRENT_YEAR}-03-01'
+    weather_data_period_end:
+    - determined_by: FIXED_DATE
+      value: '{CURRENT_YEAR}-09-30'
+  execution:
+    type: ONTHEFLY
+    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/api/CHOACU
+    form_method: post
+    content_type: application/json
+    input_schema: |
+      {
+          "type":"object",
+          "properties": {  
+            "modelId": {"type": "string", "pattern":"^CHOACU$", "title": "Model Id", "default":"CHOACU", "description":"Must be CHOACU"},
+            "weatherData": {
+              "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            },
+            "optionalData" :{   
+              "title":"Optional parameters for the DSS", 
+              "type": "object",
+              "properties": {
+                "minimumTemperatureThreshold": {"type": "number", "default":"10", "title": "Minimum Temperature Threshold"},
+                "relativeHumidityThreshold": {"type": "number", "default":"90", "title": "Relative Humidity Threshold"},
+                "consecutiveDays": {"type": "number", "default":"2","title": "Consecutive Days"}
+              }
+            }
+          },
+          "required": ["modelId"]
+        }  
+    input_schema_categories:
+      hidden:
+      - modelId
+      internal:
+      - optionalData.minimumTemperatureThreshold
+      - optionalData.relativeHumidityThreshold
+      - optionalData.consecutiveDays
+  output:
+    warning_status_interpretation:
+    - explanation: |-
+      recommended_action: ''
+    - explanation: |- 
+        Missing data.
+      recommended_action: Review error message.
+    - explanation: |-
+        Green risk status: Hutton Criteria hasnt been reached. 
+      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate no current risk of pest activity. This model runs July - September. The risk of late blight development in crop is low. Conditions in the crop are currently not suitable potato blight outbreaks. 
+    - explanation: |-
+      recommended_action: ''
+    - explanation: |-
+        Red risk status: Hutton Criteria has been reached.
+      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate conditions are currently suitable for pest activity. This model runs July - September. The risk of late blight development in crop is high. Conditions in the crop are currently suitable for potato blight outbreaks to occur. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
+    chart_heading: Hutton Criteria
+    chart_groups:
+    - id: G1
+      title: CHOACU
+      result_parameter_ids:
+      - Criteria_Exceedance
+    result_parameters:
+      # the id is used with the model_id as the namespace
+    - id: Criteria_Exceedance
+      title: Number of days exceeding the Hutton Criteria.
+      description: Number of days exceeding the Hutton Criteria.
+      chart_info:
+        default_visible: true
+        unit: Count
+        chart_type: line
+        color: orange
+##########
+- name: Septoria Leaf Blotch Model
+  id: SEPTTR
+  version: 0.0.1
+  authors:
+  - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch
+    email: NA
+    organization: NA
+    platform_validated: false
+  pests:
+  - CHOACU
+  crops:
+  - TRZAW #EPPO for WINTER WHEAT
+  keywords: none
+  type_of_decision: Short-term tactical
+  type_of_output: Risk indication
+  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/Help/Api/POST-api-SEPTTR
+  description:
+    other: |
+      The model predicts the presence or absense of a damaging epidemic of septora leaf blotch.  The model is the result of 'window pane' statistical analysis. A damaging epidemic is predicted if the model which is a function of minimum temperature and rainfall is greater than 0. The first variable is daily rainfall above 3mm accumulated in the 80-day period preceding growth stage 31. The second variable is and daily minimum temperature above 0 degrees accumulated in a window that starts 120 days before growth stage 31 and ends 70 days before growth stage 31.
+    created_by: '' 
+    age: ''
+    assumptions:
+    peer_review: ''
+  citation:
+  valid_spatial:
+    countries:
+    - GBR
+    geoJSON: |-
+      {}
+  input:
+    weather_parameters:
+    - parameter_code: 1003 # minimum temperature
+      interval: 86400
+    - parameter_code: 2001 # rainfall
+      interval: 3600
+    weather_data_period_start:
+    - determined_by: FIXED_DATE
+      value: '{CURRENT_YEAR}-01-01'
+    weather_data_period_end:
+    - determined_by: FIXED_DATE
+      value: '{CURRENT_YEAR}-04-30'
+  execution:
+    type: ONTHEFLY
+    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/api/SEPTTR
+    form_method: post
+    content_type: application/json
+    input_schema: |
+      {
+          "type":"object",
+          "properties": {  
+            "modelId": {"type": "string", "pattern":"^SEPTTR$", "title": "Model Id", "default":"SEPTTR", "description":"Must be SEPTTR"},
+            "weatherData": {
+              "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            },
+            "optionalData" :{   
+              "title":"Optional parameters for the DSS", 
+              "type": "object",
+              "properties": {
+                "minimumTemperatureThreshold": {"type": "number", "default":"0", "title": "Minimum Temperature Threshold"},
+                "rainfallThreshold": {"type": "number", "default":"90", "title": "Rainfall Threshold"},
+              }
+            }
+          },
+          "required": ["modelId"]
+        }  
+    input_schema_categories:
+      hidden:
+      - modelId
+      internal:
+      - optionalData.minimumTemperatureThreshold
+      - optionalData.rainfallThreshold
+  output:
+    warning_status_interpretation:
+    - explanation: |-
+      recommended_action: ''
+    - explanation: |- 
+        Missing data.
+      recommended_action: Review error message.
+    - explanation: |-
+        Green risk status: Threshold for Septoria Leaf Blotch hasnt been reached.
+      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate no current risk of pest activity. This model runs January - April. The risk of septoria leaf blotch development in crop is low. Conditions in the crop are currently not suitable for septoria leaf blotch outbreaks. 
+    - explanation: |-
+      recommended_action: ''
+    - explanation: |-
+        Red risk status: Hutton Criteria has been reached.
+      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate conditions are currently suitable for pest activity. This model runs January - April. The risk of septoria leaf blotch development in crop is high. Conditions in the crop are currently suitable for septoria leaf blotch outbreaks to occur. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
+    chart_heading: Septoria Leaf Blotch
+    chart_groups:
+    - id: G1
+      title: SEPTTR
+      result_parameter_ids:
+      - AccumulatedRainfall
+      - AccumulatedTemperature
+      - CalculatedRisk
+    result_parameters:
+      # the id is used with the model_id as the namespace
+    - id: AccumulatedRainfall
+      title: Accumulated Rainfall.
+      description: Daily rainfall above 3mm accumulated in the 80-day period preceding growth stage 31. 
+      chart_info:
+        default_visible: true
+        unit: Count
+        chart_type: line
+        color: blue
+    - id: AccumulatedRainfall
+      title: Accumulated Temperature
+      description: Daily minimum temperature above 0 degrees accumulated in a window that starts 120 days before growth stage 31 and ends 70 days before growth stage 31.
+      chart_info:
+        default_visible: true
+        unit: Count
+        chart_type: line
+        color: orange
+    - id: CalculatedRisk
+      title: Model Risk
+      description: Model Risk
+      chart_info:
+        default_visible: true
+        unit: Count
+        chart_type: line
+        color: red
 ##########

@@ -90,7 +90,7 @@ models:
               "type": "object",
               "properties": {
                 "sprayDates": {
-                  "title": "Spray Dates",	
+                  "title": "Spray Dates",
                   "type": "object",
                   "properties":{
                     "date": {"type":"string","format": "date", "title": "Date of Spray (YYYY-MM-DD)"}
@@ -194,7 +194,7 @@ models:
           "modelId": {"type": "string", "pattern":"^SITDMO$", "title": "Model Id", "default":"SITDMO", "description":"Must be SITDMO"},
           "weatherData": {
             "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-          },		
+          },
           "optionalData" :{
             "title":"Optional parameters for the DSS",
             "type": "object",
@@ -301,7 +301,7 @@ models:
       {
         "type":"object",
         "properties": {  
-         "modelId": {"type": "string", "pattern":"^MELIAE$", "title": "Model Id", "default":"MELIAE", "description":"Must be MELIAE"},	
+         "modelId": {"type": "string", "pattern":"^MELIAE$", "title": "Model Id", "default":"MELIAE", "description":"Must be MELIAE"},
           "weatherData": {
             "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
           },
@@ -408,7 +408,7 @@ models:
       {
           "type":"object",
           "properties": {  
-            "modelId": {"type": "string", "pattern":"^HAPDMA$", "title": "Model Id", "default":"HAPDMA", "description":"Must be HAPDMA"},	
+            "modelId": {"type": "string", "pattern":"^HAPDMA$", "title": "Model Id", "default":"HAPDMA", "description":"Must be HAPDMA"},
             "weatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             },
@@ -471,8 +471,7 @@ models:
   authors:
   - name: Petros T. Damos, Nikos A. Kouloussis, Dimitris S. Koveos
     email: petrosdamos@gmail.com
-    organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture,
-      Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
+    organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture, Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
   platform_validated: false
   pests:
   - CARPPO
@@ -530,15 +529,15 @@ models:
       {
         "type":"object",
         "properties": {  
-          "modelId": {"type": "string", "pattern":"^CARPPO$", "title": "Model Id", "default":"CARPPO", "description":"Must be CARPPO"},		
+          "modelId": {"type": "string", "pattern":"^CARPPO$", "title": "Model Id", "default":"CARPPO", "description":"Must be CARPPO"},
           "weatherData": {
             "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-          },	
+          },
           "optionalData" :{
             "title":"Optional parameters for the DSS",
             "type": "object",
-            "properties": {		  
-              "lower_threshold": {"type": "number", "default":"10.1", "title": "Lower Temperature Threshold" },	
+            "properties": {
+              "lower_threshold": {"type": "number", "default":"10.1", "title": "Lower Temperature Threshold" },
               "upper_threshold": {"type": "number", "default": "34.3", "title": "Upper Temperature Threshold" },
               "firstFlight_a": {"type": "number", "default": "98.7583", "title": "First Flight: Parameter a" },
               "firstFlight_b": {"type": "number", "default": "69.5118", "title": "First Flight: Parameter b" },        
@@ -781,7 +780,7 @@ models:
   - name: James Hutton
     email: NA
     organization: James Hutton institute, UK. 
-    platform_validated: false
+  platform_validated: false
   pests:
   - CHOACU
   crops:
@@ -792,7 +791,7 @@ models:
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/Help/Api/POST-api-CHOACU
   description:
     other: |
-      Potato blight (also known as late blight) is a disease caused by a fungus-like organism (Phytophthora infestans) that spreads rapidly through the foliage and tubers of potatoes in warm wet weather, causing collapse and decay. The model determines the conditions for development of late blight on potatoes, where treatment may be targeted. A Hutton Criteria occurs when two consecutive days have a minimum temperature of 10°C, and at least six hours of relative humidity at or above 90%.
+      Potato blight (also known as late blight) is a disease caused by a fungus-like organism (Phytophthora infestans) that spreads rapidly through the foliage and tubers of potatoes in warm wet weather, causing collapse and decay. The model determines the conditions for development of late blight on potatoes, where treatment may be targeted. A Hutton Criteria occurs when two consecutive days have a minimum temperature of 10ï¿½C, and at least six hours of relative humidity at or above 90%.
     created_by: James Hutton institute, UK. 
     age: ''
     assumptions:
@@ -886,7 +885,7 @@ models:
   - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch
     email: NA
     organization: NA
-    platform_validated: false
+  platform_validated: false
   pests:
   - CHOACU
   crops:

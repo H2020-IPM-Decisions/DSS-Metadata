@@ -30,7 +30,7 @@ models:
   - name: Ole Mission Bøjer
     email: ole.bojer@ipmconsult.dk
     organization: IPMC (IPM Consult ApS)
-  platform_validated: true
+  platform_validated: false
   pests:
   - ACHMI # EPPO code for Achillea millefolium L.
   - AETCY # EPPO code for Aethusa cynapium L.
@@ -192,7 +192,7 @@ models:
   - name: Ole Mission Bøjer
     email: ole.bojer@ipmconsult.dk
     organization: IPMC (IPM Consult ApS)
-  platform_validated: true
+  platform_validated: false
   pests:
   - ANGAR # EPPO code for Anagallis arvensis L.
   - CONCA # EPPO code for Conyza canadensis L.
@@ -334,7 +334,7 @@ models:
   - name: Ole Mission Bøjer
     email: ole.bojer@ipmconsult.dk
     organization: IPMC (IPM Consult ApS)
-  platform_validated: true
+  platform_validated: false
   pests:
   - ANGAR # EPPO code for Anagallis arvensis L.
   - CONCA # EPPO code for Conyza canadensis L.
@@ -521,7 +521,7 @@ models:
   - name: Ole Mission Bøjer
     email: ole.bojer@ipmconsult.dk
     organization: IPMC (IPM Consult ApS)
-  platform_validated: true
+  platform_validated: false
   pests:
   - ACHMI # EPPO code for Achillea millefolium L.
   - AETCY # EPPO code for Aethusa cynapium L.

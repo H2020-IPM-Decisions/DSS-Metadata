@@ -26,14 +26,12 @@ models:
   keywords: algorithm, temperature
   type_of_output: hourly temperatures
   description_URL: http://web1.adas.co.uk/adas_datamanipulation/algorithms/Help/Api/POST-api-CIBSEsingleday
-  description:
-    other: |
-      This model calculates hourly tempertaure values based on the CIBSE model for a single day (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in the day using the CIBSE Guide A2 (1982). 
-      The model then uses these predicted times aswell as minimum and maximum air tempertaures to fit the data via sinusoidal curves.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This model calculates hourly tempertaure values based on the CIBSE\
+    \ model for a single day (Chow & Levermore, 2007). The model first allocates times\
+    \ for when  maximum and minimum temperatures occur in the day using the CIBSE\
+    \ Guide A2 (1982). \nThe model then uses these predicted times aswell as minimum\
+    \ and maximum air tempertaures to fit the data via sinusoidal curves.\n\nSOURCE:\
+    \ \nASSUMPTIONS: \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -76,6 +74,7 @@ models:
       title: Hourly temperatures
       description: The hourly tempertaures are provided for each hour of the day.
 ###########
+  purpose: ''
 - name: CIBSE hourly temperature for multiple days
   id: CIBSEmultipledays
   version: 0.0.6
@@ -87,15 +86,15 @@ models:
   keywords: algorithm, temperature
   type_of_output: hourly temperatures
   description_URL: http://web1.adas.co.uk/adas_datamanipulation/algorithms/Help/Api/POST-api-CIBSEmultipledays
-  description:
-    other: |
-      This model calculates hourly tempertaure values based on the CIBSE model for multiple days (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in each day using the CIBSE Guide A2 (1982). 
-      Maximum temperature is then linked, using a sinusoidal curve to the minimum temperature of the following day. Capping is introduced in this model whereby if the generated value is higher than the maximum temperature then it is reduced to the maximum tempertaure,
-      and if lower than the minium temperature the generated value is changed to the minimum temperature.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This model calculates hourly tempertaure values based on the CIBSE\
+    \ model for multiple days (Chow & Levermore, 2007). The model first allocates\
+    \ times for when  maximum and minimum temperatures occur in each day using the\
+    \ CIBSE Guide A2 (1982). \nMaximum temperature is then linked, using a sinusoidal\
+    \ curve to the minimum temperature of the following day. Capping is introduced\
+    \ in this model whereby if the generated value is higher than the maximum temperature\
+    \ then it is reduced to the maximum tempertaure,\nand if lower than the minium\
+    \ temperature the generated value is changed to the minimum temperature.\n\nSOURCE:\
+    \ \nASSUMPTIONS: \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -144,6 +143,7 @@ models:
       title: Hourly temperature
       description: The hourly tempertaures are provided for each hour of each day.
 ###########
+  purpose: ''
 - name: Sin14R-1 hourly temperature for a single day
   id: Sin14R-1singleday
   version: 0.0.6
@@ -155,16 +155,15 @@ models:
   keywords: algorithm, temperature
   type_of_output: hourly temperatures
   description_URL: http://web1.adas.co.uk/adas_datamanipulation/algorithms/Help/Api/POST-api-Sin14R-1singleday
-  description:
-    other: |
-      This model calculates hourly tempertaure values based on the Sin14R-1 model for a single day (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in the day, based upon sunrise and sunset times for the given location. 
-      Sunrise and sunset times are dependent on the users inputs for latitude, longtiude and GMT offset.
-      The model assumes that maximum temperature always occured at hour 14, and minimum temperature an hour before sunrise.
-      The model then uses these predicted times aswell as minimum and maximum air tempertaures to fit the data via sinusoidal curves.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This model calculates hourly tempertaure values based on the Sin14R-1\
+    \ model for a single day (Chow & Levermore, 2007). The model first allocates times\
+    \ for when  maximum and minimum temperatures occur in the day, based upon sunrise\
+    \ and sunset times for the given location. \nSunrise and sunset times are dependent\
+    \ on the users inputs for latitude, longtiude and GMT offset.\nThe model assumes\
+    \ that maximum temperature always occured at hour 14, and minimum temperature\
+    \ an hour before sunrise.\nThe model then uses these predicted times aswell as\
+    \ minimum and maximum air tempertaures to fit the data via sinusoidal curves.\n\
+    \nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -210,6 +209,7 @@ models:
       title: Hourly temperature
       description: The hourly tempertaures are provided for each hour of the day.
 ###########
+  purpose: ''
 - name: Sin14R-1 hourly temperature for multiple days
   id: Sin14R-1multipledays
   version: 0.0.6
@@ -221,17 +221,18 @@ models:
   keywords: algorithm, temperature
   type_of_output: hourly temperatures
   description_URL: http://web1.adas.co.uk/adas_datamanipulation/algorithms/Help/Api/POST-api-Sin14R-1multipledays
-  description:
-    other: |
-      This model calculates hourly tempertaure values based on the Sin14R-1 model for multiple days (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in each day, based upon sunrise and sunset times for the given location.
-      Sunrise and sunset times are dependent on the users inputs for latitude, longtiude and GMT offset.
-      The model assumes that maximum temperature always occured at hour 14, and minimum temperature an hour before sunrise. 
-      Maximum temperature is then linked, using a sinusoidal curve to the minimum temperature of the following day. Capping is introduced in this model whereby if the generated value is higher than the maximum temperature then it is reduced to the maximum tempertaure,
-      and if lower than the minium temperature the generated value is changed to the minimum temperature. 
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This model calculates hourly tempertaure values based on the Sin14R-1\
+    \ model for multiple days (Chow & Levermore, 2007). The model first allocates\
+    \ times for when  maximum and minimum temperatures occur in each day, based upon\
+    \ sunrise and sunset times for the given location.\nSunrise and sunset times are\
+    \ dependent on the users inputs for latitude, longtiude and GMT offset.\nThe model\
+    \ assumes that maximum temperature always occured at hour 14, and minimum temperature\
+    \ an hour before sunrise. \nMaximum temperature is then linked, using a sinusoidal\
+    \ curve to the minimum temperature of the following day. Capping is introduced\
+    \ in this model whereby if the generated value is higher than the maximum temperature\
+    \ then it is reduced to the maximum tempertaure,\nand if lower than the minium\
+    \ temperature the generated value is changed to the minimum temperature. \n\n\
+    SOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -283,6 +284,7 @@ models:
       title: Hourly temperature
       description: The hourly tempertaures are provided for each hour of each day.
 ###########
+  purpose: ''
 - name: Hourly Relative Humidiy
   id: Hourly_RH
   version: 0.0.6
@@ -294,14 +296,11 @@ models:
   keywords: algorithm, relative humidity
   type_of_output: hourly temperatures
   description_URL: http://web1.adas.co.uk/adas_datamanipulation/algorithms/Help/Api/POST-api-RH_Hourly
-  description:
-    other: |
-      This model simulates hourly realtive humidity from hourly temperature (Eccel, 2012). The assumption is made that minimum temperature is a first guess estimate of dew point temperature.
-      The model then expresses relative humidity as the ratio between actual water vapour and saturation vapour.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This model simulates hourly realtive humidity from hourly temperature\
+    \ (Eccel, 2012). The assumption is made that minimum temperature is a first guess\
+    \ estimate of dew point temperature.\nThe model then expresses relative humidity\
+    \ as the ratio between actual water vapour and saturation vapour.\n\nSOURCE: \n\
+    ASSUMPTIONS: \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -350,6 +349,7 @@ models:
       title: Hourly relative humidity
       description: The hourly relative humidity is provided for each hour of the day.
 ###########
+  purpose: ''
 - name: Leaf Wetness Duration_RH
   id: LeafWetnessDuration_RH
   version: 0.0.6
@@ -361,14 +361,11 @@ models:
   keywords: algorithm
   type_of_output: Leaf Wetness Value
   description_URL: http://web1.adas.co.uk/adas_datamanipulation/algorithms/Help/Api/POST-api-LeafWetnessDuration_RH
-  description:
-    other: |
-      This is a simple relative humidity (RH) threshold model for calcualtion of hourly leaf wetness duration (LWD). 
-      It compares a single RH obsevation with a threshold (currently 87%) and if the observation is greater than the threshold, the hour is assumed to contribute to (LWD), so returns an hourly LWD value of 1.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This is a simple relative humidity (RH) threshold model for calcualtion\
+    \ of hourly leaf wetness duration (LWD). \nIt compares a single RH obsevation\
+    \ with a threshold (currently 87%) and if the observation is greater than the\
+    \ threshold, the hour is assumed to contribute to (LWD), so returns an hourly\
+    \ LWD value of 1.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -405,6 +402,7 @@ models:
       title: Leaf Wetness Duration, Relative Humidity
       description: Whether a given observation is greater than the threshold (87%)
 ###########
+  purpose: ''
 - name: Leaf Wetness Duration
   id: LeafWetnessDuration
   version: 0.0.6
@@ -416,15 +414,11 @@ models:
   keywords: algorithm
   type_of_output: Leaf Wetness Value
   description_URL: http://web1.adas.co.uk/adas_datamanipulation/algorithms/Help/Api/POST-api-LeafWetnessDuration
-  description:
-    other: |2
-
-      This is a simple relative humidity (RH) threshold model for calcualtion of hourly leaf wetness duration (LWD). 
-      It compares each RH observation in a datted (date and time (hour)) list with a threhsold (currently 87%), and if the observation exceeds the threshold, the value for the hour return is 1, 0 otherwise.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "\nThis is a simple relative humidity (RH) threshold model for calcualtion\
+    \ of hourly leaf wetness duration (LWD). \nIt compares each RH observation in\
+    \ a datted (date and time (hour)) list with a threhsold (currently 87%), and if\
+    \ the observation exceeds the threshold, the value for the hour return is 1, 0\
+    \ otherwise.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -475,3 +469,4 @@ models:
       title: Leaf Wetness Duration
       description: Whether each observation in a list is greater than the relative
         humidty threshold (87%)
+  purpose: ''

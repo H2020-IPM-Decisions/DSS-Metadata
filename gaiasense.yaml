@@ -29,13 +29,10 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: http://www.gaiapedia.gr/gaiapedia/index.php/%CE%A0%CE%B5%CF%81%CE%BF%CE%BD%CF%8C%CF%83%CF%80%CE%BF%CF%81%CE%BF%CF%82_%CE%B1%CE%BC%CF%80%CE%AD%CE%BB%CE%BF%CF%85
-  description:
-    other: |
-      The warning system model «Downy mildew of grapevine» is based on prediction model that utilises as input the following parameters: temperatute, humidity and leaf-wetness. Also the current growth stage of the plant is considered.(this description to be further updated)
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "The warning system model «Downy mildew of grapevine» is based on prediction\
+    \ model that utilises as input the following parameters: temperatute, humidity\
+    \ and leaf-wetness. Also the current growth stage of the plant is considered.(this\
+    \ description to be further updated)\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:
   valid_spatial:
     countries:
@@ -95,3 +92,4 @@ models:
         unit: '%'
         chart_type: line
         color: '#0066ff'
+  purpose: ''

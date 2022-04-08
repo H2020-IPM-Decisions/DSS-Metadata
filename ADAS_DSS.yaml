@@ -44,16 +44,15 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/Help/Api/POST-api-DASGPA
-  description:
-    other: |
-      This model assesses Cutworm risk in crops based on the work of Bowden et al., (1982). The model was originally devised to estimate an index of larval survival to third instar, based on temperature rate of development relationships and mortality due to daily rainfall.
-      The default model start date is defined as the first day after 1st June where temperature exceeds 12 degrees. The model will end on the 31st October.
-      Any spray dates can be inputted into the model and are deemed to be 100% effective at removing cutworm from the model.
-      The model will return the number of batches that survive to the third instar, the associated risk and the recommended action.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This model assesses Cutworm risk in crops based on the work of Bowden\
+    \ et al., (1982). The model was originally devised to estimate an index of larval\
+    \ survival to third instar, based on temperature rate of development relationships\
+    \ and mortality due to daily rainfall.\nThe default model start date is defined\
+    \ as the first day after 1st June where temperature exceeds 12 degrees. The model\
+    \ will end on the 31st October.\nAny spray dates can be inputted into the model\
+    \ and are deemed to be 100% effective at removing cutworm from the model.\nThe\
+    \ model will return the number of batches that survive to the third instar, the\
+    \ associated risk and the recommended action.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:
   valid_spatial:
     countries:
@@ -107,9 +106,9 @@ models:
       - modelId
   output:
     warning_status_interpretation:
-    - explanation: |-
+    - explanation: |
       recommended_action: ''
-    - explanation: |- 
+    - explanation: |-
         Missing data.
       recommended_action: Review error message.
     - explanation: |-
@@ -117,10 +116,12 @@ models:
       recommended_action: No Action Required.
     - explanation: |-
         Yellow warning indicates that the larval batches surviving to third instar is between 1 and 4. 
-      recommended_action: Should check field to obtain first-hand information about the need to take action. 
+      recommended_action: Should check field to obtain first-hand information about
+        the need to take action.
     - explanation: |-
         Red warning indicates that there are over 4 larval batches surviving to third instar. 
-      recommended_action: Advised to walk around your field as soon as possible to enable you to make a decision on which action to take.  
+      recommended_action: Advised to walk around your field as soon as possible to
+        enable you to make a decision on which action to take.
     chart_heading: Larval Batches Surviving to Third Instar.
     chart_groups:
     - id: G1
@@ -137,6 +138,7 @@ models:
         chart_type: column
         color: green
 ##########
+  purpose: ''
 - name: Orange Wheat Blossom Midge Model
   id: SITDMO
   version: 0.0.3
@@ -152,17 +154,16 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/sitdmo/Help/Api/POST-api-SITDMO
-  description:
-    other: |
-      This is a simple Phase Indication DSS based on the work of Jacquemin et al., (2013).   
-      It uses daily temperature (degrees celsius) and rainfall (mm) data to identify emergence in the Orange Wheat Blossom Midge. 
-      Optional parameters can be inputted to set the thresholds at each of the phases of the Orange Wheat Blossom Midge Lifecycle. If not inputted, the defaults will be set.
-      The model only runs between the months May and June but requires weather data from the 1st of January.
-      The model will return, what Phase the insect is in. If the insect has emerged it will also provide the dates of the emergence. It will also provide a risk and the recommended action.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This is a simple Phase Indication DSS based on the work of Jacquemin\
+    \ et al., (2013).   \nIt uses daily temperature (degrees celsius) and rainfall\
+    \ (mm) data to identify emergence in the Orange Wheat Blossom Midge. \nOptional\
+    \ parameters can be inputted to set the thresholds at each of the phases of the\
+    \ Orange Wheat Blossom Midge Lifecycle. If not inputted, the defaults will be\
+    \ set.\nThe model only runs between the months May and June but requires weather\
+    \ data from the 1st of January.\nThe model will return, what Phase the insect\
+    \ is in. If the insect has emerged it will also provide the dates of the emergence.\
+    \ It will also provide a risk and the recommended action.\n\nSOURCE: \nASSUMPTIONS:\
+    \ \nREFERENCE: "
   citation:
   valid_spatial:
     countries:
@@ -222,9 +223,9 @@ models:
       - optionalData.DD3
   output:
     warning_status_interpretation:
-    - explanation: |-
+    - explanation: |
       recommended_action: ''
-    - explanation: |- 
+    - explanation: |-
         Missing data.
       recommended_action: Review error message.
     - explanation: |-
@@ -232,10 +233,12 @@ models:
       recommended_action: Revisit regularly as risk can change rapidly.
     - explanation: |-
         Yellow warning indicates that Orange Wheat Blossom Midge is in Phase 2 of development. 
-      recommended_action: Should check field to obtain first-hand information about the need to act.
+      recommended_action: Should check field to obtain first-hand information about
+        the need to act.
     - explanation: |-
         Red warning indicates that Orange Wheat Blossom Midge is in Phase 3 of development or have emerged.
-      recommended_action: Advised to walk around your field as soon as possible to enable you to decide on which action to take.
+      recommended_action: Advised to walk around your field as soon as possible to
+        enable you to decide on which action to take.
     chart_heading: ''
     chart_groups:
     - id: ''
@@ -252,6 +255,7 @@ models:
         chart_type: scatter
         color: ''
 ##########
+  purpose: ''
 - name: Pollen Beetle Model
   id: MELIAE
   version: 0.0.3
@@ -267,16 +271,12 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/meliae/Help/Api/POST-api-MELIAE
-  description:
-    other: |
-      This model is based on the work of Ferguson et al., (2015) to predict migration risk Pollen Beetle.
-      Daily maximum air temperature is used to predict Migration Risk. The default value of 15 degrees celsius is used, as that is the temperature advised in the UK at which pollen beetles will fly. 
-      Threshold however can also be overwritten by the user.
-      The model can only be used between growth stage 51 and 59.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This model is based on the work of Ferguson et al., (2015) to predict\
+    \ migration risk Pollen Beetle.\nDaily maximum air temperature is used to predict\
+    \ Migration Risk. The default value of 15 degrees celsius is used, as that is\
+    \ the temperature advised in the UK at which pollen beetles will fly. \nThreshold\
+    \ however can also be overwritten by the user.\nThe model can only be used between\
+    \ growth stage 51 and 59.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:
   valid_spatial:
     countries: []
@@ -335,7 +335,8 @@ models:
       recommended_action: ''
     - explanation: |-
         Red Warning indicates that the maximum temperature is higher than threshold at which pollen beetles fly at air temperatures to crops.
-      recommended_action: Walk around your field to enable you to decide on which action to take.
+      recommended_action: Walk around your field to enable you to decide on which
+        action to take.
     chart_heading: ''
     chart_groups:
     - id: ''
@@ -352,6 +353,7 @@ models:
         chart_type: scatter
         color: ''
 ##########        
+  purpose: ''
 - name: Saddle Gall Midge Model
   id: HAPDMA
   version: 0.0.3
@@ -369,18 +371,17 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/hapdma/Help/Api/POST-api-HAPDMA
-  description:
-    other: |
-      A simple DSS which predicts the dates of emergence for the Saddle Gall Midge based on a model derived by Rowley et al., 2017. Rainfall events followed by an accumulation of 512 degree days above 0 degrees C can be used to predict peaks.
-      Cumulative emergence as a function of degree day accumulations was best described using a probit model.
-      The model will start on the date of first rainfall on or after the 1st March and will end at the end of July.
-      A Rainfall event is described as daily rainfall over the rainfall threshold (default 1mm) following 3 days without precipitation.
-      Optional parameters can be inputted to set the thresholds. If not inputted, the defaults described above will be set.
-      The model will return the dates of peak emergence, cumulative emergence, the associated risk and recommended action.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "A simple DSS which predicts the dates of emergence for the Saddle\
+    \ Gall Midge based on a model derived by Rowley et al., 2017. Rainfall events\
+    \ followed by an accumulation of 512 degree days above 0 degrees C can be used\
+    \ to predict peaks.\nCumulative emergence as a function of degree day accumulations\
+    \ was best described using a probit model.\nThe model will start on the date of\
+    \ first rainfall on or after the 1st March and will end at the end of July.\n\
+    A Rainfall event is described as daily rainfall over the rainfall threshold (default\
+    \ 1mm) following 3 days without precipitation.\nOptional parameters can be inputted\
+    \ to set the thresholds. If not inputted, the defaults described above will be\
+    \ set.\nThe model will return the dates of peak emergence, cumulative emergence,\
+    \ the associated risk and recommended action.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:
   valid_spatial:
     countries:
@@ -445,10 +446,12 @@ models:
       recommended_action: Revisit regularly as risk can change rapidly.
     - explanation: |-
         Yellow warning indicates that there is up to 50% cumulative emergence.
-      recommended_action: Check field to obtain first hand information about the need to take action.
+      recommended_action: Check field to obtain first hand information about the need
+        to take action.
     - explanation: |-
         Red warning indicates that there is up to or over 90% cumulative emergence.
-      recommended_action: Walk around your field as soon as possible to enable you to decide on which action to take.
+      recommended_action: Walk around your field as soon as possible to enable you
+        to decide on which action to take.
     chart_heading: Cumulative Emergence
     chart_groups:
     - id: G1
@@ -465,13 +468,15 @@ models:
         chart_type: line
         color: green
 ##########
+  purpose: ''
 - name: Codling Moth Model
   id: CARPPO
   version: 0.0.3
   authors:
   - name: Petros T. Damos, Nikos A. Kouloussis, Dimitris S. Koveos
     email: petrosdamos@gmail.com
-    organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture, Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
+    organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture,
+      Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
   platform_validated: false
   pests:
   - CARPPO
@@ -481,25 +486,24 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/carppo/Help/Api/POST-api-CARPPO
-  description:
-    other: |
-      This is a simple risk based DSS for the Codling Moth, Cydia pomonella, based on the work of Damos et al., (2018) in Greece. A 3-paramater non-linear regression model was constructed to fit cumulative moth captures as a function of accumulated day degrees (Biofix 1st January) for all three of the male flights.
-      The model requires minimum and maximum temperature from the 1st of January as an input, and will return the male flight, associated risk and recommended action.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "This is a simple risk based DSS for the Codling Moth, Cydia pomonella,\
+    \ based on the work of Damos et al., (2018) in Greece. A 3-paramater non-linear\
+    \ regression model was constructed to fit cumulative moth captures as a function\
+    \ of accumulated day degrees (Biofix 1st January) for all three of the male flights.\n\
+    The model requires minimum and maximum temperature from the 1st of January as\
+    \ an input, and will return the male flight, associated risk and recommended action.\n\
+    \nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
   citation:
   valid_spatial:
     countries:
     - ALB
     - AND
-    - BIH 
+    - BIH
     - HRV
-    - GRC 
+    - GRC
     - ITA
     - MLT
-    - MNE 
+    - MNE
     - MKD
     - PRT
     - SMR
@@ -570,9 +574,9 @@ models:
       - optionalData.thirdFlight_y
   output:
     warning_status_interpretation:
-    - explanation: |-
+    - explanation: |
       recommended_action: ''
-    - explanation: |- 
+    - explanation: |-
         Missing data.
       recommended_action: Review error message.
     - explanation: |-
@@ -582,7 +586,8 @@ models:
         In southern Europe there can be three flights in a season.     
         The prediction is about timing and does not predict the number of codling moths.
         Green warning indicates that cumulative catches are below 10% or above 65% in all the flights.
-      recommended_action: The risk is low, and no action is required but it is recommended to revisit regularly as risk can change rapidly.
+      recommended_action: The risk is low, and no action is required but it is recommended
+        to revisit regularly as risk can change rapidly.
     - explanation: |-
         This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
         Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
@@ -590,7 +595,8 @@ models:
         In southern Europe there can be three flights in a season.     
         The prediction is about timing and does not predict the number of codling moths.
         Yellow warning indicates that cumulative catches are between 10% and 35% in at least one of the flights. 
-      recommended_action: The risk is moderate, and you should walk around your field as soon as possible to enable you to make a decision on which action to take.
+      recommended_action: The risk is moderate, and you should walk around your field
+        as soon as possible to enable you to make a decision on which action to take.
     - explanation: |-
         This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
         Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
@@ -598,7 +604,8 @@ models:
         In southern Europe there can be three flights in a season.     
         The prediction is about timing and does not predict the number of codling moths.
         Red warning indicates that cumulative catches are between 35% and 65% in at least one of the flights. 
-      recommended_action: The risk is high and you should immediately take a decision for action to manage the pest.
+      recommended_action: The risk is high and you should immediately take a decision
+        for action to manage the pest.
     chart_heading: Cumulative Captures
     chart_groups:
     - id: G1
@@ -636,6 +643,7 @@ models:
         chart_type: line
         color: blue
 ###########
+  purpose: ''
 - name: TSUM Model
   id: RHOPPA
   version: 0.0.1
@@ -653,13 +661,11 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/Help/Api/POST-api-RHOPPA
-  description:
-    other: |
-      This is a simple risk DSS for predicting BYDV risk from aphids. Second generation aphids move away from the plant originally colonised and are therefore likely to be a greater risk. 
-    created_by: ''
-    age: ''
-    assumptions: Second generation aphids are likely to be present when the accumulated daily air temperatures, above a baseline temperature of 3 degrees, reached T-Sum 170.
-    peer_review: ''
+  description: "This is a simple risk DSS for predicting BYDV risk from aphids. Second\
+    \ generation aphids move away from the plant originally colonised and are therefore\
+    \ likely to be a greater risk. \n\nSOURCE: \nASSUMPTIONS: Second generation aphids\
+    \ are likely to be present when the accumulated daily air temperatures, above\
+    \ a baseline temperature of 3 degrees, reached T-Sum 170.\nREFERENCE: "
   citation:
   valid_spatial:
     countries:
@@ -675,13 +681,13 @@ models:
       value: properties.optionalData.dateOfLastSpray
     - determined_by: INPUT_SCHEMA_PROPERTY
       value: properties.optionalData.emergenceDate
-    - determined_by: INPUT_SCHEMA_PROPERTY 
-      value: configParameters.startDate 
+    - determined_by: INPUT_SCHEMA_PROPERTY
+      value: configParameters.startDate
     - determined_by: FIXED_DATE
       value: '{PREVIOUS_YEAR}-09-01'
     weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY 
-      value: configParameters.endDate 
+    - determined_by: INPUT_SCHEMA_PROPERTY
+      value: configParameters.endDate
     - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-08-31'
   execution:
@@ -715,20 +721,25 @@ models:
       - modelId
   output:
     warning_status_interpretation:
-    - explanation: |-
+    - explanation: |
       recommended_action: ''
-    - explanation: |- 
+    - explanation: |-
         Missing data.
       recommended_action: Review error message.
     - explanation: |-
         Green risk status: T-SUM is below 50. Low risk of spread of BYDV in crops at this time. 
-      recommended_action: Review risk status every 7 days during vulnerable crop growth stages regularly as risk conditions can change rapidly.
+      recommended_action: Review risk status every 7 days during vulnerable crop growth
+        stages regularly as risk conditions can change rapidly.
     - explanation: |-
         Yellow risk status: T-SUM is between 50 and 100. 
-      recommended_action: Review risk status within next 3 days. Field inspections recommended within the next 3-5 days to assess aphid infestations and consider treatment where winged aphids are easily found.
+      recommended_action: Review risk status within next 3 days. Field inspections
+        recommended within the next 3-5 days to assess aphid infestations and consider
+        treatment where winged aphids are easily found.
     - explanation: |-
         Red risk status: T-SUM is 100 and over.
-      recommended_action: Review risk status daily. Field inspections recommended within the next 1-3 days to assess aphid infestations and consider treatment where winged aphids are easily found.
+      recommended_action: Review risk status daily. Field inspections recommended
+        within the next 1-3 days to assess aphid infestations and consider treatment
+        where winged aphids are easily found.
     chart_heading: TSUM Model
     chart_groups:
     - id: G1
@@ -773,13 +784,14 @@ models:
         chart_type: line
         color: blue
 ##########
+  purpose: ''
 - name: Hutton Criteria Model
   id: CHOACU
   version: 0.0.1
   authors:
   - name: James Hutton
     email: NA
-    organization: James Hutton institute, UK. 
+    organization: James Hutton institute, UK.
   platform_validated: false
   pests:
   - CHOACU
@@ -789,13 +801,14 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/Help/Api/POST-api-CHOACU
-  description:
-    other: |
-      Potato blight (also known as late blight) is a disease caused by a fungus-like organism (Phytophthora infestans) that spreads rapidly through the foliage and tubers of potatoes in warm wet weather, causing collapse and decay. The model determines the conditions for development of late blight on potatoes, where treatment may be targeted. A Hutton Criteria occurs when two consecutive days have a minimum temperature of 10�C, and at least six hours of relative humidity at or above 90%.
-    created_by: James Hutton institute, UK. 
-    age: ''
-    assumptions:
-    peer_review: ''
+  description: "Potato blight (also known as late blight) is a disease caused by a\
+    \ fungus-like organism (Phytophthora infestans) that spreads rapidly through the\
+    \ foliage and tubers of potatoes in warm wet weather, causing collapse and decay.\
+    \ The model determines the conditions for development of late blight on potatoes,\
+    \ where treatment may be targeted. A Hutton Criteria occurs when two consecutive\
+    \ days have a minimum temperature of 10�C, and at least six hours of relative\
+    \ humidity at or above 90%.\n\nSOURCE: James Hutton institute, UK.\nASSUMPTIONS:\
+    \ None\nREFERENCE: "
   citation:
   valid_spatial:
     countries:
@@ -848,19 +861,28 @@ models:
       - optionalData.consecutiveDays
   output:
     warning_status_interpretation:
-    - explanation: |-
+    - explanation: |
       recommended_action: ''
-    - explanation: |- 
+    - explanation: |-
         Missing data.
       recommended_action: Review error message.
     - explanation: |-
         Green risk status: Hutton Criteria hasnt been reached. 
-      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate no current risk of pest activity. This model runs July - September. The risk of late blight development in crop is low. Conditions in the crop are currently not suitable potato blight outbreaks. 
-    - explanation: |-
+      recommended_action: This model is currently collecting data to run. Based on
+        current data available, the model results indicate no current risk of pest
+        activity. This model runs July - September. The risk of late blight development
+        in crop is low. Conditions in the crop are currently not suitable potato blight
+        outbreaks.
+    - explanation: |
       recommended_action: ''
     - explanation: |-
         Red risk status: Hutton Criteria has been reached.
-      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate conditions are currently suitable for pest activity. This model runs July - September. The risk of late blight development in crop is high. Conditions in the crop are currently suitable for potato blight outbreaks to occur. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
+      recommended_action: This model is currently collecting data to run. Based on
+        current data available, the model results indicate conditions are currently
+        suitable for pest activity. This model runs July - September. The risk of
+        late blight development in crop is high. Conditions in the crop are currently
+        suitable for potato blight outbreaks to occur. Monitor vulnerable crops for
+        in-field activity and apply suitable treatments according to need.
     chart_heading: Hutton Criteria
     chart_groups:
     - id: G1
@@ -878,6 +900,7 @@ models:
         chart_type: line
         color: orange
 ##########
+  purpose: ''
 - name: Septoria Leaf Blotch Model
   id: SEPTTR
   version: 0.0.1
@@ -894,13 +917,14 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/Help/Api/POST-api-SEPTTR
-  description:
-    other: |
-      The model predicts the presence or absense of a damaging epidemic of septora leaf blotch.  The model is the result of 'window pane' statistical analysis. A damaging epidemic is predicted if the model which is a function of minimum temperature and rainfall is greater than 0. The first variable is daily rainfall above 3mm accumulated in the 80-day period preceding growth stage 31. The second variable is and daily minimum temperature above 0 degrees accumulated in a window that starts 120 days before growth stage 31 and ends 70 days before growth stage 31.
-    created_by: '' 
-    age: ''
-    assumptions:
-    peer_review: ''
+  description: "The model predicts the presence or absense of a damaging epidemic\
+    \ of septora leaf blotch.  The model is the result of 'window pane' statistical\
+    \ analysis. A damaging epidemic is predicted if the model which is a function\
+    \ of minimum temperature and rainfall is greater than 0. The first variable is\
+    \ daily rainfall above 3mm accumulated in the 80-day period preceding growth stage\
+    \ 31. The second variable is and daily minimum temperature above 0 degrees accumulated\
+    \ in a window that starts 120 days before growth stage 31 and ends 70 days before\
+    \ growth stage 31.\n\nSOURCE: \nASSUMPTIONS: None\nREFERENCE: "
   citation:
   valid_spatial:
     countries:
@@ -951,19 +975,28 @@ models:
       - optionalData.rainfallThreshold
   output:
     warning_status_interpretation:
-    - explanation: |-
+    - explanation: |
       recommended_action: ''
-    - explanation: |- 
+    - explanation: |-
         Missing data.
       recommended_action: Review error message.
     - explanation: |-
         Green risk status: Threshold for Septoria Leaf Blotch hasnt been reached.
-      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate no current risk of pest activity. This model runs January - April. The risk of septoria leaf blotch development in crop is low. Conditions in the crop are currently not suitable for septoria leaf blotch outbreaks. 
-    - explanation: |-
+      recommended_action: This model is currently collecting data to run. Based on
+        current data available, the model results indicate no current risk of pest
+        activity. This model runs January - April. The risk of septoria leaf blotch
+        development in crop is low. Conditions in the crop are currently not suitable
+        for septoria leaf blotch outbreaks.
+    - explanation: |
       recommended_action: ''
     - explanation: |-
         Red risk status: Hutton Criteria has been reached.
-      recommended_action: This model is currently collecting data to run. Based on current data available, the model results indicate conditions are currently suitable for pest activity. This model runs January - April. The risk of septoria leaf blotch development in crop is high. Conditions in the crop are currently suitable for septoria leaf blotch outbreaks to occur. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
+      recommended_action: This model is currently collecting data to run. Based on
+        current data available, the model results indicate conditions are currently
+        suitable for pest activity. This model runs January - April. The risk of septoria
+        leaf blotch development in crop is high. Conditions in the crop are currently
+        suitable for septoria leaf blotch outbreaks to occur. Monitor vulnerable crops
+        for in-field activity and apply suitable treatments according to need.
     chart_heading: Septoria Leaf Blotch
     chart_groups:
     - id: G1
@@ -976,7 +1009,8 @@ models:
       # the id is used with the model_id as the namespace
     - id: AccumulatedRainfall
       title: Accumulated Rainfall.
-      description: Daily rainfall above 3mm accumulated in the 80-day period preceding growth stage 31. 
+      description: Daily rainfall above 3mm accumulated in the 80-day period preceding
+        growth stage 31.
       chart_info:
         default_visible: true
         unit: Count
@@ -984,7 +1018,9 @@ models:
         color: blue
     - id: AccumulatedRainfall
       title: Accumulated Temperature
-      description: Daily minimum temperature above 0 degrees accumulated in a window that starts 120 days before growth stage 31 and ends 70 days before growth stage 31.
+      description: Daily minimum temperature above 0 degrees accumulated in a window
+        that starts 120 days before growth stage 31 and ends 70 days before growth
+        stage 31.
       chart_info:
         default_visible: true
         unit: Count
@@ -999,3 +1035,4 @@ models:
         chart_type: line
         color: red
 ##########
+  purpose: ''

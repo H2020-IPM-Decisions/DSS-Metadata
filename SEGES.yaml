@@ -34,28 +34,21 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://www.vips-landbruk.no/forecasts/models/SEPTORIAHU/
-  description:
-    other: |
-      Fuktmodellen er et beslutningsstøtteverktøy for å kunne vurdere risiko for 
-      angrep av hvetebladprikk i høsthvete under danske forhold. Modellen er basert 
-      på antall timer med bladfuktighet. Bladfuktighet er definert som nedbør (0,2 mm) 
-      eller 85 % luftfuktighet i minst 30 min/time målt fra den nærmeste værstasjonen.
-
-      Værdata brukes fra de siste 3 dagene og prognosen for de neste 3 dagene fremover. 
-      I tillegg legges det inn dato for når utviklingsstadium BBCH 31 eller 32 inntreffer. 
-      Modellen beregner forventet dato for de andre utviklingsstadiene, som kan justeres manuelt ved avvik.
-
-      Det er også viktig å legge inn data for evt. gjennomførte sprøytinger. Etter sprøyting med 
-      fungicider som er effektive mot bladflekksjukdommer (*) går modellen ut fra at plantene er 
-      beskyttet i en periode på 10 dager.
-
-      Antall timer med bladfuktighet som utløser et varsel og prosent luftfuktighet som definerer en 
-      fuktig time kan justeres manuelt pga. aktuelle informasjon fra det aktuelle feltet for eksempel 
-      sortsresistens, sjukdomspress i åkeren, forgrøde.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: ''
+  description: "Fuktmodellen er et beslutningsstøtteverktøy for å kunne vurdere risiko\
+    \ for \nangrep av hvetebladprikk i høsthvete under danske forhold. Modellen er\
+    \ basert \npå antall timer med bladfuktighet. Bladfuktighet er definert som nedbør\
+    \ (0,2 mm) \neller 85 % luftfuktighet i minst 30 min/time målt fra den nærmeste\
+    \ værstasjonen.\n\nVærdata brukes fra de siste 3 dagene og prognosen for de neste\
+    \ 3 dagene fremover. \nI tillegg legges det inn dato for når utviklingsstadium\
+    \ BBCH 31 eller 32 inntreffer. \nModellen beregner forventet dato for de andre\
+    \ utviklingsstadiene, som kan justeres manuelt ved avvik.\n\nDet er også viktig\
+    \ å legge inn data for evt. gjennomførte sprøytinger. Etter sprøyting med \nfungicider\
+    \ som er effektive mot bladflekksjukdommer (*) går modellen ut fra at plantene\
+    \ er \nbeskyttet i en periode på 10 dager.\n\nAntall timer med bladfuktighet som\
+    \ utløser et varsel og prosent luftfuktighet som definerer en \nfuktig time kan\
+    \ justeres manuelt pga. aktuelle informasjon fra det aktuelle feltet for eksempel\
+    \ \nsortsresistens, sjukdomspress i åkeren, forgrøde.\n\nSOURCE: \nASSUMPTIONS:\
+    \ \nREFERENCE: "
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -76,11 +69,11 @@ models:
     - parameter_code: 3101 # Leaf wetness
       interval: 3600
     weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-      - determined_by: INPUT_SCHEMA_PROPERTY ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-        value: configParameters.dateGs31 ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
+    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+      value: configParameters.dateGs31   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
     weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-      - determined_by: FIXED_DATE ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-        value: '{CURRENT_YEAR}-12-31' ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
+    - determined_by: FIXED_DATE   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
+      value: '{CURRENT_YEAR}-12-31'   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
   execution:
     type: ONTHEFLY
     endpoint: https://coremanager.vips.nibio.no/models/SEPTORIAHU/run/ipmd
@@ -210,6 +203,7 @@ models:
         unit: Yes/no
         chart_type: spline
         color: '#0000ff'
+  purpose: ''
 - name: CPO model
   id: CPO
   version: '1.0'
@@ -236,53 +230,42 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: TODO
-  description:
-    other: |
-      The system has been developed by Aarhus University and SEGES and covers main diseases and pest in cereal crops.
-      The models have been developed for guidance related to leaf and stem diseases in cereals including
-      winter Wheat, spring barley, winter barley, spring oat, winter triticale and winter rye.
-      The system also includes models for pest control in cereals.
-      The models require information from field registration typically in the period from GS 30-31 to GS 65-71
-      (assessments of frequency of plants attacked) and for some diseases also precipitation is required
-      (days with more than 1 mm rain). Before getting information on need for treatments – information on crop,
-      cultivars susceptibility and growth stage (BBCH) is required.
-
-      The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation
-      or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
-      recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.
-
-      The models have been validated in Denmark and has also been tested in the Baltic and Nordic
-      countries. It is expected to be valid in the northern part of Europe, given that the monitoring part of
-      the system is followed.
-    created_by: ''
-    age: ''
-    assumptions: ''
-    peer_review: |
-      1. Hansen, J.G., Secher, B.J., Jørgensen, LN. & Welling, B. 1994. Threshold for control of
-      Septoria spp. in winter wheat based on precipitation and growth stage. Plant Pathology
-      43, 183-189.
-
-      2. Secher, B.J., Jørgensen, L.N, Murali N.S. & Boll P.S. (1995). Field Validation of a
-      Decision Support System for Control of Pests and Diseases in Cereals in Denmark.
-      Pesticide Science, 45, 195-199.
-
-      3. Henriksen. K.E.; Jørgensen, L.N. & Nielsen, G.C.(2000) PC-Plant Protection –a tool to
-      reduce fungicide input in winter wheat, winter barley and spring barley in Denmark.
-      Brighton Crop Protection Conference. Pest and diseases. 835-840.
-
-      4. Jørgensen, L.N. & Henriksen, K E. (2002) Control of diseases in different winter wheat
-      varieties using thresholds and appropriate dosages. Petria vol 12 (1/2) 87-94
-
-      5. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system for
-      integrated management of diesases and pest s in cereals. EPPO Bulletin 33, 467-471.
-
-      6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A; Anderson, B; Ficke, A., Djule, A
-      (2020) Validation of risk models for control of leaf blotch diseases in wheat in the Nordic and
-      Baltic countries European Journal of Plante Pathology,. https://doi.org/10.1007/si 0658-020-02025-6
-      7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S;
-      Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in different cultivars.
-      Applied Crop Protection 2019.DCA rapport, 167, 58-71.
-      https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
+  description: "The system has been developed by Aarhus University and SEGES and covers\
+    \ main diseases and pest in cereal crops.\nThe models have been developed for\
+    \ guidance related to leaf and stem diseases in cereals including\nwinter Wheat,\
+    \ spring barley, winter barley, spring oat, winter triticale and winter rye.\n\
+    The system also includes models for pest control in cereals.\nThe models require\
+    \ information from field registration typically in the period from GS 30-31 to\
+    \ GS 65-71\n(assessments of frequency of plants attacked) and for some diseases\
+    \ also precipitation is required\n(days with more than 1 mm rain). Before getting\
+    \ information on need for treatments – information on crop,\ncultivars susceptibility\
+    \ and growth stage (BBCH) is required.\n\nThe growers need to check the crops\
+    \ at weekly intervals or as a minimum follow the risk based on precipitation\n\
+    or regional monitoring data for risk evaluation. In the Danish system fungicides\
+    \ and dose rates are\nrecommended. In the IPM-decision system only a recommendation\
+    \ to treat or not to treat is given.\n\nThe models have been validated in Denmark\
+    \ and has also been tested in the Baltic and Nordic\ncountries. It is expected\
+    \ to be valid in the northern part of Europe, given that the monitoring part of\n\
+    the system is followed.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: 1. Hansen, J.G.,\
+    \ Secher, B.J., Jørgensen, LN. & Welling, B. 1994. Threshold for control of\n\
+    Septoria spp. in winter wheat based on precipitation and growth stage. Plant Pathology\n\
+    43, 183-189.\n\n2. Secher, B.J., Jørgensen, L.N, Murali N.S. & Boll P.S. (1995).\
+    \ Field Validation of a\nDecision Support System for Control of Pests and Diseases\
+    \ in Cereals in Denmark.\nPesticide Science, 45, 195-199.\n\n3. Henriksen. K.E.;\
+    \ Jørgensen, L.N. & Nielsen, G.C.(2000) PC-Plant Protection –a tool to\nreduce\
+    \ fungicide input in winter wheat, winter barley and spring barley in Denmark.\n\
+    Brighton Crop Protection Conference. Pest and diseases. 835-840.\n\n4. Jørgensen,\
+    \ L.N. & Henriksen, K E. (2002) Control of diseases in different winter wheat\n\
+    varieties using thresholds and appropriate dosages. Petria vol 12 (1/2) 87-94\n\
+    \n5. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system for\n\
+    integrated management of diesases and pest s in cereals. EPPO Bulletin 33, 467-471.\n\
+    \n6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A; Anderson,\
+    \ B; Ficke, A., Djule, A\n(2020) Validation of risk models for control of leaf\
+    \ blotch diseases in wheat in the Nordic and\nBaltic countries European Journal\
+    \ of Plante Pathology,. https://doi.org/10.1007/si 0658-020-02025-6\n7. Jørgensen,\
+    \ LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S;\nAlmskou-Dahlgaard,\
+    \ A; Kristoffersen, R (2020). Control strategies in different cultivars.\nApplied\
+    \ Crop Protection 2019.DCA rapport, 167, 58-71.\nhttps://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325\n"
   citation:
   valid_spatial:
     # Using country codes to get GeoJSON. Saves a lot of duplication.
@@ -374,3 +357,4 @@ models:
         1 = Treat if other problem needs treatment. 2 = Treat if other problem has
         treatmentId = 2 3 = Need for treatment
 
+  purpose: ''

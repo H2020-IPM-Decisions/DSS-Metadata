@@ -201,7 +201,7 @@ models:
             "type": "object",
             "properties": {
               "temp_threshold1": {"type": "number", "default":"3", "title": "Temperature Threshold Phase 1"},
-              "DD1": {"type": "number", "default":"250, "title": "Degree Day Threshold Phase 1"},
+              "DD1": {"type": "number", "default":"250", "title": "Degree Day Threshold Phase 1"},
               "temp_threshold2": {"type": "number", "default":"13", "title": "Temperature Threshold Phase 2"},
               "rain_threshold2": {"type": "number", "default":"0", "title": "Rainfall Threshold Phase 2"},
               "temp_threshold3": {"type": "number", "default":"7","title": "Temperature Threshold Phase 3"},
@@ -925,7 +925,7 @@ models:
               "type": "object",
               "properties": {
                 "minimumTemperatureThreshold": {"type": "number", "default":"0", "title": "Minimum Temperature Threshold"},
-                "rainfallThreshold": {"type": "number", "default":"90", "title": "Rainfall Threshold"},
+                "rainfallThreshold": {"type": "number", "default":"90", "title": "Rainfall Threshold"}
               }
             }
           },

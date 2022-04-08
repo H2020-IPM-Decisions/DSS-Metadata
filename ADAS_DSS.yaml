@@ -467,9 +467,9 @@ models:
         unit: count
         chart_type: line
         color: green
-##########
   purpose: ''
-- name: Codling Moth Model
+##########
+- name: Codling moth flight model
   id: CARPPO
   version: 0.0.3
   authors:
@@ -486,13 +486,13 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/carppo/Help/Api/POST-api-CARPPO
-  description: "This is a simple risk based DSS for the Codling Moth, Cydia pomonella,\
-    \ based on the work of Damos et al., (2018) in Greece. A 3-paramater non-linear\
-    \ regression model was constructed to fit cumulative moth captures as a function\
-    \ of accumulated day degrees (Biofix 1st January) for all three of the male flights.\n\
-    The model requires minimum and maximum temperature from the 1st of January as\
-    \ an input, and will return the male flight, associated risk and recommended action.\n\
-    \nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
+  description: |
+    THE PEST: Codling moth (Cydia pomonella) cause damage to fruit of apples, pears and other pome fruit. Larvae emerge from eggs laid on the surface of the fruit and burrow inside. The resulting damage can reduce the value of fruit or make the fruit unsellable.  
+    THE DECISION: Typically interventions are more effective at the start of male flight, rather than at peak flight periods.  
+    THE MODEL: A 3-paramater non-linear regression model fits cumulative moth captures as a function of accumulated day degrees for all three of the male flights. 
+    THE PARAMETERS: The model uses minimum and maximum temperature from the 1st of January. 
+    SOURCE: Aristotle University, Greece. 
+    ASSUMPTIONS: There may be three flight periods in southern Europe, one or two in northern europe. Predicted flight does not relate to numbers of codling moth or scale of damage caused.
   citation:
   valid_spatial:
     countries:
@@ -579,33 +579,14 @@ models:
     - explanation: |-
         Missing data.
       recommended_action: Review error message.
-    - explanation: |-
-        This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
-        Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
-        The timing of treatment might need to be adjusted depending on the type of insecticide used. 
-        In southern Europe there can be three flights in a season.     
-        The prediction is about timing and does not predict the number of codling moths.
-        Green warning indicates that cumulative catches are below 10% or above 65% in all the flights.
-      recommended_action: The risk is low, and no action is required but it is recommended
-        to revisit regularly as risk can change rapidly.
-    - explanation: |-
-        This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
-        Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
-        The timing of treatment might need to be adjusted depending on the type of insecticide used. 
-        In southern Europe there can be three flights in a season.     
-        The prediction is about timing and does not predict the number of codling moths.
-        Yellow warning indicates that cumulative catches are between 10% and 35% in at least one of the flights. 
-      recommended_action: The risk is moderate, and you should walk around your field
-        as soon as possible to enable you to make a decision on which action to take.
-    - explanation: |-
-        This decision tool predicts the timing of flights of Cydia pomella (colding moth) to help time insecticide treatment.    
-        Typically it is more effective to treat early in the flight, rather than waiting for the peak of the flight (maximum risk).   
-        The timing of treatment might need to be adjusted depending on the type of insecticide used. 
-        In southern Europe there can be three flights in a season.     
-        The prediction is about timing and does not predict the number of codling moths.
-        Red warning indicates that cumulative catches are between 35% and 65% in at least one of the flights. 
-      recommended_action: The risk is high and you should immediately take a decision
-        for action to manage the pest.
+    - explanation: Based on current data available, the model results indicate low current risk of male codling moth flight.
+      recommended_action: This model runs March - August. Cumulative catches are predicted to be below 10% or above 65% of the  total flights.
+    - explanation: Based on current data available, the model results indicate that conditions may soon be suitable for male codling moth flight.
+      recommended_action: |-
+        The risk of adult codling moth flight activity is increasing, which indicates that egg laying will soon occur on vulnerable fruit. Cumulative catches are predicted to be between 10% and 35% of the total flights. Increasing monitoring efforts in vulnerable crops, and apply suitable treatment according to need.
+    - explanation: This model is currently collecting data to run. Based on current data available, the model results indicate conditions are currently suitable for male codling moth flight.
+      recommended_action: |-
+        This model runs March - August. The risk of adult codling moth flight activity is high, which indicates that egg laying will soon occur on vulnerable fruit. Cumulative catches are between 35% and 65% of total flights. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need.
     chart_heading: Cumulative Captures
     chart_groups:
     - id: G1
@@ -642,9 +623,9 @@ models:
         unit: Count
         chart_type: line
         color: blue
+  purpose: Estimates risk of flight and egg laying in pome fruit
 ###########
-  purpose: ''
-- name: TSUM Model
+- name: BYDV TSUM model
   id: RHOPPA
   version: 0.0.1
   authors:
@@ -661,11 +642,13 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/Help/Api/POST-api-RHOPPA
-  description: "This is a simple risk DSS for predicting BYDV risk from aphids. Second\
-    \ generation aphids move away from the plant originally colonised and are therefore\
-    \ likely to be a greater risk. \n\nSOURCE: \nASSUMPTIONS: Second generation aphids\
-    \ are likely to be present when the accumulated daily air temperatures, above\
-    \ a baseline temperature of 3 degrees, reached T-Sum 170.\nREFERENCE: "
+  description: |
+    THE PEST: Aphids can transmit barley/cereal yellow dwarf viruses (BYDV). Initially, aphids colonise relatively few crop plants. However, the second-generation (winged aphids) tends to move away from the plant originally colonised. Controlling this generation is a key part of a BYDV management strategy. 
+    THE DECISION: Treatment may need to be applied where widespread emergence of BYDV carrying winged aphids is likely.   
+    THE MODEL: The winged aphids are likely to be present when the accumulated daily air temperatures, above a baseline temperature of 3ºC, reaches T-Sum 170. 
+    THE PARAMETERS: The model uses Date of last spray application, daily temperature 
+    SOURCE: AHDB, UK. 
+    ASSUMPTIONS: Need to specify crop (winter wheat or winter barley), and provide dates of any insecticide applications made to the crop. Treatment only required where a high proportion of aphids are carrying BYDV.
   citation:
   valid_spatial:
     countries:
@@ -726,20 +709,14 @@ models:
     - explanation: |-
         Missing data.
       recommended_action: Review error message.
-    - explanation: |-
-        Green risk status: T-SUM is below 50. Low risk of spread of BYDV in crops at this time. 
-      recommended_action: Review risk status every 7 days during vulnerable crop growth
-        stages regularly as risk conditions can change rapidly.
-    - explanation: |-
-        Yellow risk status: T-SUM is between 50 and 100. 
-      recommended_action: Review risk status within next 3 days. Field inspections
-        recommended within the next 3-5 days to assess aphid infestations and consider
-        treatment where winged aphids are easily found.
-    - explanation: |-
-        Red risk status: T-SUM is 100 and over.
-      recommended_action: Review risk status daily. Field inspections recommended
-        within the next 1-3 days to assess aphid infestations and consider treatment
-        where winged aphids are easily found.
+    - explanation: Based on current data available, the model results indicate low current risk of winged aphids spreading BYDV in crops.
+      recommended_action: This model runs September - March. Update parameters when any insecticide applications are made.
+    - explanation: Based on current data available, conditions are approaching 170 day-degrees over a base of 3*C.
+      recommended_action: |-
+        The risk of winged aphids being present in the crop is increasing, and may occur in following 3-5 days. Increasing monitoring efforts in vulnerable crops, and apply suitable treatment according to need.Update parameters when any insecticide applications are made.
+    - explanation: Based on current data available, conditions have reasch or are above 170 day-degrees over a base of 3*C.
+      recommended_action: |-
+        The risk of winged aphids being present in the crop is high, winged aphids likely to be present in crop in coming days.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. Update parameters when any insecticide applications are made.
     chart_heading: TSUM Model
     chart_groups:
     - id: G1
@@ -783,9 +760,9 @@ models:
         unit: Count
         chart_type: line
         color: blue
+  purpose: Estimates risk of transmission of virus by aphid vectors
 ##########
-  purpose: ''
-- name: Hutton Criteria Model
+- name: Hutton Criteria Late Blight Model
   id: CHOACU
   version: 0.0.1
   authors:
@@ -801,14 +778,13 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/Help/Api/POST-api-CHOACU
-  description: "Potato blight (also known as late blight) is a disease caused by a\
-    \ fungus-like organism (Phytophthora infestans) that spreads rapidly through the\
-    \ foliage and tubers of potatoes in warm wet weather, causing collapse and decay.\
-    \ The model determines the conditions for development of late blight on potatoes,\
-    \ where treatment may be targeted. A Hutton Criteria occurs when two consecutive\
-    \ days have a minimum temperature of 10�C, and at least six hours of relative\
-    \ humidity at or above 90%.\n\nSOURCE: James Hutton institute, UK.\nASSUMPTIONS:\
-    \ None\nREFERENCE: "
+  description: |
+    THE PEST: Potato late blight is a disease caused by a fungus-like organism (Phytophthora infestans) that spreads rapidly in the potato crop canopy and can also infect tubers. 
+    THE DECISION: The model determines when weather conditions create high risk of infection, to guide targeting of fungicide treatment. 
+    THE MODEL: A high risk 'Hutton Criteria' period occurs when two consecutive days have a minimum temperature of 10°C, and at least six hours of relative humidity at or above 90%. 
+    THE PARAMETERS: The model uses daily air temperature and humidity 
+    SOURCE: James Hutton institute, UK. Introduced in the UK for the 2017 season. Dancey et al. 2017 16th Euroblight workshop. 
+    ASSUMPTIONS: The model does not account for higher temperatures or humidity which may occur under crop covers.
   citation:
   valid_spatial:
     countries:
@@ -861,28 +837,17 @@ models:
       - optionalData.consecutiveDays
   output:
     warning_status_interpretation:
-    - explanation: |
-      recommended_action: ''
+    - explanation: 
+      recommended_action: 
     - explanation: |-
         Missing data.
       recommended_action: Review error message.
-    - explanation: |-
-        Green risk status: Hutton Criteria hasnt been reached. 
-      recommended_action: This model is currently collecting data to run. Based on
-        current data available, the model results indicate no current risk of pest
-        activity. This model runs July - September. The risk of late blight development
-        in crop is low. Conditions in the crop are currently not suitable potato blight
-        outbreaks.
-    - explanation: |
-      recommended_action: ''
-    - explanation: |-
-        Red risk status: Hutton Criteria has been reached.
-      recommended_action: This model is currently collecting data to run. Based on
-        current data available, the model results indicate conditions are currently
-        suitable for pest activity. This model runs July - September. The risk of
-        late blight development in crop is high. Conditions in the crop are currently
-        suitable for potato blight outbreaks to occur. Monitor vulnerable crops for
-        in-field activity and apply suitable treatments according to need.
+    - explanation: Based on current weather data, the model indicates low blight risk. The risk will be updated each day as more weather data becomes available.
+      recommended_action: This model runs during the potato growng season. Continue to check for risk updates  and monitor crops for late blight.
+    - explanation: 
+      recommended_action: 
+    - explanation: Based on current weather data, the model indicates high blight risk. The risk will be updated each day as more weather data becomes available.
+      recommended_action: This model runs during the potato growing season. Weather conditions are currently suitable for potato late blight outbreaks. Monitor potato crops and apply fungicide treatments against late blight, according to need.
     chart_heading: Hutton Criteria
     chart_groups:
     - id: G1
@@ -917,14 +882,13 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/Help/Api/POST-api-SEPTTR
-  description: "The model predicts the presence or absense of a damaging epidemic\
-    \ of septora leaf blotch.  The model is the result of 'window pane' statistical\
-    \ analysis. A damaging epidemic is predicted if the model which is a function\
-    \ of minimum temperature and rainfall is greater than 0. The first variable is\
-    \ daily rainfall above 3mm accumulated in the 80-day period preceding growth stage\
-    \ 31. The second variable is and daily minimum temperature above 0 degrees accumulated\
-    \ in a window that starts 120 days before growth stage 31 and ends 70 days before\
-    \ growth stage 31.\n\nSOURCE: \nASSUMPTIONS: None\nREFERENCE: "
+  description: |
+    THE PEST: Septoria tritici blotch (Zymoseptoria tritici) affects the leaves of wheat crops and is particularly damaging to yield when it reduces the green canopy area of the upper leaves during grain filling.   
+    THE DECISION: Fungicide treatment to protect the upper leaves may need to be applied between stem extension and ear emergence, before symptoms are visible on those leaves.  
+    THE MODEL: At stem extension (growth stage 31) the model uses over-winter weather to estimate the potential for a damaging epidemic developing during the summer. This information can support treatment decisions.  It should be considered along with other risk factors, particularly: septoria resistance of the wheat variety, sowing date, location and weather conditions during the emergence of the upper leaves.  
+    THE PARAMETERS: the model uses data on minimum temperature and rainfall over-winter.  
+    SOURCE:  Rothamsted Research, UK. The model was developed, tested and published in 2009 and has not been implemented until 2022. te Beest et al. 2009 European Journal of Plant Pathology; te Beest et al. (2009) Plant Pathology.  
+    ASSUMPTIONS: The model provides an early estimate of the potential for an epidemic and should be interpreted in combination with other risk factors.
   citation:
   valid_spatial:
     countries:
@@ -975,28 +939,17 @@ models:
       - optionalData.rainfallThreshold
   output:
     warning_status_interpretation:
-    - explanation: |
+    - explanation: 
       recommended_action: ''
-    - explanation: |-
+    - explanation: 
         Missing data.
       recommended_action: Review error message.
-    - explanation: |-
-        Green risk status: Threshold for Septoria Leaf Blotch hasnt been reached.
-      recommended_action: This model is currently collecting data to run. Based on
-        current data available, the model results indicate no current risk of pest
-        activity. This model runs January - April. The risk of septoria leaf blotch
-        development in crop is low. Conditions in the crop are currently not suitable
-        for septoria leaf blotch outbreaks.
-    - explanation: |
+    - explanation: Based on over-winter weather, there is low potential for a damaging septoria tritici blotch epidemic.  
+      recommended_action: Despite the low potential, a damaging epidemic could still occur, particularly on early sown crops of septoria susceptible varieties, if conditions are favourable for the disease during spring/summer
+    - explanation: 
       recommended_action: ''
-    - explanation: |-
-        Red risk status: Hutton Criteria has been reached.
-      recommended_action: This model is currently collecting data to run. Based on
-        current data available, the model results indicate conditions are currently
-        suitable for pest activity. This model runs January - April. The risk of septoria
-        leaf blotch development in crop is high. Conditions in the crop are currently
-        suitable for septoria leaf blotch outbreaks to occur. Monitor vulnerable crops
-        for in-field activity and apply suitable treatments according to need.
+    - explanation: Based on over-winter weather, there is high potential for a damaging septoria tritici blotch epidemic.
+      recommended_action: Whether this high potential for an epidemic is realised will depend on other risk factors, particularly date of sowing, the susceptibility of the wheat variety and weather conditions during spring/summer.
     chart_heading: Septoria Leaf Blotch
     chart_groups:
     - id: G1
@@ -1034,5 +987,4 @@ models:
         unit: Count
         chart_type: line
         color: red
-##########
-  purpose: ''
+  purpose: Estimates potential for septoria epidemics 

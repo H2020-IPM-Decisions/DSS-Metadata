@@ -34,21 +34,13 @@ models:
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
   description_URL: https://www.vips-landbruk.no/forecasts/models/SEPTORIAHU/
-  description: "Fuktmodellen er et beslutningsstøtteverktøy for å kunne vurdere risiko\
-    \ for \nangrep av hvetebladprikk i høsthvete under danske forhold. Modellen er\
-    \ basert \npå antall timer med bladfuktighet. Bladfuktighet er definert som nedbør\
-    \ (0,2 mm) \neller 85 % luftfuktighet i minst 30 min/time målt fra den nærmeste\
-    \ værstasjonen.\n\nVærdata brukes fra de siste 3 dagene og prognosen for de neste\
-    \ 3 dagene fremover. \nI tillegg legges det inn dato for når utviklingsstadium\
-    \ BBCH 31 eller 32 inntreffer. \nModellen beregner forventet dato for de andre\
-    \ utviklingsstadiene, som kan justeres manuelt ved avvik.\n\nDet er også viktig\
-    \ å legge inn data for evt. gjennomførte sprøytinger. Etter sprøyting med \nfungicider\
-    \ som er effektive mot bladflekksjukdommer (*) går modellen ut fra at plantene\
-    \ er \nbeskyttet i en periode på 10 dager.\n\nAntall timer med bladfuktighet som\
-    \ utløser et varsel og prosent luftfuktighet som definerer en \nfuktig time kan\
-    \ justeres manuelt pga. aktuelle informasjon fra det aktuelle feltet for eksempel\
-    \ \nsortsresistens, sjukdomspress i åkeren, forgrøde.\n\nSOURCE: \nASSUMPTIONS:\
-    \ \nREFERENCE: "
+  description: |
+    THE PEST: Leaf blotch diseases of wheat can be caused by septoria tritici blotch (Zymoseptoria tritici) and staganospora nodorum blotch (Parastagonospora nodorum), which are both  favoured by wet conditions. 
+    THE DECISION: Fungicide treatments may need to be applied between stem extension and ear emergence, mainly to protect the upper leaves.  
+    THE MODEL: The humidity model estimates risk of septoria tritici blotch infections in winter wheat. Risk of attack is assumed after 20 hours with continuous wetness. A wet hour is defined as minimum 0,2 mm precipitation in an hour or minimum 85% relative humidity. 
+    THE PARAMETERS: Weather data from GS 31 are used. In addition, the dates of occurrence of growth stages 31 and 32 are entered. The model calculates the expected date for the other stages. This can be adjusted manually. Adding information on fungicide spraying dates is vital for the model. After spraying, the model assumes that the crop is protected for 10 days. The thresholds for number of wet hours and relative humidity can be adjusted manually.  
+    SOURCE: Created by Aahus University and SEGES and released in Denmark in 2017. Tested in Lithuania, Norway, Sweden, Finland and Denmark in 2018 and 2019. 
+    ASSUMPTIONS: septoria tritici blotch is present and periods with high humidity create risk for a damaging epidemic
   citation:      # Optional. Use the DOI as identifier (list)
   # Where has this model been considered valid
   valid_spatial:
@@ -133,26 +125,22 @@ models:
     # The input template should adhere to the JSON Schema standard: https://json-schema.org/
   output:
     warning_status_interpretation:
+    - explanation: No warning/out of season
+      recommended_action: No action needed
+    - explanation: Missing data
+      recommended_action: Consult your advisory service
     - explanation: |-
-        Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område og direkte 
-        bekjempingstiltak skal vurderes pga. økt infeksjonsrisiko. 
-      recommended_action: ''
-    - explanation: |-
-        Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område og direkte 
-        bekjempingstiltak skal vurderes pga. økt infeksjonsrisiko. 
-      recommended_action: ''
-    - explanation: |-
-        Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område og direkte 
-        bekjempingstiltak skal vurderes pga. økt infeksjonsrisiko. 
-      recommended_action: ''
-    - explanation: |-
-        Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område og direkte 
-        bekjempingstiltak skal vurderes pga. økt infeksjonsrisiko. 
-      recommended_action: ''
-    - explanation: |-
-        Når antall timer med bladfuktighet i en mottakelig sort nærmer seg 20, vil risikokurven gå over i et rødt område og direkte 
-        bekjempingstiltak skal vurderes pga. økt infeksjonsrisiko. 
-      recommended_action: ''
+        Based on current observations entered and weather data, the risk of septoria is low.
+        This model runs March-June.  
+      recommended_action: Continue to check for risk updates and monitor crops. Update crop growth stage and date of fungicide applications through the season
+    - explanation: Based on current observations entered and weather data, the risk of septoria is moderate.
+      recommended_action: |-
+        If the threshold of 20 hours humidity is not  exceeded, but other diseases are assessed to also cause a risk and the crop has not been treated in the last ten days, choose an effective fungicide which also covers  control of septoria. 
+        This model runs March-June.  Continue to check for risk updates and monitor crops. Update  crop growth stage and date of fungicide applications through the season.
+    - explanation: Based on current observations entered and weather data, the risk of septoria is high.
+      recommended_action: |-
+        If the crop has not been treated against septoria in the last ten days, treat according to need. Choice of fungicides depends on the general disease risk. Apart from effectiveness on septoria the product should also account for other risk factors/diseases.
+        This model runs March-June.  Continue to check for risk updates and monitor crops. Update crop growth stage and  date of fungicide applications through the season.
     chart_heading: Septoria humidity model in wheat
     chart_groups:
     - id: G1
@@ -203,7 +191,7 @@ models:
         unit: Yes/no
         chart_type: spline
         color: '#0000ff'
-  purpose: ''
+  purpose: Estimates risk of septoria
 - name: CPO model
   id: CPO
   version: '1.0'

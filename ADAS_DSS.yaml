@@ -477,7 +477,7 @@ models:
     email: petrosdamos@gmail.com
     organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture,
       Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
-  platform_validated: false
+  platform_validated: true
   pests:
   - CARPPO
   crops:
@@ -769,7 +769,7 @@ models:
   - name: James Hutton
     email: NA
     organization: James Hutton institute, UK.
-  platform_validated: false
+  platform_validated: true
   pests:
   - CHOACU
   crops:
@@ -873,7 +873,7 @@ models:
   - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch
     email: NA
     organization: NA
-  platform_validated: false
+  platform_validated: true
   pests:
   - CHOACU
   crops:

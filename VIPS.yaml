@@ -106,13 +106,19 @@ models:
         Data is missing
       recommended_action: Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 260 degree-days
     - explanation: |-
-        The flight period has not yet begun.
+        Based on current data available, the model results indicate low risk of carrot fly flight.
+        
+        This model runs April - September. 
       recommended_action: No action needed. Consider deploying yellow sticky traps in your fields when 260 degree-days is approching.
     - explanation: |-
-        The flight period is beginning and flies can be coming into the field.
+        Based on current data available, conditions are approaching 260 day-degrees over a base of 5*C.
+
+        The risk of adult carrot fly flight activity is increasing, which indicates that egg laying will soon occur on vulnerable carrot crops.  Increase monitoring efforts in vulnerable crops, and apply suitable treatment according to need.
       recommended_action: Deploy yellow sticky traps in your fields if not already done. Consult your advisory service.
     - explanation: |-
-        Peak flight period for 1st generation.
+        The threshold of 260 day-degrees over a base of 5*C has been reached.
+
+        The risk of adult carrot fly flight activity is high, which indicates that egg laying will soon occur on vulnerable carrot crops.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
       recommended_action: Consult your advisory service. Consider action to protect your crop based on observations in your own field.
     chart_heading: Accumulated day degrees
     chart_groups:
@@ -245,16 +251,23 @@ models:
     - explanation:         Data is missing
       recommended_action: |-
         Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 140 degree-days (10 cm soil temperature) or 185 degree-days (air temperature).
-    - explanation: The flight period has not yet begun and oviposition is not expected
+    - explanation: |-
+        Based on current data available, the model results indicate low current risk of cabbage fly flight.
+      
+        This model runs April - September.
       recommended_action: |-
         No action needed. Be aware that in areas with field covers (plastic,  single or double non-woven covers,
         etc.) with early crops the preceding season (either on the current field or neighboring fields),
         the flight period can start earlier due to higher soil temperature under the covers.
     - explanation: |-
-        The flight period is beginning and that the first oviposition is close. 
+        Based on current data available, air temperatures are approaching 210 day-degrees over a base of 4*C.
+        
+        The risk of adult cabbage root fly flight activity is increasing, which indicates that egg laying will soon occur on vulnerable brassica crops.  Increase monitoring efforts in vulnerable crops, and apply suitable treatment according to need.
       recommended_action: Check for eggs in the field. Consult your advisory service.
     - explanation: |-
-        The requirement for the flight period has been reached. It is likely that oviposition has begun.
+        The threshold of air temperature of 210 day-degrees over a base of 4*C has been reached.
+
+        The risk of adult cabbage root fly flight activity is high, it is likely that egg laying has begun on vulnerable brassica crops.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
       recommended_action: Consult your advisory service. Consider action to protect your crop based on observations in your own field.
     chart_heading: Day degrees
     chart_groups:

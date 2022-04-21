@@ -887,8 +887,8 @@ models:
     THE DECISION: Fungicide treatment to protect the upper leaves may need to be applied between stem extension and ear emergence, before symptoms are visible on those leaves.  
     THE MODEL: At stem extension (growth stage 31) the model uses over-winter weather to estimate the potential for a damaging epidemic developing during the summer. This information can support treatment decisions.  It should be considered along with other risk factors, particularly: septoria resistance of the wheat variety, sowing date, location and weather conditions during the emergence of the upper leaves.  
     THE PARAMETERS: the model uses data on minimum temperature and rainfall over-winter.  
-    SOURCE:  Rothamsted Research, UK. The model was developed, tested and published in 2009 and has not been implemented until 2022. te Beest et al. 2009 European Journal of Plant Pathology; te Beest et al. (2009) Plant Pathology.  
-    ASSUMPTIONS: The model provides an early estimate of the potential for an epidemic and should be interpreted in combination with other risk factors.
+    SOURCE:  Rothamsted Research, UK. The model was developed, tested and published in 2009 and has not been implemented previously. te Beest et al. 2009 European Journal of Plant Pathology; te Beest et al. (2009) Plant Pathology.  
+    ASSUMPTIONS: The model provides an early estimate of the potential for an epidemic and should be interpreted in combination with other risk factors. "
   citation:
   valid_spatial:
     countries:
@@ -944,11 +944,11 @@ models:
     - explanation: 
         Missing data.
       recommended_action: Review error message.
-    - explanation: Based on over-winter weather, there is low potential for a damaging septoria tritici blotch epidemic.  
-      recommended_action: Despite the low potential, a damaging epidemic could still occur, particularly on early sown crops of septoria susceptible varieties, if conditions are favourable for the disease during spring/summer
+    - explanation: Based on over-winter weather, there is low potential for a damaging septoria tritici blotch epidemic. 
+      recommended_action: Despite the low potential, a damaging epidemic could still occur, particularly on early sown crops of septoria susceptible varieties, if conditions are favourable for the disease during spring/summer 
     - explanation: 
       recommended_action: ''
-    - explanation: Based on over-winter weather, there is high potential for a damaging septoria tritici blotch epidemic.
+    - explanation: Based on over-winter weather, there is high potential for a damaging septoria tritici blotch epidemic. 
       recommended_action: Whether this high potential for an epidemic is realised will depend on other risk factors, particularly date of sowing, the susceptibility of the wheat variety and weather conditions during spring/summer.
     chart_heading: Septoria Leaf Blotch
     chart_groups:

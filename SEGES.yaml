@@ -130,17 +130,16 @@ models:
     - explanation: Missing data
       recommended_action: Consult your advisory service
     - explanation: |-
-        Based on current observations entered and weather data, the risk of septoria is low.
-        This model runs March-June.  
+        Based on current observations entered and weather data, the risk of septoria is low. This model runs March-June.  Continue to check for risk updates and monitor crops. Update crop growth stage and date of fungicide applications through the season
       recommended_action: Continue to check for risk updates and monitor crops. Update crop growth stage and date of fungicide applications through the season
-    - explanation: Based on current observations entered and weather data, the risk of septoria is moderate.
+    - explanation: Based on current observations entered and weather data, the risk of septoria is moderate. 
       recommended_action: |-
         If the threshold of 20 hours humidity is not  exceeded, but other diseases are assessed to also cause a risk and the crop has not been treated in the last ten days, choose an effective fungicide which also covers  control of septoria. 
-        This model runs March-June.  Continue to check for risk updates and monitor crops. Update  crop growth stage and date of fungicide applications through the season.
-    - explanation: Based on current observations entered and weather data, the risk of septoria is high.
+        This model runs March-June.  Continue to check for risk updates and monitor crops. Update  crop growth stage and date of fungicide applications through the season
+    - explanation: Based on current observations entered and weather data, the risk of septoria is high. 
       recommended_action: |-
         If the crop has not been treated against septoria in the last ten days, treat according to need. Choice of fungicides depends on the general disease risk. Apart from effectiveness on septoria the product should also account for other risk factors/diseases.
-        This model runs March-June.  Continue to check for risk updates and monitor crops. Update crop growth stage and  date of fungicide applications through the season.
+        This model runs March-June.  Continue to check for risk updates and monitor crops. Update crop growth stage and  date of fungicide applications through the season
     chart_heading: Septoria humidity model in wheat
     chart_groups:
     - id: G1

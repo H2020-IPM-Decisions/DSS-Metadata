@@ -661,12 +661,12 @@ models:
       interval: 3600
     weather_data_period_start:
     - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalParameters.startDate
+      value: optionalData.startDate
     - determined_by: FIXED_DATE
       value: '{PREVIOUS_YEAR}-10-01'
     weather_data_period_end:
     - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalParameters.endDate
+      value: optionalData.endDate
     - determined_by: FIXED_DATE
       value: '{CURRENT_YEAR}-03-31'
   execution:

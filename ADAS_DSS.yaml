@@ -862,8 +862,8 @@ models:
         unit: Count
         chart_type: line
         color: orange
+  purpose: Estimates risk of late blight
 ##########
-  purpose: ''
 - name: Septoria Leaf Blotch Model
   id: SEPTTR
   version: 0.0.1

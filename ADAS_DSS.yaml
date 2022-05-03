@@ -668,7 +668,7 @@ models:
     - determined_by: INPUT_SCHEMA_PROPERTY
       value: optionalData.endDate
     - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-03-31'
+      value: '{CURRENT_YEAR}-06-30'  #'{CURRENT_YEAR}-03-31'
   execution:
     type: ONTHEFLY
     endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/api/RHOPPA
@@ -904,7 +904,7 @@ models:
       value: '{CURRENT_YEAR}-01-01'
     weather_data_period_end:
     - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-04-30'
+      value: '{CURRENT_YEAR}-06-30' #'{CURRENT_YEAR}-04-30'
   execution:
     type: ONTHEFLY
     endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/api/SEPTTR

@@ -1,133 +1,63 @@
-"KEY";"default"
-"dk.seges.1_1.models.CPO.description";"The system has been developed by Aarhus University and SEGES and covers main diseases and pest in cereal crops.
-The models have been developed for guidance related to leaf and stem diseases in cereals including
-winter Wheat, spring barley, winter barley, spring oat, winter triticale and winter rye.
-The system also includes models for pest control in cereals.
-The models require information from field registration typically in the period from GS 30-31 to GS 65-71
-(assessments of frequency of plants attacked) and for some diseases also precipitation is required
-(days with more than 1 mm rain). Before getting information on need for treatments – information on crop,
-cultivars susceptibility and growth stage (BBCH) is required.
-
-The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation
-or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
-recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.
-
-The models have been validated in Denmark and has also been tested in the Baltic and Nordic
-countries. It is expected to be valid in the northern part of Europe, given that the monitoring part of
-the system is followed.
-
-SOURCE: 
-ASSUMPTIONS: 
-REFERENCE: 1. Hansen, J.G., Secher, B.J., Jørgensen, LN. & Welling, B. 1994. Threshold for control of
-Septoria spp. in winter wheat based on precipitation and growth stage. Plant Pathology
-43, 183-189.
-
-2. Secher, B.J., Jørgensen, L.N, Murali N.S. & Boll P.S. (1995). Field Validation of a
-Decision Support System for Control of Pests and Diseases in Cereals in Denmark.
-Pesticide Science, 45, 195-199.
-
-3. Henriksen. K.E.; Jørgensen, L.N. & Nielsen, G.C.(2000) PC-Plant Protection –a tool to
-reduce fungicide input in winter wheat, winter barley and spring barley in Denmark.
-Brighton Crop Protection Conference. Pest and diseases. 835-840.
-
-4. Jørgensen, L.N. & Henriksen, K E. (2002) Control of diseases in different winter wheat
-varieties using thresholds and appropriate dosages. Petria vol 12 (1/2) 87-94
-
-5. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system for
-integrated management of diesases and pest s in cereals. EPPO Bulletin 33, 467-471.
-
-6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A; Anderson, B; Ficke, A., Djule, A
-(2020) Validation of risk models for control of leaf blotch diseases in wheat in the Nordic and
-Baltic countries European Journal of Plante Pathology,. https://doi.org/10.1007/si 0658-020-02025-6
-7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S;
-Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in different cultivars.
-Applied Crop Protection 2019.DCA rapport, 167, 58-71.
-https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
-"
-"dk.seges.1_1.models.CPO.execution.input_schema.properties.GrowthStage.title";"Growth stage"
-"dk.seges.1_1.models.CPO.execution.input_schema.properties.Severity.title";"Severity (% infected plants). 0=0%, 1=1-5%,2=6-10%,3=11-100%"
-"dk.seges.1_1.models.CPO.execution.input_schema.properties.Susceptibility.title";"Susceptibility"
-"dk.seges.1_1.models.CPO.name";"CPO model"
-"dk.seges.1_1.models.CPO.output.chart_heading";""
-"dk.seges.1_1.models.CPO.output.result_parameters.TREATMENT_ID.description";"The CPO's traffic light counterpart. 0 = No need for treatment. 1 = Treat if other problem needs treatment. 2 = Treat if other problem has treatmentId = 2 3 = Need for treatment"
-"dk.seges.1_1.models.CPO.output.result_parameters.TREATMENT_ID.title";"The risk assessment"
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.0.explanation";"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
-precipitation
-or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
-recommended. In the IPM-decision system only a recommendation to treat or not to treat is given."
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.0.recommended_action";""
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.1.explanation";"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
-precipitation
-or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
-recommended. In the IPM-decision system only a recommendation to treat or not to treat is given."
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.1.recommended_action";""
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.2.explanation";"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
-precipitation
-or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
-recommended. In the IPM-decision system only a recommendation to treat or not to treat is given."
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.2.recommended_action";""
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.3.explanation";"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
-precipitation
-or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
-recommended. In the IPM-decision system only a recommendation to treat or not to treat is given."
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.3.recommended_action";""
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.4.explanation";"The growers need to check the crops at weekly intervals or as a minimum follow the risk based on
-precipitation
-or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are
-recommended. In the IPM-decision system only a recommendation to treat or not to treat is given."
-"dk.seges.1_1.models.CPO.output.warning_status_interpretation.4.recommended_action";""
-"dk.seges.1_1.models.SEPTORIAHU.description";"THE PEST: Leaf blotch diseases of wheat can be caused by septoria tritici blotch (Zymoseptoria tritici) and staganospora nodorum blotch (Parastagonospora nodorum), which are both  favoured by wet conditions. 
+KEY;default;de
+dk.seges.1_1.models.SEPTORIAHU.description;"THE PEST: Leaf blotch diseases of wheat can be caused by septoria tritici blotch (Zymoseptoria tritici) and staganospora nodorum blotch (Parastagonospora nodorum), which are both  favoured by wet conditions. 
 THE DECISION: Fungicide treatments may need to be applied between stem extension and ear emergence, mainly to protect the upper leaves.  
 THE MODEL: The humidity model estimates risk of septoria tritici blotch infections in winter wheat. Risk of attack is assumed after 20 hours with continuous wetness. A wet hour is defined as minimum 0,2 mm precipitation in an hour or minimum 85% relative humidity. 
 THE PARAMETERS: Weather data from GS 31 are used. In addition, the dates of occurrence of growth stages 31 and 32 are entered. The model calculates the expected date for the other stages. This can be adjusted manually. Adding information on fungicide spraying dates is vital for the model. After spraying, the model assumes that the crop is protected for 10 days. The thresholds for number of wet hours and relative humidity can be adjusted manually.  
 SOURCE: Created by Aahus University and SEGES and released in Denmark in 2017. Tested in Lithuania, Norway, Sweden, Finland and Denmark in 2018 and 2019. 
 ASSUMPTIONS: septoria tritici blotch is present and periods with high humidity create risk for a damaging epidemic
-"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.date2ndUpperLeafEmerging.title";"Date of 2nd upper leaf emerging (GS33) (YYYY-MM-DD)"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.date3rdUpperLeafEmerging.title";"Date of 3rd upper leaf emerging (GS32) (YYYY-MM-DD)"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateGs31.title";"Date of growth stage 31 (YYYY-MM-DD)"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateGs75.title";"Date of all kernels fully developed (GS75) (YYYY-MM-DD)"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateSpraying1.title";"Date of first spraying"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateSpraying2.title";"Date of second spraying"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateUpperLeafEmerging.title";"Date of upper leaf emerging (GS37-39) (YYYY-MM-DD)"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.leafLifeTime.title";"Expected life time of a leaf (in days)"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.slidingHoursAhead.title";"Number of hours to consider after current hour"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.slidingHoursPast.title";"Number of hours to consider before current hour"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.sprayingProtectionDays.title";"Number of days the crop is protected"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdHumidPeriodHours.title";"Threshold number of hours for a 'wet period'"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdLeafWetness.title";"Threshold Leaf wetness for wet hour"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdPrecipitation.title";"Threshold precipitation for wet hour"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdRelativeHumidity.title";"Threshold RH for wet hour"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.timeZone.title";"Time zone (e.g. Europe/Oslo)"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.title";"Configuration parameters"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.modelId.description";"Must be SEPTORIAHU"
-"dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.modelId.title";"Model Id"
-"dk.seges.1_1.models.SEPTORIAHU.name";"Septoria Humidity Model"
-"dk.seges.1_1.models.SEPTORIAHU.output.chart_groups.G1.title";"Disease development"
-"dk.seges.1_1.models.SEPTORIAHU.output.chart_heading";"Septoria humidity model in wheat"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HH.description";"Current hour is humid hour? 1 = true, 0 = false"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HH.title";"Current hour is humid hour? 1 = true, 0 = false"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HHS.description";"Humid hour sum for sliding middle"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HHS.title";"Humid hour sum for sliding middle"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPH.description";"Humid period hour (consecutive humid hours)"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPH.title";"Humid period hour (consecutive humid hours)"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPHPP.description";"Humid period hour (consecutive humid hours) corrected for protection period"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPHPP.title";"Humid period hour (consecutive humid hours) corrected for protection period"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.SPP.description";"Indicates the protection period after spraying"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.SPP.title";"Crop is protected after spraying"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.THPHPP.description";"Threshold for consecutive humid hours"
-"dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.THPHPP.title";"Threshold for consecutive humid hours"
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.0.explanation";"No warning/out of season"
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.0.recommended_action";"No action needed"
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.1.explanation";"Missing data"
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.1.recommended_action";"Consult your advisory service"
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.2.explanation";"Based on current observations entered and weather data, the risk of septoria is low.
-This model runs March-June.  "
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.2.recommended_action";"Continue to check for risk updates and monitor crops. Update crop growth stage and date of fungicide applications through the season"
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.3.explanation";"Based on current observations entered and weather data, the risk of septoria is moderate."
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.3.recommended_action";"If the threshold of 20 hours humidity is not  exceeded, but other diseases are assessed to also cause a risk and the crop has not been treated in the last ten days, choose an effective fungicide which also covers  control of septoria. 
-This model runs March-June.  Continue to check for risk updates and monitor crops. Update  crop growth stage and date of fungicide applications through the season."
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.4.explanation";"Based on current observations entered and weather data, the risk of septoria is high."
-"dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.4.recommended_action";"If the crop has not been treated against septoria in the last ten days, treat according to need. Choice of fungicides depends on the general disease risk. Apart from effectiveness on septoria the product should also account for other risk factors/diseases.
-This model runs March-June.  Continue to check for risk updates and monitor crops. Update crop growth stage and  date of fungicide applications through the season."
-"dk.seges.1_1.name";"SEGES/AU DSS models"
+";"SCHADERREGER: Blattfleckenkrankheiten bei Weizen können durch die Septoria-Blattdürre (Zymoseptoria tritici) und die Blatt-und Spelzenbräune  (Parastagonospora nodorum) verursacht werden, die beide durch feuchte Bedingungen begünstigt werden. 
+ENTSCHEIDUNG: Möglicherweise müssen Fungizidbehandlungen zwischen dem Schossen und dem Ährenschieben durchgeführt werden, vor allem um die oberen Blätter zu schützen.  
+MODELL: Das Feuchtigkeitsmodell schätzt das Risiko einer Septoria tritici-Infektion bei Winterweizen. Das Risiko eines Befalls wird nach 20 Stunden mit kontinuierlicher Nässe angenommen. Eine feuchte Stunde ist definiert als mindestens 0,2 mm Niederschlag in einer Stunde oder mindestens 85 % relative Luftfeuchtigkeit. 
+PARAMETER: Es werden  Wetterdaten ab BBCH 31 verwendet. Außerdem werden die Termine für das Erreichen von BBCH 31 und BBCH 32  eingegeben. Das Modell errechnet den voraussichtlichen Zeitpunkt für die anderen Stadien. Dieser kann manuell angepasst werden. Das Hinzufügen von Informationen über Fungizid-Spritztermine ist für das Modell unerlässlich. Nach dem Spritzen geht das Modell davon aus, dass die Kultur für 10 Tage geschützt ist. Die Schwellenwerte für die Anzahl der feuchten Stunden und die relative Luftfeuchtigkeit können manuell angepasst werden.  
+QUELLE: Von der Aahus Universität und SEGES entwickelt und 2017 in Dänemark veröffentlicht. Getestet in Litauen, Norwegen, Schweden, Finnland und Dänemark in den Jahren 2018 und 2019. 
+ANNAHMEN: Die Septoria tritici ist vorhanden und Perioden mit hoher Luftfeuchtigkeit schaffen ein Risiko für eine schädigende Epidemie."
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.date2ndUpperLeafEmerging.title;Date of 2nd upper leaf emerging (GS33) (YYYY-MM-DD);Datum des Drei-Knoten-Stadiums (BBCH 33) (JJJJ-MM-TT)
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.date3rdUpperLeafEmerging.title;Date of 3rd upper leaf emerging (GS32) (YYYY-MM-DD);Datum des Zwei-Knoten-Stadiums (BBCH 32) (JJJJ-MM-TT)
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateGs31.title;Date of growth stage 31 (YYYY-MM-DD);Datum des Ein-Knoten-Stadiums (BBCH 31) (JJJJ-MM-TT)
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateGs75.title;Date of all kernels fully developed (GS75) (YYYY-MM-DD);Datum Mitte Milchreife (BBCH 75) (JJJJ-MM-TT)
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateSpraying1.title;Date of first spraying;Datum der ersten Behandlung
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateSpraying2.title;Date of second spraying;Datum der zweiten Behandlung
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.dateUpperLeafEmerging.title;Date of upper leaf emerging (GS37-39) (YYYY-MM-DD);Datum des Erscheinens des Fahnenblattes (BBCH 37-39) (JJJJ-MM-TT)
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.leafLifeTime.title;Expected life time of a leaf (in days);Erwartete Lebensdauer eines Blattes (in Tagen)
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.slidingHoursAhead.title;Number of hours to consider after current hour;Anzahl der zu berücksichtigenden Stunden nach der aktuellen Stunde
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.slidingHoursPast.title;Number of hours to consider before current hour;Anzahl der zu berücksichtigenden Stunden vor der aktuellen Stunde
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.sprayingProtectionDays.title;Number of days the crop is protected;Anzahl der Tage, an denen die Kultur geschützt ist
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdHumidPeriodHours.title;Threshold number of hours for a 'wet period';Schwellenwert für die Anzahl der Stunden für eine 'feuchte Periode'
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdLeafWetness.title;Threshold Leaf wetness for wet hour;Schwellenwert Blattnässe für eine feuchte Stunde
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdPrecipitation.title;Threshold precipitation for wet hour;Schwellenwert Niederschlag für eine feuchte Stunde
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.thresholdRelativeHumidity.title;Threshold RH for wet hour;Schwellenwert relative Luftfeuchte für eine feuchte Stunde
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Zeitzone (z. B. Europa/Oslo)
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurationsparameter
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.modelId.description;Must be SEPTORIAHU;Muss SEPTORIAHU sein
+dk.seges.1_1.models.SEPTORIAHU.execution.input_schema.properties.modelId.title;Model Id;Modell-ID
+dk.seges.1_1.models.SEPTORIAHU.name;Septoria Humidity Model;Septoria-Feuchtigkeitsmodell
+dk.seges.1_1.models.SEPTORIAHU.output.chart_groups.G1.title;Disease development;Krankheitsentwicklung
+dk.seges.1_1.models.SEPTORIAHU.output.chart_heading;Septoria humidity model in wheat;Septoria-Feuchtigkeitsmodell für Weizen
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HH.description;Current hour is humid hour? 1 = true, 0 = false;Aktuelle Stunde ist feuchte Stunde? 1 = wahr, 0 = falsch
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HH.title;Current hour is humid hour? 1 = true, 0 = false;Aktuelle Stunde ist feuchte Stunde? 1 = wahr, 0 = falsch
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HHS.description;Humid hour sum for sliding middle;Summe feuchter Stunden für das gleitende Mittel
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HHS.title;Humid hour sum for sliding middle;Summe feuchter Stunden für das gleitende Mittel
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPH.description;Humid period hour (consecutive humid hours);Feuchte Periodenstunde (aufeinanderfolgende feuchte Stunden)
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPH.title;Humid period hour (consecutive humid hours);Feuchte Periodenstunde (aufeinanderfolgende feuchte Stunden)
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPHPP.description;Humid period hour (consecutive humid hours) corrected for protection period;Feuchte Periodenstunde (aufeinanderfolgende feuchte Stunden), korrigiert um die Dauer der Schutzwirkung
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.HPHPP.title;Humid period hour (consecutive humid hours) corrected for protection period;Feuchte Periodenstunde (aufeinanderfolgende feuchte Stunden), korrigiert um die Dauer der Schutzwirkung
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.SPP.description;Indicates the protection period after spraying;Gibt die Dauer der Schutzwirkung nach der Behandlung an
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.SPP.title;Crop is protected after spraying;Die Kultur ist nach einer Behandlung geschützt
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.THPHPP.description;Threshold for consecutive humid hours;Schwellenwert für aufeinanderfolgende feuchte Stunden
+dk.seges.1_1.models.SEPTORIAHU.output.result_parameters.THPHPP.title;Threshold for consecutive humid hours;Schwellenwert für aufeinanderfolgende feuchte Stunden
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.0.explanation;No warning/out of season;Keine Warnung/außerhalb der Saison
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.0.recommended_action;No action needed;Keine Maßnahmen erforderlich
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.1.explanation;Missing data;Fehlende Daten
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.1.recommended_action;Consult your advisory service;Wenden Sie sich an Ihren Beratungsdienst
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.2.explanation;Based on current observations entered and weather data, the risk of septoria is low. This model runs March-June.  Continue to check for risk updates and monitor crops. Update crop growth stage and date of fungicide applications through the season;Auf der Grundlage der eingegebenen aktuellen Beobachtungen und Wetterdaten ist das Risiko von Septoria gering. Dieses Modell läuft von März bis Juni.  Prüfen Sie weiterhin auf Risikoaktualisierungen und überwachen Sie die Kulturen. Aktualisieren Sie das Entwicklungsstadium der Pflanzen und das Datum der Fungizidanwendungen während der Saison.
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.2.recommended_action;Continue to check for risk updates and monitor crops. Update crop growth stage and date of fungicide applications through the season;Prüfen Sie weiterhin, ob die Risiken aktualisiert wurden, und überwachen Sie die Kulturen. Aktualisieren Sie das Entwicklungsstadium der Pflanzen und das Datum der Fungizidanwendungen während der Saison
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.3.explanation;Based on current observations entered and weather data, the risk of septoria is moderate.;Auf der Grundlage der aktuell eingegebenen Beobachtungen und Wetterdaten besteht ein mittleres Septoria-Risiko.
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.3.recommended_action;"If the threshold of 20 hours humidity is not  exceeded, but other diseases are assessed to also cause a risk and the crop has not been treated in the last ten days, choose an effective fungicide which also covers  control of septoria. 
+This model runs March-June.  Continue to check for risk updates and monitor crops. Update  crop growth stage and date of fungicide applications through the season";"Wenn der Schwellenwert von 20 Stunden Luftfeuchtigkeit nicht überschritten wird, aber andere Krankheiten ebenfalls ein Risiko darstellen und die Kultur in den letzten zehn Tagen nicht behandelt wurde, wählen Sie ein wirksames Fungizid, das auch die Bekämpfung von Septoria abdeckt. 
+Dieses Modell läuft von März bis Juni.  Prüfen Sie weiterhin, ob das Risiko aktualisiert wurde, und überwachen Sie die Kulturen. Aktualisieren Sie das Entwicklungsstadium der Pflanzen und das Datum der Fungizidanwendungen während der Saison."
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.4.explanation;Based on current observations entered and weather data, the risk of septoria is high.;Auf der Grundlage der aktuell eingegebenen Beobachtungen und Wetterdaten besteht ein hohes Septoria-Risiko.
+dk.seges.1_1.models.SEPTORIAHU.output.warning_status_interpretation.4.recommended_action;"If the crop has not been treated against septoria in the last ten days, treat according to need. Choice of fungicides depends on the general disease risk. Apart from effectiveness on septoria the product should also account for other risk factors/diseases.
+This model runs March-June.  Continue to check for risk updates and monitor crops. Update crop growth stage and  date of fungicide applications through the season";"Wurde die Kultur in den letzten zehn Tagen nicht gegen Septoria behandelt, ist eine Behandlung je nach Bedarf durchzuführen. Die Wahl der Fungizide richtet sich nach dem allgemeinen Krankheitsrisiko. Neben der Wirksamkeit gegen Septoria sollte das Produkt auch andere Risikofaktoren/Krankheiten berücksichtigen. 
+Dieses Modell läuft von März bis Juni.  Achten Sie weiterhin auf Aktualisierungen des Risikos und überwachen Sie die Kulturen. Aktualisieren Sie das Entwicklungsstadium der Pflanzen und das Datum der Fungizidanwendungen während der Saison."
+dk.seges.1_1.models.SEPTORIAHU.purpose;Estimates risk of septoria;Schätzt das Septoria-Risiko
+dk.seges.1_1.name;SEGES/AU DSS models;SEGES/AU EHS-Modelle

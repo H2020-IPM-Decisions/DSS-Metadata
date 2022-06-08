@@ -24,8 +24,8 @@ models:
   pests:
   - DASGPA
   crops:
-  - 3LETC
-  - 3BEEC
+  - LACSA
+  - BEAVX
   - SOLTU
   - BEAVV
   - BRSRR
@@ -35,7 +35,7 @@ models:
   - ALLCE
   - ALLPO
   - CICIN
-  - 1ASPG
+  - ASPOF
   - APUGV
   - LYPES
   - FRAAN

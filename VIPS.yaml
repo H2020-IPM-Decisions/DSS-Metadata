@@ -1418,7 +1418,11 @@ models:
   pests:
   - BREMLA # EPPO code for Downy mildew of lettuce
   crops:
-  - 1LACG # EPPO code for the genus Lactuca
+  - LACSA # Lactuca sativa
+  - LACSC # Lactuca sativa var. capitata
+  - LACSP # Lactuca sativa var. crispa
+  - LACSO # Lactuca sativa var. longifolia
+  - LACSE # Lactuca serriola
   keywords: none
   type_of_decision: Short-term tactical
   type_of_output: Risk indication

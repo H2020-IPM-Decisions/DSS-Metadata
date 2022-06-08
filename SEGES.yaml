@@ -29,7 +29,8 @@ models:
   - LEPTNO # Parastagonospora nodorum
   - PYRNTR # Pyrenophora tritici-repentis
   crops:
-  - 3WHEC # Wheat crops
+  - TRZAW # Winter wheat
+  - TRZAS # Spring wheat
   keywords: none
   type_of_decision: Short-term tactical
   type_of_output: Risk indication

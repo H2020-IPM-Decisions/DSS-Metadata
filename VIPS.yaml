@@ -181,6 +181,79 @@ models:
   - HYLERA # EPPO code for Cabbage Fly
   crops:
   - 1BRSG # EPPO code for the Brassica Genus
+  - BRSBL # Brassica balearica
+  - BRSBA # Brassica barrelieri
+  - BRSBO # Brassica bourgeaui
+  - BRSCA # Brassica carinata
+  - BRSCR # Brassica cretica
+  - BRSEL # Brassica elongata
+  - BRSEI # Brassica elongata subsp. integrifolia
+  - BRSFR # Brassica fruticulosa
+  - BRSGR # Brassica gravinae
+  - BRSHI # Brassica hilarionis
+  - BRSIN # Brassica incana
+  - BRSIS # Brassica insularis
+  - BRSJU # Brassica juncea
+  - BRSJC # Brassica juncea var. crispifolia
+  - BRSJJ # Brassica juncea var. japonica
+  - BRSJN # Brassica juncea var. napiformis
+  - BRSJR # Brassica juncea var. rugosa
+  - BRSMK # Brassica macrocarpa
+  - BRSMO # Brassica montana
+  - BRSNN # Brassica napus
+  - BRSNA # Brassica napus subsp. rapifera
+  - BRSNP # Brassica napus var. pabularia
+  - BRSNR # Brassica narinosa
+  - BRSNI # Brassica nigra
+  - BRSOX # Brassica oleracea
+  - BRSOP # Brassica oleracea var. acephala subvar. planta
+  - BRSAG # Brassica oleracea var. alboglabra
+  - BRSOB # Brassica oleracea var. botrytis
+  - BRSOL # Brassica oleracea var. capitata
+  - BRSOH # Brassica oleracea var. capitata f. alba
+  - BRSON # Brassica oleracea var. capitata f. conica
+  - BRSOR # Brassica oleracea var. capitata f. rubra
+  - BRSOD # Brassica oleracea var. costata
+  - BRSOF # Brassica oleracea var. gemmifera
+  - BRSOG # Brassica oleracea var. gongylodes
+  - BRSOK # Brassica oleracea var. italica
+  - BRSOO # Brassica oleracea var. longata
+  - BRSOM # Brassica oleracea var. medullosa
+  - BRSOI # Brassica oleracea var. palmifolia
+  - BRSOQ # Brassica oleracea var. ramosa
+  - BRSOS # Brassica oleracea var. sabauda
+  - BRSOT # Brassica oleracea var. sabauda subvar. fimbriata
+  - BRSOC # Brassica oleracea var. sabellica
+  - BRSSG # Brassica oleracea var. sabellica x var. gemmifera
+  - BRSOA # Brassica oleracea var. viridis
+  - BRSXY # Brassica oxyrrhina
+  - BRSPE # Brassica perviridis
+  - BRSPR # Brassica procumbens
+  - BRSRR # Brassica rapa
+  - BRSCH # Brassica rapa subsp. chinensis
+  - BRSNO # Brassica rapa subsp. nipposinica
+  - BRSRO # Brassica rapa subsp. oleifera
+  - BRSCC # Brassica rapa subsp. oleifera x subsp. chinensis
+  - BRSPK # Brassica rapa subsp. pekinensis
+  - BRSRA # Brassica rapa subsp. sylvestris
+  - BRSCF # Brassica rapa var. chinoleifera
+  - BRSRD # Brassica rapa var. dichotoma
+  - BRSRE # Brassica rapa var. esculenta
+  - BRSRG # Brassica rapa var. glabra
+  - BRSRS # Brassica rapa var. sarson
+  - BRSRT # Brassica rapa var. toria
+  - BRSRP # Brassica rapa x Brassica rapa subsp. pekinensis
+  - BRSRQ # Brassica repanda
+  - BRSGA # Brassica repanda subsp. galissieri
+  - BRSSX # Brassica repanda subsp. saxatilis
+  - BRSRU # Brassica rupestris
+  - BRSRW # Brassica ruvo
+  - BRSSE # Brassica septiceps
+  - BRSSO # Brassica souliei
+  - BRSSS # Brassica sp.
+  - BRSSQ # Brassica spinescens
+  - BRSTO # Brassica tournefortii
+  - BRSVI # Brassica villosa
   keywords: none
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
@@ -349,6 +422,79 @@ models:
   - BARABR # EPPO code for Cabbage Moth
   crops:
   - 1BRSG # EPPO code for the Brassica Genus
+  - BRSBL # Brassica balearica
+  - BRSBA # Brassica barrelieri
+  - BRSBO # Brassica bourgeaui
+  - BRSCA # Brassica carinata
+  - BRSCR # Brassica cretica
+  - BRSEL # Brassica elongata
+  - BRSEI # Brassica elongata subsp. integrifolia
+  - BRSFR # Brassica fruticulosa
+  - BRSGR # Brassica gravinae
+  - BRSHI # Brassica hilarionis
+  - BRSIN # Brassica incana
+  - BRSIS # Brassica insularis
+  - BRSJU # Brassica juncea
+  - BRSJC # Brassica juncea var. crispifolia
+  - BRSJJ # Brassica juncea var. japonica
+  - BRSJN # Brassica juncea var. napiformis
+  - BRSJR # Brassica juncea var. rugosa
+  - BRSMK # Brassica macrocarpa
+  - BRSMO # Brassica montana
+  - BRSNN # Brassica napus
+  - BRSNA # Brassica napus subsp. rapifera
+  - BRSNP # Brassica napus var. pabularia
+  - BRSNR # Brassica narinosa
+  - BRSNI # Brassica nigra
+  - BRSOX # Brassica oleracea
+  - BRSOP # Brassica oleracea var. acephala subvar. planta
+  - BRSAG # Brassica oleracea var. alboglabra
+  - BRSOB # Brassica oleracea var. botrytis
+  - BRSOL # Brassica oleracea var. capitata
+  - BRSOH # Brassica oleracea var. capitata f. alba
+  - BRSON # Brassica oleracea var. capitata f. conica
+  - BRSOR # Brassica oleracea var. capitata f. rubra
+  - BRSOD # Brassica oleracea var. costata
+  - BRSOF # Brassica oleracea var. gemmifera
+  - BRSOG # Brassica oleracea var. gongylodes
+  - BRSOK # Brassica oleracea var. italica
+  - BRSOO # Brassica oleracea var. longata
+  - BRSOM # Brassica oleracea var. medullosa
+  - BRSOI # Brassica oleracea var. palmifolia
+  - BRSOQ # Brassica oleracea var. ramosa
+  - BRSOS # Brassica oleracea var. sabauda
+  - BRSOT # Brassica oleracea var. sabauda subvar. fimbriata
+  - BRSOC # Brassica oleracea var. sabellica
+  - BRSSG # Brassica oleracea var. sabellica x var. gemmifera
+  - BRSOA # Brassica oleracea var. viridis
+  - BRSXY # Brassica oxyrrhina
+  - BRSPE # Brassica perviridis
+  - BRSPR # Brassica procumbens
+  - BRSRR # Brassica rapa
+  - BRSCH # Brassica rapa subsp. chinensis
+  - BRSNO # Brassica rapa subsp. nipposinica
+  - BRSRO # Brassica rapa subsp. oleifera
+  - BRSCC # Brassica rapa subsp. oleifera x subsp. chinensis
+  - BRSPK # Brassica rapa subsp. pekinensis
+  - BRSRA # Brassica rapa subsp. sylvestris
+  - BRSCF # Brassica rapa var. chinoleifera
+  - BRSRD # Brassica rapa var. dichotoma
+  - BRSRE # Brassica rapa var. esculenta
+  - BRSRG # Brassica rapa var. glabra
+  - BRSRS # Brassica rapa var. sarson
+  - BRSRT # Brassica rapa var. toria
+  - BRSRP # Brassica rapa x Brassica rapa subsp. pekinensis
+  - BRSRQ # Brassica repanda
+  - BRSGA # Brassica repanda subsp. galissieri
+  - BRSSX # Brassica repanda subsp. saxatilis
+  - BRSRU # Brassica rupestris
+  - BRSRW # Brassica ruvo
+  - BRSSE # Brassica septiceps
+  - BRSSO # Brassica souliei
+  - BRSSS # Brassica sp.
+  - BRSSQ # Brassica spinescens
+  - BRSTO # Brassica tournefortii
+  - BRSVI # Brassica villosa
   keywords: none
   type_of_decision: Short-term tactical
   type_of_output: Risk indication

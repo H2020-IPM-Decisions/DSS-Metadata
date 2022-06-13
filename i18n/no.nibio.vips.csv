@@ -1,4 +1,4 @@
-KEY;default;de
+KEY;default;de;sl
 no.nibio.vips.2_0.models.DELIARADIC.description;"THE PEST: Cabbage root fly larvae feed on the roots of brassicas, with damage being dependant on the crop type, growth stage and growing conditions. The cabbage root fly adults begin to lay eggs 5-7 days after emergence.  Newly transplanted or recently emerged crops are most at risk as the root systems are less developed. 
 THE DECISION: Treatments may need to be applied soon after adults arrive in the crop, before subsequent larvae tunnel into the crop roots.  
 THE MODEL: The model determins the start of egg laying as 160 degree-days (day-degrees) based on soil temperature (10 cm), over a base of temperature of 4 °C), OR based on the standard air temperature (2 m above the soil surface) at the same locations, egg laying starts at 210 degree days. 
@@ -10,55 +10,69 @@ ENTSCHEIDUNG: Möglicherweise müssen Behandlungen kurz nach dem Auftreten der e
 MODELL: Das Modell bestimmt den Beginn der Eiablage als 160 Grad-Tage (Tagesgrade) auf der Grundlage der Bodentemperatur (10 cm), über einer Basistemperatur von 4 °C), ODER auf der Grundlage der Standardlufttemperatur (2 m über der Bodenoberfläche) an denselben Standorten, wobei die Eiablage bei 210 Grad-Tagen beginnt. 
 PARAMETER: Das Modell verwendet die tägliche Boden- ODER Lufttemperatur 
 QUELLE: NIBIO, Norwegen. 
-ANNAHMEN: Es ist zu beachten, dass in Gebieten mit Feldabdeckungen (Plastik, einfache oder doppelte Vliesabdeckungen usw.) mit frühen Ernten in der vorangegangenen Saison (entweder auf dem aktuellen Feld oder auf benachbarten Feldern) die Flugzeit aufgrund der höheren Bodentemperatur unter den Abdeckungen früher beginnen kann. Dieses Modell sollte in Verbindung mit direkten Beobachtungen der Eier auf dem Feld verwendet werden. Der Grund dafür ist die große Variabilität und die Möglichkeit, sich ein Bild von der Schwere des Befalls zu machen. Das Modell gilt nur für die Kohlfliege, nicht für die Rübenfliege."
-no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeEnd.title;End date of calculation (YYYY-MM-DD);Enddatum der Berechnung (JJJJ-MM-TT)
-no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeStart.title;Start date of calculation (YYYY-MM-DD);Startdatum der Berechnung (JJJJ-MM-TT)
-no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Zeitzone (z. B. Europa/Oslo)
-no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurationsparameter
-no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.description;Must be DELIARADIC;Muss DELIARADIC sein
-no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.title;Model Id;Modell-ID
-no.nibio.vips.2_0.models.DELIARADIC.name;Cabbage fly flight model (Scandinavia);Modell zum Flug der Kohlfliege (Skandinavien)
-no.nibio.vips.2_0.models.DELIARADIC.output.chart_groups.G1.title;Day degrees;Gradtage
-no.nibio.vips.2_0.models.DELIARADIC.output.chart_heading;Day degrees;Gradtage
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.description;The accumulated soil temperature day degrees with a base temperature of 4 degrees celcius;Die akkumulierten Bodentemperatur-Gradtage mit einer Basistemperatur von 4 Grad Celsius
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.title;Accumulated soil temperature day degrees;Akkumulierte Bodentemperatur-Gradtage
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.description;When this threshold is reached, the flight period is beginning and the first oviposition is close;Wenn diese Schwelle erreicht ist, beginnt die Flugphase und die erste Eiablage steht kurz bevor.
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.title;Lower threshold value for TJM10DD4C;Unterer Schwellenwert für TJM10DD4C
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.description;When this threshold is reached, it is likely that oviposition has begun.;Wenn diese Schwelle erreicht ist, hat die Eiablage wahrscheinlich begonnen.
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.title;Upper threshold value for TJM10DD4C;Oberer Schwellenwert für TJM10DD4C
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.description;The accumulated soil temperature day degrees with a base temperature of 4 degrees celcius;Die akkumulierte Bodentemperatur-Gradtage mit einer Basistemperatur von 4 Grad Celsius
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.title;Accumulated air temperature day degrees;Akkumulierte Lufttemperatur-Gradtage
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.description;When this threshold is reached, the flight period is beginning and the first oviposition is close;Wenn diese Schwelle erreicht ist, beginnt die Flugphase und die erste Eiablage steht kurz bevor.
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.title;Lower threshold value for TMDD4C;Unterer Schwellenwert für TMDD4C
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.description;When this threshold is reached, it is likely that oviposition has begun.;Wenn diese Schwelle erreicht ist, hat die Eiablage wahrscheinlich begonnen.
-no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.title;Upper threshold value for TMDD4C;Oberer Schwellenwert für TMDD4C
-no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.explanation;The flight period is over.;Die Flugzeit ist vorbei.
-no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.recommended_action;No action needed;Keine Maßnahmen erforderlich
-no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.explanation;Data is missing;Es fehlen Daten
-no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.recommended_action;Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 140 degree-days (10 cm soil temperature) or 185 degree-days (air temperature).;Wenden Sie sich an Ihren Beratungsdienst, wenn die vorangegangenen Warnungen gelb/rot waren oder wenn die kumulierten Gradtage nahe bei 140 Gradtagen (10 cm Bodentemperatur) oder 185 Gradtagen (Lufttemperatur) lagen.
+ANNAHMEN: Es ist zu beachten, dass in Gebieten mit Feldabdeckungen (Plastik, einfache oder doppelte Vliesabdeckungen usw.) mit frühen Ernten in der vorangegangenen Saison (entweder auf dem aktuellen Feld oder auf benachbarten Feldern) die Flugzeit aufgrund der höheren Bodentemperatur unter den Abdeckungen früher beginnen kann. Dieses Modell sollte in Verbindung mit direkten Beobachtungen der Eier auf dem Feld verwendet werden. Der Grund dafür ist die große Variabilität und die Möglichkeit, sich ein Bild von der Schwere des Befalls zu machen. Das Modell gilt nur für die Kohlfliege, nicht für die Rübenfliege.";"ŠKODLJIV ORGANIZEM: Ličinke kapusove muhe (Delia radicum) se hranijo s koreninami kapusnic, pri čemer je škoda odvisna od vrste pridelka, fenofaze in rastnih razmer. Odrasli osebki kapusove muhe začnejo odlagati jajčeca 5-7 dni po pojavu. Zaradi slabše razvitosti koreninskega sistema so najbolj ogroženi  novo presajeni ali nedavno vznikli posevki. 
+ODLOČITEV: Zatiranje kapusove muhe bo morda potrebno kmalu po prihodu odraslih osebkov v posevek, preden se ličinke zajedajo v korenine posevka.  
+MODEL: Model določa začetek odlaganja jajčec kot 160 stopinjskih dni na podlagi temperature tal (10 cm) nad temperaturo 4 °C ALI na podlagi standardne temperature zraka (2 m nad tlemi) na istih lokacijah se odlaganje jajčec začne pri 210 stopinjskih dneh. 
+PARAMETRI: Model uporablja dnevno temperaturo tal ALI zraka 
+VIR: NIBIO, Norveška. 
+PREDPOSTAVKE: Na območjih s pkoritimi pridelovalnimi površinami (s plastiko, enojna ali dvojna pokrivala iz netkanega materiala itd.) z zgodnjimi pridelki v prejšnji sezoni (na trenutnem polju ali na sosednjih poljih) obdobje leta lahko začne prej zaradi višje temperature tal pod prekrivali. Ta model je treba uporabljati v kombinaciji z neposrednimi opazovanji jajčec na polju. Razlog za to je velika variabilnost in občutku o resnosti napada. Model velja samo za kapusovo muho (Delia radicum), ne pa tudi za redkvino muho (Delia floralis)."
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeEnd.title;End date of calculation (YYYY-MM-DD);Enddatum der Berechnung (JJJJ-MM-TT);Končni datum izračuna (LLLL-MM-DD)
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeStart.title;Start date of calculation (YYYY-MM-DD);Startdatum der Berechnung (JJJJ-MM-TT);Datum začetka izračuna (LLLL-MM-DD)
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Zeitzone (z. B. Europa/Oslo);Časovni pas (npr. Evropa/Oslo)
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurationsparameter;Nastavitev parametrov
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.description;Must be DELIARADIC;Muss DELIARADIC sein;Mora biti DELIARADIC
+no.nibio.vips.2_0.models.DELIARADIC.execution.input_schema.properties.modelId.title;Model Id;Modell-ID;Ime modela
+no.nibio.vips.2_0.models.DELIARADIC.name;Cabbage fly flight model (Scandinavia);Modell zum Flug der Kohlfliege (Skandinavien);Model leta kapusove muhe (Skandinavija)
+no.nibio.vips.2_0.models.DELIARADIC.output.chart_groups.G1.title;Day degrees;Gradtage;Stopinjski dnevi
+no.nibio.vips.2_0.models.DELIARADIC.output.chart_heading;Day degrees;Gradtage;Stopinjski dnevi
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.description;The accumulated soil temperature day degrees with a base temperature of 4 degrees celcius;Die akkumulierten Bodentemperatur-Gradtage mit einer Basistemperatur von 4 Grad Celsius;Akumulirana temperatura tal v stopinjskih dneh nad temperaturo 4°C
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4C.title;Accumulated soil temperature day degrees;Akkumulierte Bodentemperatur-Gradtage;Akumulirana temperatura tal v stopinjskih dneh
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.description;When this threshold is reached, the flight period is beginning and the first oviposition is close;Wenn diese Schwelle erreicht ist, beginnt die Flugphase und die erste Eiablage steht kurz bevor.;Ko je ta prag dosežen, se začne obdobje letenja in kmalu bo sledilo prvo odlaganje jajčec.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CLT.title;Lower threshold value for TJM10DD4C;Unterer Schwellenwert für TJM10DD4C;Spodnja mejna vrednost za TJM10DD4C
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.description;When this threshold is reached, it is likely that oviposition has begun.;Wenn diese Schwelle erreicht ist, hat die Eiablage wahrscheinlich begonnen.;Ko je ta mejna vrednost dosežena, se je odlaganje jajčec verjetno začelo. 
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TJM10DD4CUT.title;Upper threshold value for TJM10DD4C;Oberer Schwellenwert für TJM10DD4C;Zgornja mejna vrednost za TJM10DD4C
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.description;The accumulated soil temperature day degrees with a base temperature of 4 degrees celcius;Die akkumulierte Bodentemperatur-Gradtage mit einer Basistemperatur von 4 Grad Celsius;Akumulirana  temperatura tal v stopinskih dnh nad temperaturo 4 °C.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4C.title;Accumulated air temperature day degrees;Akkumulierte Lufttemperatur-Gradtage;Akumulirana  temperatura zraka v stopinjskih dneh
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.description;When this threshold is reached, the flight period is beginning and the first oviposition is close;Wenn diese Schwelle erreicht ist, beginnt die Flugphase und die erste Eiablage steht kurz bevor.;Ko je ta mejna vrednost dosežena, se začenja obdobje letenja in prvo odlaganje jajčec je blizu.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CLT.title;Lower threshold value for TMDD4C;Unterer Schwellenwert für TMDD4C;Spodnja mejna vrednost za TMDD4C
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.description;When this threshold is reached, it is likely that oviposition has begun.;Wenn diese Schwelle erreicht ist, hat die Eiablage wahrscheinlich begonnen.;Ko je ta mejna vrednost dosežena, se je verjetno začelo odlaganje jajčec.
+no.nibio.vips.2_0.models.DELIARADIC.output.result_parameters.TMDD4CUT.title;Upper threshold value for TMDD4C;Oberer Schwellenwert für TMDD4C;Zgornja mejna vrednost za TMDD4C
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.explanation;The flight period is over.;Die Flugzeit ist vorbei.;Obdobje letenja je končano.
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.0.recommended_action;No action needed;Keine Maßnahmen erforderlich;Ukrepanje ni potrebno
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.explanation;Data is missing;Es fehlen Daten;Podatki manjkajo
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.1.recommended_action;Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 140 degree-days (10 cm soil temperature) or 185 degree-days (air temperature).;Wenden Sie sich an Ihren Beratungsdienst, wenn die vorangegangenen Warnungen gelb/rot waren oder wenn die kumulierten Gradtage nahe bei 140 Gradtagen (10 cm Bodentemperatur) oder 185 Gradtagen (Lufttemperatur) lagen.;Posvetujte se s svetovalno službo, če so bila predhodna opozorila rumena/rdeča ali če je bilo število zbranih stopinjskih dni blizu 140 stopinjskih dni (temperatura tal na globini 10 cm) ali 185 stopinjskih dni (temperatura zraka).
 no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.2.explanation;"Based on current data available, the model results indicate low current risk of cabbage fly flight.
 
 This model runs April - September.";"Auf der Grundlage der aktuell verfügbaren Daten deuten die Modellergebnisse auf ein derzeit geringes Risiko des Kohlfliegenfluges hin. 
 
-Dieses Modell läuft von April bis September."
+Dieses Modell läuft von April bis September.";"Na podlagi trenutno razpoložljivih podatkov rezultati modela kažejo na nizko trenutno tveganje za let kapusove muhe.
+
+
+
+Ta model deluje od aprila do septembra."
 no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.2.recommended_action;"No action needed. Be aware that in areas with field covers (plastic,  single or double non-woven covers,
 etc.) with early crops the preceding season (either on the current field or neighboring fields),
 the flight period can start earlier due to higher soil temperature under the covers.";"Keine Maßnahmen erforderlich. Beachten Sie, dass in Gebieten mit Feldabdeckungen (Kunststoff-, Einzel- oder Doppelvliesabdeckungen 
 usw.) mit frühen Ernten in der vorangegangenen Saison (entweder auf dem aktuellen Feld oder auf benachbarten Feldern) 
-die Flugzeit aufgrund der höheren Bodentemperatur unter den Abdeckungen früher beginnen kann."
+die Flugzeit aufgrund der höheren Bodentemperatur unter den Abdeckungen früher beginnen kann.";"Ukrepanje ni potrebno. Na pridelovalnih površinah, ki so pokrite (s plastično filijo, enojnimi ali dvojniimi pokrovi iz netkanega tekstila, itd.) z zgodnjimi posevki v prejšnji sezoni (na trenutnem polju ali sosednjih poljih),
+se lahko obdobje letenja začne prej zaradi višje temperature tal pod folijo."
 no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.3.explanation;"Based on current data available, air temperatures are approaching 210 day-degrees over a base of 4*C.
 
 The risk of adult cabbage root fly flight activity is increasing, which indicates that egg laying will soon occur on vulnerable brassica crops.  Increase monitoring efforts in vulnerable crops, and apply suitable treatment according to need.";"Nach den derzeit verfügbaren Daten nähern sich die Lufttemperaturen 210 Gradtagen bei einer Basis von 4*C.
 
-Das Risiko der Flugaktivität der erwachsenen Kohlfliege nimmt zu, was darauf hindeutet, dass die Eiablage in gefährdeten Brassica-Kulturen bald stattfinden wird.  Erhöhen Sie die Überwachungsmaßnahmen in gefährdeten Kulturen und wenden Sie je nach Bedarf eine geeignete Behandlung an."
-no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.3.recommended_action;Check for eggs in the field. Consult your advisory service.;Prüfen Sie auf dem Feld nach Eiern. Wenden Sie sich an Ihren Beratungsdienst.
+Das Risiko der Flugaktivität der erwachsenen Kohlfliege nimmt zu, was darauf hindeutet, dass die Eiablage in gefährdeten Brassica-Kulturen bald stattfinden wird.  Erhöhen Sie die Überwachungsmaßnahmen in gefährdeten Kulturen und wenden Sie je nach Bedarf eine geeignete Behandlung an.";"Na podlagi trenutno razpoložljivih podatkov se temperature zraka približujejo 210 dnevnim stopinjam nad osnovo 4°C.
+
+Tveganje za let odraslih osebkov kapusove muhe je veliko, verjetno se je na dovzetnih posevkih kapusnic začelo odlaganje jajčec.  Spremljajte posevke in po potrebi uporabite ustrezna sredstva za varstvo rastlin. "
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.3.recommended_action;Check for eggs in the field. Consult your advisory service.;Prüfen Sie auf dem Feld nach Eiern. Wenden Sie sich an Ihren Beratungsdienst.;Preverite jajčeca na polju. Posvetujte se s svojo svetovalno službo.
 no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.4.explanation;"The threshold of air temperature of 210 day-degrees over a base of 4*C has been reached.
 
 The risk of adult cabbage root fly flight activity is high, it is likely that egg laying has begun on vulnerable brassica crops.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. ";"Der Schwellenwert der Lufttemperatur von 210 Gradtagen über einer Basis von 4*C ist erreicht.
 
-Das Risiko der Flugaktivität der adulten Kohlfliege ist hoch. Es ist wahrscheinlich, dass die Eiablage in gefährdeten Kohlpflanzen begonnen hat.  Überwachen Sie gefährdete Kulturen auf Aktivität im Feld und wenden Sie je nach Bedarf geeignete Behandlungen an. "
-no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.4.recommended_action;Consult your advisory service. Consider action to protect your crop based on observations in your own field.;Wenden Sie sich an Ihren Beratungsdienst. Überlegen Sie sich Maßnahmen zum Schutz Ihrer Ernte auf der Grundlage von Beobachtungen auf Ihrem eigenen Feld.
-no.nibio.vips.2_0.models.DELIARADIC.purpose;Estimates risk of flight and egg laying in crop;Schätzt das Risiko des Zufluges und der Eiablage in der Kultur ab
+Das Risiko der Flugaktivität der adulten Kohlfliege ist hoch. Es ist wahrscheinlich, dass die Eiablage in gefährdeten Kohlpflanzen begonnen hat.  Überwachen Sie gefährdete Kulturen auf Aktivität im Feld und wenden Sie je nach Bedarf geeignete Behandlungen an. ";"Dosežen je bil prag temperature zraka 210 dnevnih stopinj nad osnovo 4°C.
+
+Tveganje za let odraslih osebkov kapusove muhe je veliko, verjetno se je na dovzetnih posevkih kapusnic začelo odlaganje jajčec. Spremljajte posevke in po potrebi uporabite ustrezna sredstva za varstvo rastlin. "
+no.nibio.vips.2_0.models.DELIARADIC.output.warning_status_interpretation.4.recommended_action;Consult your advisory service. Consider action to protect your crop based on observations in your own field.;Wenden Sie sich an Ihren Beratungsdienst. Überlegen Sie sich Maßnahmen zum Schutz Ihrer Ernte auf der Grundlage von Beobachtungen auf Ihrem eigenen Feld.;Posvetujte se s svojo svetovalno službo. Na podlagi opazovanj na svojem polju razmislite o ukrepih za zaščito svojega pridelka.
+no.nibio.vips.2_0.models.DELIARADIC.purpose;Estimates risk of flight and egg laying in crop;Schätzt das Risiko des Zufluges und der Eiablage in der Kultur ab;Ocena tveganja za let odraslih osebkov kapusove muhe in odlaganje jajčec v posevkih
 no.nibio.vips.2_0.models.PSILARTEMP.description;"THE PEST: The first generation of adult carrot fly emerge from pupae in the soil in the spring, and lay eggs close to the base of vulnerable crops. Larvae 
 initial feed at the surface, then tunnel into the tap root. Adults emerge mid-July and can lead to a second generation. 
 THE DECISION: Treatments may need to be applied soon after adults arrive in the crop, before larvae tunnel into the crop roots.  
@@ -74,46 +88,60 @@ MODELL: Das Modell bestimmt den Beginn der Flugperiode für die erste Generation
 PARAMETER: Das Modell verwendet die tägliche Lufttemperatur 
 QUELLE: Lukas, Finnland. 
 ANNAHMEN: Es ist zu beachten, dass in Gebieten mit Feldabdeckungen (Plastik, einfache oder doppelte Vliesabdeckungen usw.) mit frühen Ernten in der vorangegangenen Saison (entweder auf dem aktuellen Feld oder auf benachbarten Feldern) die Flugperiode aufgrund der höheren Bodentemperatur unter den Abdeckungen früher beginnen kann als vorhergesagt.
-VERWEIS: Marjjula et al. 2000"
-no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeEnd.title;End date of calculation (YYYY-MM-DD);Enddatum der Berechnung (JJJJ-MM-TT)
-no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeStart.title;Start date of calculation (YYYY-MM-DD);Startdatum der Berechnung (JJJJ-MM-TT)
-no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.options.infoText;The time zone information is used when hourly temperature values need to be converted to daily.;Die Zeitzoneninformation wird verwendet, wenn stündliche Temperaturwerte in Tageswerte umgerechnet werden müssen.
-no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Zeitzone (z. B. Europa/Oslo)
-no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurationsparameter
-no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.description;Must be PSILARTEMP;Muss PSILARTEMP sein
-no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.title;Model Id;Modell-ID
-no.nibio.vips.2_0.models.PSILARTEMP.name;Carrot rust fly temperature model;Temperaturmodell der Möhrenfliege
-no.nibio.vips.2_0.models.PSILARTEMP.output.chart_groups.G1.title;Day degrees;Gradtage
-no.nibio.vips.2_0.models.PSILARTEMP.output.chart_heading;Accumulated day degrees;Kumulierte Gradtage
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.description;When the accumulated day degrees exceed this threshold, the flight period is starting up;Wenn die kumulierten Gradtage diesen Schwellenwert überschreiten, beginnt die Flugperiode
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.title;Threshold for start of flight period;Schwellenwert für den Beginn der Flugperiode
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.description;When the accumulated day degrees exceed this threshold, you enter the peak flight period;Wenn die kumulierten Gradtage diesen Schwellenwert überschreiten, ist mit dem Flughöhepunkt zu rechnen.
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.title;Threshold for peak flight period;Schwellenwert für den Flughöhepunkt
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.description;When the accumulated day degrees exceed this threshold, the 1st generation flight period is over;Wenn die kumulierten Gradtage diesen Schwellenwert überschreiten, ist die Flugperiode der 1. Generation beendet.
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.title;Threshold for end of 1st generation flight period;Schwellenwert für das Ende der Flugperiode der 1. Generation
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.description;The accumulated day degrees with a base temperature of 5 degrees celcius;Die akkumulierten Gradtage bei einer Basistemperatur von 5 Grad Celcius
-no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.title;Accumulated day degrees;Kumulierte Gradtage
-no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.explanation;The flight period of the 1st generation is over.;Die Flugperiode der 1. Generation ist vorbei.
-no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.recommended_action;Consult your advisory service for action conserning the 2nd generation.;Wenden Sie sich an Ihren Beratungsdients für Maßnahmen in Bezug auf die 2. Generation.
-no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.explanation;Data is missing;Es fehlen Daten
-no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.recommended_action;Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 260 degree-days;Wenden Sie sich an Ihren Beratungsdienst, wenn die vorangegangenen Warnungen gelb/rot waren oder wenn die kumulierten Gradtage nahe bei 260 Gradtagen lagen
+VERWEIS: Marjjula et al. 2000";"ŠKODLJIV ORGANIZEM: Prva generacija odrasle korenjeve muhe (Psila rosae) se spomladi razvije iz ličink, ki so prezimile v tleh in odloži jajčeca v bližini  posevkov korenja. Ličinke se sprva hranijo na površini, nato pa se zajedajo v korenino. Odrasli osebki se pojavijo sredi julija in lahko povzročijo nastanek druge generacije. 
+ODLOČITEV: zatiranje korenjeve muhe bo morda treba opraviti kmalu po prihodu odraslih osebkov v posevek, preden se ličinke zavrtajo v korenine posevka.  
+MODEL: Model določa začetek obdobja letenja prve generacije korenjeve muhe na podlagi akumuliranih stopinjskih dni (260 stopinjskih dni) nad temperaturo 5 °C.  
+PARAMETRI: Model uporablja dnevno temperaturo zraka 
+VIR: Luke, Finska. 
+PREDPOSTAVKE: Na območjih s pkoritimi pridelovalnimi površinami (s plastiko, z enojnim ali dvojnim prekrivalom iz netkanega materiala itd.) z zgodnjimi pridelki v prejšnji sezoni (na trenutnem polju ali na sosednjih poljih) obdobje leta lahko začne prej zaradi višje temperature tal pod prekrivali.
+REFERENCE: Marjjula et al., 2000"
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeEnd.title;End date of calculation (YYYY-MM-DD);Enddatum der Berechnung (JJJJ-MM-TT);Končni datum izračuna (LLLL-MM-DD)
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeStart.title;Start date of calculation (YYYY-MM-DD);Startdatum der Berechnung (JJJJ-MM-TT);Datum začetka izračuna (LLLL-MM-DD)
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.options.infoText;The time zone information is used when hourly temperature values need to be converted to daily.;Die Zeitzoneninformation wird verwendet, wenn stündliche Temperaturwerte in Tageswerte umgerechnet werden müssen.;Podatki o časovnem pasu se uporabljajo, kadar je treba urne vrednosti temperature pretvoriti v dnevne.
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.properties.timeZone.title;Time zone (e.g. Europe/Oslo);Zeitzone (z. B. Europa/Oslo);Časovni pas (npr. Evropa/Oslo)
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.configParameters.title;Configuration parameters;Konfigurationsparameter;Nastavitve parametrov
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.description;Must be PSILARTEMP;Muss PSILARTEMP sein;Mora biti PSILARTEMP
+no.nibio.vips.2_0.models.PSILARTEMP.execution.input_schema.properties.modelId.title;Model Id;Modell-ID;Oznaka modela
+no.nibio.vips.2_0.models.PSILARTEMP.name;Carrot rust fly temperature model;Temperaturmodell der Möhrenfliege;Temperaturni model korenjeve muhe
+no.nibio.vips.2_0.models.PSILARTEMP.output.chart_groups.G1.title;Day degrees;Gradtage;Stopinjski dnevi
+no.nibio.vips.2_0.models.PSILARTEMP.output.chart_heading;Accumulated day degrees;Kumulierte Gradtage;Akumulirani stopinjski dnevi
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.description;When the accumulated day degrees exceed this threshold, the flight period is starting up;Wenn die kumulierten Gradtage diesen Schwellenwert überschreiten, beginnt die Flugperiode;Ko akumulirani stopinjski dnevi presežejo ta prag, se začne obdobje leta korenjeve muhe.
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_1.title;Threshold for start of flight period;Schwellenwert für den Beginn der Flugperiode;Prag za začetek obdobja letenja
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.description;When the accumulated day degrees exceed this threshold, you enter the peak flight period;Wenn die kumulierten Gradtage diesen Schwellenwert überschreiten, ist mit dem Flughöhepunkt zu rechnen.;Ko akumulirani stopinjski dnevi presežejo ta prag, vstopite v obdobje vrhunca leta korenjeve muhe
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_2.title;Threshold for peak flight period;Schwellenwert für den Flughöhepunkt;Prag za obdobje vrhunca leta
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.description;When the accumulated day degrees exceed this threshold, the 1st generation flight period is over;Wenn die kumulierten Gradtage diesen Schwellenwert überschreiten, ist die Flugperiode der 1. Generation beendet.;Ko akumulirani stopinjski dnevi presežejo ta prag, se konča obdobje letenja prve generacije
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.THRESHOLD_3.title;Threshold for end of 1st generation flight period;Schwellenwert für das Ende der Flugperiode der 1. Generation;Prag za konec obdobja let prve generacije
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.description;The accumulated day degrees with a base temperature of 5 degrees celcius;Die akkumulierten Gradtage bei einer Basistemperatur von 5 Grad Celcius;Akumulirani stopinjski dnevi nad temperaturo 5 °C
+no.nibio.vips.2_0.models.PSILARTEMP.output.result_parameters.TMDD5C.title;Accumulated day degrees;Kumulierte Gradtage;Akumulirani stopinjski dnevi
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.explanation;The flight period of the 1st generation is over.;Die Flugperiode der 1. Generation ist vorbei.;Obdobje letenja 1. generacije je končano.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.0.recommended_action;Consult your advisory service for action conserning the 2nd generation.;Wenden Sie sich an Ihren Beratungsdients für Maßnahmen in Bezug auf die 2. Generation.;Za ukrepanje proti 2. generaciji korenjeve muhe se posvetujte s svetovalno službo.
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.explanation;Data is missing;Es fehlen Daten;Podatki manjkajo
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.1.recommended_action;Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 260 degree-days;Wenden Sie sich an Ihren Beratungsdienst, wenn die vorangegangenen Warnungen gelb/rot waren oder wenn die kumulierten Gradtage nahe bei 260 Gradtagen lagen;Posvetujte se s svetovalno službo, če so bila predhodna opozorila rumena/rdeča ali če so bile akumulirani stopinjski dnevi blizu 260 stopinjskih dni.
 no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.2.explanation;"Based on current data available, the model results indicate low risk of carrot fly flight.
 
 This model runs April - September. ";"Auf der Grundlage der derzeit verfügbaren Daten deuten die Modellergebnisse auf ein geringes Flugrisiko für die Möhrenfliege hin.
 
-Dieses Modell läuft von April bis September. "
-no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.2.recommended_action;No action needed. Consider deploying yellow sticky traps in your fields when 260 degree-days is approching.;Keine Maßnahmen erforderlich. Erwägen Sie den Einsatz von gelben Klebefallen auf Ihren Feldern, wenn sich die 260-Grad-Tage nähern.
+Dieses Modell läuft von April bis September. ";"Na podlagi trenutno razpoložljivih podatkov rezultati modela kažejo na majhno tveganje za let korenjeve muhe.
+
+
+
+Ta model deluje od aprila do septembra. "
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.2.recommended_action;No action needed. Consider deploying yellow sticky traps in your fields when 260 degree-days is approching.;Keine Maßnahmen erforderlich. Erwägen Sie den Einsatz von gelben Klebefallen auf Ihren Feldern, wenn sich die 260-Grad-Tage nähern.;Ukrepanje ni potrebno. Razmislite o namestitvi rumenih lepljivih plošč na svojih poljih, ko se približuje 260 stopinjskih dni.
 no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.3.explanation;"Based on current data available, conditions are approaching 260 day-degrees over a base of 5*C.
 
 The risk of adult carrot fly flight activity is increasing, which indicates that egg laying will soon occur on vulnerable carrot crops.  Increase monitoring efforts in vulnerable crops, and apply suitable treatment according to need.";"Nach den derzeit verfügbaren Daten nähern sich die Bedingungen 260 Gradtagen bei einer Basistemperatur von 5*C.
 
-Das Risiko der Flugaktivität der erwachsenen Möhrenfliege nimmt zu, was darauf hindeutet, dass die Eiablage in gefährdeten Möhrenkulturen bald stattfinden wird.  Erhöhen Sie die Überwachungsmaßnahmen in gefährdeten Kulturen und wenden Sie je nach Bedarf eine geeignete Behandlung an."
-no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.3.recommended_action;Deploy yellow sticky traps in your fields if not already done. Consult your advisory service.;Stellen Sie gelbe Klebefallen auf Ihren Feldern auf, falls noch nicht geschehen. Wenden Sie sich an Ihren Beratungsdienst.
+Das Risiko der Flugaktivität der erwachsenen Möhrenfliege nimmt zu, was darauf hindeutet, dass die Eiablage in gefährdeten Möhrenkulturen bald stattfinden wird.  Erhöhen Sie die Überwachungsmaßnahmen in gefährdeten Kulturen und wenden Sie je nach Bedarf eine geeignete Behandlung an.";"Na podlagi trenutno razpoložljivih podatkov se razmere približujejo 260 stopinjskim dnevom nad temperaturo 5°C.
+
+Tveganje za let odraslih osebkov korenjeve muhe se povečuje, kar pomeni, da lahko kmalu pride do odlaganja jajčec na posevkih korenja. Spremljajte posevke korenja in glede na potrebe uporabite ustrezen ukrep za zatiranje korenjeve muhe."
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.3.recommended_action;Deploy yellow sticky traps in your fields if not already done. Consult your advisory service.;Stellen Sie gelbe Klebefallen auf Ihren Feldern auf, falls noch nicht geschehen. Wenden Sie sich an Ihren Beratungsdienst.;Na svojih pridelovalnih površinah namestite rumene lepljive plošče, če tega še niste storili. Posvetujte se s svojo svetovalno službo.
 no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.4.explanation;"The threshold of 260 day-degrees over a base of 5*C has been reached.
 
 The risk of adult carrot fly flight activity is high, which indicates that egg laying will soon occur on vulnerable carrot crops.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. ";"Der Schwellenwert von 260 Gradtagen bei einer Basis von 5*C ist erreicht.
 
-Das Risiko der Flugaktivität der erwachsenen Möhrenfliege ist hoch, was darauf hindeutet, dass die Eiablage in gefährdeten Möhrenkulturen bald stattfinden wird.  Überwachen Sie gefährdete Kulturen auf Aktivität im Feld und wenden Sie je nach Bedarf geeignete Behandlungen an. "
-no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.4.recommended_action;Consult your advisory service. Consider action to protect your crop based on observations in your own field.;Wenden Sie sich an Ihren Beratungsdienst. Überlegen Sie sich Maßnahmen zum Schutz Ihrer Ernte auf der Grundlage von Beobachtungen auf Ihrem eigenen Feld.
-no.nibio.vips.2_0.models.PSILARTEMP.purpose;Estimates risk of flight and egg laying in crop;Schätzt das Risiko des Zufluges und der Eiablage in der Kultur ab
-no.nibio.vips.2_0.name;VIPS;VIPS
+Das Risiko der Flugaktivität der erwachsenen Möhrenfliege ist hoch, was darauf hindeutet, dass die Eiablage in gefährdeten Möhrenkulturen bald stattfinden wird.  Überwachen Sie gefährdete Kulturen auf Aktivität im Feld und wenden Sie je nach Bedarf geeignete Behandlungen an. ";"Dosežena je bila mejna vrednost 260 stopinjskih dni nad osnovo 5°C.
+
+Tveganje za let odrasle korenjeve muhe je visoko, kar pomeni, da lahko kmalu pride do odlaganja jajčec na posevkih korenja.  Spremljajte prisotnost korenjeve muhe v posevku korenja in po potrebu uporabite ustrezen ukrep za zatiranje korenjeve muhe."
+no.nibio.vips.2_0.models.PSILARTEMP.output.warning_status_interpretation.4.recommended_action;Consult your advisory service. Consider action to protect your crop based on observations in your own field.;Wenden Sie sich an Ihren Beratungsdienst. Überlegen Sie sich Maßnahmen zum Schutz Ihrer Ernte auf der Grundlage von Beobachtungen auf Ihrem eigenen Feld.;Posvetujte se s svojo svetovalno službo. Razmislite o ukrepih za zaščito svojega pridelka na podlagi opazovanj na svojem polju.
+no.nibio.vips.2_0.models.PSILARTEMP.purpose;Estimates risk of flight and egg laying in crop;Schätzt das Risiko des Zufluges und der Eiablage in der Kultur ab;Ocena tveganja za polet in odlaganje jajčec v pridelku
+no.nibio.vips.2_0.name;VIPS;VIPS;VIPS

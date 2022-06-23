@@ -418,6 +418,7 @@ models:
   - name: Nina Johansen
     email: nina.johansen@nibio.no
     organization: NIBIO
+  platform_validated: true
   pests:
   - BARABR # EPPO code for Cabbage Moth
   crops:
@@ -619,6 +620,7 @@ models:
   - name: Tor J. Johansen
     email: tor.johansen@nibio.no
     organization: NIBIO
+  platform_validated: true
   pests:
   - PSILRO # EPPO code for carrot rust fly
   crops:
@@ -801,6 +803,7 @@ models:
   - name: Richard Meadow
     email: richard.meadow@nibio.no
     organization: NIBIO
+  platform_validated: true
   pests:
   - HYLERA # EPPO code for Cabbage root fly (Delia radicum)
   - HYLEFL # EPPO code for turnip fly (Delia floralis)
@@ -1138,6 +1141,7 @@ models:
   version: '1.0'
   authors: # List of the model authors
   - name: Dr R. E. Pitblado
+  platform_validated: true
   pests:
   - ALTESO # EPPO code for Alternaria solanum
   crops:
@@ -1264,6 +1268,7 @@ models:
   version: '1.0'
   authors: # List of the model authors
   - name: Ullrich J. & H. Schrödter
+  platform_validated: true
   pests:
   - PHYTIN # EPPO code for Alternaria solanum
   crops:
@@ -1406,6 +1411,7 @@ models:
   - name: Arne Hermansen
     email: arne.hermansen@nibio.no
     organization: NIBIO
+  platform_validated: true
   pests:
   - SEPTAP # EPPO code for the disease
   crops:
@@ -1561,6 +1567,7 @@ models:
   - name: Berit Nordskog
     email: berit.nordskog@nibio.no
     organization: NIBIO
+  platform_validated: true
   pests:
   - BREMLA # EPPO code for Downy mildew of lettuce
   crops:

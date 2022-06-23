@@ -995,7 +995,7 @@ models:
   - name: Ragnhild Nærstad
     email: ragnhild.naerstad@syngenta.com
     organization: Syngenta
-  platform_validated: false
+  platform_validated: true
   pests:
   - PHYTIN # EPPO code for Potato late blight (Phytophthora infestans)
   crops:

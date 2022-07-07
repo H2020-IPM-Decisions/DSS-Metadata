@@ -88,7 +88,7 @@ models:
             "required": ["timeZone","timeStart","timeEnd"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"]
@@ -309,7 +309,7 @@ models:
             "required": ["timeZone","timeStart","timeEnd"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"]
@@ -554,7 +554,7 @@ models:
             "required": ["timeZone"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"]
@@ -680,7 +680,7 @@ models:
                 "title": "Field observations",
                 "type": "array",
                 "items": {
-                  "$ref": "https://ipmdecisions.nibio.no/api/dss/rest/schema/fieldobservation"
+                  "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
                 }
               },
               "fieldObservationQuantifications": {
@@ -871,7 +871,7 @@ models:
                 "title": "Field observations",
                 "type": "array",
                 "items": {
-                  "$ref": "https://ipmdecisions.nibio.no/api/dss/rest/schema/fieldobservation"
+                  "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
                 }
               },
               "fieldObservationQuantifications": {
@@ -1063,7 +1063,7 @@ models:
             "required": ["timeZone","timeStart","timeEnd"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"]
@@ -1203,7 +1203,7 @@ models:
             "required": ["timeZone","timeStart","timeEnd"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"]
@@ -1330,7 +1330,7 @@ models:
             "required": ["timeZone","timeStart","timeEnd"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"]
@@ -1478,7 +1478,7 @@ models:
                 "title": "Field observations",
                 "type": "array",
                 "items": {
-                  "$ref": "https://ipmdecisions.nibio.no/api/dss/rest/schema/fieldobservation"
+                  "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
                 }
               },
               "fieldObservationQuantifications": {
@@ -1496,7 +1496,7 @@ models:
             "required": ["timeZone","startDateGrowth","endDateCalculation"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"],
@@ -1629,7 +1629,7 @@ models:
             "required": ["timeZone","longitude","latitude"]
           },
           "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
           }
         },
         "required": ["modelId","configParameters"]

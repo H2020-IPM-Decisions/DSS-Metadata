@@ -21,7 +21,7 @@ models:
   - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock
     email: NA
     organization: Rothamsted Experimental Station
-    platform_validated: true
+  platform_validated: true
   pests:
   - DASGPA
   crops:
@@ -150,7 +150,7 @@ models:
   - name: Guillaume Jacquemin, Sandrine Chavalle, Michel D Proft
     email: g.jacquemin@cra.wallonie.be, s.chavalle@cra.wallonie.be, m.deproft@cra.wallonie.be
     organization: Walloon Agricultural Research Centre
-    platform_validated: true
+  platform_validated: true
   pests:
   - SITDMO
   crops:
@@ -383,7 +383,7 @@ models:
   - name: Charlotte Rowley, Andew Cherrill, Simon R. Leather, Tome W. Pope
     email: crowley@harper-adams.ac.uk
     organization: Centre for Integrated Pest Management
-    platform_validated: true
+  platform_validated: true
   pests:
   - HAPDMA
   crops:

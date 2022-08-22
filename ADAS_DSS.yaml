@@ -139,7 +139,7 @@ models:
       chart_info:
         default_visible: true
         unit: count
-        chart_type: column
+        chart_type: bar
         color: green
   purpose: Estimates risk of Cutworm
 ##########

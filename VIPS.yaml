@@ -138,7 +138,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline   # Could be  line, spline, area, areaspline, column and scatter. Ref https://www.highcharts.com/docs/chart-and-series-types/chart-types
+        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
         color: '#0033cc'
     - id: THRESHOLD_1
       title: Threshold for start of flight period
@@ -147,7 +147,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline   # Could be  line, spline, area, areaspline, column and scatter. Ref https://www.highcharts.com/docs/chart-and-series-types/chart-types
+        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
         color: '#ffff00'
     - id: THRESHOLD_2
       title: Threshold for peak flight period
@@ -156,7 +156,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline   # Could be  line, spline, area, areaspline, column and scatter. Ref https://www.highcharts.com/docs/chart-and-series-types/chart-types
+        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
         color: '#ff0000'
     - id: THRESHOLD_3
       title: Threshold for end of 1st generation flight period
@@ -165,7 +165,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline   # Could be  line, spline, area, areaspline, column and scatter. Ref https://www.highcharts.com/docs/chart-and-series-types/chart-types
+        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
         color: '#999999'
   purpose: Estimates risk of flight and egg laying in crop
 ##
@@ -362,7 +362,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline   # Could be  line, spline, area, areaspline, column and scatter. Ref https://www.highcharts.com/docs/chart-and-series-types/chart-types
+        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
         color: '#0066ff'
     - id: TJM10DD4C
       title: Accumulated soil temperature day degrees
@@ -371,7 +371,7 @@ models:
       chart_info:
         default_visible: false
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#00ccff'
     - id: TMDD4CLT
       title: Lower threshold value for TMDD4C
@@ -380,7 +380,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#ffff00'
     - id: TMDD4CUT
       title: Upper threshold value for TMDD4C
@@ -389,7 +389,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#ff0000'
     - id: TJM10DD4CLT
       title: Lower threshold value for TJM10DD4C
@@ -398,7 +398,7 @@ models:
       chart_info:
         default_visible: false
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#ff9900'
     - id: TJM10DD4CUT
       title: Upper threshold value for TJM10DD4C
@@ -407,7 +407,7 @@ models:
       chart_info:
         default_visible: false
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#990000'
   purpose: Estimates risk of flight and egg laying in crop
 ##
@@ -609,7 +609,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#0033cc'
   purpose: ''
 ##
@@ -776,7 +776,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#000000'
     - id: TRAP_COUNT_CROP_EDGE
       title: Insect trap count at the edge of the field
@@ -784,7 +784,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: column
+        chart_type: bar
         color: '#ffff00'
     - id: TRAP_COUNT_CROP_INSIDE
       title: Insect trap count inside the field
@@ -792,7 +792,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: column
+        chart_type: bar
         color: '#ff0000'
 ##
   purpose: ''
@@ -968,7 +968,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#000000'
     - id: THRESHOLD_YOUNG
       title: Economic threshold in young plants
@@ -976,7 +976,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#ffffff'
     - id: THRESHOLD_OLD
       title: Economic threshold in mature plants
@@ -984,7 +984,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#ff00ff'
 ###########
   purpose: ''
@@ -1118,7 +1118,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#000000'
     - id: THRESHOLD_LOW
       title: Threshold low infection risk
@@ -1132,7 +1132,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#ff0000'
 #####
   purpose: ''
@@ -1243,7 +1243,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#00000'
     - id: THRESHOLD_DSV_BASE
       title: Lower threshold
@@ -1251,7 +1251,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#ffff00'
     - id: THRESHOLD_DSV_MAX
       title: High treshold
@@ -1259,7 +1259,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#ff0000'
 #####
   purpose: ''
@@ -1389,7 +1389,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#000000'
     - id: INFECTION_THRESHOLD
       title: Infection threshold
@@ -1397,7 +1397,7 @@ models:
       chart_info:
         default_visible: true
         unit: Number
-        chart_type: spline
+        chart_type: line
         color: '#ff0000'
 #####
   purpose: ''
@@ -1548,7 +1548,7 @@ models:
       chart_info:
         default_visible: true
         unit: Yes/no
-        chart_type: column
+        chart_type: bar
         color: '#000000'
     - id: PEST_OBSERVED
       title: Has the pest been observed in or near the field, or in the nearby region
@@ -1556,7 +1556,7 @@ models:
       chart_info:
         default_visible: true
         unit: Yes/no
-        chart_type: column
+        chart_type: bar
         color: '#ff0000'
 ##########
   purpose: ''
@@ -1698,7 +1698,7 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#ffaa55'
     - id: ELWAST
       title: Was there enough leaf wetness after sunrise today
@@ -1706,7 +1706,7 @@ models:
       chart_info:
         default_visible: true
         unit: Yes/no
-        chart_type: column
+        chart_type: bar
         color: '#00ff55'
     - id: ELWASYBST
       title: Was there enough relative humidity after sunrise yesterday and befor
@@ -1716,7 +1716,7 @@ models:
       chart_info:
         default_visible: true
         unit: Yes/no
-        chart_type: column
+        chart_type: bar
         color: '#00ffff'
     - id: SLN
       title: Was there sporulation last night
@@ -1724,7 +1724,7 @@ models:
       chart_info:
         default_visible: true
         unit: Yes/no
-        chart_type: column
+        chart_type: bar
         color: '#aaffff'
     - id: SYN
       title: Was there sporulation yesterday night
@@ -1732,7 +1732,7 @@ models:
       chart_info:
         default_visible: true
         unit: Yes/no
-        chart_type: column
+        chart_type: bar
         color: '#aaff33'
     - id: TXD_THRESHOLD
       title: Max threshold for temperature for infection
@@ -1741,6 +1741,6 @@ models:
       chart_info:
         default_visible: true
         unit: '&deg;C'
-        chart_type: spline
+        chart_type: line
         color: '#ff0000'
   purpose: ''

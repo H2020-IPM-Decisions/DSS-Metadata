@@ -157,7 +157,7 @@ models:
       chart_info:
         default_visible: false
         unit: Hour
-        chart_type: spline
+        chart_type: line
         color: '#444444'
     - id: HPHPP
       title: Humid period hour (consecutive humid hours) corrected for protection
@@ -167,7 +167,7 @@ models:
       chart_info:
         default_visible: true
         unit: Hour
-        chart_type: spline
+        chart_type: line
         color: '#000000'
     - id: THPHPP
       title: Threshold for consecutive humid hours
@@ -175,7 +175,7 @@ models:
       chart_info:
         default_visible: true
         unit: Hour
-        chart_type: spline
+        chart_type: line
         color: '#ff0000'
     - id: HH
       title: Current hour is humid hour? 1 = true, 0 = false
@@ -189,7 +189,7 @@ models:
       chart_info:
         default_visible: true
         unit: Yes/no
-        chart_type: spline
+        chart_type: line
         color: '#0000ff'
   purpose: Estimates risk of septoria
 - name: CPO model

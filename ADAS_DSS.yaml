@@ -25,16 +25,13 @@ models:
   pests:
   - DASGPA
   crops:
-  - LACSA
-  - BEAVX
+  - LACSS
+  - BEASS
   - SOLTU
-  - BEAVV
-  - BRSRR
-  - BRSNA
+  - BRSSS
   - DAUCS
   - PAVSA
-  - ALLCE
-  - ALLPO
+  - ALLSS
   - CICIN
   - ASPOF
   - APUGV
@@ -323,7 +320,7 @@ models:
           "weatherData": {
             "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
           },
-          "growthStage": {"type": "number"},
+          "growthStage": {"type": "number", "description":"Growth stage must be between 51 & 59"},
           "optionalData" :{   
             "title":"Optional parameters for the DSS", 
             "type": "object",
@@ -589,8 +586,8 @@ models:
               "thirdFlight_a": {"type": "number", "default": "106.1449", "title": "Third Flight: Parameter a" },
               "thirdFlight_b": {"type": "number", "default": "110.2595", "title": "Third Flight: Parameter b" },        
               "thirdFlight_y": {"type": "number", "default": "1815.8485", "title": "Third Flight: Parameter y" },     
-              "startDate": {"type":"string","format": "date", "title": "Model Start Date/Biofix (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
-              "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
+              "startDate": {"type":"string", "format": "date", "title": "Model Start Date/Biofix (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
+              "endDate": {"type":"string", "format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
             }
           }            
         },
@@ -866,7 +863,7 @@ models:
                 "minimumTemperatureThreshold": {"type": "number", "default":"10", "title": "Minimum Temperature Threshold"},
                 "relativeHumidityThreshold": {"type": "number", "default":"90", "title": "Relative Humidity Threshold"},
                 "consecutiveDays": {"type": "number", "default":"2","title": "Consecutive Days"},
-                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "CURRENT_YEAR}-03-01"},
+                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
                 "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
               }
             }

@@ -50,6 +50,9 @@ models:
     countries:
     - NOR
     - DNK
+    - SWE
+    - FIN
+    - LTU
     # Optionally, use a custom polygon
     geoJSON: |-
       {}

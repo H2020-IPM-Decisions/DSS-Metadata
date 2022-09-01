@@ -1324,7 +1324,7 @@ models:
             "title":"Configuration parameters",
             "properties": {
               "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
-              "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01",  "title": "Start date of calculation (YYYY-MM-DD)"},
+              "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01",  "title": "Date of crop emergence (YYYY-MM-DD)"},
               "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-07-01", "title": "End date of calculation (YYYY-MM-DD)"}
             },
             "required": ["timeZone","timeStart","timeEnd"]

@@ -1,8 +1,9 @@
-#General info about the DSS
 id: adas.dss
 version: 0.0.4
 name: IPM Decisions
 url: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss
+languages:
+  - English
 organization:
   name: ADAS
   country: England
@@ -11,1146 +12,1472 @@ organization:
   city: Wolverhampton
   email: Hannah.Griffiths@adas.co.uk
   url: https://www.adas.uk/
-languages:
-- English
 models:
-- name: Cutworm Model
-  id: DASGPA
-  version: 0.0.3
-  authors:
-  - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock
-    email: NA
-    organization: Rothamsted Experimental Station
-  platform_validated: true
-  pests:
-  - DASGPA
-  crops:
-  - LACSS
-  - BEASS
-  - SOLTU
-  - BRSSS
-  - DAUCS
-  - PAVSA
-  - ALLSS
-  - CICIN
-  - ASPOF
-  - APUGV
-  - LYPES
-  - FRAAN
-  #lettuce crops, beet crops, potato, mangold, turnip, swede, carrot, parsnip, onion, leek, chicory, asparagus, celery, tomato, strawberry
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/Help/Api/POST-api-DASGPA
-  description: "THE PEST: Cutworm are caterpillars of a few species of moth\
-  \ (e.g. Agrotis species) that feed at the base and roots of various crops.\
-  \ Eggs are laid in late spring, and the first three instar feed on surface vegetation,\
-  \ before burrowing into roots. Once they’ve moved into the roots, they cannot be\
-  \ controlled using contact treatments (e.g. insecticides). As adults continue to lay\
-  \ eggs in the crop, several ‘batches’ of larvae, at different instars, can be present\
-  \ in the crop.
-  \n\nTHE DECISION: The DSS predicts the number of instar 1, 2 or 3 larval batches that\
-  \ could be active in the crop. When 4 or more batches are predicted, treatment is recommended\
-  \ to prevent high numbers of larvae moving into the crop roots.\
-  \nTHE MODEL: This model predicts the number of batches of vulnerable larvae (instar 1-3)\
-  \ currently active, based on first appearance of adult moth and subsequent larval development.\
-  \ Significant rainfall events cause high levels of mortality in larvae, which is included in the model.\
-  \nTHE PARAMETERS: The model uses a model start date is defined as the first day after 1st June\
-  \ where temperature exceeds 12 degrees as a default to predict adult moth arrival. Temperature\
-  \ (to determine growth rates) and rainfall (to determine mortality), ending on the 31st October.\
-  \ Any spray dates can be inputted into the model and are deemed to be 100% effective at removing\
-  \ cutworm from the model, but does not prevent subsequent batches.\
-  \nREGION: This DSS was adapted from work carried out in the UK, and is considered applicable,\
-  \ but not yet validated in, Belgium, Luxembourg, Netherlands, France, Germany, Rep. Ireland, and Denmark.\
-  \nASSUMPTION: This DSS assumes first arrival of adult moths to be 1st June; users monitoring abundance\
-  \ in field should edit the parameter to the correct first observation to improve accuracy.\
-  \nREFERENCE: Bowden et al. (1983) Annuls of Applied Biology 102, 29-47. https://doi.org/10.1111/j.1744-7348.1983.tb02663.x" 
-  citation:
-  valid_spatial:
-    countries:
-    - GBR
-    - BEL
-    - LUX
-    - NLD
-    - FRA
-    - DEU
-    - DNK
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1002
-      interval: 86400
-    - parameter_code: 2001
-      interval: 86400
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-06-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-10-31'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/api/DASGPA
-    form_method: post
-    content_type: application/json
-    input_schema: |
-      {
-        "type":"object",
-        "properties": { 
-            "modelId": {"type": "string", "pattern":"^DASGPA$", "title": "Model Id", "default":"DASGPA", "description":"Must be DASGPA"},
-            "weatherData": {
-              "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-            },        
-            "optionalData" :{  
-              "title":"Optional parameters for the DSS",            
-              "type": "object",
-              "properties": {
-                "startDate": {"type":"string","format": "date", "title": "1st arrival of adult moths (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-01"},
-                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-10-31"},
-                "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"}
-              }
-            }
-        },
-        "required": ["modelId"]
-      }
+  - name: Cutworm Model
+    id: DASGPA
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/Help/Api/POST-api-DASGPA
+    purpose: Estimates the risk of cutworm larvae surviving to third instar
+    description: >-
+      THE PEST: Cutworm are caterpillars of a few species of moth (e.g. Agrotis
+      species) that feed at the base and roots of various crops. Eggs are laid
+      in late spring, and the first three instar feed on surface vegetation,
+      before burrowing into roots. Once they’ve moved into the roots, they
+      cannot be controlled using contact treatments (e.g. insecticides). As
+      adults continue to lay eggs in the crop, several ‘batches’ of larvae, at
+      different instars, can be present in the crop. 
 
-    input_schema_categories:
-      hidden:
-      - modelId
-      internal:
-      - optionalData.endDate
-  output:
-    warning_status_interpretation:
-    - explanation: |
-      recommended_action: ''
-    - explanation: |-
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate no current risk of pest activity.
-      recommended_action: This model runs June - October. The risk of 3rd instar cutwork larvae being active in the crop is low. The number of larval batches surviving to third instar is zero. Update parameters when any insecticide applications are made.
-    - explanation: |-
-        Yellow warning indicates that the larval batches surviving to third instar is between 1 and 4. 
-      recommended_action: This model runs June - October. The risk of 3rd instar cutwork larvae being active in the crop is increasing. 1-4 batches of larval are predicted to survive to third instar.  Increasing monitoring efforts in vulnerable crops, and apply suitable treatment according to need. Update parameters when any insecticide applications are made
-    - explanation: |-
-        Red warning indicates that there are over 4 larval batches surviving to third instar. 
-      recommended_action: This model runs June - October. The risk of lots of 3rd instar cutwork larvae being active in the crop is high. More than 4 batches of larvae are predicted to survive to third instar. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. Update parameters when any insecticide applications are made.
-    chart_heading: Larval Batches Surviving to Third Instar.
-    chart_groups:
-    - id: G1
-      title: Instar Count
-      result_parameter_ids:
-      - Third_Instar_Count
-    result_parameters:
-    - id: Third_Instar_Count
-      title: Larval Batches Surviving to Third Instar.
-      description: Number of larval batches surviving to third instar.
-      chart_info:
-        default_visible: true
-        unit: count
-        chart_type: bar
-        color: green
-  purpose: Estimates the risk of cutworm larvae surviving to third instar
-##########
-- name: Orange Wheat Blossom Midge Model
-  id: SITDMO
-  version: 0.0.3
-  authors:
-  - name: Guillaume Jacquemin, Sandrine Chavalle, Michel D Proft
-    email: g.jacquemin@cra.wallonie.be, s.chavalle@cra.wallonie.be, m.deproft@cra.wallonie.be
-    organization: Walloon Agricultural Research Centre
-  platform_validated: true
-  pests:
-  - SITDMO
-  crops:
-  - TRZAX #winter wheat
-  - TRZAS #spring wheat
-  - SECCS #spring rye
-  - SECCW #winter rye
-  - HORVW #winter barley
-  - HORVS #spring barley
-  - AVESP #spring oats
-  - AVESW #winter oats
-  - TTLSO #spring tritical
-  - TTLWI #winter tritical
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/sitdmo/Help/Api/POST-api-SITDMO
-  description: "THE PEST: Orange wheat blossom midge larvae feed on developing grains,\
-    \ causing grains to become small and shrivelled. They can also damage the outer grain\
-    \ layer (pericarp), allowing water to enter. This can make the grain vulnerable to\
-    \ fungal infection (e.g. fusarium and septoria) and result in premature sprouting.\
-    \ Seed from infected crops is also associated with poor germination. Susceptible\
-    \ crops are at the highest risk when adult midge emergence coincides with ear emergence,\
-    \ particularly growth stages 53–59. Larvae that hatch after flowering do not develop\
-    \ properly and cause little damage. 
-    \n\nTHE DECISION: The model predicts the emergence of adults and associated migration\
-    \ of females into vulnerable crops, when increased monitoring and/or treatment may be appropriate.\
-    \nTHE MODEL: It uses daily temperature (degrees celsius) and rainfall (mm) data to identify\ 
-    \ emergence in the Orange Wheat Blossom Midge. The model  runs between the months May and June,\
-    \ but requires weather data from the 1st of January. The model runs in three phases: Phase 1:\
-    \ temperature accumulation of 250 degree days above 3 degrees from 1st January.  Phase 2 (Low risk):\
-    \ Lasts until the rise in mean daily temperature to 13 degrees followed by rainfall. During Phase 1 and 2,\
-    \ there is a low risk of emergence. Phase 3: temperature accumulation of 160 degree days above 7 degrees.\
-    \ During phase 3, there is a medium risk of emergence. Upon completion of phase 3 the risk is considered\
-    \ high for three days and a date of emergence is predicted, which will be reported in the platform.\
-    \ Multiple emergence dates are possible, leading to extended periods of high risk.\
-    \nTHE PARAMETERS: The model uses Daily temperature and rainfall\
-    \nREGION: This DSS was adapted from work carried out in Belgium, and is considered to be applicable,\
-    \ but yet to be validated in, the UK,  Luxembourg, Netherlands, France, Germany, Denmark.\
-    \nASSUMPTIONS: This DSS assumes that the crop variety use is vulnerable to damage by orange wheat\
-    \ blossom midge, and that the user will interpret the risk against the vulnerability of the crop\
-    \ growth stage on farm.\
-    \nREFERENCE: Jocquemin et al. (2014) Crop Protection 58, 6-13. https://doi.org/10.1016/j.cropro.2013.12.021 "
-  citation:
-  valid_spatial:
-    countries:
-    - GBR
-    - BEL
-    - LUX
-    - NLD
-    - FRA
-    - DEU
-    - DNK
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1002
-      interval: 86400
-    - parameter_code: 2001
-      interval: 86400
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-01-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-06-30'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/sitdmo/api/SITDMO
-    form_method: post
-    content_type: application/json
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {  
-          "modelId": {"type": "string", "pattern":"^SITDMO$", "title": "Model Id", "default":"SITDMO", "description":"Must be SITDMO"},
-          "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+
+      THE DECISION: The DSS predicts the number of instar 1, 2 or 3 larval
+      batches that could be active in the crop. When 4 or more batches are
+      predicted, treatment is recommended to prevent high numbers of larvae
+      moving into the crop roots.
+
+      THE MODEL: This model predicts the number of batches of vulnerable larvae
+      (instar 1-3) currently active, based on first appearance of adult moth and
+      subsequent larval development. Significant rainfall events cause high
+      levels of mortality in larvae, which is included in the model.
+
+      THE PARAMETERS: The model uses a model start date is defined as the first
+      day after 1st June where temperature exceeds 12 degrees as a default to
+      predict adult moth arrival. Temperature (to determine growth rates) and
+      rainfall (to determine mortality), ending on the 31st October. Any spray
+      dates can be inputted into the model and are deemed to be 100% effective
+      at removing cutworm from the model, but does not prevent subsequent
+      batches.
+
+      REGION: This DSS was adapted from work carried out in the UK, and is
+      considered applicable, but not yet validated in, Belgium, Luxembourg,
+      Netherlands, France, Germany, Rep. Ireland, and Denmark.
+
+      ASSUMPTION: This DSS assumes first arrival of adult moths to be 1st June;
+      users monitoring abundance in field should edit the parameter to the
+      correct first observation to improve accuracy.
+
+      REFERENCE: Bowden et al. (1983) Annuls of Applied Biology 102, 29-47.
+      https://doi.org/10.1111/j.1744-7348.1983.tb02663.x
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - DASGPA
+    crops:
+      - LACSS
+      - BEASS
+      - SOLTU
+      - BRSSS
+      - DAUCS
+      - PAVSA
+      - ALLSS
+      - CICIN
+      - ASPOF
+      - APUGV
+      - LYPES
+      - FRAAN
+    authors:
+      - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock
+        email: NA
+        organization: Rothamsted Experimental Station
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/api/DASGPA
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.endDate
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^DASGPA$", "title": "Model Id", "default":"DASGPA", "description":"Must be DASGPA"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },        
+              "optionalData" :{  
+                "title":"Optional parameters for the DSS",            
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "1st arrival of adult moths (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-10-31"},
+                  "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"}
+                }
+              }
           },
-          "optionalData" :{
-            "title":"Optional parameters for the DSS",
-            "type": "object",
-            "properties": {
-              "temp_threshold1": {"type": "number", "default":"3", "title": "Temperature Threshold Phase 1"},
-              "DD1": {"type": "number", "default":"250", "title": "Degree Day Threshold Phase 1"},
-              "temp_threshold2": {"type": "number", "default":"13", "title": "Temperature Threshold Phase 2"},
-              "rain_threshold2": {"type": "number", "default":"0", "title": "Rainfall Threshold Phase 2"},
-              "temp_threshold3": {"type": "number", "default":"7","title": "Temperature Threshold Phase 3"},
-              "DD3": {"type": "number", "default":"160", "title": "Degree Day Threshold Phase 3"},
-              "startDate": {"type":"string","format": "date", "title": "Model Start Date/Start of temperature accumulations (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
-              "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-30"}
-            }
-          }  
-        },
-        "required": ["modelId"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-      internal:
-      - optionalData.temp_threshold1
-      - optionalData.DD1
-      - optionalData.temp_threshold2
-      - optionalData.rain_threshold2
-      - optionalData.temp_threshold3
-      - optionalData.DD3
-      - optionalData.startDate
-      - optionalData.endDate
-  output:
-    warning_status_interpretation:
-    - explanation: |
-      recommended_action: ''
-    - explanation: |-
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate no current risk of pest activity.
-      recommended_action: This model runs May-June, requiring data from the start of January. The risk of emergence of orange wheat blossom midge and migration into crops is currently low. Current conditions are not suitable for orange wheat blossom midge emergence. 
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate that conditions may soon be suitable for critical pest activity.
-      recommended_action: This model runs May-June, requiring data from the start of January. The risk of emergence of orange wheat blossom midge and migration into crops is increasing. Suitable rainfall events have taken place, and/or daily temperatures are suitable for orange wheat blossom midge emergence. Increasing monitoring efforts in vulnerable crops (at ear emergence or flowering), and apply suitable treatment according to need. 
-        the need to act.
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate conditions are currently suitable for pest activity
-      recommended_action: This model runs May-June, requiring data from the start of January. The risk of emergence of orange wheat blossom midge and migration into crops is high. Recent conditions are likely to promote orange wheat blossom midge emergence. Monitor vulnerable crops (at ear emergence or flowering) for in-field activity and apply suitable treatments according to need
-    chart_heading: ''
-    chart_groups:
-    - id: ''
-      title: ''
-      result_parameter_ids:
-      - ''
-    result_parameters:
-    - id: ''
-      title: ''
-      description: ''
-      chart_info:
-        default_visible: false
-        unit: ''
-        chart_type: scatter
-        color: ''
-  purpose: Estimates the risk of emergence of adult Orange Wheat Blossom Midge
-##########
-- name: Pollen Beetle Model
-  id: MELIAE
-  version: 0.0.3
-  authors:
-  - name: Hannah Griffiths
-    email: Hannah.Griffiths@adas.co.uk
-    organization: ADAS
-  platform_validated: true
-  pests:
-  - MELIAE
-  crops:
-  - BRSNN # EPPO code for rapeseed
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/meliae/Help/Api/POST-api-MELIAE
-  description: "THE PEST: Pollen beetle (Meligethes spp.) adults are approximately 2.5 mm,\
-  \ metallic greenish-black. Females bite oilseed rape buds and lay their eggs inside.\
-  \ Adults and larvae attack buds and flowers, resulting in withered buds and reduced pod set.\
-  \ In oilseed rape, adult and larval feeding can lead to bud abortion and reduced pod set.\
-  \ However, damage rarely results in reduced yields for winter crops. Spring crops are more\
-  \ vulnerable, as the susceptible green/yellow bud stage often coincides with beetle migration.\ 
-  \n\nTHE DECISION: Oilseed rape is only vulnerable if large numbers of pollen beetle migrate\
-  \ into the crop during green bud stage. This DSS predicts migration into crops based on air\
-  \ temperature, and so can be used to evaluate risk to crop.\
-  \nTHE MODEL: Daily maximum air temperature is used to predict Migration Risk. The default\
-  \ value of 15 degrees celsius is used, as that is the temperature advised in the UK at which\
-  \ pollen beetles will fly.\  
-  \nTHE PARAMETERS: The model uses Daily maximum air temperature\ 
-  \nREGION: This DSS was adapted from work carried out in the UK, and is considered applicable,\
-  \ but not yet validated in, Belgium, Luxembourg, Netherlands, France, Germany, Rep. Ireland, and Denmark.\
-  \nASSUMPTIONS: Only to be used during Oilseed rape growth stages 51-59. This model is a simplification of\
-  \ a more detailed model described in the paper below.
-  \nREFERENCE: Ferguson et al. (2015) Pest Management Science 72, 609-317. https://doi.org/10.1002/ps.4069"
-  citation:
-  valid_spatial:
-    countries: 
-    - GBR
-    - BEL
-    - LUX
-    - NLD
-    - FRA
-    - DEU
-    - DNK
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1004
-      interval: 86400
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-03-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-05-31'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/meliae/api/MELIAE
-    form_method: post
-    content_type: application/json
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {  
-         "modelId": {"type": "string", "pattern":"^MELIAE$", "title": "Model Id", "default":"MELIAE", "description":"Must be MELIAE"},
-          "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-          },
-          "growthStage": {"type": "number", "description":"Input current crop growth stage, using the BBCH System. Only crops at growth stage 51-59 (Inflorescence/flower-bud emergence) are vulnerable to damage by pollen beetle"},
-          "optionalData" :{   
-            "title":"Optional parameters for the DSS", 
-            "type": "object",
-            "properties": {
-              "temp_threshold": {"type": "number", "default":"15", "title": "Temperature Threshold"},
-              "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
-              "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-05-31"}
-            }
-          }
-        },
-        "required": ["modelId", "growthStage"]
-      }  
-    input_schema_categories:
-      hidden:
-      - modelId
-      internal:
-      - optionalData.temp_threshold
-      - optionalData.startDate
-      - optionalData.endDate
-  output:
-    warning_status_interpretation:
-    - explanation: ''
-      recommended_action: ''
-    - explanation: |-
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate no current risk of pest activity.
-      recommended_action: This model runs March-April. The risk of migration of pollen beetles into crops is low. Air temperature is less than 15 *C, migration is unlikely. Update parameter when crop is beyond growth stage 59
-    - explanation: ''
-      recommended_action: ''
-    - explanation: |-
-        Red Warning indicates that the maximum temperature is higher than threshold at which pollen beetles fly at air temperatures to crops.
-      recommended_action: This model runs March-April. The risk of migration of pollen beetles into crops is high. Air temperature is higher than 15 *C, migration likely. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. Crops at growth stage 51 – 59 are vulnerable to damage. Update parameters when crop is beyond growth stage 59.
-        action to take.
-    chart_heading: ''
-    chart_groups:
-    - id: ''
-      title: ''
-      result_parameter_ids:
-      - ''
-    result_parameters:
-    - id: ''
-      title: ''
-      description: ''
-      chart_info:
-        default_visible: false
-        unit: ''
-        chart_type: scatter
-        color: ''
-  purpose: Estimates the risk of pollen beetle migration
-##########        
-- name: Saddle Gall Midge Model
-  id: HAPDMA
-  version: 0.0.3
-  authors:
-  - name: Charlotte Rowley, Andew Cherrill, Simon R. Leather, Tome W. Pope
-    email: crowley@harper-adams.ac.uk
-    organization: Centre for Integrated Pest Management
-  platform_validated: true
-  pests:
-  - HAPDMA
-  crops:
-  - TRZAX #winter wheat
-  - TRZAS #spring wheat
-  - SECCS #spring rye
-  - HORVW #winter barley
-  - HORVS #spring barley
-  - AVESP #spring oats
-  - TTLSO #spring tritical
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/hapdma/Help/Api/POST-api-HAPDMA
-  description: "THE PEST: Saddle gall midge (Haplodiplosis marginata) is a sporadic pest of\
-    \ cereals, which usually persists at low population levels. Yield loss can be caused by constricted\
-    \ vascular supply to the ears as a result of larval feeding and by lodging of gall-weakened stems in\
-    \ high winds. Pupae overwinter in the soil, from which adults emerge in the spring to lay eggs on\
-    \ vulnerable crops. Damage is caused by subsequent larval feeding. Once larvae have crawled under the\
-    \ leaf sheath,  they cannot be controlled using contact treatments (e.g. insecticides).\
-    \n\nTHE DECISION: This DSS indicates the best time to monitor crops for infestations (start of emergence).\
-    \ If abundance is high, and non-chemical managment options are unlikely to achieve adequate control,\
-    \ treatment needs to be applied before, or soon after oviposition.\
-    \nTHE MODEL: Cumulative emergence as a function of degree day accumulations described using a probit model.\
-    \ The model starts on the date of first rainfall on or after the 1st March and ends at the end of July.\
-    \ The model returns predicted proportion cumulative emergence, the associated risk and recommended action.\
-    \nTHE PARAMETERS: The model uses accumulative daily temperature (500 degree days above 0 degrees C)\ 
-    \nREGION: This DSS was adapted from work carried out in the UK, and is considered applicable, but not yet validated\
-    \ in, Belgium, Luxembourg, Netherlands, France, Germany, and Denmark.\
-    \nTHE PARAMETERS: The model uses Daily temperature and rainfall\
-    \nASSUMPTIONS: This DSS assumes the earliest date of emergence of saddle gall midge to be after 500 day degrees.\
-    \ User must interpret the reported risk against the vulnerability of the crop growth stage on farm, and undertake
-    \ in field monitoring to assess the abundance of emerging adults.\  
-    \nREFERENCE: Rowley et al (2017) Crop Protection 102, 154-160. http://dx.doi.org/10.1016/j.cropro.2017.08.025"
-  citation:
-  valid_spatial:
-    countries:
-    - GBR
-    - BEL
-    - LUX
-    - NLD
-    - FRA
-    - DEU
-    - DNK
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1002
-      interval: 3600
-    - parameter_code: 2001
-      interval: 3600
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-03-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-07-31'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/hapdma/api/HAPDMA
-    form_method: post #
-    content_type: application/json
-    input_schema: |
-      {
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+        - parameter_code: 2001
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-06-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-10-31'
+    valid_spatial:
+      countries:
+        - GBR
+        - BEL
+        - LUX
+        - NLD
+        - FRA
+        - DEU
+        - DNK
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate no current risk of pest
+            activity.
+          recommended_action: >-
+            This model runs June - October. The risk of 3rd instar cutwork
+            larvae being active in the crop is low. The chart 'Instar Count'
+            indicates that the number of larval batches forecast to survive to
+            third instar during this period is less zero. Update parameters when
+            any insecticide applications are made.
+        - explanation: >-
+            Yellow warning indicates that the larval batches surviving to third
+            instar is between 1 and 4. 
+          recommended_action: >-
+            This model runs June - October. The risk of 3rd instar cutwork
+            larvae being active in the crop is increasing. The chart 'Instar
+            Count' indicates that the number of larval batches forecast to
+            survive to third instar during this period is between 1 and 4. 
+            Increasing monitoring efforts in vulnerable crops, and apply
+            suitable treatment according to need. Update parameters when any
+            insecticide applications are made
+        - explanation: >-
+            Red warning indicates that there are over 4 larval batches surviving
+            to third instar. 
+          recommended_action: >-
+            This model runs June - October. The risk of lots of 3rd instar
+            cutwork larvae being active in the crop is high. The chart 'Instar
+            Count' indicates that the number of larval batches forecast to
+            survive to third instar during this period 4 or more. Monitor
+            vulnerable crops for in-field activity and apply suitable treatments
+            according to need. Update parameters when any insecticide
+            applications are made.
+      chart_heading: Larval Batches Surviving to Third Instar.
+      chart_groups:
+        - id: G1
+          title: Instar Count
+          result_parameter_ids:
+            - Third_Instar_Count
+      result_parameters:
+        - id: Third_Instar_Count
+          title: Larval Batches Surviving to Third Instar.
+          description: Number of larval batches surviving to third instar.
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: green
+ #############################################################################################################
+  - name: Orange Wheat Blossom Midge Model
+    id: SITDMO
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/sitdmo/Help/Api/POST-api-SITDMO
+    purpose: Estimates the risk of emergence of adult Orange Wheat Blossom Midge
+    description: >-
+      THE PEST: Orange wheat blossom midge larvae feed on developing grains,
+      causing grains to become small and shrivelled. They can also damage the
+      outer grain layer (pericarp), allowing water to enter. This can make the
+      grain vulnerable to fungal infection (e.g. fusarium and septoria) and
+      result in premature sprouting. Seed from infected crops is also associated
+      with poor germination. Susceptible crops are at the highest risk when
+      adult midge emergence coincides with ear emergence, particularly growth
+      stages 53–59. Larvae that hatch after flowering do not develop properly
+      and cause little damage.  
+
+
+      THE DECISION: The model predicts the emergence of adults and associated
+      migration of females into vulnerable crops, when increased monitoring
+      and/or treatment may be appropriate.
+
+      THE MODEL: It uses daily temperature (degrees celsius) and rainfall (mm)
+      data to identify   emergence in the Orange Wheat Blossom Midge. The model 
+      runs between the months May and June, but requires weather data from the
+      1st of January. The model runs in three phases: Phase 1: temperature
+      accumulation of 250 degree days above 3 degrees from 1st January.  Phase 2
+      (Low risk): Lasts until the rise in mean daily temperature to 13 degrees
+      followed by rainfall. During Phase 1 and 2, there is a low risk of
+      emergence. Phase 3: temperature accumulation of 160 degree days above 7
+      degrees. During phase 3, there is a medium risk of emergence. Upon
+      completion of phase 3 the risk is considered high for three days and a
+      date of emergence is predicted, which will be reported in the platform.
+      Multiple emergence dates are possible, leading to extended periods of high
+      risk.
+
+      THE PARAMETERS: The model uses Daily temperature and rainfall
+
+      REGION: This DSS was adapted from work carried out in Belgium, and is
+      considered to be applicable, but yet to be validated in, the UK, 
+      Luxembourg, Netherlands, France, Germany, Denmark.
+
+      ASSUMPTIONS: This DSS assumes that the crop variety use is vulnerable to
+      damage by orange wheat blossom midge, and that the user will interpret the
+      risk against the vulnerability of the crop growth stage on farm.
+
+      REFERENCE: Jocquemin et al. (2014) Crop Protection 58, 6-13. https://doi.org/10.1016/j.cropro.2013.12.021 
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - SITDMO
+    crops:
+      - TRZAX
+      - TRZAS
+      - SECCS
+      - SECCW
+      - HORVW
+      - HORVS
+      - AVESP
+      - AVESW
+      - TTLSO
+      - TTLWI
+    authors:
+      - name: Guillaume Jacquemin, Sandrine Chavalle, Michel D Proft
+        email: >-
+          g.jacquemin@cra.wallonie.be, s.chavalle@cra.wallonie.be,
+          m.deproft@cra.wallonie.be
+        organization: Walloon Agricultural Research Centre
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/sitdmo/api/SITDMO
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.temp_threshold1
+          - optionalData.DD1
+          - optionalData.temp_threshold2
+          - optionalData.rain_threshold2
+          - optionalData.temp_threshold3
+          - optionalData.DD3
+          - optionalData.startDate
+          - optionalData.endDate
+      input_schema: |
+        {
           "type":"object",
           "properties": {  
-            "modelId": {"type": "string", "pattern":"^HAPDMA$", "title": "Model Id", "default":"HAPDMA", "description":"Must be HAPDMA"},
+            "modelId": {"type": "string", "pattern":"^SITDMO$", "title": "Model Id", "default":"SITDMO", "description":"Must be SITDMO"},
             "weatherData": {
-              "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
             "optionalData" :{
               "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
-                "rain_threshold": {"type": "number", "default":"1","title": "Rainfall Threshold" },
-                "dry_day": {"type": "number", "default":"3", "title": "Dry Day Threshold"},
-                "temp_threshold": {"type": "number", "default":"0", "title": "Temperature Threshold"},
-                "degree_day": {"type": "number", "default":"512", "title": "Degree Days"},
-                "startDate": {"type":"string","format": "date", "title": "Model Start Date/Biofix (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
-                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-07-31"}
+                "temp_threshold1": {"type": "number", "default":"3", "title": "Temperature Threshold Phase 1"},
+                "DD1": {"type": "number", "default":"250", "title": "Degree Day Threshold Phase 1"},
+                "temp_threshold2": {"type": "number", "default":"13", "title": "Temperature Threshold Phase 2"},
+                "rain_threshold2": {"type": "number", "default":"0", "title": "Rainfall Threshold Phase 2"},
+                "temp_threshold3": {"type": "number", "default":"7","title": "Temperature Threshold Phase 3"},
+                "DD3": {"type": "number", "default":"160", "title": "Degree Day Threshold Phase 3"},
+                "startDate": {"type":"string","format": "date", "title": "Model Start Date/Start of temperature accumulations (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
+                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-30"}
+              }
+            }  
+          },
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+        - parameter_code: 2001
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-06-30'
+    valid_spatial:
+      countries:
+        - GBR
+        - BEL
+        - LUX
+        - NLD
+        - FRA
+        - DEU
+        - DNK
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate no current risk of pest
+            activity.
+          recommended_action: >-
+            This model runs May-June, requiring data from the start of January.
+            The risk of emergence of orange wheat blossom midge and migration
+            into crops is currently low. Current conditions are not suitable for
+            orange wheat blossom midge emergence.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate that conditions may soon
+            be suitable for critical pest activity.
+          recommended_action: >-
+            This model runs May-June, requiring data from the start of January.
+            The risk of emergence of orange wheat blossom midge and migration
+            into crops is increasing. Suitable rainfall events have taken place,
+            and/or daily temperatures are suitable for orange wheat blossom
+            midge emergence. Increasing monitoring efforts in vulnerable crops
+            (at ear emergence or flowering), and apply suitable treatment
+            according to need. 
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate conditions are currently
+            suitable for pest activity
+          recommended_action: >-
+            This model runs May-June, requiring data from the start of January.
+            The risk of emergence of orange wheat blossom midge and migration
+            into crops is high. Recent conditions are likely to promote orange
+            wheat blossom midge emergence. Monitor vulnerable crops (at ear
+            emergence or flowering) for in-field activity and apply suitable
+            treatments according to need
+      chart_heading: ''
+      chart_groups:
+        - id: ''
+          title: ''
+          result_parameter_ids:
+            - ''
+      result_parameters:
+        - id: ''
+          title: ''
+          description: ''
+          chart_info:
+            default_visible: false
+            unit: ''
+            chart_type: ''
+            color: ''
+ ########################################################################################################## 
+  - name: Pollen Beetle Model
+    id: MELIAE
+    version: 0.0.3
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/meliae/Help/Api/POST-api-MELIAE
+    purpose: Estimates the risk of pollen beetle migration
+    description: >-
+      THE PEST: Pollen beetle (Meligethes spp.) adults are approximately 2.5 mm,
+      metallic greenish-black. Females bite oilseed rape buds and lay their eggs
+      inside. Adults and larvae attack buds and flowers, resulting in withered
+      buds and reduced pod set. In oilseed rape, adult and larval feeding can
+      lead to bud abortion and reduced pod set. However, damage rarely results
+      in reduced yields for winter crops. Spring crops are more vulnerable, as
+      the susceptible green/yellow bud stage often coincides with beetle
+      migration.  
 
+
+      THE DECISION: Oilseed rape is only vulnerable if large numbers of pollen
+      beetle migrate into the crop during green bud stage. This DSS predicts
+      migration into crops based on air temperature, and so can be used to
+      evaluate risk to crop.
+
+      THE MODEL: Daily maximum air temperature is used to predict Migration
+      Risk. The default value of 15 degrees celsius is used, as that is the
+      temperature advised in the UK at which pollen beetles will fly.   
+
+      THE PARAMETERS: The model uses Daily maximum air temperature  
+
+      REGION: This DSS was adapted from work carried out in the UK, and is
+      considered applicable, but not yet validated in, Belgium, Luxembourg,
+      Netherlands, France, Germany, Rep. Ireland, and Denmark.
+
+      ASSUMPTIONS: Only to be used during Oilseed rape growth stages 51-59. This
+      model is a simplification of a more detailed model described in the paper
+      below. 
+
+      REFERENCE: Ferguson et al. (2015) Pest Management Science 72, 609-317. https://doi.org/10.1002/ps.4069
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - MELIAE
+    crops:
+      - BRSNN
+    authors:
+      - name: Hannah Griffiths
+        email: Hannah.Griffiths@adas.co.uk
+        organization: ADAS
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/meliae/api/MELIAE
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.temp_threshold
+          - optionalData.startDate
+          - optionalData.endDate
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {  
+           "modelId": {"type": "string", "pattern":"^MELIAE$", "title": "Model Id", "default":"MELIAE", "description":"Must be MELIAE"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "growthStage": {"type": "number", "description":"Input current crop growth stage, using the BBCH System. Only crops at growth stage 51-59 (Inflorescence/flower-bud emergence) are vulnerable to damage by pollen beetle"},
+            "optionalData" :{   
+              "title":"Optional parameters for the DSS", 
+              "type": "object",
+              "properties": {
+                "temp_threshold": {"type": "number", "default":"15", "title": "Temperature Threshold"},
+                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
+                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-05-31"}
               }
             }
           },
-          "required": ["modelId"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-      internal:
-      - optionalData.rain_threshold
-      - optionalData.dry_day
-      - optionalData.temp_threshold
-      - optionalData.degree_day
-      - optionalData.startDate
-      - optionalData.endDate
+          "required": ["modelId", "growthStage"]
+        }  
+    input:
+      weather_parameters:
+        - parameter_code: 1004
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-03-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-05-31'
+    valid_spatial:
+      countries:
+        - GBR
+        - BEL
+        - LUX
+        - NLD
+        - FRA
+        - DEU
+        - DNK
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate no current risk of pest
+            activity.
+          recommended_action: >-
+            This model runs March-April. The 'Risk status' chart indicates the
+            daily risk of migration during this period. When air temperature is
+            less than 15 *C, migration is unlikely. The model currently predicts
+            a low risk of migration into crops.  Only crops at growth stage 51 –
+            59 are vulnerable to damage, update model parameter to indicate
+            current crop growth stage. 
+        - explanation: ''
+          recommended_action: ''
+        - explanation: >-
+            Red Warning indicates that the maximum temperature is higher than
+            threshold at which pollen beetles fly at air temperatures to crops.
+          recommended_action: >-
+            This model runs March-April. The 'Risk status' chart indicates the
+            daily risk of migration during this period. When air temperature is
+            greater than 15 *C, migration is likely. The model currently
+            predicts a high risk of migration into crops.  Only crops at growth
+            stage 51 – 59 are vulnerable to damage, update model parameter to
+            indicate current crop growth stage. 
+      chart_heading: Pollen Bettle Migration
+      chart_groups:
+        - id: G1
+          title: Migration Threshold
+          result_parameter_ids:
+            - Temperature
+            - Threshold
+      result_parameters:
+        - id: Temperature
+          title: Maximum daily temperature 
+          description: Maximum daily temperature 
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: blue
+        - id: Threshold
+          title: Temperature threshold
+          description: Temperature threshold for migration 
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: red
+############################################################################################################
+  - name: Saddle Gall Midge Model
+    id: HAPDMA
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/hapdma/Help/Api/POST-api-HAPDMA
+    purpose: Estimates the risk of emergence of adult saddle gall midge.
+    description: >-
+      THE PEST: Saddle gall midge (Haplodiplosis marginata) is a sporadic pest
+      of cereals, which usually persists at low population levels. Yield loss
+      can be caused by constricted vascular supply to the ears as a result of
+      larval feeding and by lodging of gall-weakened stems in high winds. Pupae
+      overwinter in the soil, from which adults emerge in the spring to lay eggs
+      on vulnerable crops. Damage is caused by subsequent larval feeding. Once
+      larvae have crawled under the leaf sheath,  they cannot be controlled
+      using contact treatments (e.g. insecticides).
 
-  output:
-    warning_status_interpretation:
-    - explanation: ''
-      recommended_action: ''
-    - explanation: |-
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate low current risk of saddle gall midge emergence.
-      recommended_action: This model runs January - May, requiring data from the start of January. The risk of emergence of saddle gall midge is currently low. Current conditions are not suitable for saddle gall midge emergence, forecasting less than 10% of emergence. 
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate that emergence of saddle gall midge has started.
-      recommended_action: This model runs January - May, requiring data from the start of January. The risk of start of emergence of saddle gall midge is currently medium, forecasting that 50% emergence has already taken place, and a further 40% of saddle gall midge emergence in this period. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. Any applications must be applied before larvae move under the leaf 
-        to take action.
-    - explanation: |-
-        This model is currently collecting data to run. Based on current data available, the model results indicate high current risk of first saddle gall midge emergence.
-      recommended_action: This model runs January - May, requiring data from the start of January. The risk of start of emergence of saddle gall midge is currently high, forecasting 10-50% of saddle gall midge emergence in this period. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. Any applications must be applied before larvae move under the leaf sheath. 
-        to decide on which action to take.
-    chart_heading: Cumulative Emergence
-    chart_groups:
-    - id: G1
-      title: Emergence
-      result_parameter_ids:
-      - Cumulative_Emergence
-    result_parameters:
-    - id: Cumulative_Emergence
-      title: Cumulative Emergence.
-      description: Cumulative percentage emergence as a function of degree day accumulations.
-      chart_info:
-        default_visible: true
-        unit: count
-        chart_type: line
-        color: green
-  purpose: Estimates the risk of emergence of adult saddle gall midge.
-##########
-- name: Codling moth flight model
-  id: CARPPO
-  version: 0.0.3
-  authors:
-  - name: Petros T. Damos, Nikos A. Kouloussis, Dimitris S. Koveos
-    email: petrosdamos@gmail.com
-    organization: Laboratory of Applied Zoology and Parasitology, School of Agriculture,
-      Faculty of Agriculture, Forestry and Natural Environment, Thessaloniki, Greece
-  platform_validated: true
-  pests:
-  - CARPPO
-  crops:
-  - MABSD ##EPPO for apple plant
-  - PYUCO # pear
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/carppo/Help/Api/POST-api-CARPPO
-  description: "THE PEST: Codling moth [Cydia pomonella] cause damage to fruit of apples,\
-    \ pears and other pome fruit. Larvae emerge from eggs laid on the surface of the fruit,\
-    \ and burrow inside. The surface blemish can reduce the value of fruit, internal damage\
-    \ renders the fruit unsellable.\
-    \n\nTHE DECISION: The DSS predicts the start of adult codling moth flight, enabling users\
-    \ to undertake targeted monitoring and/or mitigating actions to reduce the risk of damage to\
-    \ the crop. Typically interventions are more effective at the start of male flight, rather\
-    \ than at peak flight periods.\  
-    \nTHE MODEL: A 3-paramater non-linear regression model fits cumulative moth captures as a\
-    \ function of accumulated day degrees (Biofix 1st January) for all three of the male flights.\
-    \ The model predicts that 1st migration begins after 151 day degrees, 2nd migration begins after\
-    \ 673 day degrees, and 3rd migration begins after 1303 day degrees. The start of migration events\
-    \ are reported in the DSS warnings to the user. \
-    \nREGION: This DSS was adapted from work carried out in Greece, and is considered applicable, but not\
-    \ yet validated in,  Albania, Romania, Bosnia, Croatia, Italy, Macedonia, Montenegro, Portugal,\
-    \ San Marino, Slovenia, Slovakia, and Spain\
-    \nTHE PARAMETERS: The model uses Minimum and maximum temperature from the 1st of January.\
-    \nSOURCE: Aristotle University, Greece. \
-    \nASSUMPTIONS: There may be three flight periods in southern Europe, one or two in northern Europe.\
-    \ Predict flight does not relate to numbers of codling moth, or scale of damage caused.Where flight\
-    \ periods overlap, the highest current risk of new migration will be reported.
-    \nREFERENCE: Damos et al. (2018) Bulletin of Insectology 71, 131-142 "
-  citation:
-  valid_spatial:
-    countries:
-    - ALB
-    - AND
-    - BIH
-    - HRV
-    - GRC
-    - ITA
-    - MLT
-    - MNE
-    - MKD
-    - PRT
-    - SMR
-    - SRB
-    - SVN
-    - ESP
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1003 # = Min air temp at 2m
-      interval: 86400
-    - parameter_code: 1004 # = Max air temp at 2m
-      interval: 86400
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-01-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-09-30'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/carppo/api/carppo
-    form_method: post
-    content_type: application/json
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {  
-          "modelId": {"type": "string", "pattern":"^CARPPO$", "title": "Model Id", "default":"CARPPO", "description":"Must be CARPPO"},
-          "weatherData": {
-            "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-          },
-          "optionalData" :{
-            "title":"Optional parameters for the DSS",
-            "type": "object",
-            "properties": {
-              "lower_threshold": {"type": "number", "default":"10.1", "title": "Lower Temperature Threshold" },
-              "upper_threshold": {"type": "number", "default": "34.3", "title": "Upper Temperature Threshold" },
-              "firstFlight_a": {"type": "number", "default": "98.7583", "title": "First Flight: Parameter a" },
-              "firstFlight_b": {"type": "number", "default": "69.5118", "title": "First Flight: Parameter b" },        
-              "firstFlight_y": {"type": "number", "default": "468.8300", "title": "First Flight: Parameter y" },         
-              "secondFlight_a": {"type": "number", "default": "98.7505", "title": "Second Flight: Parameter a" },
-              "secondFlight_b": {"type": "number", "default": "99.9595", "title": "Second Flight: Parameter b" },
-              "secondFlight_y": {"type": "number", "default": "1130.9937", "title": "Second Flight: Parameter y" },
-              "thirdFlight_a": {"type": "number", "default": "106.1449", "title": "Third Flight: Parameter a" },
-              "thirdFlight_b": {"type": "number", "default": "110.2595", "title": "Third Flight: Parameter b" },        
-              "thirdFlight_y": {"type": "number", "default": "1815.8485", "title": "Third Flight: Parameter y" },     
-              "startDate": {"type":"string", "format": "date", "title": "Model Start Date/Biofix (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
-              "endDate": {"type":"string", "format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
-            }
-          }            
-        },
-        "required": ["modelId"]
-      }  
-    input_schema_categories:
-      hidden:
-      - modelId
-      internal:
-      - optionalData.lower_threshold
-      - optionalData.upper_threshold
-      - optionalData.firstFlight_a
-      - optionalData.firstFlight_b
-      - optionalData.firstFlight_y
-      - optionalData.secondFlight_a
-      - optionalData.secondFlight_b
-      - optionalData.secondFlight_y
-      - optionalData.thirdFlight_a
-      - optionalData.thirdFlight_b
-      - optionalData.thirdFlight_y
-      - optionalData.startDate
-      - optionalData.endDate
-  output:
-    warning_status_interpretation:
-    - explanation: |
-      recommended_action: ''
-    - explanation: |-
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: This model is currently collecting data to run. Based on current data available, the model results indicate low current risk of new codling moth migration.
-      recommended_action: This model runs March-August. The risk of start of new codling moth migration and associated oviposition, is currently low.
-    - explanation: This model is currently collecting data to run. Based on current data available, the model results indicate conditions are currently suitable for pest activity.
-      recommended_action: |-
-        This model runs March - August. The model predicts that adult codling moth flight activity is currently underway, which indicates that oviposition will on vulnerable fruit is likely where this pest is present. Monitor vulnerable crops for in-field activity and apply suitable treatments according to need.
-    - explanation: This model is currently collecting data to run. Based on current data available, the model results indicate that conditions may soon be suitable for critical pest activity.
-      recommended_action: |-
-        This model runs March - August. The risk of start of 1st, 2nd or 3rd codling moth migration and associated oviposition on vulnerable fruit is high. Check DSS warnings for predicted date of start of migration, and increase monitoring efforts in vulnerable crops, and apply suitable treatment according to need.
-    chart_heading: Cumulative Captures
-    chart_groups:
-    - id: G1
-      title: Cumulative Captures
-      result_parameter_ids:
-      - First_Flight_Cumulative_Captures
-      - Second_Flight_Cumulative_Captures
-      - Third_Flight_Cumulative_Captures
-    result_parameters:
-    - id: First_Flight_Cumulative_Captures
-      title: First Flight Cumulative Captures
-      description: The cumulative captures of the Codling Moth during their first
-        flight.
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: green
-    - id: Second_Flight_Cumulative_Captures
-      title: Second Flight Cumulative Captures
-      description: The cumulative captures of the Codling Moth during their second
-        flight.
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: red
-    - id: Third_Flight_Cumulative_Captures
-      title: Third Flight Cumulative Captures
-      description: The cumulative captures of the Codling Moth during their third
-        flight.
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: blue
-  purpose: Estimates the risk of the start of codling moth flight into crops, and associated egg laying in pome fruit.
-###########
-- name: BYDV TSUM model
-  id: RHOPPA
-  version: 0.0.1
-  authors:
-  - name: AHDB
-    email: NA
-    organization: AHDB
-  platform_validated: true
-  pests:
-  - RHOPPA
-  crops:
-  - TRZAW
-  - HORVW #EPPO for winter wheat and winter barley
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/Help/Api/POST-api-RHOPPA
-  description: "THE PEST: Aphids can transmit barley/cereal yellow dwarf viruses (BYDV). Initially, aphids\
-    \ colonise relatively few crop plants. However, the second-generation tends to move away from the plant\
-    \ originally colonised. Controlling this generation is a key part of a BYDV management strategy.\
-    \n\nTHE DECISION: This DSS indicates the best time to monitor crops for aphids. If infestations are\
-    \ high, and non-chemical control options are unlikely to prevent second generation emergence,\
-    \ treatment should be considered to limit the spread of the virus.\
-    \nTHE MODEL: The second generation is likely to be present when the accumulated daily air temperatures,\
-    \ above a baseline temperature of 3ºC, reaches T-Sum 170. \
-    \nTHE PARAMETERS: The model uses Date of last spray application, daily temperature\
-    \nREGION: This DSS was adapted from work carried out in the UK, and is considered applicable, but not yet\
-    \ validated in, Belgium, Luxembourg, Netherlands, France, Germany, Rep. Ireland, and Denmark.\
-    \nASSUMPTIONS: This DSS assumes that the user will update the date of last insecticide applications,\
-    \a nd generation development time is consistent across regions.\ 
-    \nREFERENCE: UK Agricultural and Horticultural Development Board (2022). https://ahdb.org.uk/bydv "
-  citation:
-  valid_spatial:
-    countries:
-    - GBR
-    - BEL
-    - LUX
-    - NLD
-    - FRA
-    - DEU
-    - DNK
-    - IRL
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1001
-      interval: 3600
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{PREVIOUS_YEAR}-10-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-03-31'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/api/RHOPPA
-    form_method: post
-    content_type: application/json
-    input_schema: |
-      {
+
+      THE DECISION: This DSS indicates the best time to monitor crops for
+      infestations (start of emergence). If abundance is high, and non-chemical
+      managment options are unlikely to achieve adequate control, treatment
+      needs to be applied before, or soon after oviposition.
+
+      THE MODEL: Cumulative emergence as a function of degree day accumulations
+      described using a probit model. The model starts on the date of first
+      rainfall on or after the 1st March and ends at the end of July. The model
+      returns predicted proportion cumulative emergence, the associated risk and
+      recommended action.
+
+      THE PARAMETERS: The model uses accumulative daily temperature (500 degree
+      days above 0 degrees C)  
+
+      REGION: This DSS was adapted from work carried out in the UK, and is
+      considered applicable, but not yet validated in, Belgium, Luxembourg,
+      Netherlands, France, Germany, and Denmark.
+
+      THE PARAMETERS: The model uses Daily temperature and rainfall
+
+      ASSUMPTIONS: This DSS assumes the earliest date of emergence of saddle
+      gall midge to be after 500 day degrees. User must interpret the reported
+      risk against the vulnerability of the crop growth stage on farm, and
+      undertake  in field monitoring to assess the abundance of emerging
+      adults.   
+
+      REFERENCE: Rowley et al (2017) Crop Protection 102, 154-160.
+      http://dx.doi.org/10.1016/j.cropro.2017.08.025
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - HAPDMA
+    crops:
+      - TRZAX
+      - TRZAS
+      - SECCS
+      - HORVW
+      - HORVS
+      - AVESP
+      - TTLSO
+    authors:
+      - name: Charlotte Rowley, Andew Cherrill, Simon R. Leather, Tome W. Pope
+        email: crowley@harper-adams.ac.uk
+        organization: Centre for Integrated Pest Management
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/hapdma/api/HAPDMA
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.rain_threshold
+          - optionalData.dry_day
+          - optionalData.temp_threshold
+          - optionalData.degree_day
+          - optionalData.startDate
+          - optionalData.endDate
+      input_schema: |
+        {
+            "type":"object",
+            "properties": {  
+              "modelId": {"type": "string", "pattern":"^HAPDMA$", "title": "Model Id", "default":"HAPDMA", "description":"Must be HAPDMA"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },
+              "optionalData" :{
+                "title":"Optional parameters for the DSS",
+                "type": "object",
+                "properties": {
+                  "rain_threshold": {"type": "number", "default":"1","title": "Rainfall Threshold" },
+                  "dry_day": {"type": "number", "default":"3", "title": "Dry Day Threshold"},
+                  "temp_threshold": {"type": "number", "default":"0", "title": "Temperature Threshold"},
+                  "degree_day": {"type": "number", "default":"512", "title": "Degree Days"},
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date/Biofix (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-07-31"}
+                }
+              }
+            },
+            "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+        - parameter_code: 2001
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-03-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-07-31'
+    valid_spatial:
+      countries:
+        - GBR
+        - BEL
+        - LUX
+        - NLD
+        - FRA
+        - DEU
+        - DNK
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate low current risk of
+            saddle gall midge emergence.
+          recommended_action: >-
+            This model runs January - May, requiring data from the start of
+            January. The risk of emergence of saddle gall midge is currently
+            low.  Emergence begins once 500 day degrees is exceeded, and ends
+            after 1500 day degrees. The 'Emergence' chart indicates that
+            emergence is either unlikely to have started, or is likely to be
+            completed. 
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate medium current risk of
+            first saddle gall midge emergence.
+          recommended_action: >-
+            This model runs January - May, requiring data from the start of
+            January. The risk of emergence of saddle gall midge is currently
+            medium.  The 'Emergence' chart indicates that more than 50% of
+            saddle gall midge are now likely to have emerged, and 90% emergence
+            is likely once 1024 day degrees have accumulated. Adult saddle gall
+            midge are likely to be active in crops where they are present.
+            Monitor vulnerable crops for in-field activity and apply suitable
+            treatments according to need. Any applications must be applied
+            before larvae move under the leaf in order to have an effect.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate that emergence of saddle
+            gall midge has started.
+          recommended_action: >-
+            This model runs January - May, requiring data from the start of
+            January. The risk of emergence of saddle gall midge is currently
+            high.  Emergence begins once 500 day degrees is exceeded, and 50% of
+            emergence is forecast up by 750 day degrees.  The 'Emergence' chart
+            indicates that emergence is likely to have begun, and adult saddle
+            gall midge are currently emerging. Monitor vulnerable crops for
+            in-field activity and apply suitable treatments according to need.
+            Any applications must be applied before larvae move under the leaf 
+            in order to have an effect.
+      chart_heading: Cumulative day degrees
+      chart_groups:
+        - id: G1
+          title: Cumulative day degrees
+          result_parameter_ids:
+            - Cumulative_DayDegrees
+            - StartOfEmergenceThreshold
+            - FirstThreshold
+            - SecondThreshold
+            - ThirdThreshold
+      result_parameters:
+        - id: Cumulative_DayDegrees
+          title: Cumulative day degrees
+          description: >-
+            Cumulative day degrees
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: blue
+        - id: StartOfEmergenceThreshold
+          title: Estimated start of emergence 
+          description: Estimated start of emergence 
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: red
+        - id: FirstThreshold
+          title: Estimated 50% emergence complete 
+          description: Estimated 50% emergence complete 
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: orange
+        - id: SecondThreshold
+          title: Estimated 90% emergence complete
+          description: Estimated 90% emergence complete
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: yellow
+        - id: ThirdThreshold
+          title: Estimated end of emergence 
+          description: Estimated end of emergence 
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: green
+###################################################################################
+  - name: Codling moth flight model
+    id: CARPPO
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/carppo/Help/Api/POST-api-CARPPO
+    purpose: >-
+      Estimates the risk of the start of codling moth flight into crops, and
+      associated egg laying in pome fruit.
+    description: >-
+      THE PEST: Codling moth [Cydia pomonella] cause damage to fruit of apples,
+      pears and other pome fruit. Larvae emerge from eggs laid on the surface of
+      the fruit, and burrow inside. The surface blemish can reduce the value of
+      fruit, internal damage renders the fruit unsellable.
+
+
+      THE DECISION: The DSS predicts the start of adult codling moth flight,
+      enabling users to undertake targeted monitoring and/or mitigating actions
+      to reduce the risk of damage to the crop. Typically interventions are more
+      effective at the start of male flight, rather than at peak flight
+      periods.   
+
+      THE MODEL: A 3-paramater non-linear regression model fits cumulative moth
+      captures as a function of accumulated day degrees (Biofix 1st January) for
+      all three of the male flights. The model predicts that 1st migration
+      begins after 151 day degrees, 2nd migration begins after 673 day degrees,
+      and 3rd migration begins after 1303 day degrees. The start of migration
+      events are reported in the DSS warnings to the user. 
+
+      REGION: This DSS was adapted from work carried out in Greece, and is
+      considered applicable, but not yet validated in,  Albania, Romania,
+      Bosnia, Croatia, Italy, Macedonia, Montenegro, Portugal, San Marino,
+      Slovenia, Slovakia, and Spain
+
+      THE PARAMETERS: The model uses Minimum and maximum temperature from the
+      1st of January.
+
+      SOURCE: Aristotle University, Greece. 
+
+      ASSUMPTIONS: There may be three flight periods in southern Europe, one or
+      two in northern Europe. Predict flight does not relate to numbers of
+      codling moth, or scale of damage caused.Where flight periods overlap, the
+      highest current risk of new migration will be reported. 
+
+      REFERENCE: Damos et al. (2018) Bulletin of Insectology 71, 131-142 
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - CARPPO
+    crops:
+      - MABSD
+      - PYUCO
+    authors:
+      - name: Petros T. Damos, Nikos A. Kouloussis, Dimitris S. Koveos
+        email: petrosdamos@gmail.com
+        organization: >-
+          Laboratory of Applied Zoology and Parasitology, School of Agriculture,
+          Faculty of Agriculture, Forestry and Natural Environment,
+          Thessaloniki, Greece
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/carppo/api/carppo
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.lower_threshold
+          - optionalData.upper_threshold
+          - optionalData.firstFlight_a
+          - optionalData.firstFlight_b
+          - optionalData.firstFlight_y
+          - optionalData.secondFlight_a
+          - optionalData.secondFlight_b
+          - optionalData.secondFlight_y
+          - optionalData.thirdFlight_a
+          - optionalData.thirdFlight_b
+          - optionalData.thirdFlight_y
+          - optionalData.startDate
+          - optionalData.endDate
+      input_schema: |
+        {
           "type":"object",
           "properties": {  
-            "modelId": {"type": "string", "pattern":"^RHOPPA$", "title": "Model Id", "default":"RHOPPA", "description":"Must be RHOPPA"},
+            "modelId": {"type": "string", "pattern":"^CARPPO$", "title": "Model Id", "default":"CARPPO", "description":"Must be CARPPO"},
             "weatherData": {
-              "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-            },       
-            "optionalData" :{ 
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "optionalData" :{
               "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
-                "startDate": {"type":"string","format": "date", "title": "Model Start Date/Emergence Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-10-01"},
-                "endDate": {"type":"string","format": "date", "title": "Model End Date/Growth Stage 31 (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-31"},
-                "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"}
-              }            
-            }
-          },
-          "required": ["modelId"]
-        }  
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |
-      recommended_action: ''
-    - explanation: |-
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: Based on current data available, the model results indicate low current risk of winged aphids spreading BYDV in crops.
-      recommended_action: This model runs September - March. Update parameters when any insecticide applications are made.
-    - explanation: Based on current data available, conditions are approaching 170 day-degrees over a base of 3*C.
-      recommended_action: |-
-        The risk of winged aphids being present in the crop is increasing, and may occur in following 3-5 days. Increasing monitoring efforts in vulnerable crops, and apply suitable treatment according to need.Update parameters when any insecticide applications are made.
-    - explanation: Based on current data available, conditions have reasch or are above 170 day-degrees over a base of 3*C.
-      recommended_action: |-
-        The risk of winged aphids being present in the crop is high, winged aphids likely to be present in crop in coming days.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. Update parameters when any insecticide applications are made.
-    chart_heading: TSUM Model
-    chart_groups:
-    - id: G1
-      title: TSUM
-      result_parameter_ids:
-      - T-Sum
-    - id: G2
-      title: Proportion of Day
-      result_parameter_ids:
-      - Proportion_1
-      - Proportion_2
-      - Proportion_3
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: T-Sum
-      title: T-Sum
-      description: Cumulative day degrees over 3 degrees celsius.
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: orange
-    - id: Proportion_1
-      title: Proportion of day where temperature exceeds 11 degrees C
-      description: Proportion of day where temperature exceeds 11 degrees C
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: green
-    - id: Proportion_2
-      title: Proportion of day where temperature was below 6 degrees C
-      description: Proportion of day where temperature was below 6 degrees C
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: red
-    - id: Proportion_3
-      title: Proportion of day where temperature was below 3 degrees C
-      description: Proportion of day where temperature was below 3 degrees C
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: blue
-  purpose: Estimates risk of transmission of virus by aphid vectors
-##########
-- name: Hutton Criteria Late Blight Model
-  id: PHYTIN
-  version: 0.0.1
-  authors:
-  - name: James Hutton
-    email: NA
-    organization: James Hutton Institute, UK.
-  platform_validated: true
-  pests:
-  - PHYTIN
-  crops:
-  - SOLTU #EPPO for potatos
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/Help/Api/POST-api-CHOACU
-  description: |
-    THE PEST: Potato late blight is a disease caused by a fungus-like organism (Phytophthora infestans) that spreads rapidly in the potato crop canopy and can also infect tubers. 
-    THE DECISION: The model determines when weather conditions create high risk of infection, to guide targeting of fungicide treatment. 
-    THE MODEL: A high risk 'Hutton Criteria' period occurs when two consecutive days have a minimum temperature of 10°C, and at least six hours of relative humidity at or above 90%. 
-    THE PARAMETERS: The model uses daily air temperature and humidity 
-    SOURCE: James Hutton institute, UK. Introduced in the UK for the 2017 season. Dancey et al. 2017 16th Euroblight workshop. 
-    ASSUMPTIONS: The model does not account for higher temperatures or humidity which may occur under crop covers.
-  citation:
-  valid_spatial:
-    countries:
-    - GBR
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1001 # air temperature
-      interval: 3600
-    - parameter_code: 3001 # relative humidity
-      interval: 3600
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-03-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-09-30'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/api/CHOACU
-    form_method: post
-    content_type: application/json
-    input_schema: |
-      {
-          "type":"object",
-          "properties": {  
-            "modelId": {"type": "string", "pattern":"^CHOACU$", "title": "Model Id", "default":"CHOACU", "description":"Must be CHOACU"},
-            "weatherData": {
-              "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-            },
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
-              "type": "object",
-              "properties": {
-                "minimumTemperatureThreshold": {"type": "number", "default":"10", "title": "Minimum Temperature Threshold"},
-                "relativeHumidityThreshold": {"type": "number", "default":"90", "title": "Relative Humidity Threshold"},
-                "consecutiveDays": {"type": "number", "default":"2","title": "Consecutive Days"},
-                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
-                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
+                "lower_threshold": {"type": "number", "default":"10.1", "title": "Lower Temperature Threshold" },
+                "upper_threshold": {"type": "number", "default": "34.3", "title": "Upper Temperature Threshold" },
+                "firstFlight_a": {"type": "number", "default": "98.7583", "title": "First Flight: Parameter a" },
+                "firstFlight_b": {"type": "number", "default": "69.5118", "title": "First Flight: Parameter b" },        
+                "firstFlight_y": {"type": "number", "default": "468.8300", "title": "First Flight: Parameter y" },         
+                "secondFlight_a": {"type": "number", "default": "98.7505", "title": "Second Flight: Parameter a" },
+                "secondFlight_b": {"type": "number", "default": "99.9595", "title": "Second Flight: Parameter b" },
+                "secondFlight_y": {"type": "number", "default": "1130.9937", "title": "Second Flight: Parameter y" },
+                "thirdFlight_a": {"type": "number", "default": "106.1449", "title": "Third Flight: Parameter a" },
+                "thirdFlight_b": {"type": "number", "default": "110.2595", "title": "Third Flight: Parameter b" },        
+                "thirdFlight_y": {"type": "number", "default": "1815.8485", "title": "Third Flight: Parameter y" },     
+                "startDate": {"type":"string", "format": "date", "title": "Model Start Date/Biofix (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
+                "endDate": {"type":"string", "format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
               }
-            }
+            }            
           },
           "required": ["modelId"]
         }  
-    input_schema_categories:
-      hidden:
-      - modelId
-      internal:
-      - optionalData.minimumTemperatureThreshold
-      - optionalData.relativeHumidityThreshold
-      - optionalData.consecutiveDays
-      - optionalData.startDate
-      - optionalData.endDate
-  output:
-    warning_status_interpretation:
-    - explanation: 
-      recommended_action: 
-    - explanation: |-
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: Based on current weather data, the model indicates low blight risk. The risk will be updated each day as more weather data becomes available.
-      recommended_action: This model runs during the potato growng season. Continue to check for risk updates  and monitor crops for late blight.
-    - explanation: 
-      recommended_action: 
-    - explanation: Based on current weather data, the model indicates high blight risk. The risk will be updated each day as more weather data becomes available.
-      recommended_action: This model runs during the potato growing season. Weather conditions are currently suitable for potato late blight outbreaks. Monitor potato crops and apply fungicide treatments against late blight, according to need.
-    chart_heading: Hutton Criteria
-    chart_groups:
-    - id: G1
-      title: PHYTIN
-      result_parameter_ids:
-      - Criteria_Exceedance
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: Criteria_Exceedance
-      title: Number of days exceeding the Hutton Criteria.
-      description: Number of days exceeding the Hutton Criteria.
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: orange
-  purpose: Estimates risk of late blight
-##########
-- name: Septoria Leaf Blotch Model
-  id: SEPTTR
-  version: 0.0.1
-  authors:
-  - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch
-    email: NA
-    organization: NA
-  platform_validated: true
-  pests:
-  - SEPTTR
-  crops:
-  - TRZAW #EPPO for WINTER WHEAT
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/Help/Api/POST-api-SEPTTR
-  description: |
-    THE PEST: Septoria tritici blotch (Zymoseptoria tritici) affects the leaves of wheat crops and is particularly damaging to yield when it reduces the green canopy area of the upper leaves during grain filling.   
-    THE DECISION: Fungicide treatment to protect the upper leaves may need to be applied between stem extension and ear emergence, before symptoms are visible on those leaves.  
-    THE MODEL: At stem extension (growth stage 31) the model uses over-winter weather to estimate the potential for a damaging epidemic developing during the summer. This information can support treatment decisions.  It should be considered along with other risk factors, particularly: septoria resistance of the wheat variety, sowing date, location and weather conditions during the emergence of the upper leaves.  
-    THE PARAMETERS: the model uses data on minimum temperature and rainfall over-winter.  
-    SOURCE:  Rothamsted Research, UK. The model was developed, tested and published in 2009 and has not been implemented previously. te Beest et al. 2009 European Journal of Plant Pathology; te Beest et al. (2009) Plant Pathology.  
-    ASSUMPTIONS: The model provides an early estimate of the potential for an epidemic and should be interpreted in combination with other risk factors. "
-  citation:
-  valid_spatial:
-    countries:
-    - GBR
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1003 # minimum temperature
-      interval: 86400
-    - parameter_code: 2001 # rainfall
-      interval: 86400
-    weather_data_period_start:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.startDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-01-01'
-    weather_data_period_end:
-    - determined_by: INPUT_SCHEMA_PROPERTY
-      value: optionalData.endDate
-    - determined_by: FIXED_DATE
-      value: '{CURRENT_YEAR}-04-30'
-  execution:
-    type: ONTHEFLY
-    endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/api/SEPTTR
-    form_method: post
-    content_type: application/json
-    input_schema: |
-      {
-          "type":"object",
-          "properties": {  
-            "modelId": {"type": "string", "pattern":"^SEPTTR$", "title": "Model Id", "default":"SEPTTR", "description":"Must be SEPTTR"},
-            "weatherData": {
-              "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
-            },
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
-              "type": "object",
-              "properties": {
-                "minimumTemperatureThreshold": {"type": "number", "default":"0", "title": "Minimum Temperature Threshold"},
-                "rainfallThreshold": {"type": "number", "default":"90", "title": "Rainfall Threshold"},
-                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
-                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-30"}
+    input:
+      weather_parameters:
+        - parameter_code: 1003
+          interval: 86400
+        - parameter_code: 1004
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-09-30'
+    valid_spatial:
+      countries:
+        - ALB
+        - AND
+        - BIH
+        - HRV
+        - GRC
+        - ITA
+        - MLT
+        - MNE
+        - MKD
+        - PRT
+        - SMR
+        - SRB
+        - SVN
+        - ESP
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate low current risk of new
+            codling moth migration.
+          recommended_action: >-
+            This model runs March-August. The risk of start of new (first,
+            second or third) codling moth migration and associated oviposition,
+            is currently low. The 'Cumulative Captures' chart indicates the
+            predicted accumulative proportion (%) of adult males likely to be
+            caught by these dates, associated with the first (green), second
+            (red) or third (blue) flights.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate conditions are currently
+            suitable for pest activity.
+          recommended_action: >-
+            This model runs March - August. The model predicts that adult
+            codling moth flight activity is currently underway, which indicates
+            that oviposition will on vulnerable fruit is likely where this pest
+            is present. Monitor vulnerable crops for in-field activity and apply
+            suitable treatments according to need. The 'Cumulative Captures'
+            chart indicates the predicted accumulative  proportion (%) of adult
+            males likely to be caught by these dates, associated with the first
+            (green), second (red) or third (blue) flights.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate that conditions may soon
+            be suitable for critical pest activity.
+          recommended_action: >-
+            This model runs March - August. The risk of start of first, second
+            or third codling moth migration and associated oviposition on
+            vulnerable fruit is high. Check DSS warnings for predicted date of
+            start of migration, and increase monitoring efforts in vulnerable
+            crops, and apply suitable treatment according to need.. The
+            'Cumulative Captures' chart indicates the predicted accumulative
+            proportion (%) of adult males likely to be caught b y these dates,
+            associated with the first (green), second (red) or third (blue)
+            flights.
+      chart_heading: Cumulative Captures
+      chart_groups:
+        - id: G1
+          title: Cumulative Captures
+          result_parameter_ids:
+            - Baseline
+            - First_Flight_Cumulative_Captures
+            - Second_Flight_Cumulative_Captures
+            - Third_Flight_Cumulative_Captures
+      result_parameters:
+        - id: Baseline
+          title: ''
+          description: ''
+          chart_info:
+            default_visible: false
+            unit: ''
+            chart_type: line
+            color: black
+        - id: First_Flight_Cumulative_Captures
+          title: First Flight Cumulative Captures
+          description: >-
+            The cumulative captures of the Codling Moth during their first
+            flight.
+          chart_info:
+            default_visible: true
+            unit: Count
+            chart_type: line
+            color: green
+        - id: Second_Flight_Cumulative_Captures
+          title: Second Flight Cumulative Captures
+          description: >-
+            The cumulative captures of the Codling Moth during their second
+            flight.
+          chart_info:
+            default_visible: true
+            unit: Count
+            chart_type: line
+            color: red
+        - id: Third_Flight_Cumulative_Captures
+          title: Third Flight Cumulative Captures
+          description: >-
+            The cumulative captures of the Codling Moth during their third
+            flight.
+          chart_info:
+            default_visible: true
+            unit: Count
+            chart_type: line
+            color: blue
+#######################################################################################################
+  - name: BYDV TSUM model
+    id: RHOPPA
+    version: 0.0.2
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/Help/Api/POST-api-RHOPPA
+    purpose: Estimates risk of transmission of virus by aphid vectors
+    description: "THE PEST: Aphids can transmit barley/cereal yellow dwarf viruses (BYDV). Initially, aphids colonise relatively few crop plants. However, the second-generation tends to move away from the plant originally colonised. Controlling this generation is a key part of a BYDV management strategy.\n\nTHE DECISION: This DSS indicates the best time to monitor crops for aphids. If infestations are high, and non-chemical control options are unlikely to prevent second generation emergence, treatment should be considered to limit the spread of the virus.\nTHE MODEL: The second generation is likely to be present when the accumulated daily air temperatures, above a baseline temperature of 3ºC, reaches T-Sum 170. \nTHE PARAMETERS: The model uses Date of last spray application, daily temperature\nREGION: This DSS was adapted from work carried out in the UK, and is considered applicable, but not yet validated in, Belgium, Luxembourg, Netherlands, France, Germany, Rep. Ireland, and Denmark.\nASSUMPTIONS: This DSS assumes that the user will update the date of last insecticide applications. Its also assumes that no aphids found or insecticide treatment applied at 170DD, and restarts calculations. 2nd generation development time is consistent across regions.  \nREFERENCE: UK Agricultural and Horticultural Development Board (2022). https://ahdb.org.uk/bydv "
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - RHOPPA
+    crops:
+      - TRZAW
+      - HORVW
+    authors:
+      - name: AHDB
+        email: NA
+        organization: AHDB
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/api/RHOPPA
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+            "type":"object",
+            "properties": {  
+              "modelId": {"type": "string", "pattern":"^RHOPPA$", "title": "Model Id", "default":"RHOPPA", "description":"Must be RHOPPA"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },       
+              "optionalData" :{ 
+                "title":"Optional parameters for the DSS",
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date/Emergence Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-10-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date/Growth Stage 31 (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-31"},
+                  "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"}
+                }            
               }
-            }
-          },
-          "required": ["modelId"]
-        }  
-    input_schema_categories:
-      hidden:
-      - modelId
-      internal:
-      - optionalData.minimumTemperatureThreshold
-      - optionalData.rainfallThreshold
-      - optionalData.startDate
-      - optionalData.endDate
-  output:
-    warning_status_interpretation:
-    - explanation: 
-      recommended_action: ''
-    - explanation: 
-        Missing data.
-      recommended_action: Review error message.
-    - explanation: Based on over-winter weather, there is low potential for a damaging septoria tritici blotch epidemic. 
-      recommended_action: Despite the low potential, a damaging epidemic could still occur, particularly on early sown crops of septoria susceptible varieties, if conditions are favourable for the disease during spring/summer 
-    - explanation: 
-      recommended_action: ''
-    - explanation: Based on over-winter weather, there is high potential for a damaging septoria tritici blotch epidemic. 
-      recommended_action: Whether this high potential for an epidemic is realised will depend on other risk factors, particularly date of sowing, the susceptibility of the wheat variety and weather conditions during spring/summer.
-    chart_heading: Septoria Leaf Blotch
-    chart_groups:
-    - id: G1
-      title: SEPTTR
-      result_parameter_ids:
-      - AccumulatedRainfall
-      - AccumulatedTemperature
-      - CalculatedRisk
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: AccumulatedRainfall
-      title: Accumulated Rainfall.
-      description: Daily rainfall above 3mm accumulated in the 80-day period preceding
-        growth stage 31.
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: blue
-    - id: AccumulatedRainfall
-      title: Accumulated Temperature
-      description: Daily minimum temperature above 0 degrees accumulated in a window
-        that starts 120 days before growth stage 31 and ends 70 days before growth
-        stage 31.
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: orange
-    - id: CalculatedRisk
-      title: Model Risk
-      description: Model Risk
-      chart_info:
-        default_visible: true
-        unit: Count
-        chart_type: line
-        color: red
-  purpose: Estimates potential for septoria epidemics 
+            },
+            "required": ["modelId"]
+          }  
+    input:
+      weather_parameters:
+        - parameter_code: 1001
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{PREVIOUS_YEAR}-10-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-03-31'
+    valid_spatial:
+      countries:
+        - GBR
+        - BEL
+        - LUX
+        - NLD
+        - FRA
+        - DEU
+        - DNK
+        - IRL
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            Based on current data available, the model results indicate low
+            current risk of winged aphids spreading BYDV in crops. Day degrees from establishment/last treatment is below 50.
+          recommended_action: >-
+            This model runs September - March. Update parameters when any
+            insecticide applications are made.
+        - explanation: >-
+            Based on current data available, conditions are between 50-100.
+            day-degrees over a base of 3*C.
+          recommended_action: >-
+            The risk of winged aphids being present in the crop is increasing,
+            and may occur in following 3-5 days. The 'TSUM' chart indicates that
+            the accumulated degrees over 3*C since crop emergence or last
+            insecticide spray is approaching 170 degrees, which is associated
+            with the emergence of winged aphids that act as vectors for BYDV. 
+            Increasing monitoring efforts in vulnerable crops, and apply
+            suitable treatment according to need. Update parameters when any
+            insecticide applications are made.The model assumes no aphids found
+            or insecticide treatment applied at 170DD, and restarts calculations. 
+        - explanation: >-
+            Based on current data available, conditions have reached or are
+            above 100 day-degrees over a base of 3*C.
+          recommended_action: >-
+            The risk of winged aphids being present in the crop is high, winged
+            aphids likely to be present in crop in coming days. The 'TSUM' chart
+            indicates that the accumulated degrees over 3*C since crop emergence
+            or last insecticide spray is approaching 170 degrees, which is
+            associated with the emergence of winged aphids that act as vectors
+            for BYDV. Monitor vulnerable crops for in-field activity and apply
+            suitable treatments according to need. Update parameters when any
+            insecticide applications are made. The model assumes no aphids found
+            or insecticide treatment applied at 170DD, and restarts calculations. 
+      chart_heading: TSUM Model
+      chart_groups:
+        - id: G1
+          title: TSUM
+          result_parameter_ids:
+            - T-Sum
+            - ThresholdLine
+            - Baseline
+        - id: G2
+          title: Proportion of Day
+          result_parameter_ids:
+            - Proportion_1
+            - Proportion_2
+            - Proportion_3
+      result_parameters:
+        - id: T-Sum
+          title: T-Sum
+          description: Cumulative day degrees over 3 degrees celsius.
+          chart_info:
+            default_visible: true
+            unit: 'Count'
+            chart_type: line
+            color: orange
+        - id: ThresholdLine
+          title: Winged aphids likely to emerge
+          description: Winged aphids likely to emerge
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: red
+        - id: Baseline
+          title: ''
+          description: ''
+          chart_info:
+            default_visible: false
+            unit: ''
+            chart_type: line
+            color: black
+        - id: Proportion_1
+          title: Proportion of day where temperature exceeds 11 degrees C
+          description: Proportion of day where temperature exceeds 11 degrees C
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: green
+        - id: Proportion_2
+          title: Proportion of day where temperature was below 6 degrees C
+          description: Proportion of day where temperature was below 6 degrees C
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: red
+        - id: Proportion_3
+          title: Proportion of day where temperature was below 3 degrees C
+          description: Proportion of day where temperature was below 3 degrees C
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: blue
+#################################################################################################
+  - name: Hutton Criteria Late Blight Model
+    id: PHYTIN
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/Help/Api/POST-api-CHOACU
+    purpose: Estimates risk of late blight
+    description: >
+      THE PEST: Potato late blight is a disease caused by a fungus-like organism
+      (Phytophthora infestans) that spreads rapidly in the potato crop canopy
+      and can also infect tubers. 
+
+      THE DECISION: The model determines when weather conditions create high
+      risk of infection, to guide targeting of fungicide treatment. 
+
+      THE MODEL: A high risk 'Hutton Criteria' period occurs when two
+      consecutive days have a minimum temperature of 10°C, and at least six
+      hours of relative humidity at or above 90%. 
+
+      THE PARAMETERS: The model uses daily air temperature and humidity 
+
+      SOURCE: James Hutton institute, UK. Introduced in the UK for the 2017
+      season. Dancey et al. 2017 16th Euroblight workshop. 
+
+      ASSUMPTIONS: The model does not account for higher temperatures or
+      humidity which may occur under crop covers.
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - PHYTIN
+    crops:
+      - SOLTU
+    authors:
+      - name: James Hutton
+        email: NA
+        organization: James Hutton Institute, UK.
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/api/CHOACU
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.minimumTemperatureThreshold
+          - optionalData.relativeHumidityThreshold
+          - optionalData.consecutiveDays
+          - optionalData.startDate
+          - optionalData.endDate
+      input_schema: |
+        {
+            "type":"object",
+            "properties": {  
+              "modelId": {"type": "string", "pattern":"^CHOACU$", "title": "Model Id", "default":"CHOACU", "description":"Must be CHOACU"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },
+              "optionalData" :{   
+                "title":"Optional parameters for the DSS", 
+                "type": "object",
+                "properties": {
+                  "minimumTemperatureThreshold": {"type": "number", "default":"10", "title": "Minimum Temperature Threshold"},
+                  "relativeHumidityThreshold": {"type": "number", "default":"90", "title": "Relative Humidity Threshold"},
+                  "consecutiveDays": {"type": "number", "default":"2","title": "Consecutive Days"},
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
+                }
+              }
+            },
+            "required": ["modelId"]
+          }  
+    input:
+      weather_parameters:
+        - parameter_code: 1001
+          interval: 3600
+        - parameter_code: 3001
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-03-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-09-30'
+    valid_spatial:
+      countries:
+        - GBR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            Based on current weather data, the model indicates low blight risk.
+            The risk will be updated each day as more weather data becomes
+            available.
+          recommended_action: >-
+            This model runs during the potato growng season. Continue to check
+            for risk updates  and monitor crops for late blight.
+        - explanation: ''
+          recommended_action: ''
+        - explanation: >-
+            Based on current weather data, the model indicates high blight risk.
+            The risk will be updated each day as more weather data becomes
+            available.
+          recommended_action: >-
+            This model runs during the potato growing season. Weather conditions
+            are currently suitable for potato late blight outbreaks. Monitor
+            potato crops and apply fungicide treatments against late blight,
+            according to need.
+      chart_heading: Hutton Criteria
+      chart_groups:
+        - id: G1
+          title: PHYTIN
+          result_parameter_ids:
+            - Criteria_Exceedance
+      result_parameters:
+        - id: Criteria_Exceedance
+          title: Number of days exceeding the Hutton Criteria.
+          description: Number of days exceeding the Hutton Criteria.
+          chart_info:
+            default_visible: true
+            unit: Count
+            chart_type: line
+            color: orange
+###################################################################################################
+  - name: Septoria Leaf Blotch Model
+    id: SEPTTR
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/Help/Api/POST-api-SEPTTR
+    purpose: Estimates potential for septoria epidemics
+    description: >
+      THE PEST: Septoria tritici blotch (Zymoseptoria tritici) affects the
+      leaves of wheat crops and is particularly damaging to yield when it
+      reduces the green canopy area of the upper leaves during grain filling.   
+
+      THE DECISION: Fungicide treatment to protect the upper leaves may need to
+      be applied between stem extension and ear emergence, before symptoms are
+      visible on those leaves.  
+
+      THE MODEL: At stem extension (growth stage 31) the model uses over-winter
+      weather to estimate the potential for a damaging epidemic developing
+      during the summer. This information can support treatment decisions.  It
+      should be considered along with other risk factors, particularly: septoria
+      resistance of the wheat variety, sowing date, location and weather
+      conditions during the emergence of the upper leaves.  
+
+      THE PARAMETERS: the model uses data on minimum temperature and rainfall
+      over-winter.  
+
+      SOURCE:  Rothamsted Research, UK. The model was developed, tested and
+      published in 2009 and has not been implemented previously. te Beest et al.
+      2009 European Journal of Plant Pathology; te Beest et al. (2009) Plant
+      Pathology.  
+
+      ASSUMPTIONS: The model provides an early estimate of the potential for an
+      epidemic and should be interpreted in combination with other risk factors.
+      
+    citation: null
+    keywords: none
+    platform_validated: false
+    pests:
+      - SEPTTR
+    crops:
+      - TRZAW
+    authors:
+      - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch
+        email: NA
+        organization: NA
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/api/SEPTTR
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.minimumTemperatureThreshold
+          - optionalData.rainfallThreshold
+          - optionalData.startDate
+          - optionalData.endDate
+      input_schema: |
+        {
+            "type":"object",
+            "properties": {  
+              "modelId": {"type": "string", "pattern":"^SEPTTR$", "title": "Model Id", "default":"SEPTTR", "description":"Must be SEPTTR"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },
+              "optionalData" :{   
+                "title":"Optional parameters for the DSS", 
+                "type": "object",
+                "properties": {
+                  "minimumTemperatureThreshold": {"type": "number", "default":"0", "title": "Minimum Temperature Threshold"},
+                  "rainfallThreshold": {"type": "number", "default":"90", "title": "Rainfall Threshold"},
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-30"}
+                }
+              }
+            },
+            "required": ["modelId"]
+          }  
+    input:
+      weather_parameters:
+        - parameter_code: 1003
+          interval: 86400
+        - parameter_code: 2001
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-04-30'
+    valid_spatial:
+      countries:
+        - GBR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            Based on over-winter weather, there is low potential for a damaging
+            septoria tritici blotch epidemic.
+          recommended_action: >-
+            Despite the low potential, a damaging epidemic could still occur,
+            particularly on early sown crops of septoria susceptible varieties,
+            if conditions are favourable for the disease during spring/summer
+        - explanation: ''
+          recommended_action: ''
+        - explanation: >-
+            Based on over-winter weather, there is high potential for a damaging
+            septoria tritici blotch epidemic.
+          recommended_action: >-
+            Whether this high potential for an epidemic is realised will depend
+            on other risk factors, particularly date of sowing, the
+            susceptibility of the wheat variety and weather conditions during
+            spring/summer.
+      chart_heading: Septoria Leaf Blotch
+      chart_groups:
+        - id: G1
+          title: SEPTTR
+          result_parameter_ids:
+            - AccumulatedRainfall
+            - AccumulatedTemperature
+            - CalculatedRisk
+      result_parameters:
+        - id: AccumulatedRainfall
+          title: Accumulated Rainfall.
+          description: >-
+            Daily rainfall above 3mm accumulated in the 80-day period preceding
+            growth stage 31.
+          chart_info:
+            default_visible: true
+            unit: Count
+            chart_type: line
+            color: blue
+        - id: AccumulatedTemperature
+          title: Accumulated Temperature
+          description: >-
+            Daily minimum temperature above 0 degrees accumulated in a window
+            that starts 120 days before growth stage 31 and ends 70 days before
+            growth stage 31.
+          chart_info:
+            default_visible: true
+            unit: Count
+            chart_type: line
+            color: orange
+        - id: CalculatedRisk
+          title: Model Risk
+          description: Model Risk
+          chart_info:
+            default_visible: true
+            unit: 
+            chart_type: line
+            color: red

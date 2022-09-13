@@ -24,10 +24,8 @@ models:
     description: >
       THE PEST: The first generation of adult carrot fly emerge from pupae in
       the soil in the spring, and lay eggs close to the base of vulnerable
-      crops. Larvae 
-
-      initial feed at the surface, then tunnel into the tap root. Adults emerge
-      mid-July and can lead to a second generation. 
+      crops. Larvae initial feed at the surface, then tunnel into the tap root.
+      Adults emerge mid-July and can lead to a second generation. 
 
       THE DECISION: Treatments may need to be applied soon after adults arrive
       in the crop, before larvae tunnel into the crop roots.  
@@ -615,7 +613,7 @@ models:
       REFERENCE: 
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - PSILRO
     crops:
@@ -878,7 +876,7 @@ models:
 
       REFERENCE: 
     citation: null
-    platform_validated: true
+    platform_validated: false
     pests:
       - HYLERA
       - HYLEFL
@@ -1298,7 +1296,7 @@ models:
 
       REFERENCE: 
     citation: null
-    platform_validated: true
+    platform_validated: false
     pests:
       - ALTESO
     crops:
@@ -1642,7 +1640,7 @@ models:
 
       REFERENCE: 
     citation: null
-    platform_validated: true
+    platform_validated: false
     pests:
       - SEPTAP
     crops:
@@ -1779,7 +1777,7 @@ models:
       REFERENCE: 
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - BREMLA
     crops:

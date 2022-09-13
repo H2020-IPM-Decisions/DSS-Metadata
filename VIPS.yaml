@@ -1506,7 +1506,18 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.  
+            risk.    
+            This risk model guides the timing of the first fungicide
+            application. When accumulated risk is less than 120 (green), the
+            risk of blight is low. Between 120 and 150 (orange), there is a risk
+            of blight if other risk factors (e.g. sources of blight inoculum or
+            cultivar susceptibility) are high. Above 150 (red), the risk is
+            likely to be high. Above 200 the model becomes inactive as the first
+            spray should already have been applied in most circumstances. The
+            ‘Risk Status’ chart shows the accumulated risk reached on each day
+            (i.e. it does not show if the weather was high or low blight risk on
+            that particular day). The ’Infection risk’ chart shows the
+            increasing accumulated risk.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
@@ -1523,7 +1534,18 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.  
+            risk.    
+            This risk model guides the timing of the first fungicide
+            application. When accumulated risk is less than 120 (green), the
+            risk of blight is low. Between 120 and 150 (orange), there is a risk
+            of blight if other risk factors (e.g. sources of blight inoculum or
+            cultivar susceptibility) are high. Above 150 (red), the risk is
+            likely to be high. Above 200 the model becomes inactive as the first
+            spray should already have been applied in most circumstances. The
+            ‘Risk Status’ chart shows the accumulated risk reached on each day
+            (i.e. it does not show if the weather was high or low blight risk on
+            that particular day). The ’Infection risk’ chart shows the
+            increasing accumulated risk.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
@@ -1540,7 +1562,18 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.  
+            risk.    
+            This risk model guides the timing of the first fungicide
+            application. When accumulated risk is less than 120 (green), the
+            risk of blight is low. Between 120 and 150 (orange), there is a risk
+            of blight if other risk factors (e.g. sources of blight inoculum or
+            cultivar susceptibility) are high. Above 150 (red), the risk is
+            likely to be high. Above 200 the model becomes inactive as the first
+            spray should already have been applied in most circumstances. The
+            ‘Risk Status’ chart shows the accumulated risk reached on each day
+            (i.e. it does not show if the weather was high or low blight risk on
+            that particular day). The ’Infection risk’ chart shows the
+            increasing accumulated risk.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
@@ -1557,7 +1590,18 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.  
+            risk.    
+            This risk model guides the timing of the first fungicide
+            application. When accumulated risk is less than 120 (green), the
+            risk of blight is low. Between 120 and 150 (orange), there is a risk
+            of blight if other risk factors (e.g. sources of blight inoculum or
+            cultivar susceptibility) are high. Above 150 (red), the risk is
+            likely to be high. Above 200 the model becomes inactive as the first
+            spray should already have been applied in most circumstances. The
+            ‘Risk Status’ chart shows the accumulated risk reached on each day
+            (i.e. it does not show if the weather was high or low blight risk on
+            that particular day). The ’Infection risk’ chart shows the
+            increasing accumulated risk.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
@@ -1574,7 +1618,18 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.  
+            risk.    
+            This risk model guides the timing of the first fungicide
+            application. When accumulated risk is less than 120 (green), the
+            risk of blight is low. Between 120 and 150 (orange), there is a risk
+            of blight if other risk factors (e.g. sources of blight inoculum or
+            cultivar susceptibility) are high. Above 150 (red), the risk is
+            likely to be high. Above 200 the model becomes inactive as the first
+            spray should already have been applied in most circumstances. The
+            ‘Risk Status’ chart shows the accumulated risk reached on each day
+            (i.e. it does not show if the weather was high or low blight risk on
+            that particular day). The ’Infection risk’ chart shows the
+            increasing accumulated risk.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop

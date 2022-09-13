@@ -1291,6 +1291,8 @@ models:
     # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
     countries:
     - NOR
+    - DEU
+    - POL
     # Optionally, use a custom polygon
     geoJSON: |-
       {}

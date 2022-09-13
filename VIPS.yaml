@@ -1,8 +1,10 @@
-# General info about the DSS
 id: no.nibio.vips
 version: '2.0'
 name: VIPS
 url: https://www.vips-landbruk.no/
+languages:
+  - Norwegian
+  - English
 organization:
   name: NIBIO
   country: Norway
@@ -11,1738 +13,1960 @@ organization:
   city: Ås
   email: berit.nordskog@nibio.no
   url: https://www.nibio.no/
-languages:
-- Norwegian
-- English
-# From here on we get model specific
-# There may be many DSS models per DSS
-# They should have their separate list entry
-# We use EPPO codes (https://gd.eppo.int/)
-# for pests and crops
-# We use these parameters/codes for weather data: 
-# https://github.com/H2020-IPM-Decisions/formats/blob/master/weather_data/weather_parameters_draft_v2.yaml
 models:
-- name: Carrot fly flight model
-  id: PSILARTEMP
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Berit Nordskog
-    email: berit.nordskog@nibio.no
-    organization: NIBIO
-  platform_validated: true
-  pests:
-  - PSILRO # EPPO code for carrot rust fly
-  crops:
-  - DAUCS # EPPO code for carrot
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/PSILARTEMP/
-  description: |
-    THE PEST: The first generation of adult carrot fly emerge from pupae in the soil in the spring, and lay eggs close to the base of vulnerable crops. Larvae 
-    initial feed at the surface, then tunnel into the tap root. Adults emerge mid-July and can lead to a second generation. 
-    THE DECISION: Treatments may need to be applied soon after adults arrive in the crop, before larvae tunnel into the crop roots.  
-    THE MODEL: The model determines the start of the flight period for the 1st generation of carrot rust fly based on accumuleted degree-days (260 day-degrees) over a base temperature of 5°C.  
-    THE PARAMETERS: The model uses daily air temperature 
-    SOURCE: Luke, Finland. 
-    ASSUMPTIONS: Be aware that in areas with field covers (plastic, single or double non-woven covers, etc.) with early crops the preceding season (either on the current field or neighboring fields), the flight period can start earlier than predicted due to higher soil temperature under the covers.
-    REFERENCE: Marjjula et al 2000
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1002 # = Mean air temp at 2m
-      interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/PSILARTEMP/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^PSILARTEMP$", "title": "Model Id", "default":"PSILARTEMP", "description":"Must be PSILARTEMP"},
-          "configParameters": {
-            "title":"Configuration parameters",
-            "type": "object",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo", "options":{"infoText":"The time zone information is used when hourly temperature values need to be converted to daily."}},
-              "timeStart": {"type":"string","format": "date","default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-              "timeEnd": {"type":"string","format": "date","default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"}
-            },
-            "required": ["timeZone","timeStart","timeEnd"]
-          },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-          }
-        },
-        "required": ["modelId","configParameters"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        The flight period of the 1st generation is over.
-      recommended_action: Consult your advisory service for action conserning the 2nd generation.
-    - explanation: |-
-        Data is missing
-      recommended_action: Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 260 degree-days
-    - explanation: |-
-        Based on current data available, the model results indicate low risk of carrot fly flight.
-        
-        This model runs April - September. 
-      recommended_action: No action needed. Consider deploying yellow sticky traps in your fields when 260 degree-days is approching.
-    - explanation: |-
-        Based on current data available, conditions are approaching 260 day-degrees over a base of 5*C.
+  - name: Carrot fly flight model
+    id: PSILARTEMP
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/PSILARTEMP/
+    purpose: Estimates risk of flight and egg laying in crop
+    description: >
+      THE PEST: The first generation of adult carrot fly emerge from pupae in
+      the soil in the spring, and lay eggs close to the base of vulnerable
+      crops. Larvae 
 
-        The risk of adult carrot fly flight activity is increasing, which indicates that egg laying will soon occur on vulnerable carrot crops.  Increase monitoring efforts in vulnerable crops, and apply suitable treatment according to need.
-      recommended_action: Deploy yellow sticky traps in your fields if not already done. Consult your advisory service.
-    - explanation: |-
-        The threshold of 260 day-degrees over a base of 5*C has been reached.
+      initial feed at the surface, then tunnel into the tap root. Adults emerge
+      mid-July and can lead to a second generation. 
 
-        The risk of adult carrot fly flight activity is high, which indicates that egg laying will soon occur on vulnerable carrot crops.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
-      recommended_action: Consult your advisory service. Consider action to protect your crop based on observations in your own field.
-    chart_heading: Accumulated day degrees
-    chart_groups:
-    - id: G1
-      title: Day degrees
-      result_parameter_ids:
-      - TMDD5C
-      - THRESHOLD_1
-      - THRESHOLD_2
-      - THRESHOLD_3
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: TMDD5C
-      title: Accumulated day degrees
-      description: The accumulated day degrees with a base temperature of 5 degrees
-        celcius
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
-        color: '#0033cc'
-    - id: THRESHOLD_1
-      title: Threshold for start of flight period
-      description: When the accumulated day degrees exceed this threshold, the flight
-        period is starting up
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
-        color: '#ffff00'
-    - id: THRESHOLD_2
-      title: Threshold for peak flight period
-      description: When the accumulated day degrees exceed this threshold, you enter
-        the peak flight period
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
-        color: '#ff0000'
-    - id: THRESHOLD_3
-      title: Threshold for end of 1st generation flight period
-      description: When the accumulated day degrees exceed this threshold, the 1st
-        generation flight period is over
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
-        color: '#999999'
-  purpose: Estimates risk of flight and egg laying in crop
-##
-- name: Cabbage fly flight model (Scandinavia)
-  id: DELIARADIC
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Tor Johansen
-    email: tor.johansen@nibio.no
-    organization: NIBIO
-  platform_validated: true
-  pests:
-  - HYLERA # EPPO code for Cabbage Fly
-  crops:
-  #- 1BRSG # EPPO code for the Brassica Genus
-  #- BRSBL # Brassica balearica
-  #- BRSBA # Brassica barrelieri
-  #- BRSBO # Brassica bourgeaui
-  #- BRSCA # Brassica carinata
-  #- BRSCR # Brassica cretica
-  #- BRSEL # Brassica elongata
-  #- BRSEI # Brassica elongata subsp. integrifolia
-  #- BRSFR # Brassica fruticulosa
-  #- BRSGR # Brassica gravinae
-  #- BRSHI # Brassica hilarionis
-  #- BRSIN # Brassica incana
-  #- BRSIS # Brassica insularis
-  #- BRSJU # Brassica juncea
-  #- BRSJC # Brassica juncea var. crispifolia
-  #- BRSJJ # Brassica juncea var. japonica
-  #- BRSJN # Brassica juncea var. napiformis
-  #- BRSJR # Brassica juncea var. rugosa
-  #- BRSMK # Brassica macrocarpa
-  #- BRSMO # Brassica montana
-  #- BRSNN # Brassica napus
-  #- BRSNA # Brassica napus subsp. rapifera
-  #- BRSNP # Brassica napus var. pabularia
-  #- BRSNR # Brassica narinosa
-  #- BRSNI # Brassica nigra
-  #- BRSOX # Brassica oleracea
-  #- BRSOP # Brassica oleracea var. acephala subvar. planta
-  #- BRSAG # Brassica oleracea var. alboglabra
-  #- BRSOB # Brassica oleracea var. botrytis
-  #- BRSOL # Brassica oleracea var. capitata
-  #- BRSOH # Brassica oleracea var. capitata f. alba
-  #- BRSON # Brassica oleracea var. capitata f. conica
-  #- BRSOR # Brassica oleracea var. capitata f. rubra
-  #- BRSOD # Brassica oleracea var. costata
-  #- BRSOF # Brassica oleracea var. gemmifera
-  #- BRSOG # Brassica oleracea var. gongylodes
-  #- BRSOK # Brassica oleracea var. italica
-  #- BRSOO # Brassica oleracea var. longata
-  #- BRSOM # Brassica oleracea var. medullosa
-  #- BRSOI # Brassica oleracea var. palmifolia
-  #- BRSOQ # Brassica oleracea var. ramosa
-  #- BRSOS # Brassica oleracea var. sabauda
-  #- BRSOT # Brassica oleracea var. sabauda subvar. fimbriata
-  #- BRSOC # Brassica oleracea var. sabellica
-  #- BRSSG # Brassica oleracea var. sabellica x var. gemmifera
-  #- BRSOA # Brassica oleracea var. viridis
-  #- BRSXY # Brassica oxyrrhina
-  #- BRSPE # Brassica perviridis
-  #- BRSPR # Brassica procumbens
-  #- BRSRR # Brassica rapa
-  #- BRSCH # Brassica rapa subsp. chinensis
-  #- BRSNO # Brassica rapa subsp. nipposinica
-  #- BRSRO # Brassica rapa subsp. oleifera
-  #- BRSCC # Brassica rapa subsp. oleifera x subsp. chinensis
-  #- BRSPK # Brassica rapa subsp. pekinensis
-  #- BRSRA # Brassica rapa subsp. sylvestris
-  #- BRSCF # Brassica rapa var. chinoleifera
-  #- BRSRD # Brassica rapa var. dichotoma
-  #- BRSRE # Brassica rapa var. esculenta
-  #- BRSRG # Brassica rapa var. glabra
-  #- BRSRS # Brassica rapa var. sarson
-  #- BRSRT # Brassica rapa var. toria
-  #- BRSRP # Brassica rapa x Brassica rapa subsp. pekinensis
-  #- BRSRQ # Brassica repanda
-  #- BRSGA # Brassica repanda subsp. galissieri
-  #- BRSSX # Brassica repanda subsp. saxatilis
-  #- BRSRU # Brassica rupestris
-  #- BRSRW # Brassica ruvo
-  #- BRSSE # Brassica septiceps
-  #- BRSSO # Brassica souliei
-  - BRSSS # Brassica sp.
-  #- BRSSQ # Brassica spinescens
-  #- BRSTO # Brassica tournefortii
-  #- BRSVI # Brassica villosa
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARADIC/
-  description: |
-    THE PEST: Cabbage root fly larvae feed on the roots of brassicas, with damage being dependant on the crop type, growth stage and growing conditions. The cabbage root fly adults begin to lay eggs 5-7 days after emergence.  Newly transplanted or recently emerged crops are most at risk as the root systems are less developed. 
-    THE DECISION: Treatments may need to be applied soon after adults arrive in the crop, before subsequent larvae tunnel into the crop roots.  
-    THE MODEL: The model determins the start of egg laying as 160 degree-days (day-degrees) based on soil temperature (10 cm), over a base of temperature of 4 °C), OR based on the standard air temperature (2 m above the soil surface) at the same locations, egg laying starts at 210 degree days. 
-    THE PARAMETERS: The model uses Daily soil OR air temperature 
-    SOURCE: NIBIO, Norway. 
-    ASSUMPTIONS: Be aware that in areas with field covers (plastic, single or double non-woven covers, etc.) with early crops the preceding season (either on the current field or neighboring fields), the flight period can start earlier due to higher soil temperature under the covers. This model should be used in combination with direct observations of eggs in the field. This is due to large variability and to get an idea of the severity of attack. The model only applies for cabbage fly, not turnip fly.
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1002 # = Mean air temp at 2m
-      interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
-    - parameter_code: 1112 # Mean soil temp at 10cm depth
-      interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/DELIARADIC/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^DELIARADIC$", "title": "Model Id", "default":"DELIARADIC", "description":"Must be DELIARADIC"},
-          "configParameters": {
-            "title":"Configuration parameters",
-            "type": "object",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
-              "timeStart": {"type": "string","format": "date","default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-              "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"}
-            },
-            "required": ["timeZone","timeStart","timeEnd"]
-          },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-          }
-        },
-        "required": ["modelId","configParameters"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation: ### Experimental fields!!! (adding chart parameters)
-    - explanation: The flight period is over.
-      recommended_action: No action needed
-    - explanation:         Data is missing
-      recommended_action: |-
-        Consult your advisory service if preceding warnings were yellow/red or if accumulated degree-days were close to 140 degree-days (10 cm soil temperature) or 185 degree-days (air temperature).
-    - explanation: |-
-        Based on current data available, the model results indicate low current risk of cabbage fly flight.
-      
-        This model runs April - September.
-      recommended_action: |-
-        No action needed. Be aware that in areas with field covers (plastic,  single or double non-woven covers,
-        etc.) with early crops the preceding season (either on the current field or neighboring fields),
-        the flight period can start earlier due to higher soil temperature under the covers.
-    - explanation: |-
-        Based on current data available, air temperatures are approaching 210 day-degrees over a base of 4*C.
-        
-        The risk of adult cabbage root fly flight activity is increasing, which indicates that egg laying will soon occur on vulnerable brassica crops.  Increase monitoring efforts in vulnerable crops, and apply suitable treatment according to need.
-      recommended_action: Check for eggs in the field. Consult your advisory service.
-    - explanation: |-
-        The threshold of air temperature of 210 day-degrees over a base of 4*C has been reached.
+      THE DECISION: Treatments may need to be applied soon after adults arrive
+      in the crop, before larvae tunnel into the crop roots.  
 
-        The risk of adult cabbage root fly flight activity is high, it is likely that egg laying has begun on vulnerable brassica crops.  Monitor vulnerable crops for in-field activity and apply suitable treatments according to need. 
-      recommended_action: Consult your advisory service. Consider action to protect your crop based on observations in your own field.
-    chart_heading: Day degrees
-    chart_groups:
-    - id: G1
-      title: Day degrees
-      result_parameter_ids:
-      - TMDD4C
-      - TJM10DD4C
-      - TMDD4CLT
-      - TMDD4CUT
-      - TJM10DD4CLT
-      - TJM10DD4CUT
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: TMDD4C
-      title: Accumulated air temperature day degrees
-      description: The accumulated soil temperature day degrees with a base temperature
-        of 4 degrees celcius
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line   # https://www.chartjs.org/docs/latest/charts/
-        color: '#0066ff'
-    - id: TJM10DD4C
-      title: Accumulated soil temperature day degrees
-      description: The accumulated soil temperature day degrees with a base temperature
-        of 4 degrees celcius
-      chart_info:
-        default_visible: false
-        unit: '&deg;C'
-        chart_type: line
-        color: '#00ccff'
-    - id: TMDD4CLT
-      title: Lower threshold value for TMDD4C
-      description: When this threshold is reached, the flight period is beginning
-        and the first oviposition is close
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#ffff00'
-    - id: TMDD4CUT
-      title: Upper threshold value for TMDD4C
-      description: When this threshold is reached, it is likely that oviposition has
-        begun.
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#ff0000'
-    - id: TJM10DD4CLT
-      title: Lower threshold value for TJM10DD4C
-      description: When this threshold is reached, the flight period is beginning
-        and the first oviposition is close
-      chart_info:
-        default_visible: false
-        unit: '&deg;C'
-        chart_type: line
-        color: '#ff9900'
-    - id: TJM10DD4CUT
-      title: Upper threshold value for TJM10DD4C
-      description: When this threshold is reached, it is likely that oviposition has
-        begun.
-      chart_info:
-        default_visible: false
-        unit: '&deg;C'
-        chart_type: line
-        color: '#990000'
-  purpose: Estimates risk of flight and egg laying in crop
-##
-- name: Cabbage moth model
-  id: MAMESTRABR
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Nina Johansen
-    email: nina.johansen@nibio.no
-    organization: NIBIO
-  platform_validated: true
-  pests:
-  - BARABR # EPPO code for Cabbage Moth
-  crops:
-  #- 1BRSG # EPPO code for the Brassica Genus
-  #- BRSBL # Brassica balearica
-  #- BRSBA # Brassica barrelieri
-  #- BRSBO # Brassica bourgeaui
-  #- BRSCA # Brassica carinata
-  #- BRSCR # Brassica cretica
-  #- BRSEL # Brassica elongata
-  #- BRSEI # Brassica elongata subsp. integrifolia
-  #- BRSFR # Brassica fruticulosa
-  #- BRSGR # Brassica gravinae
-  #- BRSHI # Brassica hilarionis
-  #- BRSIN # Brassica incana
-  #- BRSIS # Brassica insularis
-  #- BRSJU # Brassica juncea
-  #- BRSJC # Brassica juncea var. crispifolia
-  #- BRSJJ # Brassica juncea var. japonica
-  #- BRSJN # Brassica juncea var. napiformis
-  #- BRSJR # Brassica juncea var. rugosa
-  #- BRSMK # Brassica macrocarpa
-  #- BRSMO # Brassica montana
-  #- BRSNN # Brassica napus
-  #- BRSNA # Brassica napus subsp. rapifera
-  #- BRSNP # Brassica napus var. pabularia
-  #- BRSNR # Brassica narinosa
-  #- BRSNI # Brassica nigra
-  #- BRSOX # Brassica oleracea
-  #- BRSOP # Brassica oleracea var. acephala subvar. planta
-  #- BRSAG # Brassica oleracea var. alboglabra
-  #- BRSOB # Brassica oleracea var. botrytis
-  #- BRSOL # Brassica oleracea var. capitata
-  #- BRSOH # Brassica oleracea var. capitata f. alba
-  #- BRSON # Brassica oleracea var. capitata f. conica
-  #- BRSOR # Brassica oleracea var. capitata f. rubra
-  #- BRSOD # Brassica oleracea var. costata
-  #- BRSOF # Brassica oleracea var. gemmifera
-  #- BRSOG # Brassica oleracea var. gongylodes
-  #- BRSOK # Brassica oleracea var. italica
-  #- BRSOO # Brassica oleracea var. longata
-  #- BRSOM # Brassica oleracea var. medullosa
-  #- BRSOI # Brassica oleracea var. palmifolia
-  #- BRSOQ # Brassica oleracea var. ramosa
-  #- BRSOS # Brassica oleracea var. sabauda
-  #- BRSOT # Brassica oleracea var. sabauda subvar. fimbriata
-  #- BRSOC # Brassica oleracea var. sabellica
-  #- BRSSG # Brassica oleracea var. sabellica x var. gemmifera
-  #- BRSOA # Brassica oleracea var. viridis
-  #- BRSXY # Brassica oxyrrhina
-  #- BRSPE # Brassica perviridis
-  #- BRSPR # Brassica procumbens
-  #- BRSRR # Brassica rapa
-  #- BRSCH # Brassica rapa subsp. chinensis
-  #- BRSNO # Brassica rapa subsp. nipposinica
-  #- BRSRO # Brassica rapa subsp. oleifera
-  #- BRSCC # Brassica rapa subsp. oleifera x subsp. chinensis
-  #- BRSPK # Brassica rapa subsp. pekinensis
-  #- BRSRA # Brassica rapa subsp. sylvestris
-  #- BRSCF # Brassica rapa var. chinoleifera
-  #- BRSRD # Brassica rapa var. dichotoma
-  #- BRSRE # Brassica rapa var. esculenta
-  #- BRSRG # Brassica rapa var. glabra
-  #- BRSRS # Brassica rapa var. sarson
-  #- BRSRT # Brassica rapa var. toria
-  #- BRSRP # Brassica rapa x Brassica rapa subsp. pekinensis
-  #- BRSRQ # Brassica repanda
-  #- BRSGA # Brassica repanda subsp. galissieri
-  #- BRSSX # Brassica repanda subsp. saxatilis
-  #- BRSRU # Brassica rupestris
-  #- BRSRW # Brassica ruvo
-  #- BRSSE # Brassica septiceps
-  #- BRSSO # Brassica souliei
-  - BRSSS # Brassica sp.
-  #- BRSSQ # Brassica spinescens
-  #- BRSTO # Brassica tournefortii
-  #- BRSVI # Brassica villosa
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARADIC/
-  description: "The model for the warning system for cabbage moth was developed by\
-    \ Dr. Nina Svae Johansen. \nIt is based on the minimum temperature threshold and\
-    \ the requirement for accumulated \nday-degrees for the different stages of the\
-    \ cabbage moth [CITATION Joh96 \\t \\l 1044 ]. \nThe accumulated degree-day model\
-    \ calculates forecasts for development of the cabbage moth \nthrough the summer,\
-    \ generates warnings for the time when eggs and small larvae can be \nregistered\
-    \ in the field and the best time for treatment [CITATION Joh97 \\t \\l 1044 ].\n\
-    \nNote that the model is based on temperature, it is not related to the presence\
-    \ or \nabsence of cabbage moth in the field. Thus, it is important to evaluate\
-    \ the situation in the field.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1002 # = Mean air temp at 2m
-      interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
-    - parameter_code: 1112 # Mean soil temp at 10cm depth
-      interval: 86400 # Sampling interval in seconds (3600 * 24 = 86400)
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/MAMESTRABR/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^MAMESTRABR$", "title": "Model Id", "default":"MAMESTRABR", "description":"Must be MAMESTRABR"},
-          "configParameters": {
-            "title":"Configuration parameters",
-            "type": "object",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
-              "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-              "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"}
-            },
-            "required": ["timeZone"]
-          },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-          }
-        },
-        "required": ["modelId","configParameters"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        Green rectangles indicate that there is no danger of attack. Green rectangles are shown prior to the start of oviposition (SUMDG < 158).
-        Yellow rectangles (prior to red rectangles) indicate that oviposition has begun and that the farmer should make observations in the field. Yellow rectangles are first shown when the soil temperature has reached 158 day-degrees (SUMDG=158). Yellow rectangles are also shown later in the season, after a red warning, to indicate that it is beyond the optimal time for treatment (the small larval instars). The larvae are too big for effective chemical control (they seek shelter from the sun inside the heads).
-        Red rectangles indicate the optimal time for treatment (when when registration in the field indicates attack). At this time most of the larvae are small and easily targeted on the outer leaves.
-        Grey rectangles indicate that the warning has ended. The larvae are so big that chemical control is very difficult or no longer possible.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that there is no danger of attack. Green rectangles are shown prior to the start of oviposition (SUMDG < 158).
-        Yellow rectangles (prior to red rectangles) indicate that oviposition has begun and that the farmer should make observations in the field. Yellow rectangles are first shown when the soil temperature has reached 158 day-degrees (SUMDG=158). Yellow rectangles are also shown later in the season, after a red warning, to indicate that it is beyond the optimal time for treatment (the small larval instars). The larvae are too big for effective chemical control (they seek shelter from the sun inside the heads).
-        Red rectangles indicate the optimal time for treatment (when when registration in the field indicates attack). At this time most of the larvae are small and easily targeted on the outer leaves.
-        Grey rectangles indicate that the warning has ended. The larvae are so big that chemical control is very difficult or no longer possible.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that there is no danger of attack. Green rectangles are shown prior to the start of oviposition (SUMDG < 158).
-        Yellow rectangles (prior to red rectangles) indicate that oviposition has begun and that the farmer should make observations in the field. Yellow rectangles are first shown when the soil temperature has reached 158 day-degrees (SUMDG=158). Yellow rectangles are also shown later in the season, after a red warning, to indicate that it is beyond the optimal time for treatment (the small larval instars). The larvae are too big for effective chemical control (they seek shelter from the sun inside the heads).
-        Red rectangles indicate the optimal time for treatment (when when registration in the field indicates attack). At this time most of the larvae are small and easily targeted on the outer leaves.
-        Grey rectangles indicate that the warning has ended. The larvae are so big that chemical control is very difficult or no longer possible.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that there is no danger of attack. Green rectangles are shown prior to the start of oviposition (SUMDG < 158).
-        Yellow rectangles (prior to red rectangles) indicate that oviposition has begun and that the farmer should make observations in the field. Yellow rectangles are first shown when the soil temperature has reached 158 day-degrees (SUMDG=158). Yellow rectangles are also shown later in the season, after a red warning, to indicate that it is beyond the optimal time for treatment (the small larval instars). The larvae are too big for effective chemical control (they seek shelter from the sun inside the heads).
-        Red rectangles indicate the optimal time for treatment (when when registration in the field indicates attack). At this time most of the larvae are small and easily targeted on the outer leaves.
-        Grey rectangles indicate that the warning has ended. The larvae are so big that chemical control is very difficult or no longer possible.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that there is no danger of attack. Green rectangles are shown prior to the start of oviposition (SUMDG < 158).
-        Yellow rectangles (prior to red rectangles) indicate that oviposition has begun and that the farmer should make observations in the field. Yellow rectangles are first shown when the soil temperature has reached 158 day-degrees (SUMDG=158). Yellow rectangles are also shown later in the season, after a red warning, to indicate that it is beyond the optimal time for treatment (the small larval instars). The larvae are too big for effective chemical control (they seek shelter from the sun inside the heads).
-        Red rectangles indicate the optimal time for treatment (when when registration in the field indicates attack). At this time most of the larvae are small and easily targeted on the outer leaves.
-        Grey rectangles indicate that the warning has ended. The larvae are so big that chemical control is very difficult or no longer possible.
-      recommended_action: ''
-    chart_heading: Accumulated day degrees
-    chart_groups:
-    - id: G1
-      title: Day degrees
-      result_parameter_ids:
-      - TMDD
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: TMDD
-      title: Accumulated day degrees
-      description: The accumulated day degrees with a base temperature of 0 degrees
-        celcius
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#0033cc'
-  purpose: ''
-##
-- name: Carrot rust fly observation model
-  id: PSILAROBSE
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Tor J. Johansen
-    email: tor.johansen@nibio.no
-    organization: NIBIO
-  platform_validated: true
-  pests:
-  - PSILRO # EPPO code for carrot rust fly
-  crops:
-  - DAUCS # EPPO code for carrot
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/PSILAROBSE/
-  description: "The warning system model is based on weekly observations of adult\
-    \ carrot rust flies captured on yellow sticky traps. The model is based in its\
-    \ entirety on observations, with no input of weather data or weather forecasts.\
-    \ Traps are placed in the field edge and in the field and are examined for carrot\
-    \ rust flies weekly throughout the season. The number of adult carrot rust flies\
-    \ is registered in VIPS and is used in the warning system model. The observations\
-    \ are compared with the economic threshold levels and a warning is calculated.\
-    \ After organophosphates (which had a good effect against larvae) were removed\
-    \ from the market, they were replaced by pyrethroids that only work against the\
-    \ adult stage. Studies were carried out in 2005 and 2006 to adjust the larval-based\
-    \ thresholds to chemical control of adult flies. The experience from Norway and\
-    \ other countries indicated that the first treatment against carrot rust flies\
-    \ should be done as soon as possible after the first fly is observed on the traps.\
-    \ The threshold that is used in VIPS is therefore at the first observation of\
-    \ 1 fly.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    field_observation:
-      species:
-      - PSILRO # EPPO Code for the disease
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/PSILAROBSE/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^PSILAROBSE$", "title": "Model Id", "default":"PSILAROBSE", "description":"Must be PSILAROBSE"},
-          "configParameters": {
-            "title":"Configuration parameters",
-            "type": "object",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
-              "startDateCalculation": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-              "endDateCalculation": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
-              "fieldObservations": {
-                "title": "Field observations",
-                "type": "array",
-                "items": {
-                  "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
-                }
+      THE MODEL: The model determines the start of the flight period for the 1st
+      generation of carrot rust fly based on accumuleted degree-days (260
+      day-degrees) over a base temperature of 5°C.  
+
+      THE PARAMETERS: The model uses daily air temperature 
+
+      SOURCE: Luke, Finland. 
+
+      ASSUMPTIONS: Be aware that in areas with field covers (plastic, single or
+      double non-woven covers, etc.) with early crops the preceding season
+      (either on the current field or neighboring fields), the flight period can
+      start earlier than predicted due to higher soil temperature under the
+      covers.
+
+      REFERENCE: Marjjula et al 2000
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - PSILRO
+    crops:
+      - DAUCS
+    authors:
+      - name: Berit Nordskog
+        email: berit.nordskog@nibio.no
+        organization: NIBIO
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/PSILARTEMP/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^PSILARTEMP$", "title": "Model Id", "default":"PSILARTEMP", "description":"Must be PSILARTEMP"},
+            "configParameters": {
+              "title":"Configuration parameters",
+              "type": "object",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo", "options":{"infoText":"The time zone information is used when hourly temperature values need to be converted to daily."}},
+                "timeStart": {"type":"string","format": "date","default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
+                "timeEnd": {"type":"string","format": "date","default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"}
               },
-              "fieldObservationQuantifications": {
-                "title": "Field observation quantifications",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/fieldObs_PSILRO"
-                    }
-                  ]
-                }
-              }
+              "required": ["timeZone","timeStart","timeEnd"]
             },
-            "required": ["timeZone","startDateCalculation","endDateCalculation"]
-          }
-        },
-        "required": ["modelId","configParameters"],
-        "definitions": {
-          "fieldObs_PSILRO": {
-            "title": "Psila rosae quantification", 
-            "properties": {
-              "trapCountCropEdge":{"title":"Insect trap count at the edge of the field","type":"integer"},
-              "trapCountCropInside":{"title":"Insect trap count inside the field","type":"integer"}
-            },
-            "required": ["trapCountCropEdge","trapCountCropInside"]
-          }
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
+          },
+          "required": ["modelId","configParameters"]
         }
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        Green rectangles indicate that the damage threshold has not been reached and there is no need for treatment.
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeStart
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeEnd
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: The flight period of the 1st generation is over.
+          recommended_action: >-
+            Consult your advisory service for action conserning the 2nd
+            generation.
+        - explanation: Data is missing
+          recommended_action: >-
+            Consult your advisory service if preceding warnings were yellow/red
+            or if accumulated degree-days were close to 260 degree-days
+        - explanation: >-
+            Based on current data available, the model results indicate low risk
+            of carrot fly flight.This model runs April - September. 
+          recommended_action: >-
+            No action needed. Consider deploying yellow sticky traps in your
+            fields when 260 degree-days is approching.
+        - explanation: >-
+            Based on current data available, conditions are approaching 260
+            day-degrees over a base of 5*C.The risk of adult carrot fly flight
+            activity is increasing, which indicates that egg laying will soon
+            occur on vulnerable carrot crops.  Increase monitoring efforts in
+            vulnerable crops, and apply suitable treatment according to need.
+          recommended_action: >-
+            Deploy yellow sticky traps in your fields if not already done.
+            Consult your advisory service.
+        - explanation: >-
+            The threshold of 260 day-degrees over a base of 5*C has been
+            reached.The risk of adult carrot fly flight activity is high, which
+            indicates that egg laying will soon occur on vulnerable carrot
+            crops.  Monitor vulnerable crops for in-field activity and apply
+            suitable treatments according to need. 
+          recommended_action: >-
+            Consult your advisory service. Consider action to protect your crop
+            based on observations in your own field.
+      chart_heading: Accumulated day degrees
+      chart_groups:
+        - id: G1
+          title: Day degrees
+          result_parameter_ids:
+            - TMDD5C
+            - THRESHOLD_1
+            - THRESHOLD_2
+            - THRESHOLD_3
+      result_parameters:
+        - id: TMDD5C
+          title: Accumulated day degrees
+          description: >-
+            The accumulated day degrees with a base temperature of 5 degrees
+            celcius
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#0033cc'
+        - id: THRESHOLD_1
+          title: Threshold for start of flight period
+          description: >-
+            When the accumulated day degrees exceed this threshold, the flight
+            period is starting up
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ffff00'
+        - id: THRESHOLD_2
+          title: Threshold for peak flight period
+          description: >-
+            When the accumulated day degrees exceed this threshold, you enter
+            the peak flight period
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff0000'
+        - id: THRESHOLD_3
+          title: Threshold for end of 1st generation flight period
+          description: >-
+            When the accumulated day degrees exceed this threshold, the 1st
+            generation flight period is over
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#999999'
+  - name: Cabbage fly flight model (Scandinavia)
+    id: DELIARADIC
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARADIC/
+    purpose: Estimates risk of flight and egg laying in crop
+    description: >
+      THE PEST: Cabbage root fly larvae feed on the roots of brassicas, with
+      damage being dependant on the crop type, growth stage and growing
+      conditions. The cabbage root fly adults begin to lay eggs 5-7 days after
+      emergence.  Newly transplanted or recently emerged crops are most at risk
+      as the root systems are less developed. 
 
-        Yellow rectangles indicate that carrot rust flies have been caught on traps at the edge of the field and it may be necessary to treat. The field should be checked to evaluate whether treatment is necessary.
+      THE DECISION: Treatments may need to be applied soon after adults arrive
+      in the crop, before subsequent larvae tunnel into the crop roots.  
 
-        Red rectangles indicate that carrot rust flies have been caught on traps in the field. The field should be checked to evaluate whether treatment is necessary.
+      THE MODEL: The model determins the start of egg laying as 160 degree-days
+      (day-degrees) based on soil temperature (10 cm), over a base of
+      temperature of 4 °C), OR based on the standard air temperature (2 m above
+      the soil surface) at the same locations, egg laying starts at 210 degree
+      days. 
 
-        The damage threshold for the first observation on sticky traps is 1 fly. Attack will vary from field to field, we recommend therefore that observations are made in addition in the farmer’s own field. Control measures should be used as soon as possible after the first observation in the farmer’s own field (if the plants are dry, without precipitation and the plants have reached the first true-leaf stage. Consider, based on previous experience and the size and shape of the field whether the entire field or only the border rows should be treated.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold has not been reached and there is no need for treatment.
+      THE PARAMETERS: The model uses Daily soil OR air temperature 
 
-        Yellow rectangles indicate that carrot rust flies have been caught on traps at the edge of the field and it may be necessary to treat. The field should be checked to evaluate whether treatment is necessary.
+      SOURCE: NIBIO, Norway. 
 
-        Red rectangles indicate that carrot rust flies have been caught on traps in the field. The field should be checked to evaluate whether treatment is necessary.
+      ASSUMPTIONS: Be aware that in areas with field covers (plastic, single or
+      double non-woven covers, etc.) with early crops the preceding season
+      (either on the current field or neighboring fields), the flight period can
+      start earlier due to higher soil temperature under the covers. This model
+      should be used in combination with direct observations of eggs in the
+      field. This is due to large variability and to get an idea of the severity
+      of attack. The model only applies for cabbage fly, not turnip fly.
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - HYLERA
+    crops:
+      - BRSSS
+    authors:
+      - name: Tor Johansen
+        email: tor.johansen@nibio.no
+        organization: NIBIO
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/DELIARADIC/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^DELIARADIC$", "title": "Model Id", "default":"DELIARADIC", "description":"Must be DELIARADIC"},
+            "configParameters": {
+              "title":"Configuration parameters",
+              "type": "object",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
+                "timeStart": {"type": "string","format": "date","default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
+                "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"}
+              },
+              "required": ["timeZone","timeStart","timeEnd"]
+            },
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
+          },
+          "required": ["modelId","configParameters"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+        - parameter_code: 1112
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeStart
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeEnd
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: The flight period is over.
+          recommended_action: No action needed
+        - explanation: Data is missing
+          recommended_action: >-
+            Consult your advisory service if preceding warnings were yellow/red
+            or if accumulated degree-days were close to 140 degree-days (10 cm
+            soil temperature) or 185 degree-days (air temperature).
+        - explanation: >-
+            Based on current data available, the model results indicate low
+            current risk of cabbage fly flight.This model runs April -
+            September.
+          recommended_action: >-
+            No action needed. Be aware that in areas with field covers
+            (plastic,  single or double non-woven covers,etc.) with early crops
+            the preceding season (either on the current field or neighboring
+            fields),the flight period can start earlier due to higher soil
+            temperature under the covers.
+        - explanation: >-
+            Based on current data available, air temperatures are approaching
+            210 day-degrees over a base of 4*C.The risk of adult cabbage root
+            fly flight activity is increasing, which indicates that egg laying
+            will soon occur on vulnerable brassica crops.  Increase monitoring
+            efforts in vulnerable crops, and apply suitable treatment according
+            to need.
+          recommended_action: Check for eggs in the field. Consult your advisory service.
+        - explanation: >-
+            The threshold of air temperature of 210 day-degrees over a base of
+            4*C has been reached.The risk of adult cabbage root fly flight
+            activity is high, it is likely that egg laying has begun on
+            vulnerable brassica crops.  Monitor vulnerable crops for in-field
+            activity and apply suitable treatments according to need. 
+          recommended_action: >-
+            Consult your advisory service. Consider action to protect your crop
+            based on observations in your own field.
+      chart_heading: Day degrees
+      chart_groups:
+        - id: G1
+          title: Day degrees
+          result_parameter_ids:
+            - TMDD4C
+            - TJM10DD4C
+            - TMDD4CLT
+            - TMDD4CUT
+            - TJM10DD4CLT
+            - TJM10DD4CUT
+      result_parameters:
+        - id: TMDD4C
+          title: Accumulated air temperature day degrees
+          description: >-
+            The accumulated soil temperature day degrees with a base temperature
+            of 4 degrees celcius
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#0066ff'
+        - id: TJM10DD4C
+          title: Accumulated soil temperature day degrees
+          description: >-
+            The accumulated soil temperature day degrees with a base temperature
+            of 4 degrees celcius
+          chart_info:
+            default_visible: false
+            unit: '&deg;C'
+            chart_type: line
+            color: '#00ccff'
+        - id: TMDD4CLT
+          title: Lower threshold value for TMDD4C
+          description: >-
+            When this threshold is reached, the flight period is beginning and
+            the first oviposition is close
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ffff00'
+        - id: TMDD4CUT
+          title: Upper threshold value for TMDD4C
+          description: >-
+            When this threshold is reached, it is likely that oviposition has
+            begun.
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff0000'
+        - id: TJM10DD4CLT
+          title: Lower threshold value for TJM10DD4C
+          description: >-
+            When this threshold is reached, the flight period is beginning and
+            the first oviposition is close
+          chart_info:
+            default_visible: false
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff9900'
+        - id: TJM10DD4CUT
+          title: Upper threshold value for TJM10DD4C
+          description: >-
+            When this threshold is reached, it is likely that oviposition has
+            begun.
+          chart_info:
+            default_visible: false
+            unit: '&deg;C'
+            chart_type: line
+            color: '#990000'
+  - name: Cabbage moth model
+    id: MAMESTRABR
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARADIC/
+    purpose: ''
+    description: >-
+      The model for the warning system for cabbage moth was developed by Dr.
+      Nina Svae Johansen. 
 
-        The damage threshold for the first observation on sticky traps is 1 fly. Attack will vary from field to field, we recommend therefore that observations are made in addition in the farmer’s own field. Control measures should be used as soon as possible after the first observation in the farmer’s own field (if the plants are dry, without precipitation and the plants have reached the first true-leaf stage. Consider, based on previous experience and the size and shape of the field whether the entire field or only the border rows should be treated.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold has not been reached and there is no need for treatment.
+      It is based on the minimum temperature threshold and the requirement for
+      accumulated 
 
-        Yellow rectangles indicate that carrot rust flies have been caught on traps at the edge of the field and it may be necessary to treat. The field should be checked to evaluate whether treatment is necessary.
+      day-degrees for the different stages of the cabbage moth [CITATION Joh96
+      \t \l 1044 ]. 
 
-        Red rectangles indicate that carrot rust flies have been caught on traps in the field. The field should be checked to evaluate whether treatment is necessary.
+      The accumulated degree-day model calculates forecasts for development of
+      the cabbage moth 
 
-        The damage threshold for the first observation on sticky traps is 1 fly. Attack will vary from field to field, we recommend therefore that observations are made in addition in the farmer’s own field. Control measures should be used as soon as possible after the first observation in the farmer’s own field (if the plants are dry, without precipitation and the plants have reached the first true-leaf stage. Consider, based on previous experience and the size and shape of the field whether the entire field or only the border rows should be treated.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold has not been reached and there is no need for treatment.
+      through the summer, generates warnings for the time when eggs and small
+      larvae can be 
 
-        Yellow rectangles indicate that carrot rust flies have been caught on traps at the edge of the field and it may be necessary to treat. The field should be checked to evaluate whether treatment is necessary.
+      registered in the field and the best time for treatment [CITATION Joh97 \t
+      \l 1044 ].
 
-        Red rectangles indicate that carrot rust flies have been caught on traps in the field. The field should be checked to evaluate whether treatment is necessary.
 
-        The damage threshold for the first observation on sticky traps is 1 fly. Attack will vary from field to field, we recommend therefore that observations are made in addition in the farmer’s own field. Control measures should be used as soon as possible after the first observation in the farmer’s own field (if the plants are dry, without precipitation and the plants have reached the first true-leaf stage. Consider, based on previous experience and the size and shape of the field whether the entire field or only the border rows should be treated.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold has not been reached and there is no need for treatment.
+      Note that the model is based on temperature, it is not related to the
+      presence or 
 
-        Yellow rectangles indicate that carrot rust flies have been caught on traps at the edge of the field and it may be necessary to treat. The field should be checked to evaluate whether treatment is necessary.
+      absence of cabbage moth in the field. Thus, it is important to evaluate
+      the situation in the field.
 
-        Red rectangles indicate that carrot rust flies have been caught on traps in the field. The field should be checked to evaluate whether treatment is necessary.
 
-        The damage threshold for the first observation on sticky traps is 1 fly. Attack will vary from field to field, we recommend therefore that observations are made in addition in the farmer’s own field. Control measures should be used as soon as possible after the first observation in the farmer’s own field (if the plants are dry, without precipitation and the plants have reached the first true-leaf stage. Consider, based on previous experience and the size and shape of the field whether the entire field or only the border rows should be treated.
-      recommended_action: ''
-    chart_heading: Trap countings
-    chart_groups:
-    - id: G1
-      title: Trap countings
-      result_parameter_ids:
-      - TRAP_COUNT_THRESHOLD
-      - TRAP_COUNT_CROP_EDGE
-      - TRAP_COUNT_CROP_INSIDE
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: TRAP_COUNT_THRESHOLD
-      title: Threshold for trap count
-      description: The threshold for trap count
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#000000'
-    - id: TRAP_COUNT_CROP_EDGE
-      title: Insect trap count at the edge of the field
-      description: Insect trap count at the edge of the field
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: bar
-        color: '#ffff00'
-    - id: TRAP_COUNT_CROP_INSIDE
-      title: Insect trap count inside the field
-      description: Insect trap count inside the field
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: bar
-        color: '#ff0000'
-##
-  purpose: ''
-- name: Cabbage root fly and turnip fly observation model
-  id: DELIARFOBS
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Richard Meadow
-    email: richard.meadow@nibio.no
-    organization: NIBIO
-  platform_validated: true
-  pests:
-  - HYLERA # EPPO code for Cabbage root fly (Delia radicum)
-  - HYLEFL # EPPO code for turnip fly (Delia floralis)
-  crops:
-  - BRSOL # EPPO code for cabbage (head cabbage, Brassica oleracea var. capitata)
-  - BRSOB # EPPO code for cauliflower (Brassica oleracea var. botrytis)
-  - BRSOK # EPPO code for broccoli (Brassica oleracea var. italica)
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARFOBS/
-  description: "The warning system model is based on weekly observations of oviposition\
-    \ by the \nbrassica root flies [CITATION Bli991 \\l 1044 ]. The model is based\
-    \ in its entirety \non observations, with no input of weather data or weather\
-    \ forecasts. The model does \nnot distinguish between the cabbage maggot and the\
-    \ turnip fly. The observations consist \nof collecting sand from the base of 10\
-    \ plants and floating the eggs in water. The \ncounts are registered in VIPS and\
-    \ the mean number of eggs is calculated. The observations \nare compared to damage\
-    \ thresholds [CITATION Bli99 \\l 1044 ] and warnings are calculated.\nThe damage\
-    \ thresholds are related to the plants developmental stage and tell how many eggs\
-    \ \nthat can be on a plant before there will be a reduction in growth and yield.\
-    \ VIPS presents \ntwo warning system models based on damage thresholds: one for\
-    \ newly planted cabbage and \none for cabbage that has been in the field more\
-    \ than 4 weeks. The model can also be set up \nas a private warning for the farmer’s\
-    \ own field, in which case the model will vary between \nthe two different damage\
-    \ thresholds based on the age of the cabbage crop (starting at the \ntime of planting).\n\
-    The warning system model is only valid for cabbage, cauliflower and broccoli.\
-    \ The damage \nthreshold for cabbage, cauliflower and broccoli the first 4 weeks\
-    \ after planting is 14 eggs \nper plant per week. After 4 weeks the damage threshold\
-    \ changes to 40 eggs per plant per \nweek. Damage thresholds have not been determined\
-    \ for other crucifers.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    field_observation:
-      species:
-      - HYLERA # EPPO Code for the disease
-      - HYLEFL
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/DELIARFOBS/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^DELIARFOBS$", "title": "Model Id", "default":"DELIARFOBS", "description":"Must be DELIARFOBS"},
-          "configParameters": {
-            "title":"Configuration parameters",
-            "type": "object",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
-              "startDateGrowth": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-              "endDateCalculation": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
-              "fieldObservations": {
-                "title": "Field observations",
-                "type": "array",
-                "items": {
-                  "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
+      SOURCE: 
+
+      ASSUMPTIONS: 
+
+      REFERENCE: 
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - BARABR
+    crops:
+      - BRSSS
+    authors:
+      - name: Nina Johansen
+        email: nina.johansen@nibio.no
+        organization: NIBIO
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/MAMESTRABR/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^MAMESTRABR$", "title": "Model Id", "default":"MAMESTRABR", "description":"Must be MAMESTRABR"},
+            "configParameters": {
+              "title":"Configuration parameters",
+              "type": "object",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
+                "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
+                "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"}
+              },
+              "required": ["timeZone"]
+            },
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
+          },
+          "required": ["modelId","configParameters"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+        - parameter_code: 1112
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeStart
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeEnd
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: >-
+            Green rectangles indicate that there is no danger of attack. Green
+            rectangles are shown prior to the start of oviposition (SUMDG <
+            158).Yellow rectangles (prior to red rectangles) indicate that
+            oviposition has begun and that the farmer should make observations
+            in the field. Yellow rectangles are first shown when the soil
+            temperature has reached 158 day-degrees (SUMDG=158). Yellow
+            rectangles are also shown later in the season, after a red warning,
+            to indicate that it is beyond the optimal time for treatment (the
+            small larval instars). The larvae are too big for effective chemical
+            control (they seek shelter from the sun inside the heads).Red
+            rectangles indicate the optimal time for treatment (when when
+            registration in the field indicates attack). At this time most of
+            the larvae are small and easily targeted on the outer leaves.Grey
+            rectangles indicate that the warning has ended. The larvae are so
+            big that chemical control is very difficult or no longer possible.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that there is no danger of attack. Green
+            rectangles are shown prior to the start of oviposition (SUMDG <
+            158).Yellow rectangles (prior to red rectangles) indicate that
+            oviposition has begun and that the farmer should make observations
+            in the field. Yellow rectangles are first shown when the soil
+            temperature has reached 158 day-degrees (SUMDG=158). Yellow
+            rectangles are also shown later in the season, after a red warning,
+            to indicate that it is beyond the optimal time for treatment (the
+            small larval instars). The larvae are too big for effective chemical
+            control (they seek shelter from the sun inside the heads).Red
+            rectangles indicate the optimal time for treatment (when when
+            registration in the field indicates attack). At this time most of
+            the larvae are small and easily targeted on the outer leaves.Grey
+            rectangles indicate that the warning has ended. The larvae are so
+            big that chemical control is very difficult or no longer possible.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that there is no danger of attack. Green
+            rectangles are shown prior to the start of oviposition (SUMDG <
+            158).Yellow rectangles (prior to red rectangles) indicate that
+            oviposition has begun and that the farmer should make observations
+            in the field. Yellow rectangles are first shown when the soil
+            temperature has reached 158 day-degrees (SUMDG=158). Yellow
+            rectangles are also shown later in the season, after a red warning,
+            to indicate that it is beyond the optimal time for treatment (the
+            small larval instars). The larvae are too big for effective chemical
+            control (they seek shelter from the sun inside the heads).Red
+            rectangles indicate the optimal time for treatment (when when
+            registration in the field indicates attack). At this time most of
+            the larvae are small and easily targeted on the outer leaves.Grey
+            rectangles indicate that the warning has ended. The larvae are so
+            big that chemical control is very difficult or no longer possible.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that there is no danger of attack. Green
+            rectangles are shown prior to the start of oviposition (SUMDG <
+            158).Yellow rectangles (prior to red rectangles) indicate that
+            oviposition has begun and that the farmer should make observations
+            in the field. Yellow rectangles are first shown when the soil
+            temperature has reached 158 day-degrees (SUMDG=158). Yellow
+            rectangles are also shown later in the season, after a red warning,
+            to indicate that it is beyond the optimal time for treatment (the
+            small larval instars). The larvae are too big for effective chemical
+            control (they seek shelter from the sun inside the heads).Red
+            rectangles indicate the optimal time for treatment (when when
+            registration in the field indicates attack). At this time most of
+            the larvae are small and easily targeted on the outer leaves.Grey
+            rectangles indicate that the warning has ended. The larvae are so
+            big that chemical control is very difficult or no longer possible.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that there is no danger of attack. Green
+            rectangles are shown prior to the start of oviposition (SUMDG <
+            158).Yellow rectangles (prior to red rectangles) indicate that
+            oviposition has begun and that the farmer should make observations
+            in the field. Yellow rectangles are first shown when the soil
+            temperature has reached 158 day-degrees (SUMDG=158). Yellow
+            rectangles are also shown later in the season, after a red warning,
+            to indicate that it is beyond the optimal time for treatment (the
+            small larval instars). The larvae are too big for effective chemical
+            control (they seek shelter from the sun inside the heads).Red
+            rectangles indicate the optimal time for treatment (when when
+            registration in the field indicates attack). At this time most of
+            the larvae are small and easily targeted on the outer leaves.Grey
+            rectangles indicate that the warning has ended. The larvae are so
+            big that chemical control is very difficult or no longer possible.
+          recommended_action: ''
+      chart_heading: Accumulated day degrees
+      chart_groups:
+        - id: G1
+          title: Day degrees
+          result_parameter_ids:
+            - TMDD
+      result_parameters:
+        - id: TMDD
+          title: Accumulated day degrees
+          description: >-
+            The accumulated day degrees with a base temperature of 0 degrees
+            celcius
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#0033cc'
+  - name: Carrot rust fly observation model
+    id: PSILAROBSE
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/PSILAROBSE/
+    purpose: ''
+    description: >-
+      The warning system model is based on weekly observations of adult carrot
+      rust flies captured on yellow sticky traps. The model is based in its
+      entirety on observations, with no input of weather data or weather
+      forecasts. Traps are placed in the field edge and in the field and are
+      examined for carrot rust flies weekly throughout the season. The number of
+      adult carrot rust flies is registered in VIPS and is used in the warning
+      system model. The observations are compared with the economic threshold
+      levels and a warning is calculated. After organophosphates (which had a
+      good effect against larvae) were removed from the market, they were
+      replaced by pyrethroids that only work against the adult stage. Studies
+      were carried out in 2005 and 2006 to adjust the larval-based thresholds to
+      chemical control of adult flies. The experience from Norway and other
+      countries indicated that the first treatment against carrot rust flies
+      should be done as soon as possible after the first fly is observed on the
+      traps. The threshold that is used in VIPS is therefore at the first
+      observation of 1 fly.
+
+
+      SOURCE: 
+
+      ASSUMPTIONS: 
+
+      REFERENCE: 
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - PSILRO
+    crops:
+      - DAUCS
+    authors:
+      - name: Tor J. Johansen
+        email: tor.johansen@nibio.no
+        organization: NIBIO
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/PSILAROBSE/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^PSILAROBSE$", "title": "Model Id", "default":"PSILAROBSE", "description":"Must be PSILAROBSE"},
+            "configParameters": {
+              "title":"Configuration parameters",
+              "type": "object",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
+                "startDateCalculation": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
+                "endDateCalculation": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
+                "fieldObservations": {
+                  "title": "Field observations",
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
+                  }
+                },
+                "fieldObservationQuantifications": {
+                  "title": "Field observation quantifications",
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/definitions/fieldObs_PSILRO"
+                      }
+                    ]
+                  }
                 }
               },
-              "fieldObservationQuantifications": {
-                "title": "Field observation quantifications",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/fieldObs_HYLERA"
-                    }
-                  ]
-                }
-              }
-            },
-            "required": ["timeZone","startDateCalculation","endDateCalculation"]
-          }
-        },
-        "required": ["modelId","configParameters"],
-        "definitions": {
-          "fieldObs_HYLERA": {
-            "title": "Delia radicum egg quantification", 
-            "properties": {
-              "counting01":{"title":"Number of eggs, plant 1", "type":"integer", "minimum": 0},
-              "counting02":{"title":"Number of eggs, plant 2", "type":"integer", "minimum": 0},
-              "counting03":{"title":"Number of eggs, plant 3", "type":"integer", "minimum": 0},
-              "counting04":{"title":"Number of eggs, plant 4", "type":"integer", "minimum": 0},
-              "counting05":{"title":"Number of eggs, plant 5", "type":"integer", "minimum": 0},
-              "counting06":{"title":"Number of eggs, plant 6", "type":"integer", "minimum": 0},
-              "counting07":{"title":"Number of eggs, plant 7", "type":"integer", "minimum": 0},
-              "counting08":{"title":"Number of eggs, plant 8", "type":"integer", "minimum": 0},
-              "counting09":{"title":"Number of eggs, plant 9", "type":"integer", "minimum": 0},
-              "counting10":{"title":"Number of eggs, plant 10","type":"integer", "minimum": 0}
+              "required": ["timeZone","startDateCalculation","endDateCalculation"]
+            }
+          },
+          "required": ["modelId","configParameters"],
+          "definitions": {
+            "fieldObs_PSILRO": {
+              "title": "Psila rosae quantification", 
+              "properties": {
+                "trapCountCropEdge":{"title":"Insect trap count at the edge of the field","type":"integer"},
+                "trapCountCropInside":{"title":"Insect trap count inside the field","type":"integer"}
+              },
+              "required": ["trapCountCropEdge","trapCountCropInside"]
             }
           }
         }
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        Green rectangles indicate that the damage threshold for cabbage based on the time from planting until the registration has not been reached and control measures are not needed.
-        Red rectangles indicate that the damage threshold f for cabbage based on the time from planting until the registration has been reached and it may be necessary to use control measures. The field should be checked to evaluate whether treatment is necessary.
-        This model does not use yellow rectangles. The warning goes directly from green to red when the damage threshold is exceeded.
-        Blue rectangles indicate that there are missing observations. An observation is valid for 8 days. If there are more than 8 days before a new observation is registered in the system, the model will give a blue warning.
-        The damage thresholds are related to the plants developmental stage and tell how many eggs that can be on a plant before there will be a reduction in growth and yield.
-        The warning should tell the best time for treatment in relation to the damage thresholds. If the number of eggs registered exceeds the damage threshold, treatment against the maggots is recommended, if the plants are not protected by other means. Observe the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were treated against maggots, treatment early in the season is not necessary.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold for cabbage based on the time from planting until the registration has not been reached and control measures are not needed.
-        Red rectangles indicate that the damage threshold f for cabbage based on the time from planting until the registration has been reached and it may be necessary to use control measures. The field should be checked to evaluate whether treatment is necessary.
-        This model does not use yellow rectangles. The warning goes directly from green to red when the damage threshold is exceeded.
-        Blue rectangles indicate that there are missing observations. An observation is valid for 8 days. If there are more than 8 days before a new observation is registered in the system, the model will give a blue warning.
-        The damage thresholds are related to the plants developmental stage and tell how many eggs that can be on a plant before there will be a reduction in growth and yield.
-        The warning should tell the best time for treatment in relation to the damage thresholds. If the number of eggs registered exceeds the damage threshold, treatment against the maggots is recommended, if the plants are not protected by other means. Observe the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were treated against maggots, treatment early in the season is not necessary.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold for cabbage based on the time from planting until the registration has not been reached and control measures are not needed.
-        Red rectangles indicate that the damage threshold f for cabbage based on the time from planting until the registration has been reached and it may be necessary to use control measures. The field should be checked to evaluate whether treatment is necessary.
-        This model does not use yellow rectangles. The warning goes directly from green to red when the damage threshold is exceeded.
-        Blue rectangles indicate that there are missing observations. An observation is valid for 8 days. If there are more than 8 days before a new observation is registered in the system, the model will give a blue warning.
-        The damage thresholds are related to the plants developmental stage and tell how many eggs that can be on a plant before there will be a reduction in growth and yield.
-        The warning should tell the best time for treatment in relation to the damage thresholds. If the number of eggs registered exceeds the damage threshold, treatment against the maggots is recommended, if the plants are not protected by other means. Observe the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were treated against maggots, treatment early in the season is not necessary.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold for cabbage based on the time from planting until the registration has not been reached and control measures are not needed.
-        Red rectangles indicate that the damage threshold f for cabbage based on the time from planting until the registration has been reached and it may be necessary to use control measures. The field should be checked to evaluate whether treatment is necessary.
-        This model does not use yellow rectangles. The warning goes directly from green to red when the damage threshold is exceeded.
-        Blue rectangles indicate that there are missing observations. An observation is valid for 8 days. If there are more than 8 days before a new observation is registered in the system, the model will give a blue warning.
-        The damage thresholds are related to the plants developmental stage and tell how many eggs that can be on a plant before there will be a reduction in growth and yield.
-        The warning should tell the best time for treatment in relation to the damage thresholds. If the number of eggs registered exceeds the damage threshold, treatment against the maggots is recommended, if the plants are not protected by other means. Observe the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were treated against maggots, treatment early in the season is not necessary.
-      recommended_action: ''
-    - explanation: |-
-        Green rectangles indicate that the damage threshold for cabbage based on the time from planting until the registration has not been reached and control measures are not needed.
-        Red rectangles indicate that the damage threshold f for cabbage based on the time from planting until the registration has been reached and it may be necessary to use control measures. The field should be checked to evaluate whether treatment is necessary.
-        This model does not use yellow rectangles. The warning goes directly from green to red when the damage threshold is exceeded.
-        Blue rectangles indicate that there are missing observations. An observation is valid for 8 days. If there are more than 8 days before a new observation is registered in the system, the model will give a blue warning.
-        The damage thresholds are related to the plants developmental stage and tell how many eggs that can be on a plant before there will be a reduction in growth and yield.
-        The warning should tell the best time for treatment in relation to the damage thresholds. If the number of eggs registered exceeds the damage threshold, treatment against the maggots is recommended, if the plants are not protected by other means. Observe the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were treated against maggots, treatment early in the season is not necessary.
-      recommended_action: ''
-    chart_groups:
-    - id: G1
-      title: Egg count
-      result_parameter_ids:
-      - OBS_AVG
-      - THRESHOLD_YOUNG
-      - THRESHOLD_OLD
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: OBS_AVG
-      title: Average egg count
-      description: Average of counting of eggs on 10 plants
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#000000'
-    - id: THRESHOLD_YOUNG
-      title: Economic threshold in young plants
-      description: Economic threshold in young plants (up to 4 weeks)
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#ffffff'
-    - id: THRESHOLD_OLD
-      title: Economic threshold in mature plants
-      description: Economic threshold in mature plants (4 weeks and older)
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#ff00ff'
-###########
-  purpose: ''
-- name: Nærstad model
-  id: NAERSTADMO
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Ragnhild Nærstad
-    email: ragnhild.naerstad@syngenta.com
-    organization: Syngenta
-  platform_validated: true
-  pests:
-  - PHYTIN # EPPO code for Potato late blight (Phytophthora infestans)
-  crops:
-  - SOLTU # EPPO code for potato
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/NAERSTADMO/
-  description: "The model is based on several years of experiments where trap plants\
-    \ have been placed next to a potato field infected with late blight. Infections\
-    \ on these plants have been correlated with weather conditions the day of exposure,\
-    \ and this is the data the model is based on. The model predicts if there are\
-    \ favourable conditions for spore production and the following spread, survival\
-    \ and infection of these spores. The model produces an infection risk, and a value\
-    \ of 2.5 corresponds to one spot of late blight on each trap plant exposed. This\
-    \ value of 2.5 is the threshold where the model issues a warning.\n\nSOURCE: \n\
-    ASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    - SWE
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters: # TODO: weather parameter codes, frequency codes and unit codes
-    - parameter_code: 1002 # = Mean temp at 2m measured in Celcius.
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 2001 # Precipitation measured in mm. 
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 5001 # Global radiation in W/sqm. 
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 3002 # Relative humidity at 2m in % 
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 3101 # Leaf wetness duration. Measured in minutes with wetness per period 
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/NAERSTADMO/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^NAERSTADMO$", "title": "Model Id (Must be NAERSTADMO)", "default":"NAERSTADMO"},
-          "configParameters": {
-            "type": "object",
-            "title":"Configuration parameters",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
-              "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-              "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-10-01", "title": "End date of calculation (YYYY-MM-DD)"}
-            },
-            "required": ["timeZone","timeStart","timeEnd"]
-          },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-          }
-        },
-        "required": ["modelId","configParameters"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        Risk < 1 = no warning (Green)
-        Risk > 1 and < 2,5 = possible warning coming up if conditions persists (Yellow)
-        Risk > 2,5 = warning issued (Red)
-        When a warning is issued, any control measure should be considered based on cultivar resistance, choice of fungicide and time of last application. Risk of infection is highest after several consecutive days with warnings, and especially if late blight has been observed in the area.
-      recommended_action: ''
-    - explanation: |-
-        Risk < 1 = no warning (Green)
-        Risk > 1 and < 2,5 = possible warning coming up if conditions persists (Yellow)
-        Risk > 2,5 = warning issued (Red)
-        When a warning is issued, any control measure should be considered based on cultivar resistance, choice of fungicide and time of last application. Risk of infection is highest after several consecutive days with warnings, and especially if late blight has been observed in the area.
-      recommended_action: ''
-    - explanation: |-
-        Risk < 1 = no warning (Green)
-        Risk > 1 and < 2,5 = possible warning coming up if conditions persists (Yellow)
-        Risk > 2,5 = warning issued (Red)
-        When a warning is issued, any control measure should be considered based on cultivar resistance, choice of fungicide and time of last application. Risk of infection is highest after several consecutive days with warnings, and especially if late blight has been observed in the area.
-      recommended_action: ''
-    - explanation: |-
-        Risk < 1 = no warning (Green)
-        Risk > 1 and < 2,5 = possible warning coming up if conditions persists (Yellow)
-        Risk > 2,5 = warning issued (Red)
-        When a warning is issued, any control measure should be considered based on cultivar resistance, choice of fungicide and time of last application. Risk of infection is highest after several consecutive days with warnings, and especially if late blight has been observed in the area.
-      recommended_action: ''
-    - explanation: |-
-        Risk < 1 = no warning (Green)
-        Risk > 1 and < 2,5 = possible warning coming up if conditions persists (Yellow)
-        Risk > 2,5 = warning issued (Red)
-        When a warning is issued, any control measure should be considered based on cultivar resistance, choice of fungicide and time of last application. Risk of infection is highest after several consecutive days with warnings, and especially if late blight has been observed in the area.
-      recommended_action: ''
-    chart_groups:
-    - id: G1
-      title: Risk
-      result_parameter_ids:
-      - RISK
-      - THRESHOLD_LOW
-      - THRESHOLD_HIGH
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: RISK
-      title: Calculated risk value
-      description: Calculated risk value
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#000000'
-    - id: THRESHOLD_LOW
-      title: Threshold low infection risk
-      description: When the calculated risk exceeds this threshold, the infection
-        risk changes from low risk to some risk
+    input:
+      field_observation:
+        species:
+          - PSILRO
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: >-
+            Green rectangles indicate that the damage threshold has not been
+            reached and there is no need for treatment.Yellow rectangles
+            indicate that carrot rust flies have been caught on traps at the
+            edge of the field and it may be necessary to treat. The field should
+            be checked to evaluate whether treatment is necessary.Red rectangles
+            indicate that carrot rust flies have been caught on traps in the
+            field. The field should be checked to evaluate whether treatment is
+            necessary.The damage threshold for the first observation on sticky
+            traps is 1 fly. Attack will vary from field to field, we recommend
+            therefore that observations are made in addition in the farmer’s own
+            field. Control measures should be used as soon as possible after the
+            first observation in the farmer’s own field (if the plants are dry,
+            without precipitation and the plants have reached the first
+            true-leaf stage. Consider, based on previous experience and the size
+            and shape of the field whether the entire field or only the border
+            rows should be treated.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold has not been
+            reached and there is no need for treatment.Yellow rectangles
+            indicate that carrot rust flies have been caught on traps at the
+            edge of the field and it may be necessary to treat. The field should
+            be checked to evaluate whether treatment is necessary.Red rectangles
+            indicate that carrot rust flies have been caught on traps in the
+            field. The field should be checked to evaluate whether treatment is
+            necessary.The damage threshold for the first observation on sticky
+            traps is 1 fly. Attack will vary from field to field, we recommend
+            therefore that observations are made in addition in the farmer’s own
+            field. Control measures should be used as soon as possible after the
+            first observation in the farmer’s own field (if the plants are dry,
+            without precipitation and the plants have reached the first
+            true-leaf stage. Consider, based on previous experience and the size
+            and shape of the field whether the entire field or only the border
+            rows should be treated.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold has not been
+            reached and there is no need for treatment.Yellow rectangles
+            indicate that carrot rust flies have been caught on traps at the
+            edge of the field and it may be necessary to treat. The field should
+            be checked to evaluate whether treatment is necessary.Red rectangles
+            indicate that carrot rust flies have been caught on traps in the
+            field. The field should be checked to evaluate whether treatment is
+            necessary.The damage threshold for the first observation on sticky
+            traps is 1 fly. Attack will vary from field to field, we recommend
+            therefore that observations are made in addition in the farmer’s own
+            field. Control measures should be used as soon as possible after the
+            first observation in the farmer’s own field (if the plants are dry,
+            without precipitation and the plants have reached the first
+            true-leaf stage. Consider, based on previous experience and the size
+            and shape of the field whether the entire field or only the border
+            rows should be treated.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold has not been
+            reached and there is no need for treatment.Yellow rectangles
+            indicate that carrot rust flies have been caught on traps at the
+            edge of the field and it may be necessary to treat. The field should
+            be checked to evaluate whether treatment is necessary.Red rectangles
+            indicate that carrot rust flies have been caught on traps in the
+            field. The field should be checked to evaluate whether treatment is
+            necessary.The damage threshold for the first observation on sticky
+            traps is 1 fly. Attack will vary from field to field, we recommend
+            therefore that observations are made in addition in the farmer’s own
+            field. Control measures should be used as soon as possible after the
+            first observation in the farmer’s own field (if the plants are dry,
+            without precipitation and the plants have reached the first
+            true-leaf stage. Consider, based on previous experience and the size
+            and shape of the field whether the entire field or only the border
+            rows should be treated.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold has not been
+            reached and there is no need for treatment.Yellow rectangles
+            indicate that carrot rust flies have been caught on traps at the
+            edge of the field and it may be necessary to treat. The field should
+            be checked to evaluate whether treatment is necessary.Red rectangles
+            indicate that carrot rust flies have been caught on traps in the
+            field. The field should be checked to evaluate whether treatment is
+            necessary.The damage threshold for the first observation on sticky
+            traps is 1 fly. Attack will vary from field to field, we recommend
+            therefore that observations are made in addition in the farmer’s own
+            field. Control measures should be used as soon as possible after the
+            first observation in the farmer’s own field (if the plants are dry,
+            without precipitation and the plants have reached the first
+            true-leaf stage. Consider, based on previous experience and the size
+            and shape of the field whether the entire field or only the border
+            rows should be treated.
+          recommended_action: ''
+      chart_heading: Trap countings
+      chart_groups:
+        - id: G1
+          title: Trap countings
+          result_parameter_ids:
+            - TRAP_COUNT_THRESHOLD
+            - TRAP_COUNT_CROP_EDGE
+            - TRAP_COUNT_CROP_INSIDE
+      result_parameters:
+        - id: TRAP_COUNT_THRESHOLD
+          title: Threshold for trap count
+          description: The threshold for trap count
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#000000'
+        - id: TRAP_COUNT_CROP_EDGE
+          title: Insect trap count at the edge of the field
+          description: Insect trap count at the edge of the field
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#ffff00'
+        - id: TRAP_COUNT_CROP_INSIDE
+          title: Insect trap count inside the field
+          description: Insect trap count inside the field
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#ff0000'
+  - name: Cabbage root fly and turnip fly observation model
+    id: DELIARFOBS
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARFOBS/
+    purpose: ''
+    description: >-
+      The warning system model is based on weekly observations of oviposition by
+      the 
 
-    - id: THRESHOLD_HIGH
-      title: Threshold high infection risk
-      description: When the calculated risk exceeds this threshold, the infection
-        risk changes from some risk to high risk
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#ff0000'
-#####
-  purpose: ''
-- name: Alternaria TOMCAST
-  id: ALTERNARIA
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Dr R. E. Pitblado
-  platform_validated: true
-  pests:
-  - ALTESO # EPPO code for Alternaria solanum
-  crops:
-  - SOLTU # EPPO code for potato
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/ALTERNARIA/
-  description: "TOMCAST is based on a model that was originally developed for leaf\
-    \ spot diseases in tomato. The model that is used here is tested and adapted to\
-    \ be used against early blight in potato in Denmark (Alternaria solani). The model\
-    \ calculates daily risk values (DSV: Disease Severity Values) based on temperature\
-    \ and leaf wetness the previous day. DSV represents the risk of attack of early\
-    \ blight the previous 24 hours. Daily values of DSV are accumulated until a threshold\
-    \ value is reached, and treatment is recommended. When a spray is performed and\
-    \ entered into the model, accumulation of DSV is reset and starts over at 0.\n\
-    \nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters: # TODO: weather parameter codes, frequency codes and unit codes
-    - parameter_code: 1002 # = Mean temp at 2m measured in Celcius.
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 3101 # Leaf wetness duration. Measured in minutes with wetness per period 
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/ALTERNARIA/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^ALTERNARIA$", "title": "Model Id (Must be ALTERNARIA)", "default":"ALTERNARIA"},
-          "configParameters": {
-            "type": "object",
-            "title":"Configuration parameters",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
-              "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-              "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
-              "sprayingDates": {"type": "array", "minItems":0, "maxItems":3, "title": "Spraying dates","items":{"type":"string","format":"date", "default":"{CURRENT_YEAR}-06-01"}}
-            },
-            "required": ["timeZone","timeStart","timeEnd"]
-          },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-          }
-        },
-        "required": ["modelId","configParameters"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        The model will be green (no risk) until it reaches 15. From this value the warning will be yellow (possible risk) until the threshold is reached, and the warning turns red (risk of infection).
-      recommended_action: ''
-    - explanation: |-
-        The model will be green (no risk) until it reaches 15. From this value the warning will be yellow (possible risk) until the threshold is reached, and the warning turns red (risk of infection).
-      recommended_action: ''
-    - explanation: |-
-        The model will be green (no risk) until it reaches 15. From this value the warning will be yellow (possible risk) until the threshold is reached, and the warning turns red (risk of infection).
-      recommended_action: ''
-    - explanation: |-
-        The model will be green (no risk) until it reaches 15. From this value the warning will be yellow (possible risk) until the threshold is reached, and the warning turns red (risk of infection).
-      recommended_action: ''
-    - explanation: |-
-        The model will be green (no risk) until it reaches 15. From this value the warning will be yellow (possible risk) until the threshold is reached, and the warning turns red (risk of infection).
-      recommended_action: ''
-    chart_groups:
-    - id: G1
-      title: Aggregated Daily Disease Severity Value
-      result_parameter_ids:
-      - DSV_SUM
-      - THRESHOLD_DSV_BASE
-      - THRESHOLD_DSV_MAX
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: DSV_SUM
-      title: Aggregated Daily Disease Severity Value
-      description: The aggregated risk
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#00000'
-    - id: THRESHOLD_DSV_BASE
-      title: Lower threshold
-      description: Lower threshold
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#ffff00'
-    - id: THRESHOLD_DSV_MAX
-      title: High treshold
-      description: High risk
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#ff0000'
-#####
-  purpose: ''
-- name: Negative prognosis
-  id: NEGPROGMOD
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Ullrich J. & H. Schrödter
-  platform_validated: true
-  pests:
-  - PHYTIN # EPPO code for Alternaria solanum
-  crops:
-  - SOLTU # EPPO code for potato
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/NEGPROGMOD/
-  description: "From a specific date (50% germination), daily risk values are accumulated\
-    \ based on weather data (temperature, relative humidity and precipitation). The\
-    \ risk is an accumulated value of how the weather affects late blight germination/infection,\
-    \ sporulation and growth. Alle processes are corrected for inhibition due to drying.\
-    \ After the accumulated risk has reached a certain limit (150), there will be\
-    \ an infection risk if there is one day with high infection risk. This model is\
-    \ together with time of row closure, used to decide the timing of first spray\
-    \ against potato late blight.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    - DEU
-    - POL
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters: # TODO: weather parameter codes, frequency codes and unit codes
-    - parameter_code: 1002 # = Mean temp at 2m measured in Celcius.
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 2001 # Precipitation
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 3002 # Mean relative humidity (%)
-      interval: 3600
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeStart   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.timeEnd   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/NEGPROGMOD/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^NEGPROGMOD$", "title": "Model Id (Must be NEGPROGMOD)", "default":"NEGPROGMOD"},
-          "configParameters": {
-            "type": "object",
-            "title":"Configuration parameters",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
-              "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01",  "title": "Date of crop emergence (YYYY-MM-DD)"},
-              "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-07-01", "title": "End date of calculation (YYYY-MM-DD)"}
-            },
-            "required": ["timeZone","timeStart","timeEnd"]
-          },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-          }
-        },
-        "required": ["modelId","configParameters"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        When accumulated risk < 150, warning symbol is green
+      brassica root flies [CITATION Bli991 \l 1044 ]. The model is based in its
+      entirety 
 
-        When accumulated risk > 150, warning symbol is yellow if the daily risk is below 7 and red if it is above 7
+      on observations, with no input of weather data or weather forecasts. The
+      model does 
 
-        When a late blight warning has been issued, cultivar suseptibility, selection of fungicide and time of application should be considered before spraying. Risk of getting an infection is highest if warnings are issued two days ore more in a row, and when late blight has been observed in the area. 
-      recommended_action: ''
-    - explanation: |-
-        When accumulated risk < 150, warning symbol is green
+      not distinguish between the cabbage maggot and the turnip fly. The
+      observations consist 
 
-        When accumulated risk > 150, warning symbol is yellow if the daily risk is below 7 and red if it is above 7
+      of collecting sand from the base of 10 plants and floating the eggs in
+      water. The 
 
-        When a late blight warning has been issued, cultivar suseptibility, selection of fungicide and time of application should be considered before spraying. Risk of getting an infection is highest if warnings are issued two days ore more in a row, and when late blight has been observed in the area. 
-      recommended_action: ''
-    - explanation: |-
-        When accumulated risk < 150, warning symbol is green
+      counts are registered in VIPS and the mean number of eggs is calculated.
+      The observations 
 
-        When accumulated risk > 150, warning symbol is yellow if the daily risk is below 7 and red if it is above 7
+      are compared to damage thresholds [CITATION Bli99 \l 1044 ] and warnings
+      are calculated.
 
-        When a late blight warning has been issued, cultivar suseptibility, selection of fungicide and time of application should be considered before spraying. Risk of getting an infection is highest if warnings are issued two days ore more in a row, and when late blight has been observed in the area. 
-      recommended_action: ''
-    - explanation: |-
-        When accumulated risk < 150, warning symbol is green
+      The damage thresholds are related to the plants developmental stage and
+      tell how many eggs 
 
-        When accumulated risk > 150, warning symbol is yellow if the daily risk is below 7 and red if it is above 7
+      that can be on a plant before there will be a reduction in growth and
+      yield. VIPS presents 
 
-        When a late blight warning has been issued, cultivar suseptibility, selection of fungicide and time of application should be considered before spraying. Risk of getting an infection is highest if warnings are issued two days ore more in a row, and when late blight has been observed in the area. 
-      recommended_action: ''
-    - explanation: |-
-        When accumulated risk < 150, warning symbol is green
+      two warning system models based on damage thresholds: one for newly
+      planted cabbage and 
 
-        When accumulated risk > 150, warning symbol is yellow if the daily risk is below 7 and red if it is above 7
+      one for cabbage that has been in the field more than 4 weeks. The model
+      can also be set up 
 
-        When a late blight warning has been issued, cultivar suseptibility, selection of fungicide and time of application should be considered before spraying. Risk of getting an infection is highest if warnings are issued two days ore more in a row, and when late blight has been observed in the area. 
-      recommended_action: ''
-    chart_groups:
-    - id: G1
-      title: Infection risk
-      result_parameter_ids:
-      - AGGREGATED_CONTRIB
-      - INFECTION_THRESHOLD
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: AGGREGATED_CONTRIB
-      title: Aggregated infection risk
-      description: The aggregated risk
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#000000'
-    - id: INFECTION_THRESHOLD
-      title: Infection threshold
-      description: Threshold for "High infection risk"
-      chart_info:
-        default_visible: true
-        unit: Number
-        chart_type: line
-        color: '#ff0000'
-#####
-  purpose: ''
-- name: Septoria apiicola model
-  id: SEPAPIICOL
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Berit Nordskog
-    email: berit.nordskog@nibio.no
-    organization: NIBIO
-  - name: Arne Hermansen
-    email: arne.hermansen@nibio.no
-    organization: NIBIO
-  platform_validated: true
-  pests:
-  - SEPTAP # EPPO code for the disease
-  crops:
-  - APUGD # EPPO code for celery
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/SEPAPIICOL/
-  description: "This model is based on a calculation of how leaf wetness periods influence\
-    \ infection of celery by Septoria apiicola in susceptible host plants.\n\nForecasts\
-    \ of infection risk are given after a minimum of 12 consecutive hours of leaf\
-    \ wetness. The wet periods are calculated from sensors placed 30 cm above ground.\
-    \ If such a sensor is not available, data from leaf wetness sensors placed 2 m\
-    \ above ground are used.\n\nThe model is developed in Michigan, USA and published\
-    \ by Lacy, 1994.\n\nIt is generally assumed that this model has additional relevance\
-    \ for Septoria petroselini in parsley.\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 3101 # Leaf wetness duration. Measured in minutes with wetness per period 
-      interval: 3600
-    - parameter_code: 1002 # = Mean temp at 2m measured in Celcius.
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 2001 # Precipitation
-      interval: 3600 # The least detail accepted (higher frequencies can aggregate to lower)
-    - parameter_code: 3002 # Mean relative humidity (%)
-      interval: 3600
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.startDateGrowth   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: configParameters.endDateCalculation   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-    field_observation:
-      species:
-      - SEPTAP # EPPO Code for the disease
-  execution:
-    type: ONTHEFLY # [ONTHEFLY, BATCH, TICKET]
-    endpoint: https://coremanager.vips.nibio.no/models/SEPAPIICOL/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^SEPAPIICOL$", "title": "Model Id (Must be SEPAPIICOL)", "default":"SEPAPIICOL"},
-          "configParameters": {
-            "title":"Configuration parameters",
-            "type": "object",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
-              "startDateGrowth": {"type": "string", "format":"date", "default": "{CURRENT_YEAR}-04-01", "title": "Start date of growth (YYYY-MM-DD)"},
-              "endDateCalculation": {"type": "string", "format":"date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
-              "fieldObservations": {
-                "title": "Field observations",
-                "type": "array",
-                "items": {
-                  "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
+      as a private warning for the farmer’s own field, in which case the model
+      will vary between 
+
+      the two different damage thresholds based on the age of the cabbage crop
+      (starting at the 
+
+      time of planting).
+
+      The warning system model is only valid for cabbage, cauliflower and
+      broccoli. The damage 
+
+      threshold for cabbage, cauliflower and broccoli the first 4 weeks after
+      planting is 14 eggs 
+
+      per plant per week. After 4 weeks the damage threshold changes to 40 eggs
+      per plant per 
+
+      week. Damage thresholds have not been determined for other crucifers.
+
+
+      SOURCE: 
+
+      ASSUMPTIONS: 
+
+      REFERENCE: 
+    citation: null
+    platform_validated: true
+    pests:
+      - HYLERA
+      - HYLEFL
+    crops:
+      - BRSOL
+      - BRSOB
+      - BRSOK
+    authors:
+      - name: Richard Meadow
+        email: richard.meadow@nibio.no
+        organization: NIBIO
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/DELIARFOBS/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^DELIARFOBS$", "title": "Model Id", "default":"DELIARFOBS", "description":"Must be DELIARFOBS"},
+            "configParameters": {
+              "title":"Configuration parameters",
+              "type": "object",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
+                "startDateGrowth": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
+                "endDateCalculation": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
+                "fieldObservations": {
+                  "title": "Field observations",
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
+                  }
+                },
+                "fieldObservationQuantifications": {
+                  "title": "Field observation quantifications",
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/definitions/fieldObs_HYLERA"
+                      }
+                    ]
+                  }
                 }
               },
-              "fieldObservationQuantifications": {
-                "title": "Field observation quantifications",
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/fieldObs_SEPTAP"
-                    }
-                  ]
-                }
+              "required": ["timeZone","startDateCalculation","endDateCalculation"]
+            }
+          },
+          "required": ["modelId","configParameters"],
+          "definitions": {
+            "fieldObs_HYLERA": {
+              "title": "Delia radicum egg quantification", 
+              "properties": {
+                "counting01":{"title":"Number of eggs, plant 1", "type":"integer", "minimum": 0},
+                "counting02":{"title":"Number of eggs, plant 2", "type":"integer", "minimum": 0},
+                "counting03":{"title":"Number of eggs, plant 3", "type":"integer", "minimum": 0},
+                "counting04":{"title":"Number of eggs, plant 4", "type":"integer", "minimum": 0},
+                "counting05":{"title":"Number of eggs, plant 5", "type":"integer", "minimum": 0},
+                "counting06":{"title":"Number of eggs, plant 6", "type":"integer", "minimum": 0},
+                "counting07":{"title":"Number of eggs, plant 7", "type":"integer", "minimum": 0},
+                "counting08":{"title":"Number of eggs, plant 8", "type":"integer", "minimum": 0},
+                "counting09":{"title":"Number of eggs, plant 9", "type":"integer", "minimum": 0},
+                "counting10":{"title":"Number of eggs, plant 10","type":"integer", "minimum": 0}
               }
-            },
-            "required": ["timeZone","startDateGrowth","endDateCalculation"]
-          },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
           }
-        },
-        "required": ["modelId","configParameters"],
-        "definitions": {
-          "fieldObs_SEPTAP": {"title": "Septoria apiicola quantification", "properties": {"observed":{"title":"observed", "type":"boolean"}}}
         }
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        Green = No risk of infection.
-        Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.
-        Red = Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service.
-      recommended_action: ''
-    - explanation: |-
-        Green = No risk of infection.
-        Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.
-        Red = Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service.
-      recommended_action: ''
-    - explanation: |-
-        Green = No risk of infection.
-        Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.
-        Red = Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service.
-      recommended_action: ''
-    - explanation: |-
-        Green = No risk of infection.
-        Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.
-        Red = Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service.
-      recommended_action: ''
-    - explanation: |-
-        Green = No risk of infection.
-        Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.
-        Red = Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service.
-      recommended_action: ''
-    chart_groups:
-    - id: G1
-      title: Results
-      result_parameter_ids:
-      - WET_DAY
-      - PEST_OBSERVED
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: WET_DAY
-      title: Was this a wet day
-      description: Based on leaf wetness measurements
-      chart_info:
-        default_visible: true
-        unit: Yes/no
-        chart_type: bar
-        color: '#000000'
-    - id: PEST_OBSERVED
-      title: Has the pest been observed in or near the field, or in the nearby region
-      description: Without this, the warning status will never exceed yellow status
-      chart_info:
-        default_visible: true
-        unit: Yes/no
-        chart_type: bar
-        color: '#ff0000'
-##########
-  purpose: ''
-- name: Bremia lactucae (Downy mildew of lettuce) model
-  id: BREMIALACT
-  version: '1.0'
-  authors: # List of the model authors
-  - name: Berit Nordskog
-    email: berit.nordskog@nibio.no
-    organization: NIBIO
-  platform_validated: true
-  pests:
-  - BREMLA # EPPO code for Downy mildew of lettuce
-  crops:
-  #- LACSA # Lactuca sativa
-  #- LACSC # Lactuca sativa var. capitata
-  #- LACSP # Lactuca sativa var. crispa
-  #- LACSO # Lactuca sativa var. longifolia
-  #- LACSE # Lactuca serriola
-  - LACSS # Lactuca spp - Lettuce species
-  keywords: none
-  type_of_decision: Short-term tactical
-  type_of_output: Risk indication
-  description_URL: https://www.vips-landbruk.no/forecasts/models/BREMIALACT/
-  description: "TODO\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:      # Optional. Use the DOI as identifier (list)
-  # Where has this model been considered valid
-  valid_spatial:
-    # Using country codes to get GeoJSON. Saves a lot of duplication.
-    # ISO-3166-1 Three-letter country codes https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes
-    countries:
-    - NOR
-    # Optionally, use a custom polygon
-    geoJSON: |-
-      {}
-  input:
-    weather_parameters:
-    - parameter_code: 1004 # = Max air temp at 2m
-      interval: 3600 # Hourly sampling interval in seconds
-    - parameter_code: 3103 # Leaf wetness duration AT GROUND LEVEL. Measured in minutes with wetness per period 
-      interval: 3600
-    - parameter_code: 5001 # Global radiation in W/sqm. 
-      interval: 3600
-    - parameter_code: 3002 # Mean RH at 2m
-      interval: 3600
-    weather_data_period_start: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-01-01
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: '{CURRENT_YEAR}-04-01'   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-01-01
-    weather_data_period_end: # DEFAULT is FIXED_DATE={CURRENT_YEAR}-12-31
-    - determined_by: INPUT_SCHEMA_PROPERTY   ## Could be INPUT_SCHEMA_PROPERTY or FIXED_DATE
-      value: '{CURRENT_YEAR}-09-01'   ## Could be path.to.property OR e.g. {CURRENT_YEAR}-12-31
-  execution:
-    type: ONTHEFLY
-    endpoint: https://coremanager.vips.nibio.no/models/run/ipmd
-    form_method: post # Could be get or post
-    content_type: application/json # Regular forms: application/x-www-form-urlencoded , Regular forms with files (<input type="file">): multipart/form-data
-    # The input template should adhere to the JSON Schema standard: https://json-schema.org/
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "modelId": {"type": "string", "pattern":"^BREMIALACT$", "title": "Model Id", "default":"BREMIALACT", "description":"Must be BREMIALACT"},
-          "configParameters": {
-            "title":"Configuration parameters",
-            "type": "object",
-            "properties": {
-              "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
-              "longitude": {"type":"number", "title": "Longitude (WGS84 decimal degrees)", "default": "0.0"},
-              "latitude": {"type":"number", "title": "Latitude (WGS84 decimal degrees)", "default": "0.0"}
+    input:
+      field_observation:
+        species:
+          - HYLERA
+          - HYLEFL
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: >-
+            Green rectangles indicate that the damage threshold for cabbage
+            based on the time from planting until the registration has not been
+            reached and control measures are not needed.Red rectangles indicate
+            that the damage threshold f for cabbage based on the time from
+            planting until the registration has been reached and it may be
+            necessary to use control measures. The field should be checked to
+            evaluate whether treatment is necessary.This model does not use
+            yellow rectangles. The warning goes directly from green to red when
+            the damage threshold is exceeded.Blue rectangles indicate that there
+            are missing observations. An observation is valid for 8 days. If
+            there are more than 8 days before a new observation is registered in
+            the system, the model will give a blue warning.The damage thresholds
+            are related to the plants developmental stage and tell how many eggs
+            that can be on a plant before there will be a reduction in growth
+            and yield.The warning should tell the best time for treatment in
+            relation to the damage thresholds. If the number of eggs registered
+            exceeds the damage threshold, treatment against the maggots is
+            recommended, if the plants are not protected by other means. Observe
+            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
+            treated against maggots, treatment early in the season is not
+            necessary.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold for cabbage
+            based on the time from planting until the registration has not been
+            reached and control measures are not needed.Red rectangles indicate
+            that the damage threshold f for cabbage based on the time from
+            planting until the registration has been reached and it may be
+            necessary to use control measures. The field should be checked to
+            evaluate whether treatment is necessary.This model does not use
+            yellow rectangles. The warning goes directly from green to red when
+            the damage threshold is exceeded.Blue rectangles indicate that there
+            are missing observations. An observation is valid for 8 days. If
+            there are more than 8 days before a new observation is registered in
+            the system, the model will give a blue warning.The damage thresholds
+            are related to the plants developmental stage and tell how many eggs
+            that can be on a plant before there will be a reduction in growth
+            and yield.The warning should tell the best time for treatment in
+            relation to the damage thresholds. If the number of eggs registered
+            exceeds the damage threshold, treatment against the maggots is
+            recommended, if the plants are not protected by other means. Observe
+            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
+            treated against maggots, treatment early in the season is not
+            necessary.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold for cabbage
+            based on the time from planting until the registration has not been
+            reached and control measures are not needed.Red rectangles indicate
+            that the damage threshold f for cabbage based on the time from
+            planting until the registration has been reached and it may be
+            necessary to use control measures. The field should be checked to
+            evaluate whether treatment is necessary.This model does not use
+            yellow rectangles. The warning goes directly from green to red when
+            the damage threshold is exceeded.Blue rectangles indicate that there
+            are missing observations. An observation is valid for 8 days. If
+            there are more than 8 days before a new observation is registered in
+            the system, the model will give a blue warning.The damage thresholds
+            are related to the plants developmental stage and tell how many eggs
+            that can be on a plant before there will be a reduction in growth
+            and yield.The warning should tell the best time for treatment in
+            relation to the damage thresholds. If the number of eggs registered
+            exceeds the damage threshold, treatment against the maggots is
+            recommended, if the plants are not protected by other means. Observe
+            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
+            treated against maggots, treatment early in the season is not
+            necessary.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold for cabbage
+            based on the time from planting until the registration has not been
+            reached and control measures are not needed.Red rectangles indicate
+            that the damage threshold f for cabbage based on the time from
+            planting until the registration has been reached and it may be
+            necessary to use control measures. The field should be checked to
+            evaluate whether treatment is necessary.This model does not use
+            yellow rectangles. The warning goes directly from green to red when
+            the damage threshold is exceeded.Blue rectangles indicate that there
+            are missing observations. An observation is valid for 8 days. If
+            there are more than 8 days before a new observation is registered in
+            the system, the model will give a blue warning.The damage thresholds
+            are related to the plants developmental stage and tell how many eggs
+            that can be on a plant before there will be a reduction in growth
+            and yield.The warning should tell the best time for treatment in
+            relation to the damage thresholds. If the number of eggs registered
+            exceeds the damage threshold, treatment against the maggots is
+            recommended, if the plants are not protected by other means. Observe
+            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
+            treated against maggots, treatment early in the season is not
+            necessary.
+          recommended_action: ''
+        - explanation: >-
+            Green rectangles indicate that the damage threshold for cabbage
+            based on the time from planting until the registration has not been
+            reached and control measures are not needed.Red rectangles indicate
+            that the damage threshold f for cabbage based on the time from
+            planting until the registration has been reached and it may be
+            necessary to use control measures. The field should be checked to
+            evaluate whether treatment is necessary.This model does not use
+            yellow rectangles. The warning goes directly from green to red when
+            the damage threshold is exceeded.Blue rectangles indicate that there
+            are missing observations. An observation is valid for 8 days. If
+            there are more than 8 days before a new observation is registered in
+            the system, the model will give a blue warning.The damage thresholds
+            are related to the plants developmental stage and tell how many eggs
+            that can be on a plant before there will be a reduction in growth
+            and yield.The warning should tell the best time for treatment in
+            relation to the damage thresholds. If the number of eggs registered
+            exceeds the damage threshold, treatment against the maggots is
+            recommended, if the plants are not protected by other means. Observe
+            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
+            treated against maggots, treatment early in the season is not
+            necessary.
+          recommended_action: ''
+      chart_groups:
+        - id: G1
+          title: Egg count
+          result_parameter_ids:
+            - OBS_AVG
+            - THRESHOLD_YOUNG
+            - THRESHOLD_OLD
+      result_parameters:
+        - id: OBS_AVG
+          title: Average egg count
+          description: Average of counting of eggs on 10 plants
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#000000'
+        - id: THRESHOLD_YOUNG
+          title: Economic threshold in young plants
+          description: Economic threshold in young plants (up to 4 weeks)
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#ffffff'
+        - id: THRESHOLD_OLD
+          title: Economic threshold in mature plants
+          description: Economic threshold in mature plants (4 weeks and older)
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#ff00ff'
+  - name: Nærstad model
+    id: NAERSTADMO
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/NAERSTADMO/
+    purpose: ''
+    description: >-
+      The model is based on several years of experiments where trap plants have
+      been placed next to a potato field infected with late blight. Infections
+      on these plants have been correlated with weather conditions the day of
+      exposure, and this is the data the model is based on. The model predicts
+      if there are favourable conditions for spore production and the following
+      spread, survival and infection of these spores. The model produces an
+      infection risk, and a value of 2.5 corresponds to one spot of late blight
+      on each trap plant exposed. This value of 2.5 is the threshold where the
+      model issues a warning.
+
+
+      SOURCE: 
+
+      ASSUMPTIONS: 
+
+      REFERENCE: 
+    citation: null
+    platform_validated: true
+    pests:
+      - PHYTIN
+    crops:
+      - SOLTU
+    authors:
+      - name: Ragnhild Nærstad
+        email: ragnhild.naerstad@syngenta.com
+        organization: Syngenta
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/NAERSTADMO/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^NAERSTADMO$", "title": "Model Id (Must be NAERSTADMO)", "default":"NAERSTADMO"},
+            "configParameters": {
+              "type": "object",
+              "title":"Configuration parameters",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
+                "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
+                "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-10-01", "title": "End date of calculation (YYYY-MM-DD)"}
+              },
+              "required": ["timeZone","timeStart","timeEnd"]
             },
-            "required": ["timeZone","longitude","latitude"]
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
           },
-          "weatherData": {
-            "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+          "required": ["modelId","configParameters"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+        - parameter_code: 2001
+          interval: 3600
+        - parameter_code: 5001
+          interval: 3600
+        - parameter_code: 3002
+          interval: 3600
+        - parameter_code: 3101
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeStart
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeEnd
+    valid_spatial:
+      countries:
+        - NOR
+        - SWE
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: >-
+            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
+            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
+            (Red)When a warning is issued, any control measure should be
+            considered based on cultivar resistance, choice of fungicide and
+            time of last application. Risk of infection is highest after several
+            consecutive days with warnings, and especially if late blight has
+            been observed in the area.
+          recommended_action: ''
+        - explanation: >-
+            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
+            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
+            (Red)When a warning is issued, any control measure should be
+            considered based on cultivar resistance, choice of fungicide and
+            time of last application. Risk of infection is highest after several
+            consecutive days with warnings, and especially if late blight has
+            been observed in the area.
+          recommended_action: ''
+        - explanation: >-
+            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
+            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
+            (Red)When a warning is issued, any control measure should be
+            considered based on cultivar resistance, choice of fungicide and
+            time of last application. Risk of infection is highest after several
+            consecutive days with warnings, and especially if late blight has
+            been observed in the area.
+          recommended_action: ''
+        - explanation: >-
+            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
+            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
+            (Red)When a warning is issued, any control measure should be
+            considered based on cultivar resistance, choice of fungicide and
+            time of last application. Risk of infection is highest after several
+            consecutive days with warnings, and especially if late blight has
+            been observed in the area.
+          recommended_action: ''
+        - explanation: >-
+            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
+            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
+            (Red)When a warning is issued, any control measure should be
+            considered based on cultivar resistance, choice of fungicide and
+            time of last application. Risk of infection is highest after several
+            consecutive days with warnings, and especially if late blight has
+            been observed in the area.
+          recommended_action: ''
+      chart_groups:
+        - id: G1
+          title: Risk
+          result_parameter_ids:
+            - RISK
+            - THRESHOLD_LOW
+            - THRESHOLD_HIGH
+      result_parameters:
+        - id: RISK
+          title: Calculated risk value
+          description: Calculated risk value
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#000000'
+        - id: THRESHOLD_LOW
+          title: Threshold low infection risk
+          description: >-
+            When the calculated risk exceeds this threshold, the infection risk
+            changes from low risk to some risk
+        - id: THRESHOLD_HIGH
+          title: Threshold high infection risk
+          description: >-
+            When the calculated risk exceeds this threshold, the infection risk
+            changes from some risk to high risk
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#ff0000'
+  - name: Alternaria TOMCAST
+    id: ALTERNARIA
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/ALTERNARIA/
+    purpose: ''
+    description: >-
+      TOMCAST is based on a model that was originally developed for leaf spot
+      diseases in tomato. The model that is used here is tested and adapted to
+      be used against early blight in potato in Denmark (Alternaria solani). The
+      model calculates daily risk values (DSV: Disease Severity Values) based on
+      temperature and leaf wetness the previous day. DSV represents the risk of
+      attack of early blight the previous 24 hours. Daily values of DSV are
+      accumulated until a threshold value is reached, and treatment is
+      recommended. When a spray is performed and entered into the model,
+      accumulation of DSV is reset and starts over at 0.
+
+
+      SOURCE: 
+
+      ASSUMPTIONS: 
+
+      REFERENCE: 
+    citation: null
+    platform_validated: true
+    pests:
+      - ALTESO
+    crops:
+      - SOLTU
+    authors:
+      - name: Dr R. E. Pitblado
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/ALTERNARIA/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^ALTERNARIA$", "title": "Model Id (Must be ALTERNARIA)", "default":"ALTERNARIA"},
+            "configParameters": {
+              "type": "object",
+              "title":"Configuration parameters",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
+                "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
+                "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
+                "sprayingDates": {"type": "array", "minItems":0, "maxItems":3, "title": "Spraying dates","items":{"type":"string","format":"date", "default":"{CURRENT_YEAR}-06-01"}}
+              },
+              "required": ["timeZone","timeStart","timeEnd"]
+            },
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
+          },
+          "required": ["modelId","configParameters"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+        - parameter_code: 3101
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeStart
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeEnd
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: >-
+            The model will be green (no risk) until it reaches 15. From this
+            value the warning will be yellow (possible risk) until the threshold
+            is reached, and the warning turns red (risk of infection).
+          recommended_action: ''
+        - explanation: >-
+            The model will be green (no risk) until it reaches 15. From this
+            value the warning will be yellow (possible risk) until the threshold
+            is reached, and the warning turns red (risk of infection).
+          recommended_action: ''
+        - explanation: >-
+            The model will be green (no risk) until it reaches 15. From this
+            value the warning will be yellow (possible risk) until the threshold
+            is reached, and the warning turns red (risk of infection).
+          recommended_action: ''
+        - explanation: >-
+            The model will be green (no risk) until it reaches 15. From this
+            value the warning will be yellow (possible risk) until the threshold
+            is reached, and the warning turns red (risk of infection).
+          recommended_action: ''
+        - explanation: >-
+            The model will be green (no risk) until it reaches 15. From this
+            value the warning will be yellow (possible risk) until the threshold
+            is reached, and the warning turns red (risk of infection).
+          recommended_action: ''
+      chart_groups:
+        - id: G1
+          title: Aggregated Daily Disease Severity Value
+          result_parameter_ids:
+            - DSV_SUM
+            - THRESHOLD_DSV_BASE
+            - THRESHOLD_DSV_MAX
+      result_parameters:
+        - id: DSV_SUM
+          title: Aggregated Daily Disease Severity Value
+          description: The aggregated risk
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#00000'
+        - id: THRESHOLD_DSV_BASE
+          title: Lower threshold
+          description: Lower threshold
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ffff00'
+        - id: THRESHOLD_DSV_MAX
+          title: High treshold
+          description: High risk
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff0000'
+  - name: Negative prognosis
+    id: NEGPROGMOD
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/NEGPROGMOD/
+    purpose: ''
+    description: >-
+      THE PEST: Potato late blight, caused by the fungus-like organism
+      Phytophthora infestans causes severe damage to the foliage and can infect
+      the tubers at harvest. THE DECISION: The model is designed to guide the
+      timing of the first late blight fungicide application, when used in
+      combination with other agronomic risk factors.  THE MODEL: The model uses
+      weather data to estimate the ‘epidemic free’ period (‘negative prognosis’)
+      by calculating the accumulated blight risk from the date of crop
+      emergence. The model guides the first spray timing at the end of the
+      ‘epidemic free’ period.  THE PARAMETERS: From the date of crop emergence,
+      daily risk values are accumulated based on weather data (temperature,
+      relative humidity and precipitation). The risk is an accumulated value of
+      how the weather affects late blight germination/infection, sporulation and
+      growth. All processes are corrected for inhibition due to drying. After
+      the accumulated risk has reached certain thresholds, there is likely to be
+      moderate or high blight risk.  SOURCE: The model was first introduced by
+      Schrodter and Ullrich in Germany in the 1970s and has been widely used in
+      Europe since.   ASSUMPTIONS: The model is based on weather data.  Other
+      agronomic factors, such as time of row closure, cultivar susceptibility,
+      the presence or absence of blight inoculum sources, are not included in
+      the risk estimate. It is not applicable to potatoes grown under
+      protection.   REFERENCE: After the original paper by Ullrich, J. &
+      Schrödter, H. (1966), the negative prognosis model was tested in other
+      countries (e.g. by Taylor M. C. 2003 in the UK) and was commonly combined
+      with other models to guide subsequent fungicide applications.  Combined
+      models, such as NegFry, have been tested in many countries, e.g. by Hansen
+      J. G. et al., 1995 in Denmark; 
+    citation: null
+    platform_validated: true
+    pests:
+      - PHYTIN
+    crops:
+      - SOLTU
+    authors:
+      - name: 'J. Ullrich and H. Schrödter '
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/NEGPROGMOD/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^NEGPROGMOD$", "title": "Model Id (Must be NEGPROGMOD)", "default":"NEGPROGMOD"},
+            "configParameters": {
+              "type": "object",
+              "title":"Configuration parameters",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
+                "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-05-01",  "title": "Date of crop emergence (YYYY-MM-DD)"},
+                "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-07-01", "title": "End date of calculation (YYYY-MM-DD)"}
+              },
+              "required": ["timeZone","timeStart","timeEnd"]
+            },
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
+          },
+          "required": ["modelId","configParameters"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+        - parameter_code: 2001
+          interval: 3600
+        - parameter_code: 3002
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeStart
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.timeEnd
+    valid_spatial:
+      countries:
+        - NOR
+        - DEU
+        - POL
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: >-
+            This model calculates accumulated blight risk from crop emergence.
+            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            it does not show if the weather was high or low blight risk on that
+            particular day). ’Infection risk’ shows the increasing accumulated
+            risk.  
+          recommended_action: >-
+            This risk model guides the timing of the first fungicide application
+            by calculating accumulated blight risk from the date of crop
+            emergence. Click on ‘Edit Parameters’, enter your crop emergence
+            date and ‘Save’.  When accumulated risk is less than 120 (green),
+            the risk of blight is low. Between 120 and 150 (orange), there is a
+            risk of blight if other risk factors (e.g. sources of blight
+            inoculum or cultivar susceptibility) are high. Above 150 (red), the
+            risk is likely to be high. Above 200 the model becomes inactive as
+            the first spray should already have been applied in most
+            circumstances.
+        - explanation: >-
+            This model calculates accumulated blight risk from crop emergence.
+            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            it does not show if the weather was high or low blight risk on that
+            particular day). ’Infection risk’ shows the increasing accumulated
+            risk.  
+          recommended_action: >-
+            This risk model guides the timing of the first fungicide application
+            by calculating accumulated blight risk from the date of crop
+            emergence. Click on ‘Edit Parameters’, enter your crop emergence
+            date and ‘Save’.  When accumulated risk is less than 120 (green),
+            the risk of blight is low. Between 120 and 150 (orange), there is a
+            risk of blight if other risk factors (e.g. sources of blight
+            inoculum or cultivar susceptibility) are high. Above 150 (red), the
+            risk is likely to be high. Above 200 the model becomes inactive as
+            the first spray should already have been applied in most
+            circumstances.
+        - explanation: >-
+            This model calculates accumulated blight risk from crop emergence.
+            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            it does not show if the weather was high or low blight risk on that
+            particular day). ’Infection risk’ shows the increasing accumulated
+            risk.  
+          recommended_action: >-
+            This risk model guides the timing of the first fungicide application
+            by calculating accumulated blight risk from the date of crop
+            emergence. Click on ‘Edit Parameters’, enter your crop emergence
+            date and ‘Save’.  When accumulated risk is less than 120 (green),
+            the risk of blight is low. Between 120 and 150 (orange), there is a
+            risk of blight if other risk factors (e.g. sources of blight
+            inoculum or cultivar susceptibility) are high. Above 150 (red), the
+            risk is likely to be high. Above 200 the model becomes inactive as
+            the first spray should already have been applied in most
+            circumstances.
+        - explanation: >-
+            This model calculates accumulated blight risk from crop emergence.
+            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            it does not show if the weather was high or low blight risk on that
+            particular day). ’Infection risk’ shows the increasing accumulated
+            risk.  
+          recommended_action: >-
+            This risk model guides the timing of the first fungicide application
+            by calculating accumulated blight risk from the date of crop
+            emergence. Click on ‘Edit Parameters’, enter your crop emergence
+            date and ‘Save’.  When accumulated risk is less than 120 (green),
+            the risk of blight is low. Between 120 and 150 (orange), there is a
+            risk of blight if other risk factors (e.g. sources of blight
+            inoculum or cultivar susceptibility) are high. Above 150 (red), the
+            risk is likely to be high. Above 200 the model becomes inactive as
+            the first spray should already have been applied in most
+            circumstances.
+        - explanation: >-
+            This model calculates accumulated blight risk from crop emergence.
+            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            it does not show if the weather was high or low blight risk on that
+            particular day). ’Infection risk’ shows the increasing accumulated
+            risk.  
+          recommended_action: >-
+            This risk model guides the timing of the first fungicide application
+            by calculating accumulated blight risk from the date of crop
+            emergence. Click on ‘Edit Parameters’, enter your crop emergence
+            date and ‘Save’.  When accumulated risk is less than 120 (green),
+            the risk of blight is low. Between 120 and 150 (orange), there is a
+            risk of blight if other risk factors (e.g. sources of blight
+            inoculum or cultivar susceptibility) are high. Above 150 (red), the
+            risk is likely to be high. Above 200 the model becomes inactive as
+            the first spray should already have been applied in most
+            circumstances.
+      chart_groups:
+        - id: G1
+          title: Infection risk
+          result_parameter_ids:
+            - AGGREGATED_CONTRIB
+            - INFECTION_THRESHOLD
+      result_parameters:
+        - id: AGGREGATED_CONTRIB
+          title: Aggregated infection risk
+          description: The aggregated risk
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#000000'
+        - id: INFECTION_THRESHOLD
+          title: Infection threshold
+          description: Threshold for "High infection risk"
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#ff0000'
+  - name: Septoria apiicola model
+    id: SEPAPIICOL
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/SEPAPIICOL/
+    purpose: ''
+    description: >-
+      This model is based on a calculation of how leaf wetness periods influence
+      infection of celery by Septoria apiicola in susceptible host plants.
+
+
+      Forecasts of infection risk are given after a minimum of 12 consecutive
+      hours of leaf wetness. The wet periods are calculated from sensors placed
+      30 cm above ground. If such a sensor is not available, data from leaf
+      wetness sensors placed 2 m above ground are used.
+
+
+      The model is developed in Michigan, USA and published by Lacy, 1994.
+
+
+      It is generally assumed that this model has additional relevance for
+      Septoria petroselini in parsley.
+
+
+      SOURCE: 
+
+      ASSUMPTIONS: 
+
+      REFERENCE: 
+    citation: null
+    platform_validated: true
+    pests:
+      - SEPTAP
+    crops:
+      - APUGD
+    authors:
+      - name: Berit Nordskog
+        email: berit.nordskog@nibio.no
+        organization: NIBIO
+      - name: Arne Hermansen
+        email: arne.hermansen@nibio.no
+        organization: NIBIO
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/SEPAPIICOL/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^SEPAPIICOL$", "title": "Model Id (Must be SEPAPIICOL)", "default":"SEPAPIICOL"},
+            "configParameters": {
+              "title":"Configuration parameters",
+              "type": "object",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
+                "startDateGrowth": {"type": "string", "format":"date", "default": "{CURRENT_YEAR}-04-01", "title": "Start date of growth (YYYY-MM-DD)"},
+                "endDateCalculation": {"type": "string", "format":"date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
+                "fieldObservations": {
+                  "title": "Field observations",
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
+                  }
+                },
+                "fieldObservationQuantifications": {
+                  "title": "Field observation quantifications",
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/definitions/fieldObs_SEPTAP"
+                      }
+                    ]
+                  }
+                }
+              },
+              "required": ["timeZone","startDateGrowth","endDateCalculation"]
+            },
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
+          },
+          "required": ["modelId","configParameters"],
+          "definitions": {
+            "fieldObs_SEPTAP": {"title": "Septoria apiicola quantification", "properties": {"observed":{"title":"observed", "type":"boolean"}}}
           }
-        },
-        "required": ["modelId","configParameters"]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |-
-        Downy mildew in lettuce normally occurs in the second half of the summer, and not every year in lettuce producing regions.
-        Thus, spraying should only be considered after considering the likelihood of the disease being present.
-        When the model indicates a high risk of infection, spraying should be considered given a) the likelihoold of the disease being present,
-        given the time in the season, b) the lettuce variant's resilience towards the disease and c) the time since the last spraying.
-        Normally you don't spray more often than every 10th day, but if the infection risk is considered high over a longer period and 
-        actual field observations being made, one can consider a new treatment as early as 7 days since the last spraying.
-      recommended_action: ''
-    - explanation: |-
-        Downy mildew in lettuce normally occurs in the second half of the summer, and not every year in lettuce producing regions.
-        Thus, spraying should only be considered after considering the likelihood of the disease being present.
-        When the model indicates a high risk of infection, spraying should be considered given a) the likelihoold of the disease being present,
-        given the time in the season, b) the lettuce variant's resilience towards the disease and c) the time since the last spraying.
-        Normally you don't spray more often than every 10th day, but if the infection risk is considered high over a longer period and 
-        actual field observations being made, one can consider a new treatment as early as 7 days since the last spraying.
-      recommended_action: ''
-    - explanation: |-
-        Downy mildew in lettuce normally occurs in the second half of the summer, and not every year in lettuce producing regions.
-        Thus, spraying should only be considered after considering the likelihood of the disease being present.
-        When the model indicates a high risk of infection, spraying should be considered given a) the likelihoold of the disease being present,
-        given the time in the season, b) the lettuce variant's resilience towards the disease and c) the time since the last spraying.
-        Normally you don't spray more often than every 10th day, but if the infection risk is considered high over a longer period and 
-        actual field observations being made, one can consider a new treatment as early as 7 days since the last spraying.
-      recommended_action: ''
-    - explanation: |-
-        Downy mildew in lettuce normally occurs in the second half of the summer, and not every year in lettuce producing regions.
-        Thus, spraying should only be considered after considering the likelihood of the disease being present.
-        When the model indicates a high risk of infection, spraying should be considered given a) the likelihoold of the disease being present,
-        given the time in the season, b) the lettuce variant's resilience towards the disease and c) the time since the last spraying.
-        Normally you don't spray more often than every 10th day, but if the infection risk is considered high over a longer period and 
-        actual field observations being made, one can consider a new treatment as early as 7 days since the last spraying.
-      recommended_action: ''
-    - explanation: |-
-        Downy mildew in lettuce normally occurs in the second half of the summer, and not every year in lettuce producing regions.
-        Thus, spraying should only be considered after considering the likelihood of the disease being present.
-        When the model indicates a high risk of infection, spraying should be considered given a) the likelihoold of the disease being present,
-        given the time in the season, b) the lettuce variant's resilience towards the disease and c) the time since the last spraying.
-        Normally you don't spray more often than every 10th day, but if the infection risk is considered high over a longer period and 
-        actual field observations being made, one can consider a new treatment as early as 7 days since the last spraying.
-      recommended_action: ''
-    chart_groups:
-    - id: G1
-      title: Results
-      result_parameter_ids:
-      - TXD
-      - ELWAST
-      - ELWASYBST
-      - SLN
-      - SYN
-      - TXD_THRESHOLD
-    result_parameters:
-      # the id is used with the model_id as the namespace
-    - id: TXD
-      title: Maximum daily temperature
-      description: The maximum daily temperature
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#ffaa55'
-    - id: ELWAST
-      title: Was there enough leaf wetness after sunrise today
-      description: Was there enough leaf wetness after sunrise today
-      chart_info:
-        default_visible: true
-        unit: Yes/no
-        chart_type: bar
-        color: '#00ff55'
-    - id: ELWASYBST
-      title: Was there enough relative humidity after sunrise yesterday and befor
-        sunrise today
-      description: Was there enough relative humidity after sunrise yesterday and
-        befor sunrise today
-      chart_info:
-        default_visible: true
-        unit: Yes/no
-        chart_type: bar
-        color: '#00ffff'
-    - id: SLN
-      title: Was there sporulation last night
-      description: Was there sporulation last night
-      chart_info:
-        default_visible: true
-        unit: Yes/no
-        chart_type: bar
-        color: '#aaffff'
-    - id: SYN
-      title: Was there sporulation yesterday night
-      description: Was there sporulation yesterday night
-      chart_info:
-        default_visible: true
-        unit: Yes/no
-        chart_type: bar
-        color: '#aaff33'
-    - id: TXD_THRESHOLD
-      title: Max threshold for temperature for infection
-      description: If the max temperature is above this threshold, infection does
-        not occur
-      chart_info:
-        default_visible: true
-        unit: '&deg;C'
-        chart_type: line
-        color: '#ff0000'
-  purpose: ''
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 3101
+          interval: 3600
+        - parameter_code: 1002
+          interval: 3600
+        - parameter_code: 2001
+          interval: 3600
+        - parameter_code: 3002
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.startDateGrowth
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: configParameters.endDateCalculation
+      field_observation:
+        species:
+          - SEPTAP
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+          recommended_action: ''
+        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+          recommended_action: ''
+        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+          recommended_action: ''
+        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+          recommended_action: ''
+        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+          recommended_action: ''
+      chart_groups:
+        - id: G1
+          title: Results
+          result_parameter_ids:
+            - WET_DAY
+            - PEST_OBSERVED
+      result_parameters:
+        - id: WET_DAY
+          title: Was this a wet day
+          description: Based on leaf wetness measurements
+          chart_info:
+            default_visible: true
+            unit: Yes/no
+            chart_type: line
+            color: '#000000'
+        - id: PEST_OBSERVED
+          title: >-
+            Has the pest been observed in or near the field, or in the nearby
+            region
+          description: Without this, the warning status will never exceed yellow status
+          chart_info:
+            default_visible: true
+            unit: Yes/no
+            chart_type: line
+            color: '#ff0000'
+  - name: Bremia lactucae (Downy mildew of lettuce) model
+    id: BREMIALACT
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/BREMIALACT/
+    purpose: ''
+    description: |-
+      TODO
+
+      SOURCE: 
+      ASSUMPTIONS: 
+      REFERENCE: 
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - BREMLA
+    crops:
+      - LACSS
+    authors:
+      - name: Berit Nordskog
+        email: berit.nordskog@nibio.no
+        organization: NIBIO
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/run/ipmd
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+            "modelId": {"type": "string", "pattern":"^BREMIALACT$", "title": "Model Id", "default":"BREMIALACT", "description":"Must be BREMIALACT"},
+            "configParameters": {
+              "title":"Configuration parameters",
+              "type": "object",
+              "properties": {
+                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
+                "longitude": {"type":"number", "title": "Longitude (WGS84 decimal degrees)", "default": "0.0"},
+                "latitude": {"type":"number", "title": "Latitude (WGS84 decimal degrees)", "default": "0.0"}
+              },
+              "required": ["timeZone","longitude","latitude"]
+            },
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            }
+          },
+          "required": ["modelId","configParameters"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1004
+          interval: 3600
+        - parameter_code: 3103
+          interval: 3600
+        - parameter_code: 5001
+          interval: 3600
+        - parameter_code: 3002
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: '{CURRENT_YEAR}-04-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: '{CURRENT_YEAR}-09-01'
+    valid_spatial:
+      countries:
+        - NOR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: >-
+            Downy mildew in lettuce normally occurs in the second half of the
+            summer, and not every year in lettuce producing regions.Thus,
+            spraying should only be considered after considering the likelihood
+            of the disease being present.When the model indicates a high risk of
+            infection, spraying should be considered given a) the likelihoold of
+            the disease being present,given the time in the season, b) the
+            lettuce variant's resilience towards the disease and c) the time
+            since the last spraying.Normally you don't spray more often than
+            every 10th day, but if the infection risk is considered high over a
+            longer period and actual field observations being made, one can
+            consider a new treatment as early as 7 days since the last spraying.
+          recommended_action: ''
+        - explanation: >-
+            Downy mildew in lettuce normally occurs in the second half of the
+            summer, and not every year in lettuce producing regions.Thus,
+            spraying should only be considered after considering the likelihood
+            of the disease being present.When the model indicates a high risk of
+            infection, spraying should be considered given a) the likelihoold of
+            the disease being present,given the time in the season, b) the
+            lettuce variant's resilience towards the disease and c) the time
+            since the last spraying.Normally you don't spray more often than
+            every 10th day, but if the infection risk is considered high over a
+            longer period and actual field observations being made, one can
+            consider a new treatment as early as 7 days since the last spraying.
+          recommended_action: ''
+        - explanation: >-
+            Downy mildew in lettuce normally occurs in the second half of the
+            summer, and not every year in lettuce producing regions.Thus,
+            spraying should only be considered after considering the likelihood
+            of the disease being present.When the model indicates a high risk of
+            infection, spraying should be considered given a) the likelihoold of
+            the disease being present,given the time in the season, b) the
+            lettuce variant's resilience towards the disease and c) the time
+            since the last spraying.Normally you don't spray more often than
+            every 10th day, but if the infection risk is considered high over a
+            longer period and actual field observations being made, one can
+            consider a new treatment as early as 7 days since the last spraying.
+          recommended_action: ''
+        - explanation: >-
+            Downy mildew in lettuce normally occurs in the second half of the
+            summer, and not every year in lettuce producing regions.Thus,
+            spraying should only be considered after considering the likelihood
+            of the disease being present.When the model indicates a high risk of
+            infection, spraying should be considered given a) the likelihoold of
+            the disease being present,given the time in the season, b) the
+            lettuce variant's resilience towards the disease and c) the time
+            since the last spraying.Normally you don't spray more often than
+            every 10th day, but if the infection risk is considered high over a
+            longer period and actual field observations being made, one can
+            consider a new treatment as early as 7 days since the last spraying.
+          recommended_action: ''
+        - explanation: >-
+            Downy mildew in lettuce normally occurs in the second half of the
+            summer, and not every year in lettuce producing regions.Thus,
+            spraying should only be considered after considering the likelihood
+            of the disease being present.When the model indicates a high risk of
+            infection, spraying should be considered given a) the likelihoold of
+            the disease being present,given the time in the season, b) the
+            lettuce variant's resilience towards the disease and c) the time
+            since the last spraying.Normally you don't spray more often than
+            every 10th day, but if the infection risk is considered high over a
+            longer period and actual field observations being made, one can
+            consider a new treatment as early as 7 days since the last spraying.
+          recommended_action: ''
+      chart_groups:
+        - id: G1
+          title: Results
+          result_parameter_ids:
+            - TXD
+            - ELWAST
+            - ELWASYBST
+            - SLN
+            - SYN
+            - TXD_THRESHOLD
+      result_parameters:
+        - id: TXD
+          title: Maximum daily temperature
+          description: The maximum daily temperature
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ffaa55'
+        - id: ELWAST
+          title: Was there enough leaf wetness after sunrise today
+          description: Was there enough leaf wetness after sunrise today
+          chart_info:
+            default_visible: true
+            unit: Yes/no
+            chart_type: line
+            color: '#00ff55'
+        - id: ELWASYBST
+          title: >-
+            Was there enough relative humidity after sunrise yesterday and befor
+            sunrise today
+          description: >-
+            Was there enough relative humidity after sunrise yesterday and befor
+            sunrise today
+          chart_info:
+            default_visible: true
+            unit: Yes/no
+            chart_type: line
+            color: '#00ffff'
+        - id: SLN
+          title: Was there sporulation last night
+          description: Was there sporulation last night
+          chart_info:
+            default_visible: true
+            unit: Yes/no
+            chart_type: line
+            color: '#aaffff'
+        - id: SYN
+          title: Was there sporulation yesterday night
+          description: Was there sporulation yesterday night
+          chart_info:
+            default_visible: true
+            unit: Yes/no
+            chart_type: line
+            color: '#aaff33'
+        - id: TXD_THRESHOLD
+          title: Max threshold for temperature for infection
+          description: >-
+            If the max temperature is above this threshold, infection does not
+            occur
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff0000'
+

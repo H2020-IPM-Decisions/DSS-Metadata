@@ -2,6 +2,7 @@ id: adas.dss
 version: 0.0.4
 name: IPM Decisions
 url: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss
+logo_url: ''
 languages:
   - English
 organization:
@@ -187,8 +188,7 @@ models:
             default_visible: true
             unit: count
             chart_type: line
-            color: green
- #############################################################################################################
+            color: '#000000'
   - name: Orange Wheat Blossom Midge Model
     id: SITDMO
     version: 0.0.4
@@ -237,10 +237,10 @@ models:
       damage by orange wheat blossom midge, and that the user will interpret the
       risk against the vulnerability of the crop growth stage on farm.
 
-      REFERENCE: Jocquemin et al. (2014) Crop Protection 58, 6-13. https://doi.org/10.1016/j.cropro.2013.12.021 
+      REFERENCE: Jocquemin et al. (2014) Crop Protection 58, 6-13.
+      https://doi.org/10.1016/j.cropro.2013.12.021 
     citation: null
     keywords: none
-    platform_validated: true
     pests:
       - SITDMO
     crops:
@@ -364,7 +364,6 @@ models:
             wheat blossom midge emergence. Monitor vulnerable crops (at ear
             emergence or flowering) for in-field activity and apply suitable
             treatments according to need
-      chart_heading: ''
       chart_groups:
         - id: ''
           title: ''
@@ -377,9 +376,10 @@ models:
           chart_info:
             default_visible: false
             unit: ''
-            chart_type: ''
-            color: ''
- ########################################################################################################## 
+            chart_type: bar
+            color: '#000000'
+      chart_heading: ''
+    platform_validated: true
   - name: Pollen Beetle Model
     id: MELIAE
     version: 0.0.3
@@ -418,7 +418,8 @@ models:
       model is a simplification of a more detailed model described in the paper
       below. 
 
-      REFERENCE: Ferguson et al. (2015) Pest Management Science 72, 609-317. https://doi.org/10.1002/ps.4069
+      REFERENCE: Ferguson et al. (2015) Pest Management Science 72, 609-317.
+      https://doi.org/10.1002/ps.4069
     citation: null
     keywords: none
     platform_validated: true
@@ -523,22 +524,21 @@ models:
             - Threshold
       result_parameters:
         - id: Temperature
-          title: Maximum daily temperature 
-          description: Maximum daily temperature 
+          title: Maximum daily temperature
+          description: Maximum daily temperature
           chart_info:
             default_visible: true
             unit: '&deg;C'
             chart_type: line
-            color: blue
+            color: '#000000'
         - id: Threshold
           title: Temperature threshold
-          description: Temperature threshold for migration 
+          description: Temperature threshold for migration
           chart_info:
             default_visible: true
             unit: ''
             chart_type: line
-            color: red
-############################################################################################################
+            color: '#000000'
   - name: Saddle Gall Midge Model
     id: HAPDMA
     version: 0.0.4
@@ -723,29 +723,28 @@ models:
       result_parameters:
         - id: Cumulative_DayDegrees
           title: Cumulative day degrees
-          description: >-
-            Cumulative day degrees
+          description: Cumulative day degrees
           chart_info:
             default_visible: true
             unit: count
             chart_type: line
-            color: blue
+            color: '#000000'
         - id: StartOfEmergenceThreshold
-          title: Estimated start of emergence 
-          description: Estimated start of emergence 
+          title: Estimated start of emergence
+          description: Estimated start of emergence
           chart_info:
             default_visible: true
             unit: ''
             chart_type: line
-            color: red
+            color: '#000000'
         - id: FirstThreshold
-          title: Estimated 50% emergence complete 
-          description: Estimated 50% emergence complete 
+          title: Estimated 50% emergence complete
+          description: Estimated 50% emergence complete
           chart_info:
             default_visible: true
             unit: ''
             chart_type: line
-            color: orange
+            color: '#000000'
         - id: SecondThreshold
           title: Estimated 90% emergence complete
           description: Estimated 90% emergence complete
@@ -753,16 +752,15 @@ models:
             default_visible: true
             unit: ''
             chart_type: line
-            color: yellow
+            color: '#000000'
         - id: ThirdThreshold
-          title: Estimated end of emergence 
-          description: Estimated end of emergence 
+          title: Estimated end of emergence
+          description: Estimated end of emergence
           chart_info:
             default_visible: true
             unit: count
             chart_type: line
-            color: green
-###################################################################################
+            color: '#000000'
   - name: Codling moth flight model
     id: CARPPO
     version: 0.0.4
@@ -810,7 +808,6 @@ models:
 
       REFERENCE: Damos et al. (2018) Bulletin of Insectology 71, 131-142 
     citation: null
-    keywords: none
     platform_validated: true
     pests:
       - CARPPO
@@ -951,7 +948,6 @@ models:
             proportion (%) of adult males likely to be caught b y these dates,
             associated with the first (green), second (red) or third (blue)
             flights.
-      chart_heading: Cumulative Captures
       chart_groups:
         - id: G1
           title: Cumulative Captures
@@ -968,7 +964,7 @@ models:
             default_visible: false
             unit: ''
             chart_type: line
-            color: black
+            color: '#000000'
         - id: First_Flight_Cumulative_Captures
           title: First Flight Cumulative Captures
           description: >-
@@ -978,7 +974,7 @@ models:
             default_visible: true
             unit: Count
             chart_type: line
-            color: green
+            color: '#000000'
         - id: Second_Flight_Cumulative_Captures
           title: Second Flight Cumulative Captures
           description: >-
@@ -988,7 +984,7 @@ models:
             default_visible: true
             unit: Count
             chart_type: line
-            color: red
+            color: '#000000'
         - id: Third_Flight_Cumulative_Captures
           title: Third Flight Cumulative Captures
           description: >-
@@ -998,8 +994,9 @@ models:
             default_visible: true
             unit: Count
             chart_type: line
-            color: blue
-#######################################################################################################
+            color: '#000000'
+      chart_heading: Cumulative Captures
+    keywords: none
   - name: BYDV TSUM model
     id: RHOPPA
     version: 0.0.2
@@ -1008,9 +1005,37 @@ models:
     description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/Help/Api/POST-api-RHOPPA
     purpose: Estimates risk of transmission of virus by aphid vectors
-    description: "THE PEST: Aphids can transmit barley/cereal yellow dwarf viruses (BYDV). Initially, aphids colonise relatively few crop plants. However, the second-generation tends to move away from the plant originally colonised. Controlling this generation is a key part of a BYDV management strategy.\n\nTHE DECISION: This DSS indicates the best time to monitor crops for aphids. If infestations are high, and non-chemical control options are unlikely to prevent second generation emergence, treatment should be considered to limit the spread of the virus.\nTHE MODEL: The second generation is likely to be present when the accumulated daily air temperatures, above a baseline temperature of 3ºC, reaches T-Sum 170. \nTHE PARAMETERS: The model uses Date of last spray application, daily temperature\nREGION: This DSS was adapted from work carried out in the UK, and is considered applicable, but not yet validated in, Belgium, Luxembourg, Netherlands, France, Germany, Rep. Ireland, and Denmark.\nASSUMPTIONS: This DSS assumes that the user will update the date of last insecticide applications. Its also assumes that no aphids found or insecticide treatment applied at 170DD, and restarts calculations. 2nd generation development time is consistent across regions.  \nREFERENCE: UK Agricultural and Horticultural Development Board (2022). https://ahdb.org.uk/bydv "
+    description: >-
+      THE PEST: Aphids can transmit barley/cereal yellow dwarf viruses (BYDV).
+      Initially, aphids colonise relatively few crop plants. However, the
+      second-generation tends to move away from the plant originally colonised.
+      Controlling this generation is a key part of a BYDV management strategy.
+
+
+      THE DECISION: This DSS indicates the best time to monitor crops for
+      aphids. If infestations are high, and non-chemical control options are
+      unlikely to prevent second generation emergence, treatment should be
+      considered to limit the spread of the virus.
+
+      THE MODEL: The second generation is likely to be present when the
+      accumulated daily air temperatures, above a baseline temperature of 3ºC,
+      reaches T-Sum 170. 
+
+      THE PARAMETERS: The model uses Date of last spray application, daily
+      temperature
+
+      REGION: This DSS was adapted from work carried out in the UK, and is
+      considered applicable, but not yet validated in, Belgium, Luxembourg,
+      Netherlands, France, Germany, Rep. Ireland, and Denmark.
+
+      ASSUMPTIONS: This DSS assumes that the user will update the date of last
+      insecticide applications. Its also assumes that no aphids found or
+      insecticide treatment applied at 170DD, and restarts calculations. 2nd
+      generation development time is consistent across regions.  
+
+      REFERENCE: UK Agricultural and Horticultural Development Board (2022).
+      https://ahdb.org.uk/bydv 
     citation: null
-    keywords: none
     platform_validated: true
     pests:
       - RHOPPA
@@ -1082,7 +1107,8 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             Based on current data available, the model results indicate low
-            current risk of winged aphids spreading BYDV in crops. Day degrees from establishment/last treatment is below 50.
+            current risk of winged aphids spreading BYDV in crops. Day degrees
+            from establishment/last treatment is below 50.
           recommended_action: >-
             This model runs September - March. Update parameters when any
             insecticide applications are made.
@@ -1098,7 +1124,8 @@ models:
             Increasing monitoring efforts in vulnerable crops, and apply
             suitable treatment according to need. Update parameters when any
             insecticide applications are made.The model assumes no aphids found
-            or insecticide treatment applied at 170DD, and restarts calculations. 
+            or insecticide treatment applied at 170DD, and restarts
+            calculations. 
         - explanation: >-
             Based on current data available, conditions have reached or are
             above 100 day-degrees over a base of 3*C.
@@ -1111,8 +1138,8 @@ models:
             for BYDV. Monitor vulnerable crops for in-field activity and apply
             suitable treatments according to need. Update parameters when any
             insecticide applications are made. The model assumes no aphids found
-            or insecticide treatment applied at 170DD, and restarts calculations. 
-      chart_heading: TSUM Model
+            or insecticide treatment applied at 170DD, and restarts
+            calculations. 
       chart_groups:
         - id: G1
           title: TSUM
@@ -1132,9 +1159,9 @@ models:
           description: Cumulative day degrees over 3 degrees celsius.
           chart_info:
             default_visible: true
-            unit: 'Count'
+            unit: Count
             chart_type: line
-            color: orange
+            color: '#000000'
         - id: ThresholdLine
           title: Winged aphids likely to emerge
           description: Winged aphids likely to emerge
@@ -1142,7 +1169,7 @@ models:
             default_visible: true
             unit: ''
             chart_type: line
-            color: red
+            color: '#000000'
         - id: Baseline
           title: ''
           description: ''
@@ -1150,7 +1177,7 @@ models:
             default_visible: false
             unit: ''
             chart_type: line
-            color: black
+            color: '#000000'
         - id: Proportion_1
           title: Proportion of day where temperature exceeds 11 degrees C
           description: Proportion of day where temperature exceeds 11 degrees C
@@ -1158,7 +1185,7 @@ models:
             default_visible: true
             unit: ''
             chart_type: line
-            color: green
+            color: '#000000'
         - id: Proportion_2
           title: Proportion of day where temperature was below 6 degrees C
           description: Proportion of day where temperature was below 6 degrees C
@@ -1166,7 +1193,7 @@ models:
             default_visible: true
             unit: ''
             chart_type: line
-            color: red
+            color: '#000000'
         - id: Proportion_3
           title: Proportion of day where temperature was below 3 degrees C
           description: Proportion of day where temperature was below 3 degrees C
@@ -1174,8 +1201,9 @@ models:
             default_visible: true
             unit: ''
             chart_type: line
-            color: blue
-#################################################################################################
+            color: '#000000'
+      chart_heading: TSUM Model
+    keywords: none
   - name: Hutton Criteria Late Blight Model
     id: PHYTIN
     version: 0.0.1
@@ -1204,7 +1232,6 @@ models:
       ASSUMPTIONS: The model does not account for higher temperatures or
       humidity which may occur under crop covers.
     citation: null
-    keywords: none
     platform_validated: true
     pests:
       - PHYTIN
@@ -1292,7 +1319,6 @@ models:
             are currently suitable for potato late blight outbreaks. Monitor
             potato crops and apply fungicide treatments against late blight,
             according to need.
-      chart_heading: Hutton Criteria
       chart_groups:
         - id: G1
           title: PHYTIN
@@ -1306,8 +1332,9 @@ models:
             default_visible: true
             unit: Count
             chart_type: line
-            color: orange
-###################################################################################################
+            color: '#000000'
+      chart_heading: Hutton Criteria
+    keywords: none
   - name: Septoria Leaf Blotch Model
     id: SEPTTR
     version: 0.0.1
@@ -1342,9 +1369,7 @@ models:
 
       ASSUMPTIONS: The model provides an early estimate of the potential for an
       epidemic and should be interpreted in combination with other risk factors.
-      
     citation: null
-    keywords: none
     platform_validated: false
     pests:
       - SEPTTR
@@ -1429,7 +1454,6 @@ models:
             on other risk factors, particularly date of sowing, the
             susceptibility of the wheat variety and weather conditions during
             spring/summer.
-      chart_heading: Septoria Leaf Blotch
       chart_groups:
         - id: G1
           title: SEPTTR
@@ -1447,7 +1471,7 @@ models:
             default_visible: true
             unit: Count
             chart_type: line
-            color: blue
+            color: '#000000'
         - id: AccumulatedTemperature
           title: Accumulated Temperature
           description: >-
@@ -1458,12 +1482,15 @@ models:
             default_visible: true
             unit: Count
             chart_type: line
-            color: orange
+            color: '#000000'
         - id: CalculatedRisk
           title: Model Risk
           description: Model Risk
           chart_info:
             default_visible: true
-            unit: 
+            unit: ''
             chart_type: line
-            color: red
+            color: '#000000'
+      chart_heading: Septoria Leaf Blotch
+    keywords: none
+

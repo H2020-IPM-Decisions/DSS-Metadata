@@ -2,6 +2,7 @@ id: no.nibio.vips
 version: '2.0'
 name: VIPS
 url: https://www.vips-landbruk.no/
+logo_url: /dss/logo/VIPSLogo.png
 languages:
   - Norwegian
   - English
@@ -219,7 +220,6 @@ models:
       of attack. The model only applies for cabbage fly, not turnip fly.
     citation: null
     keywords: none
-    platform_validated: true
     pests:
       - HYLERA
     crops:
@@ -309,7 +309,6 @@ models:
           recommended_action: >-
             Consult your advisory service. Consider action to protect your crop
             based on observations in your own field.
-      chart_heading: Day degrees
       chart_groups:
         - id: G1
           title: Day degrees
@@ -381,6 +380,8 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#990000'
+      chart_heading: Day degrees
+    platform_validated: true
   - name: Cabbage moth model
     id: MAMESTRABR
     version: '1.0'
@@ -1391,7 +1392,7 @@ models:
             default_visible: true
             unit: '&deg;C'
             chart_type: line
-            color: '#00000'
+            color: '#000000'
         - id: THRESHOLD_DSV_BASE
           title: Lower threshold
           description: Lower threshold
@@ -1506,8 +1507,7 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.    
-            This risk model guides the timing of the first fungicide
+            risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
             of blight if other risk factors (e.g. sources of blight inoculum or
@@ -1534,8 +1534,7 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.    
-            This risk model guides the timing of the first fungicide
+            risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
             of blight if other risk factors (e.g. sources of blight inoculum or
@@ -1562,8 +1561,7 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.    
-            This risk model guides the timing of the first fungicide
+            risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
             of blight if other risk factors (e.g. sources of blight inoculum or
@@ -1590,8 +1588,7 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.    
-            This risk model guides the timing of the first fungicide
+            risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
             of blight if other risk factors (e.g. sources of blight inoculum or
@@ -1618,8 +1615,7 @@ models:
             ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
-            risk.    
-            This risk model guides the timing of the first fungicide
+            risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
             of blight if other risk factors (e.g. sources of blight inoculum or

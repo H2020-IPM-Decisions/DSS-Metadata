@@ -408,37 +408,37 @@ models:
       warning_status_interpretation:
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based onprecipitationor regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates arerecommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based onprecipitationor regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates arerecommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based onprecipitationor regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates arerecommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based onprecipitationor regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates arerecommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based onprecipitationor regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates arerecommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
       chart_groups: []

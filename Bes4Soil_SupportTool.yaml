@@ -1,0 +1,359 @@
+id: Best4Soil.Support.Tools
+version: '1.0'
+name: Best4Soil DSS for nematodes and soil borne diseases
+url: https://www.best4soil.eu/database
+logo_url: https://www.best4soil.eu/
+languages:
+  - English
+  - Dutch
+  - German
+  - Danish
+  - Finnish
+  - Estonian
+  - Latvian
+  - Lithuanian
+  - Polish
+  - French
+  - Spanish
+  - Portugese
+  - Italian
+  - Greek
+  - Slovenian
+  - Hungarian
+  - Rumanian
+  - Bulgarian
+  - Slovakian
+  - Czech
+  - Serbian
+  - Slovenian
+organization:
+  name: Wageningen University and Research
+  country: Netherlands
+  address: Edelhertweg 1
+  postal_code: 8219 PH
+  city: Lelystad
+  email: paulien.vanasperen@wur.nl
+  url: www.wur.nl
+models:
+  - name: Best4Soil Support Tool nematodes
+    id: Best4Soil.Nematodes
+    version: '1.0'
+    type_of_decision: Short and medium term crop rotation recommendations
+    type_of_output: >-
+      A nematode scheme with information about host status of crops and
+      potential damage to yield
+    description_URL: https://nematodes.soilhealthtool.eu/en-gb/Nematode-scheme
+    purpose: The model helps to create healthy crop rotations in relation to nematodes
+    description: >-
+      THE PEST: Plant parasitic nematodes can cause serious damage to crop yield
+      and crop quality. Major groups of plant parasitic nematodes are: cyst
+      nematodes, root-knot nematodes, root-lesions nematodes, stem nematodes and
+      free living nematodes. nematodes can best be managed by healthy crop
+      rotations, as crops and crop varieties have a  different host status for
+      nematodes. Alternating host and non-host crops or varieties lowers
+      infestation rates in the soil. THE MODEL: The model  databases contain
+      information about susceptibility and tolerance of 70 crops to 32
+      nematodes. At the moment, the databases are neither soil-specific nor
+      country-specific. This means that the crop schemes are identical for
+      different soil types and countries. At this moment there is insufficient
+      country-specific information on host status and sensitivity to crop damage
+      per crop to make the database country-specific. The same is the case for
+      soil type specific information. Because soil type certainly plays a role
+      in the occurrence of nematode species and soil pathogens, the soil type
+      selection button has been built in to enable soil type specific schemes in
+      the future. The current version is based on sand because this soil type
+      contains the most nematode species and shows the most damage. PARAMETERS:
+      The model uses crops, including green manure crops, and crop rotation.
+      This farm specific input has to be provided by the user. SOURCE: Created
+      by H2020 project Best4Soil, based on the Dutch model www.aaltjesschema.nl,
+      developed by Wageningen University and Research. ASSUMPTIONS: The model
+      gives risk information, assuming that the by the user selected plant
+      parasitic nematodes are present in the field.
+    citation: ''
+    keywords: null
+    platform_validated: false
+    pests:
+      - 1MELG
+      - HETDRO
+      - HETDPA
+      - HETDSC
+      - HETDCR
+      - HETDMA
+      - HETDCA
+      - HETDTR
+      - PRATPE
+      - PRATCR
+      - PRATNE
+      - PRATBR
+      - DITYDI
+      - DITDE
+      - TRIHPA
+      - TRIHTE
+      - PARABU
+      - TRIHSI
+      - TRIHPR
+      - TRV000
+      - ARMV00
+      - 1LONGG
+      - 1XIPHG
+      - MELCGH
+      - MELGFA
+      - MELGHA
+      - MELGNA
+      - MELGAR
+      - MELGIN
+    crops:
+      - DAUCS
+      - SOLTU
+      - BEAUP
+      - TRZAW
+      - ALLCE
+      - BRSOL
+      - TAGPA
+      - HORUS
+      - VICFX
+      - VICFM
+      - OATSS
+      - LIUUT
+      - ZEAMX
+      - TTLRI
+      - HELAN
+      - ORYSA
+      - ILUPS
+      - SOLME
+      - ALLPO
+      - PHCTA
+      - GUIAB
+      - RAPSR
+      - CICIN
+      - BRSRR
+      - TRFPR
+      - TRFRE
+      - LOLPE
+      - LOLMU
+      - AVESG
+      - CITLA
+    authors:
+      - name: L.P.G. Molendijk
+        email: l.molendijk@wur.nl
+        organization: Wageningen University and Research
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - AUT
+        - BEL
+        - BGR
+        - CHE
+        - CYP
+        - CZE
+        - DEU
+        - DNK
+        - ESP
+        - EST
+        - FIN
+        - GBR
+        - GRC
+        - SRB
+        - HUN
+        - IRL
+        - ITA
+        - LTU
+        - LUX
+        - LVA
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - SWE
+        - FRA
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  - name: Best4Soil Tool pathogens
+    id: Best4Soil.pathogens
+    version: '1.0'
+    type_of_decision: Short and medium term crop rotation recommendations
+    type_of_output: >-
+      A pathogen scheme with information about host status of crops and
+      potential damage to yield
+    description_URL: https://fungi.soilhealthtool.eu/en-gb/Pathogen-scheme
+    purpose: >-
+      The model helps to create healthy crop rotations in relation to soil borne
+      pathogens
+    description: >-
+      THE PEST: Soil borne pathogens can cause serious damage to crop yield and
+      crop quality. Major groups of such pathogens are: Fusarium oxysporum,
+      Fusarium solani, Phoma,Phomopsis, Phytophthora, Pythium, Rhizoctonia
+      solani and Sclerotinia. Soil born pathogens can best be managed by healthy
+      crop rotations, as crops and crop varieties have a  different host status
+      for pathogens. Alternating host and non-host crops or varieties lowers
+      infestation rates in the soil. THE MODEL: The model  databases contain
+      information about susceptibility and tolerance of 70 crops to 135
+      pathogens. At the moment, the databases are neither soil-specific nor
+      country-specific. This means that the crop schemes are identical for
+      different soil types and countries. At this moment there is insufficient
+      country-specific information on host status and sensitivity to crop damage
+      per crop to make the database country-specific. The same is the case for
+      soil type specific information. Because soil type plays a role in the
+      occurrence of  soil pathogens, the soil type selection button has been
+      built in to enable soil type specific schemes in the future. PARAMETERS:
+      The model uses crops, including green manure crops, and crop rotation.
+      This farm specific input has to be provided by the user. SOURCE: Created
+      by H2020 project Best4Soil, analogu to the Dutch model
+      www.aaltjesschema.nl, developed by Wageningen University and Research.
+      ASSUMPTIONS: The model gives risk information, assuming that the by the
+      user selected plant pathogens are present in the field.
+    citation: null
+    keywords: 'Soil borne pathogens '
+    platform_validated: false
+    pests:
+      - 1COLLG
+      - FUSAOX
+      - FUSASO
+      - 1PHOMG
+      - PHOPSP
+      - 1PHYTG
+      - 1PYTHG
+      - 1SCLEG
+      - 1VERTG
+      - RHIZSO
+    crops:
+      - DAUCS
+      - SOLTU
+      - BEAUP
+      - TRZAW
+      - ALLCE
+      - BRSOL
+      - TAGPA
+      - HORUS
+      - VICFX
+      - VICFM
+      - LIUUT
+      - ZEAMX
+      - TTLRI
+      - HELAN
+      - ORYSA
+      - ILUPG
+      - SOLME
+      - ALLPO
+      - PHCTA
+      - GUIAB
+      - RAPSR
+      - CICIN
+      - BRSRR
+      - TRFPR
+      - TRFRE
+      - LOLPE
+      - LOLMU
+      - AVESG
+      - CITLA
+      - OATSS
+    authors:
+      - name: Vincent Michel
+        email: vincent.michel@agroscope.admin.ch
+        organization: AGROSCOPE Switzerland
+      - name: L.P.G. Molendijk
+        email: l.molendijkWwur.nl
+        organization: Wageningen University and Research
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - AUT
+        - BEL
+        - BGR
+        - CHE
+        - CYP
+        - CZE
+        - DEU
+        - DNK
+        - ESP
+        - EST
+        - FIN
+        - FRA
+        - GBR
+        - GRC
+        - SRB
+        - HUN
+        - ITA
+        - IRL
+        - LTU
+        - LUX
+        - LVA
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - SWE
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

@@ -46,23 +46,17 @@ models:
     purpose: The model helps to create healthy crop rotations in relation to nematodes
     description: >-
       THE PEST: Plant parasitic nematodes can cause serious damage to crop yield
-      and crop quality. Major groups of plant parasitic nematodes are: cyst
+      and crop quality. Important groups of plant parasitic nematodes are: cyst
       nematodes, root-knot nematodes, root-lesions nematodes, stem nematodes and
-      free living nematodes. nematodes can best be managed by healthy crop
+      free living nematodes. THE DECISION: nematodes can best be managed by healthy crop
       rotations, as crops and crop varieties have a  different host status for
       nematodes. Alternating host and non-host crops or varieties lowers
       infestation rates in the soil. THE MODEL: The model  databases contain
       information about susceptibility and tolerance of 70 crops to 32
       nematodes. At the moment, the databases are neither soil-specific nor
-      country-specific. This means that the crop schemes are identical for
-      different soil types and countries. At this moment there is insufficient
-      country-specific information on host status and sensitivity to crop damage
-      per crop to make the database country-specific. The same is the case for
-      soil type specific information. Because soil type certainly plays a role
-      in the occurrence of nematode species and soil pathogens, the soil type
-      selection button has been built in to enable soil type specific schemes in
-      the future. The current version is based on sand because this soil type
-      contains the most nematode species and shows the most damage. PARAMETERS:
+      country-specific. At this moment there is insufficient
+      country-specific information. The same is the case for
+      soil type specific information. PARAMETERS:
       The model uses crops, including green manure crops, and crop rotation.
       This farm specific input has to be provided by the user. SOURCE: Created
       by H2020 project Best4Soil, based on the Dutch model www.aaltjesschema.nl,

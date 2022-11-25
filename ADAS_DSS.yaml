@@ -189,7 +189,7 @@ models:
             unit: count
             chart_type: line
             color: '#0000ff'
-  - name: Orange Wheat Blossom Midge Model
+  - name: Orange Wheat Blossom Midge Emergence Model
     id: SITDMO
     version: 0.0.4
     type_of_decision: Short-term tactical
@@ -213,21 +213,21 @@ models:
       migration of females into vulnerable crops, when increased monitoring
       and/or treatment may be appropriate.
 
-      THE MODEL: It uses daily temperature (degrees celsius) and rainfall (mm)
-      data to identify   emergence in the Orange Wheat Blossom Midge. The model 
-      runs between the months May and June, but requires weather data from the
-      1st of January. The model runs in three phases: Phase 1: temperature
-      accumulation of 250 degree days above 3 degrees from 1st January.  Phase 2
-      (Low risk): Lasts until the rise in mean daily temperature to 13 degrees
-      followed by rainfall. During Phase 1 and 2, there is a low risk of
-      emergence. Phase 3: temperature accumulation of 160 degree days above 7
-      degrees. During phase 3, there is a medium risk of emergence. Upon
-      completion of phase 3 the risk is considered high for three days and a
-      date of emergence is predicted, which will be reported in the platform.
-      Multiple emergence dates are possible, leading to extended periods of high
-      risk.
+      THE MODEL: Daily temperature (degrees Celsius) and rainfall (mm) data is
+      used to identify emergence of Orange Wheat Blossom Midge. The model runs
+      between the months May and June, but requires weather data from the 1st of
+      January. The model runs in three phases: Phase 1: Temperature accumulation
+      of 250 degree days above 3 degrees from 1st January.  Phase 2 (Low risk):
+      Lasts until mean daily temperature reaches 13 degrees Celsius, followed by
+      rainfall (>2mm). During Phase 1 and 2, there is a low risk of emergence. Phase 3
+      (Medium risk): One phase 2 is complete, temperature accumulation of 160
+      degree days above 7 degrees. During phase 3, there is a medium risk of
+      emergence. Upon completion of phase 3 the risk is considered high for
+      three days and a date of emergence is predicted, which will be reported in
+      the platform. Multiple emergence dates are possible, leading to extended
+      periods of high risk of emergence.
 
-      THE PARAMETERS: The model uses Daily temperature and rainfall
+      THE PARAMETERS: The model uses daily temperature and rainfall
 
       REGION: This DSS was adapted from work carried out in Belgium, and is
       considered to be applicable, but yet to be validated in, the UK, 
@@ -239,7 +239,7 @@ models:
 
       REFERENCE: Jocquemin et al. (2014) Crop Protection 58, 6-13.
       https://doi.org/10.1016/j.cropro.2013.12.021 
-    citation: null
+    citation: https://doi.org/10.1016/j.cropro.2013.12.021
     keywords: none
     platform_validated: true
     pests:
@@ -256,11 +256,13 @@ models:
       - TTLSO
       - TTLWI
     authors:
-      - name: Guillaume Jacquemin, Sandrine Chavalle, Michel D Proft
+      - name: >-
+          Guillaume Jacquemin, Sandrine Chavalle, Michel D Proft, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
         email: >-
           g.jacquemin@cra.wallonie.be, s.chavalle@cra.wallonie.be,
-          m.deproft@cra.wallonie.be
-        organization: Walloon Agricultural Research Centre
+          m.deproft@cra.wallonie.be, (hannah.griffiths@adas.co.uk)
+        organization: Walloon Agricultural Research Centre, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/sitdmo/api/SITDMO
@@ -334,37 +336,36 @@ models:
         - explanation: Missing data.
           recommended_action: Review error message.
         - explanation: >-
-            This model is currently collecting data to run. Based on current
-            data available, the model results indicate no current risk of pest
-            activity.
+            This model runs May-June, requiring data from the start of January,
+            and is currently collecting data. Based on current data available,
+            the model results indicate no current risk of emergence of orange
+            wheat blossom midge.
           recommended_action: >-
-            This model runs May-June, requiring data from the start of January.
             The risk of emergence of orange wheat blossom midge and migration
-            into crops is currently low. Current conditions are not suitable for
-            orange wheat blossom midge emergence.
+            into crops is currently low. Continue to review the risk or
+            emergence up to and throughout crop ear emergence and flowering. 
         - explanation: >-
-            This model is currently collecting data to run. Based on current
-            data available, the model results indicate that conditions may soon
-            be suitable for critical pest activity.
+            This model runs May-June, requiring data from the start of January,
+            and is currently collecting data. Based on current data available,
+            the model results indicate that conditions may soon be suitable for
+            orange wheat blossom midge emergence.
           recommended_action: >-
-            This model runs May-June, requiring data from the start of January.
             The risk of emergence of orange wheat blossom midge and migration
             into crops is increasing. Suitable rainfall events have taken place,
             and/or daily temperatures are suitable for orange wheat blossom
-            midge emergence. Increasing monitoring efforts in vulnerable crops
-            (at ear emergence or flowering), and apply suitable treatment
-            according to need. 
+            midge emergence. Increase monitoring efforts in vulnerable crops
+            approaching and throughout ear emergence or flowering. 
         - explanation: >-
-            This model is currently collecting data to run. Based on current
-            data available, the model results indicate conditions are currently
-            suitable for pest activity
+            This model runs May-June, requiring data from the start of January,
+            and is currently collecting data. Based on current data available,
+            the model results indicate conditions are currently suitable for
+            emergence of orange wheat blossom midge. 
           recommended_action: >-
-            This model runs May-June, requiring data from the start of January.
             The risk of emergence of orange wheat blossom midge and migration
-            into crops is high. Recent conditions are likely to promote orange
-            wheat blossom midge emergence. Monitor vulnerable crops (at ear
-            emergence or flowering) for in-field activity and apply suitable
-            treatments according to need
+            into crops is high. High risk dates in the Risk status chart
+            indicate predicted dates of emergence - multiple emerges dates are
+            possible. Monitor vulnerable crops approaching and throughout ear
+            emergence and flowering for in-field activity.
       chart_heading: ''
       chart_groups:
         - id: ''
@@ -380,7 +381,7 @@ models:
             unit: ''
             chart_type: bar
             color: '#000000'
-  - name: Pollen Beetle Model
+  - name: Pollen beetle migration model (simplified)
     id: MELIAE
     version: 0.0.3
     type_of_decision: Short-term tactical
@@ -518,7 +519,7 @@ models:
       chart_heading: Pollen Bettle Migration
       chart_groups:
         - id: G1
-          title: Migration Threshold
+          title: Migration Forecast
           result_parameter_ids:
             - Temperature
             - Threshold
@@ -1493,4 +1494,3 @@ models:
             unit: ''
             chart_type: line
             color: '#000000'
-

@@ -79,9 +79,10 @@ models:
       - LYPES
       - FRAAN
     authors:
-      - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock
-        email: NA
-        organization: Rothamsted Experimental Station
+      - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: (hannah.griffiths@adas.co.uk)
+        organization: Rothamsted Experimental Station, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/api/DASGPA
@@ -256,8 +257,7 @@ models:
       - TTLSO
       - TTLWI
     authors:
-      - name: >-
-          Guillaume Jacquemin, Sandrine Chavalle, Michel D Proft, (Integrated to
+      - name: Guillaume Jacquemin, Sandrine Chavalle, Michel D Proft, (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
         email: >-
           g.jacquemin@cra.wallonie.be, s.chavalle@cra.wallonie.be,
@@ -293,7 +293,7 @@ models:
                 "temp_threshold1": {"type": "number", "default":"3", "title": "Temperature Threshold Phase 1"},
                 "DD1": {"type": "number", "default":"250", "title": "Degree Day Threshold Phase 1"},
                 "temp_threshold2": {"type": "number", "default":"13", "title": "Temperature Threshold Phase 2"},
-                "rain_threshold2": {"type": "number", "default":"0", "title": "Rainfall Threshold Phase 2"},
+                "rain_threshold2": {"type": "number", "default":"2", "title": "Rainfall Threshold Phase 2"},
                 "temp_threshold3": {"type": "number", "default":"7","title": "Temperature Threshold Phase 3"},
                 "DD3": {"type": "number", "default":"160", "title": "Degree Day Threshold Phase 3"},
                 "startDate": {"type":"string","format": "date", "title": "Model Start Date/Start of temperature accumulations (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
@@ -354,12 +354,12 @@ models:
             into crops is increasing. Suitable rainfall events have taken place,
             and/or daily temperatures are suitable for orange wheat blossom
             midge emergence. Increase monitoring efforts in vulnerable crops
-            approaching and throughout ear emergence or flowering. 
+            approaching and throughout ear emergence or flowering.  
         - explanation: >-
             This model runs May-June, requiring data from the start of January,
             and is currently collecting data. Based on current data available,
             the model results indicate conditions are currently suitable for
-            emergence of orange wheat blossom midge. 
+            emergence of orange wheat blossom midge.
           recommended_action: >-
             The risk of emergence of orange wheat blossom midge and migration
             into crops is high. High risk dates in the Risk status chart
@@ -381,7 +381,7 @@ models:
             unit: ''
             chart_type: bar
             color: '#000000'
-  - name: Pollen beetle migration model (simplified)
+  - name: Pollen Beetle Migration Model (simplified)
     id: MELIAE
     version: 0.0.3
     type_of_decision: Short-term tactical
@@ -397,7 +397,7 @@ models:
       lead to bud abortion and reduced pod set. However, damage rarely results
       in reduced yields for winter crops. Spring crops are more vulnerable, as
       the susceptible green/yellow bud stage often coincides with beetle
-      migration.  
+      migration. 
 
 
       THE DECISION: Oilseed rape is only vulnerable if large numbers of pollen
@@ -409,7 +409,7 @@ models:
       Risk. The default value of 15 degrees celsius is used, as that is the
       temperature advised in the UK at which pollen beetles will fly.   
 
-      THE PARAMETERS: The model uses Daily maximum air temperature  
+      THE PARAMETERS: The model uses Daily maximum air temperature   
 
       REGION: This DSS was adapted from work carried out in the UK, and is
       considered applicable, but not yet validated in, Belgium, Luxembourg,
@@ -531,7 +531,7 @@ models:
             default_visible: true
             unit: '&deg;C'
             chart_type: line
-            color: '#0000ff'
+            color: '#ff0000'
         - id: Threshold
           title: Temperature threshold
           description: Temperature threshold for migration
@@ -539,7 +539,7 @@ models:
             default_visible: true
             unit: ''
             chart_type: line
-            color: '#ff0000'
+            color: '#0000ff'
   - name: Saddle Gall Midge Model
     id: HAPDMA
     version: 0.0.4
@@ -601,9 +601,10 @@ models:
       - AVESP
       - TTLSO
     authors:
-      - name: Charlotte Rowley, Andew Cherrill, Simon R. Leather, Tome W. Pope
-        email: crowley@harper-adams.ac.uk
-        organization: Centre for Integrated Pest Management
+      - name: Charlotte Rowley, Andew Cherrill, Simon R. Leather, Tome W. Pope, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: crowley@harper-adams.ac.uk, (hannah.griffiths@adas.co.uk)
+        organization: Centre for Integrated Pest Management, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/hapdma/api/HAPDMA
@@ -817,12 +818,13 @@ models:
       - MABSD
       - PYUCO
     authors:
-      - name: Petros T. Damos, Nikos A. Kouloussis, Dimitris S. Koveos
-        email: petrosdamos@gmail.com
+      - name: Petros T. Damos, Nikos A. Kouloussis, Dimitris S. Koveos, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: petrosdamos@gmail.com, (hannah.griffiths@adas.co.uk)
         organization: >-
           Laboratory of Applied Zoology and Parasitology, School of Agriculture,
           Faculty of Agriculture, Forestry and Natural Environment,
-          Thessaloniki, Greece
+          Thessaloniki, Greece, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/carppo/api/carppo
@@ -1045,9 +1047,10 @@ models:
       - TRZAW
       - HORVW
     authors:
-      - name: AHDB
-        email: NA
-        organization: AHDB
+      - name: AHDB, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: (hannah.griffiths@adas.co.uk)
+        organization: AHDB, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/api/RHOPPA
@@ -1240,9 +1243,10 @@ models:
     crops:
       - SOLTU
     authors:
-      - name: James Hutton
-        email: NA
-        organization: James Hutton Institute, UK.
+      - name: James Hutton, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: (hannah.griffiths@adas.co.uk)
+        organization: James Hutton Institute, UK., (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/choacu/api/CHOACU
@@ -1378,9 +1382,10 @@ models:
     crops:
       - TRZAW
     authors:
-      - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch
-        email: NA
-        organization: NA
+      - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: (hannah.griffiths@adas.co.uk)
+        organization: (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/septtr/api/SEPTTR

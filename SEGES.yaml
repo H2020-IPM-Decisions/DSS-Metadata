@@ -30,25 +30,31 @@ models:
       THE DECISION: Fungicide treatments may need to be applied between stem
       extension and ear emergence, mainly to protect the upper leaves.  
 
-      THE MODEL: The humidity model estimates risk of septoria tritici blotch
-      infections in winter wheat. Risk of attack is assumed after 20 hours with
-      continuous wetness. A wet hour is defined as minimum 0,2 mm precipitation
-      in an hour or minimum 85% relative humidity. 
+      THE MODEL: Weather data from GS 31 are used. The humidity model estimates
+      risk of septoria tritici blotch infections in winter wheat. Risk of attack
+      is assumed after 20 hours with continuous wetness. A wet hour is defined
+      as minimum 0,2 mm precipitation in an hour or minimum 85% relative
+      humidity. 
 
-      THE PARAMETERS: Weather data from GS 31 are used. In addition, the dates
-      of occurrence of growth stages 31 and 32 are entered. The model calculates
-      the expected date for the other stages. This can be adjusted manually.
-      Adding information on fungicide spraying dates is vital for the model.
-      After spraying, the model assumes that the crop is protected for 10 days.
-      The thresholds for number of wet hours and relative humidity can be
-      adjusted manually.  
+      THE PARAMETERS:  Dates of key growth stages are given as default values,
+      but these may not be correct for your location.  To obtain accurate risk
+      predictions it is essential to click on the 'Edit parameters' button,
+      enter the estimated dates of GS31 (first node detectable), GS32 (second
+      node; third upper leaf emerging), GS33 (third node; second upper leaf
+      emerging), GS37/39 (uppermost flag leaf emerging)  and GS75 (grain content
+      milky), then click on the 'Save' button.  These estimated dates can be
+      updated during the season as growth stages are reached. Adding information
+      on septoria fungicide spray dates is vital for the model. This is also
+      done in 'Edit parameters'.  Clicking on 'Save' will keep the spray dates
+      entered.  After spraying, the model assumes that the crop is protected for
+      10 days.   
 
       SOURCE: Created by Aahus University and SEGES and released in Denmark in
       2017. Tested in Lithuania, Norway, Sweden, Finland and Denmark in 2018 and
       2019. 
 
-      ASSUMPTIONS: septoria tritici blotch is present and periods with high
-      humidity create risk for a damaging epidemic
+      ASSUMPTIONS: septoria tritici blotch is present in the crop and periods
+      with high humidity create risk for a damaging epidemic
     citation: null
     keywords: none
     platform_validated: true
@@ -58,7 +64,7 @@ models:
       - PYRNTR
     crops:
       - TRZAW
-      - TRZAS
+      - TRZAX
     authors:
       - name: Lise N. Jørgensen
         email: lisen.jorgensen@agro.au.dk
@@ -147,38 +153,41 @@ models:
         - explanation: Missing data
           recommended_action: Consult your advisory service
         - explanation: >-
-            Based on current observations entered and weather data, the risk of
-            septoria is low. This model runs March-June.  Continue to check for
-            risk updates and monitor crops. Update crop growth stage and date of
-            fungicide applications through the season
+            Based on weather data and current estimates of crop growth stages
+            and septoria spray dates, the risk of septoria is low. Go to 'Edit
+            parameters' to check and update growth stages and spray dates. This
+            model runs March-June.  
           recommended_action: >-
             Continue to check for risk updates and monitor crops. Update crop
             growth stage and date of fungicide applications through the season
         - explanation: >-
-            Based on current observations entered and weather data, the risk of
-            septoria is moderate.
+            Based on weather data and current estimates of crop growth stages
+            and septoria spray dates, the risk of septoria is moderate. Go to
+            'Edit parameters' to check and update growth stages and spray dates.
+            This model runs March-June. 
           recommended_action: >-
-            If the threshold of 20 hours humidity is not  exceeded, but other
+            If the threshold of 20 hours humidity is not exceeded, but other
             diseases are assessed to also cause a risk and the crop has not been
             treated in the last ten days, choose an effective fungicide which
-            also covers  control of septoria. This model runs March-June. 
-            Continue to check for risk updates and monitor crops. Update  crop
-            growth stage and date of fungicide applications through the season
+            also controls septoria. Continue to check for risk updates and
+            monitor crops. Update crop growth stage and date of fungicide
+            applications through the season 
         - explanation: >-
-            Based on current observations entered and weather data, the risk of
-            septoria is high.
+            Based on weather data and current estimates of crop growth stages
+            and septoria spray dates, the risk of septoria is high. Go to 'Edit
+            parameters' to check and update growth stages and spray dates. This
+            model runs March-June. 
           recommended_action: >-
             If the crop has not been treated against septoria in the last ten
             days, treat according to need. Choice of fungicides depends on the
             general disease risk. Apart from effectiveness on septoria the
-            product should also account for other risk factors/diseases.This
-            model runs March-June.  Continue to check for risk updates and
-            monitor crops. Update crop growth stage and  date of fungicide
-            applications through the season
+            product should also account for other diseases. Continue to check
+            for risk updates and monitor crops. Update crop growth stage and
+            date of fungicide applications through the season  
       chart_heading: Septoria humidity model in wheat
       chart_groups:
         - id: G1
-          title: Disease development
+          title: Consecutive humid hours
           result_parameter_ids:
             - HPHPP
             - THPHPP
@@ -197,8 +206,8 @@ models:
             Humid period hour (consecutive humid hours) corrected for protection
             period
           description: >-
-            Humid period hour (consecutive humid hours) corrected for protection
-            period
+            Number of consecutive humid hours, corrected for period of fungicide
+            protection
           chart_info:
             default_visible: true
             unit: Hour
@@ -252,7 +261,7 @@ models:
       precipitation is required
 
       (days with more than 1 mm rain). Before getting information on need for
-      treatments – information on crop,
+      treatments - information on crop,
 
       cultivars susceptibility and growth stage (BBCH) is required.
 
@@ -298,10 +307,8 @@ models:
       Pesticide Science, 45, 195-199.
 
 
-      3. Henriksen. K.E.; Jørgensen, L.N. & Nielsen, G.C.(2000) PC-Plant
-      Protection –a tool to
-
-      reduce fungicide input in winter wheat, winter barley and spring barley in
+      3. Henriksen. K.E.; Jærgensen, L.N. & Nielsen, G.C.(2000) PC-Plant
+      Protection - a tool to reduce fungicide input in winter wheat, winter barley and spring barley in
       Denmark.
 
       Brighton Crop Protection Conference. Pest and diseases. 835-840.
@@ -309,36 +316,18 @@ models:
 
       4. Jørgensen, L.N. & Henriksen, K E. (2002) Control of diseases in
       different winter wheat
-
       varieties using thresholds and appropriate dosages. Petria vol 12 (1/2)
       87-94
 
 
       5. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system
-      for
-
-      integrated management of diesases and pest s in cereals. EPPO Bulletin 33,
+      for integrated management of diesases and pest s in cereals. EPPO Bulletin 33,
       467-471.
 
 
-      6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A;
-      Anderson, B; Ficke, A., Djule, A
+      6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A; Anderson, B; Ficke, A., Djule, A (2020) Validation of risk models for control of leaf blotch diseases in wheat in the Nordic and Baltic countries European Journal of Plante Pathology,. https://doi.org/10.1007/si 0658-020-02025-6
 
-      (2020) Validation of risk models for control of leaf blotch diseases in
-      wheat in the Nordic and
-
-      Baltic countries European Journal of Plante Pathology,.
-      https://doi.org/10.1007/si 0658-020-02025-6
-
-      7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S;
-      Kirkegaard, S;
-
-      Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in
-      different cultivars.
-
-      Applied Crop Protection 2019.DCA rapport, 167, 58-71.
-
-      https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
+      7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S; Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in different cultivars. Applied Crop Protection 2019.DCA rapport, 167, 58-71. https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
     citation: null
     keywords: none
     pests:
@@ -408,37 +397,37 @@ models:
       warning_status_interpretation:
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional
-            monitoring data for risk evaluation. In the Danish system fungicides
-            and dose rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional monitoring
+            data for risk evaluation. In the Danish system fungicides and dose
+            rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional
-            monitoring data for risk evaluation. In the Danish system fungicides
-            and dose rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional monitoring
+            data for risk evaluation. In the Danish system fungicides and dose
+            rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional
-            monitoring data for risk evaluation. In the Danish system fungicides
-            and dose rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional monitoring
+            data for risk evaluation. In the Danish system fungicides and dose
+            rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional
-            monitoring data for risk evaluation. In the Danish system fungicides
-            and dose rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional monitoring
+            data for risk evaluation. In the Danish system fungicides and dose
+            rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional
-            monitoring data for risk evaluation. In the Danish system fungicides
-            and dose rates arerecommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional monitoring
+            data for risk evaluation. In the Danish system fungicides and dose
+            rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
       chart_groups: []
@@ -449,4 +438,3 @@ models:
             The CPO's traffic light counterpart. 0 = No need for treatment. 1 =
             Treat if other problem needs treatment. 2 = Treat if other problem
             has treatmentId = 2 3 = Need for treatment
-

@@ -97,7 +97,7 @@ winter Wheat, spring barley, winter barley, spring oat, winter triticale and win
 The system also includes models for pest control in cereals.
 The models require information from field registration typically in the period from GS 30-31 to GS 65-71
 (assessments of frequency of plants attacked) and for some diseases also precipitation is required
-(days with more than 1 mm rain). Before getting information on need for treatments – information on crop,
+(days with more than 1 mm rain). Before getting information on need for treatments - information on crop,
 cultivars susceptibility and growth stage (BBCH) is required.
 
 The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation
@@ -118,23 +118,15 @@ Septoria spp. in winter wheat based on precipitation and growth stage. Plant Pat
 Decision Support System for Control of Pests and Diseases in Cereals in Denmark.
 Pesticide Science, 45, 195-199.
 
-3. Henriksen. K.E.; Jørgensen, L.N. & Nielsen, G.C.(2000) PC-Plant Protection –a tool to
-reduce fungicide input in winter wheat, winter barley and spring barley in Denmark.
+3. Henriksen. K.E.; Jærgensen, L.N. & Nielsen, G.C.(2000) PC-Plant Protection - a tool to reduce fungicide input in winter wheat, winter barley and spring barley in Denmark.
 Brighton Crop Protection Conference. Pest and diseases. 835-840.
 
-4. Jørgensen, L.N. & Henriksen, K E. (2002) Control of diseases in different winter wheat
-varieties using thresholds and appropriate dosages. Petria vol 12 (1/2) 87-94
+4. Jørgensen, L.N. & Henriksen, K E. (2002) Control of diseases in different winter wheat varieties using thresholds and appropriate dosages. Petria vol 12 (1/2) 87-94
 
-5. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system for
-integrated management of diesases and pest s in cereals. EPPO Bulletin 33, 467-471.
+5. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system for integrated management of diesases and pest s in cereals. EPPO Bulletin 33, 467-471.
 
-6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A; Anderson, B; Ficke, A., Djule, A
-(2020) Validation of risk models for control of leaf blotch diseases in wheat in the Nordic and
-Baltic countries European Journal of Plante Pathology,. https://doi.org/10.1007/si 0658-020-02025-6
-7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S;
-Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in different cultivars.
-Applied Crop Protection 2019.DCA rapport, 167, 58-71.
-https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
+6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A; Anderson, B; Ficke, A., Djule, A (2020) Validation of risk models for control of leaf blotch diseases in wheat in the Nordic and Baltic countries European Journal of Plante Pathology,. https://doi.org/10.1007/si 0658-020-02025-6
+7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S; Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in different cultivars. Applied Crop Protection 2019.DCA rapport, 167, 58-71. https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
 ";;;;;;;
 dk.seges.1_1.models.CPO.execution.input_schema.properties.GrowthStage.title;Growth stage;;;;;;;
 dk.seges.1_1.models.CPO.execution.input_schema.properties.Severity.title;Severity (% infected plants). 0=0%, 1=1-5%,2=6-10%,3=11-100%;;;;;;;
@@ -143,14 +135,14 @@ dk.seges.1_1.models.CPO.name;CPO model;;;;;;;
 dk.seges.1_1.models.CPO.output.chart_heading;;;;;;;;
 dk.seges.1_1.models.CPO.output.result_parameters.TREATMENT_ID.description;The CPO's traffic light counterpart. 0 = No need for treatment. 1 = Treat if other problem needs treatment. 2 = Treat if other problem has treatmentId = 2 3 = Need for treatment;;;;;;;
 dk.seges.1_1.models.CPO.output.result_parameters.TREATMENT_ID.title;The risk assessment;;;;;;;
-dk.seges.1_1.models.CPO.output.warning_status_interpretation.0.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates arerecommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.0.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
 dk.seges.1_1.models.CPO.output.warning_status_interpretation.0.recommended_action;;;;;;;;
-dk.seges.1_1.models.CPO.output.warning_status_interpretation.1.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates arerecommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.1.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
 dk.seges.1_1.models.CPO.output.warning_status_interpretation.1.recommended_action;;;;;;;;
-dk.seges.1_1.models.CPO.output.warning_status_interpretation.2.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates arerecommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.2.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
 dk.seges.1_1.models.CPO.output.warning_status_interpretation.2.recommended_action;;;;;;;;
-dk.seges.1_1.models.CPO.output.warning_status_interpretation.3.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates arerecommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.3.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
 dk.seges.1_1.models.CPO.output.warning_status_interpretation.3.recommended_action;;;;;;;;
-dk.seges.1_1.models.CPO.output.warning_status_interpretation.4.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates arerecommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
+dk.seges.1_1.models.CPO.output.warning_status_interpretation.4.explanation;The growers need to check the crops at weekly intervals or as a minimum follow the risk based on precipitation or regional monitoring data for risk evaluation. In the Danish system fungicides and dose rates are recommended. In the IPM-decision system only a recommendation to treat or not to treat is given.;;;;;;;
 dk.seges.1_1.models.CPO.output.warning_status_interpretation.4.recommended_action;;;;;;;;
 dk.seges.1_1.models.CPO.purpose;;;;;;;;

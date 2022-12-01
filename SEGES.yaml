@@ -2,7 +2,7 @@ id: dk.seges
 version: '1.1'
 name: SEGES DSS models
 url: https://www.seges.dk/
-logo_url: ''
+logo_url: /dss/logo/logo-seges.png
 languages:
   - Danish
   - English

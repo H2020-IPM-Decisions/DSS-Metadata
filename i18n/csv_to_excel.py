@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-#    Copyright (C) 2021  Tor-Einar Skog,  NIBIO
+#    Copyright (C) 2022  Tor-Einar Skog,  NIBIO
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -16,22 +16,24 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # Creates a separate Excel file for each DSS CSV file, with one sheet per model
+# Stores Excel files in 
 # Author: Tor-Einar Skog <tor-einar.skog@nibio.no>
 
-import os
 import sys
 import csv
+from pathlib import Path
 import pandas as pd
-from datetime import datetime
 
+# Input check
 if len(sys.argv) == 1:
-    print("Usage: ./csv_split_into_models.py [file_expression]")
+    print("Usage: ./csv_to_excel.py [file_expression]")
     exit(0)
 
 #print(sys.argv[1:])
 
 files = sys.argv[1:]
 # Make sure that we only have csv files in the list
+
 files_ok = True
 for file_name in files:
     if not file_name.endswith(".csv"):
@@ -40,12 +42,13 @@ for file_name in files:
 if not files_ok:
     exit(1)
 
+excel_indir = "excel_to_translation"
 separator = ";"
 
-# Let's do this!
+# File by file
 for file_name in files:
-    print(file_name)
-    dss_id=os.path.splitext(file_name)[0]
+    #print(file_name)
+    dss_id=Path(file_name).stem
     dss_table = pd.read_csv(file_name, sep=";",quotechar="\"")#, index_col=0)
     dss_main_sheet = dss_table[dss_table["KEY"].str.match(r"^(?!.*models)")]
     dss_models = {}
@@ -72,7 +75,17 @@ for file_name in files:
     for model_name in dss_models:
         dss_models_dataframe[model_name] = pd.DataFrame(dss_models[model_name])
     
-    with pd.ExcelWriter("excel/%s.xlsx" % dss_id) as writer:
+    # Pandas to the rescue!!! :-D
+    # https://pandas.pydata.org/docs/user_guide/io.html#io-excel-writer
+    excel_file_path = "%s/%s.xlsx" % (excel_indir, dss_id)
+    if Path(excel_file_path).exists():
+        user_input= input("%s exists. Overwrite? (y/N)" % excel_file_path)
+        overwrite = True if user_input.lower() == "y" else False
+        #print(("user_input=%s, overwrite=%s" % (user_input,overwrite)))
+        if not overwrite:
+            print("Skipping %s" % excel_file_path)
+            continue
+    with pd.ExcelWriter(excel_file_path) as writer:
         dss_main_sheet.to_excel(writer, sheet_name="main", index=False)
         for model_name in dss_models:
             dss_models_dataframe[model_name].to_excel(writer, 
@@ -80,3 +93,4 @@ for file_name in files:
             index=False,
             header=False
             )
+    print("Produced %s" % excel_file_path)

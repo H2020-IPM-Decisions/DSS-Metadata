@@ -35,6 +35,7 @@ if len(sys.argv) == 1:
     exit(0)
 
 files = sys.argv[1:]
+
 # Make sure that we only have YAML files in the list
 files_ok = True
 for file_name in files:
@@ -44,6 +45,7 @@ for file_name in files:
 if not files_ok:
     exit(1)
 
+csv_outdir = "csv_from_yaml"
 separator = ";"
 
 # Specific properties in the input schema
@@ -96,19 +98,21 @@ for file_name in files:
     
     # Writing to CSV
     # Check if file exists
-    if not os.path.exists("%s_TEST.csv" % dss_metadata["id"]):
+    csv_file_path = "%s/%s_TEST.csv" % (csv_outdir, dss_metadata["id"])
+    if not os.path.exists(csv_file_path):
         # New file
-        with open("%s_TEST.csv" % dss_metadata["id"], "w") as f:
+        with open(csv_file_path, "w") as f:
             csvwriter = csv.writer(f, delimiter=";",quotechar="\"")    
             csvwriter.writerow(["KEY","default"])
             for key in props:
                 csvwriter.writerow([key, props[key]])  
+        print("Produced new CSV file %s" % csv_file_path)
     else:
         print("File exists!")
         # Read existing file
         old_content = {}
         old_header = []
-        with open("%s.csv" % dss_metadata["id"], "r") as f:
+        with open(csv_file_path, "r") as f:
             csvreader = csv.reader(f, delimiter=";",quotechar="\"")
             for row in csvreader:
                 if row[0].lower() != "key":
@@ -136,11 +140,12 @@ for file_name in files:
         # Replacing contents of the default column
         for p in old_content:
             old_content[p][1] = props[p]
-        with open("%s.csv" % dss_metadata["id"], "w") as f:
+        with open(csv_file_path, "w") as f:
             csvwriter = csv.writer(f, delimiter=";",quotechar="\"")    
             csvwriter.writerow(old_header)
             for key in old_content:
-                csvwriter.writerow(old_content[key])  
+                csvwriter.writerow(old_content[key]) 
+        print("Changed CSV file %s" % csv_file_path)
     #print(props)
 
         

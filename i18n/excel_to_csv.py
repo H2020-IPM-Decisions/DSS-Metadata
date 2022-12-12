@@ -69,6 +69,6 @@ for file_name in files:
         all_sheets_combined = pd.concat(frames)
         # Write CSV file with same filename (except extension) as Excel file
         
-        all_sheets_combined.to_csv(csv_file_path, sep=";",quotechar="\"")
+        all_sheets_combined.to_csv(csv_file_path, sep=";",quotechar="\"", index=False)
         print("Produced %s" % csv_file_path)
         

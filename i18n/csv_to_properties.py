@@ -22,6 +22,7 @@
 import os
 import sys
 import csv
+from pathlib import Path
 from datetime import datetime
 
 if len(sys.argv) == 1:
@@ -51,8 +52,10 @@ for file_name in files:
             print("WARNING: Illegal or missing field headers in %s. Ignoring it." % file_name)
             continue
         #print("Field names: %s" % rowreader.fieldnames)
-        base_file_name = os.path.splitext(file_name)[0]
+        base_file_name = Path(file_name).stem
         #print(base_file_name)
+        # The filename equals the DSS id (by convention)
+        # So the path can be deducted from it
         base_file_name = base_file_name.replace(".","/")
         path_elements = base_file_name.split("/")
         base_file_name = path_elements[len(path_elements)-1]

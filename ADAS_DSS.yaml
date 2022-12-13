@@ -957,19 +957,10 @@ models:
         - id: G1
           title: Cumulative Captures
           result_parameter_ids:
-            - Baseline
             - First_Flight_Cumulative_Captures
             - Second_Flight_Cumulative_Captures
             - Third_Flight_Cumulative_Captures
       result_parameters:
-        - id: Baseline
-          title: ''
-          description: ''
-          chart_info:
-            default_visible: false
-            unit: ''
-            chart_type: line
-            color: '#000000'
         - id: First_Flight_Cumulative_Captures
           title: First Flight Cumulative Captures
           description: >-

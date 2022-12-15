@@ -662,7 +662,7 @@ models:
                   }
                 }
               },
-              "required": ["timeZone","startDateCalculation","endDateCalculation"]
+              "required": ["timeZone","startDateCalculation","endDateCalculation",“fieldObservations”]
             }
           },
           "required": ["modelId","configParameters"],

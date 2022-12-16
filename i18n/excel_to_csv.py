@@ -61,16 +61,16 @@ for file_name in files:
     # https://pandas.pydata.org/docs/user_guide/io.html#io-excel-reader
     with pd.ExcelFile(file_name) as reader:
         for s_name in reader.sheet_names:
-            print("Sheet name: %s|" % s_name)
+            #print("Sheet name: %s|" % s_name)
             sheet_frame = pd.read_excel(reader, s_name)
-            print("Number of columns: %s" % sheet_frame.columns)
+            #print("Number of columns: %s" % sheet_frame.columns)
             frames.append(sheet_frame)
         # Combine sheets
         # The concat method keeps track of mixed up columns,
         # As long as headings are provided in each Excel sheet
         all_sheets_combined = pd.concat(frames)
-        print("Combined columns: %s" % all_sheets_combined.columns)
-        print(all_sheets_combined)
+        #print("Combined columns: %s" % all_sheets_combined.columns)
+        #print(all_sheets_combined)
         # Write CSV file with same filename (except extension) as Excel file
         
         all_sheets_combined.to_csv(csv_file_path, sep=";",quotechar="\"", index=False)

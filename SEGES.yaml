@@ -330,6 +330,7 @@ models:
       7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S; Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in different cultivars. Applied Crop Protection 2019.DCA rapport, 167, 58-71. https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
     citation: null
     keywords: none
+    platform_validated: true
     pests:
       - SEPTTR
       - PUCCST

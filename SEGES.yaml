@@ -352,7 +352,7 @@ models:
     execution:
       type: ONTHEFLY
       endpoint: >-
-        https://devtest-plantevaernonline.vfltest.dk/cp/Applications/Disease/IPMModel.aspx
+        https://plantevaernonline.dlbr.dk/cp/Applications/Disease/IPMModel.aspx
       form_method: post
       content_type: application/json
       input_schema_categories:

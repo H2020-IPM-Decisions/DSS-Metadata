@@ -1561,7 +1561,7 @@ models:
                             "startRange": "{CURRENT_YEAR}-01-01",
                             "endRange": "{CURRENT_YEAR}-12-31"
                             "threshold": 4,
-                            "risk": 3
+                            "risk": 4
                         }]
                     ]
                     }
@@ -1738,8 +1738,8 @@ models:
                             [{
                             "startRange": "{CURRENT_YEAR}-01-01",
                             "endRange": "{CURRENT_YEAR}-12-31"
-                            "threshold": 4,
-                            "risk": 3
+                            "threshold": 1,
+                            "risk": 4
                             }]
                           ]
                       }

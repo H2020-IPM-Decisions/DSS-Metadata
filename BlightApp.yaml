@@ -1,0 +1,149 @@
+id: NL.WUR.LateBlight
+version: '1'
+name: BlightApp
+url: https://farmmaps.eu/en/
+logo_url: '/dss/logo/farmmaps-logo.png'
+languages:
+  - Dutch
+  - English
+organization:
+  name: Wageningen Research
+  country: The Netherlands
+  address: Droevendaalseweg 1
+  postal_code: 6708PB
+  city: Wageningen
+  email: info@farmmaps.eu
+  url: www.wur.nl
+models:
+  - name: 'DSS Potato Late Blight '
+    id: BlightApp
+    version: '1'
+    type_of_decision: Short term operational advice on late blight control
+    type_of_output: The DSS provides spraying advice for late blight control
+    description_URL: https://www.farmmaps.net/en/Apps/Application/Late-Blight
+    purpose: >-
+      BlightApp helps you find the right timing and resources for phytophthora
+      control. BlightApp predicts infection chances and provides spraying
+      advice. The app gives advise on preventive-, curative- and stop sprayings.
+      You can also set up alerts for oospores and tuber infection risk.
+    description: >-
+      THE PEST: Late bllight is a fungal disease that can cause severe damage to
+      crop foliage and can also infect the tubers. 
+
+      THE DECISION: Fungicides are used to control late blight. Spraying time
+      and fungicide choice are the most important factor for successful potato
+      late blight control. The Garmmaps BlightApp support potato growers in
+      implementing an optimized preventive potato late blight control strategy
+      throughout the season. In addition to preventive spray applications, an
+      alert is issued when curative- and even eradicant stop sprays are
+      required. 
+
+      THE MODEL: Spray advice is based on analysis of continously updated, 500 x
+      500  m high resolution weather data, on field level. Forecasted weather
+      data is used to identify potentioal in fection events in the near future.
+      Measured weather data is used to check for gaps in the crop's protection
+      under the actual spray schedule. The BlightApp will recommend a preventive
+      spray application shortly before predicted infection events. A curative
+      spray application is recommended when infection just may have occurred.
+      Eradicant spray applications are recommended when infection may have
+      occurred in the recent past. BlightApp also takes into account the
+      sometimes rapid growth of a crop. Fast growth in combination with high
+      disease pressure may require a shorter spray interval. The level of
+      disease pressure can be increased or lowered according to the local
+      situation. Fungicide characteristics are imported from the Euroblight
+      fungicide table and include protectant as well as curative abilities,
+      protection of new growth, tuber protection and rain fastness.
+
+      THE PARAMETERS: The DSS uses high resolution weather data, crop growth
+      rate and local disease pressure. Crop growth and local disease pressure
+      can be adjusted by the user.
+
+      SOURCE: The DSS is developed by Wageningen Research and is tested in
+      several countries and can be used accross Europe. Before using BlightApp
+      the user needs to create an (free) account on Farmmaps, create a farm and
+      buy the application. The costs of using BlightApp are 250€/year.
+    citation: ''
+    keywords: Late blight, DSS, Decision Support
+    platform_validated: false
+    pests:
+      - PHYTIN
+    crops:
+      - SOLTU
+    authors:
+      - name: Geert Kessel
+        email: null
+        organization: Wageningen Research
+      - name: Corné Kempenaar
+        email: null
+        organization: Wageningen Research
+      - name: Thomas Been
+        email: null
+        organization: Wageningen Research
+      - name: Krikke
+        email: null
+        organization: Wageningen Research
+    execution:
+      type: ''
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - 'AUT '
+        - BEL
+        - BGR
+        - CHE
+        - CYP
+        - CZE
+        - DEU
+        - DNK
+        - ESP
+        - FIN
+        - GBR
+        - GRC
+        - SRB
+        - HUN
+        - IRL
+        - ITA
+        - LTU
+        - LVA
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - SWE
+        - FRA
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

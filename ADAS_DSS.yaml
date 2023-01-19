@@ -1490,3 +1490,306 @@ models:
             unit: ''
             chart_type: line
             color: '#000000'
+###
+  - name: Grey Field Slug (Cereals)
+    id: DEROAG_Cereals
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-  
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/Help/Api/POST-api-ThresholdDSS
+    purpose: The purpose of the model is to determine the threshold at which control measures are recommended
+    description: >-
+      THE PEST: Grey field slug (Deroceras reticulatum) are the most important slug pest in crops with they causing 
+      over 95% of most slug damage. Slug damage are commonly seed hollowing before and during seed germination leading to patchy fields, 
+      and damage continues on seedlings and young cereal shoots up to GS21. They thrive in humid conditions with large quantities of food. 
+      In most cases, they reside in soil up to 10 cm deep and are 3 to 5 cm in length. Due to its limited food reserve, this slug feeds 
+      more frequently under a variety of conditions. The slug can feed and reproduce year-round, regardless of whether it is below or above ground.
+      Seedbeds with clods and plants that are direct drilled or minimally cultivated are likely to be damaged by slugs. Farming activities such as 
+      ploughing also fail to affect them as they move back to the soil surface to cause damage.
+      THE DECISION: Slug refuge traps should be placed in standing cereal crops or in stubble over a one-night period from May to October when weather
+      conditions such as temperatures between 5 -25 degrees and moist soil surfaces occur. Slugs should be counted before temperatures rise and they leave refuge traps.
+      The trapping should continue until the vulnerable stage of the crop has passed.
+      THE THRESHOLD: Crops are considered to be at risk of economic damage where an average of four or more slugs are found per refuge trap.
+      THE ASSESSMENT: Assessment is most effective where periods of slug activity are correctly identified; e.g. after period of wet or humid weather. 
+      REGION: 
+      ASSUMPTION: This depends on identifying the periods of slug activity for greater chances of trapping them
+      REFERENCE: Glen 2005; Glen et al. 2006
+
+    citation: https://ahdb.org.uk/integrated-slug-control-in-arable-crops-risk-assessment-trapping-agronomy-and-chemical-control
+    keywords: none
+    platform_validated: true
+    pests:
+      -  DEROAG
+    crops:
+      - NNNGW
+    authors:
+      - name: Glen et al. 2006 (Integrated to IPM Decisions from publication details by Hannah Griffiths)
+        email: (hannah.griffiths@adas.co.uk)
+        organization: (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/api/ThresholdDSS 
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^DEROAG_Cereals$", "title": "Model Id", "default":"DEROAG_Cereals", "description":"Must be DEROAG_Cereals"},
+              "configParameters" :{  
+                "title":"Configuration parameters to run the threshold DSS",            
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date", "default": "{CURRENT_YEAR}-01-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                  "observationClass":{
+                    "type":"array",
+                    "title": "Field Observations",
+                    "items":{ "$ref": "#/$defs/obs" }
+                    },
+                  "thresholdClass":{
+                    "type":"array",
+                    "title": "Thresholds",
+                    "maxItems": 3,
+                    "items":{ "$ref": "#/$defs/thres" },
+                    "defaults": [
+                        [{
+                            "startRange": "{CURRENT_YEAR}-01-01",
+                            "endRange": "{CURRENT_YEAR}-12-31"
+                            "threshold": 4,
+                            "risk": 3
+                        }]
+                    ]
+                    }
+                  }, 
+                  "required": ["modelId", "configParameters"],
+                  "$defs": {
+                      "obs": {
+                          "type": "object",
+                          "required": ["date", "observation"],
+                          "properties":{
+                            "date": {"type":"string","format": "date", "title": "Date of Observation"},
+                            "observation": {"type":"double", "title": "Observation"}
+                          },
+                      },
+                       "thres": {
+                          "type": "object",
+                          "required": ["startRange", "endRange", "threshold", "risk"],
+                          "properties":{
+                            "startRange": {"type":"string","format": "date", "title": "Start date for threshold"},
+                            "endRange": {"type":"string","format": "date", "title": "End date for threshold"},
+                            "threshold": {"type":"double", "title": "Pest threshold"},
+                            "risk": {"type":"int", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)"}
+                           
+                          }                   
+                      }
+                  }
+              }
+          }
+        }
+    input:
+      field_observation:
+        species:
+          - DEROAG
+    valid_spatial:
+      countries:
+        - 
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            On average, less than four slugs per trap.
+          recommended_action: >-
+            The risk of slug populations under threshold (on average less than four slugs per trap) 
+            requiring management action is low.  In vulnerable crops, continue to monitor slug abundance
+            and consider treatment options where populations are increasing. 
+        - explanation: >-
+
+          recommended_action: >-
+            On average, four or more slugs per trap. 
+        - explanation: >-
+            On average, four or more slugs per trap.
+          recommended_action: >-
+            The risk of slug populations over threshold (on average four or more slugs per trap) requiring management
+            action is high.  In vulnerable crops, continue to monitor slug abundance and consider treatment options
+            where crops require additional protection. 
+      chart_heading: 
+      chart_groups:
+        - id: G1
+          title: 
+          result_parameter_ids:
+            - Observation
+            - FirstThreshold
+      result_parameters:
+        - id: Observation
+          title: Observation
+          description: Observation
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: FirstThreshold
+          title: Threshold
+          description: Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ffa500'
+###
+  - name: Grey Field Slug (Oilseed Rape)
+    id: DEROAG_OSR
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-  
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/Help/Api/POST-api-ThresholdDSS
+    purpose: The purpose of the model is to determine the threshold at which control measures are recommended.
+    description: >-
+      THE PEST: Grey field slug (Deroceras reticulatum) are the most important slug pest in crops with they causing over 95% of most slug damage. 
+      The most damage to oilseed rape occurs during the establishment phase (between sowing and the four true leaf stage), with leaf shredding
+      more common than seed hollowing. They thrive in humid conditions with large quantities of food. In most cases, they reside in soil up to 
+      10 cm deep and are 3 to 5 cm in length. Due to its limited food reserve, this slug feeds more frequently under a variety of conditions. 
+      The slug can feed and reproduce year-round, regardless of whether it is below or above ground.  Seedbeds with clods and plants that are 
+      direct drilled or minimally cultivated are likely to be damaged by slugs. Farming activities such as ploughing also fail to affect them 
+      as they move back to the soil surface to cause damage.
+      THE DECISION: Traps should be placed in standing crops or in stubble over a one-night period from May to October when weather conditions 
+      such as temperatures between 5 -25 degrees and moist soil surfaces occur. Slugs should be counted before temperatures rise and they leave refuge traps. 
+      The trapping should continue until the vulnerable stage of the crop has passed.
+      THE THRESHOLD: Crops are considered to be at risk of economic damage where an average of one or more slugs are found per refuge trap.
+      THE ASSESSMENT: Set up minimum of nine refuge traps per 20 ha (13 in fields larger than 20 ha) in a “W” pattern. Refuge traps can be made from an
+      upturned saucer, baited with chicken layers mash. Threshold assessed based on the overall average number of slugs found per trap 24hrs after setting them.
+      REGION: 
+      ASSUMPTION: Assessment is most effective where periods of slug activity are correctly identified; e.g. after period of wet or humid weather. 
+      Tracking slug abundance over time is recommended, rather than single assessments.
+      REFERENCE: Glen 2005; Glen et al. 2006
+
+    citation: https://ahdb.org.uk/integrated-slug-control-in-arable-crops-risk-assessment-trapping-agronomy-and-chemical-control
+    keywords: none
+    platform_validated: true
+    pests:
+      -  DEROAG
+    crops:
+      - BRSNN
+    authors:
+      - name: Glen et al. 2006 (Integrated to IPM Decisions from publication details by Hannah Griffiths)
+        email: (hannah.griffiths@adas.co.uk)
+        organization: (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/api/ThresholdDSS 
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^DEROAG_OSR$", "title": "Model Id", "default":"DEROAG_OSR", "description":"Must be DEROAG_OSR"},
+              "configParameters" :{  
+                "title":"Configuration parameters to run the threshold DSS",            
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date", "default": "{CURRENT_YEAR}-01-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                  "observationClass":{
+                    "type":"array",
+                    "title": "Field Observations",
+                    "items":{ "$ref": "#/$defs/obs" }
+                    },
+                  "thresholdClass":{
+                    "type":"array",
+                    "title": "Thresholds",
+                    "maxItems": 3,
+                    "items":{ "$ref": "#/$defs/thres" }
+                    }
+                  }, 
+                  "required": ["modelId", "configParameters"],
+                  "$defs": {
+                      "obs": {
+                          "type": "object",
+                          "required": ["date", "observation"],
+                          "properties":{
+                            "date": {"type":"string","format": "date", "title": "Date of Observation"},
+                            "observation": {"type":"double", "title": "Observation"}
+                          },
+                      },
+                       "thres": {
+                          "type": "object",
+                          "required": ["startRange", "endRange", "threshold", "risk"],
+                          "properties":{
+                            "startRange": {"type":"string","format": "date", "title": "Start date for threshold"},
+                            "endRange": {"type":"string","format": "date", "title": "End date for threshold"},
+                            "threshold": {"type":"double", "title": "Pest threshold"},
+                            "risk": {"type":"int", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)"}
+                          },
+                          "defaults": [
+                            [{
+                            "startRange": "{CURRENT_YEAR}-01-01",
+                            "endRange": "{CURRENT_YEAR}-12-31"
+                            "threshold": 4,
+                            "risk": 3
+                            }]
+                          ]
+                      }
+                  }
+              }
+          }
+        }
+    input:
+      field_observation:
+        species:
+          - DEROAG
+    valid_spatial:
+      countries:
+        - 
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            On average, less than one slugs per trap.
+          recommended_action: >- 
+            The risk of slug populations under threshold (on average less than one slugs per trap) requiring management action is low.  
+            In vulnerable crops, continue to monitor slug abundance and consider treatment options where populations are increasing. 
+        - explanation: >-
+ 
+          recommended_action: >-
+
+        - explanation: >-
+            On average, one or more slugs per trap. 
+          recommended_action: >-
+            The risk of slug populations over threshold (on average one or more slugs per trap) requiring management action is high.  
+            In vulnerable crops, continue to monitor slug abundance and consider treatment options where crops require additional protection. 
+      chart_heading: 
+      chart_groups:
+        - id: G1
+          title: 
+          result_parameter_ids:
+            - Observation
+            - FirstThreshold
+            - SecondThreshold
+            - ThirdThreshold
+      result_parameters:
+        - id: Third_Instar_Count
+          title: Larval Batches Surviving to Third Instar.
+          description: Number of larval batches surviving to third instar.
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'

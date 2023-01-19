@@ -242,92 +242,104 @@ models:
     type_of_output: Risk indication
     description_URL: TODO
     purpose: ''
-    description: >
+    description: >-
       The system has been developed by Aarhus University and SEGES and covers
       main diseases and pest in cereal crops.
 
-      The models have been developed for guidance related to leaf and stem
-      diseases in cereals including
 
-      winter Wheat, spring barley, winter barley, spring oat, winter triticale
-      and winter rye.
+      The models have been developed for guidance related to leaf and stem
+      diseases in cereals including winter Wheat, spring barley, winter barley,
+      spring oat, winter triticale and winter rye.
+
 
       The system also includes models for pest control in cereals.
 
-      The models require information from field registration typically in the
-      period from GS 30-31 to GS 65-71
 
-      (assessments of frequency of plants attacked) and for some diseases also
-      precipitation is required
+      THE PEST:
 
-      (days with more than 1 mm rain). Before getting information on need for
-      treatments - information on crop,
 
-      cultivars susceptibility and growth stage (BBCH) is required.
+      Wheat : Septoria tritici blotch (Zymoseptoria tritici), powdery mildew
+      (Blumeria graminis), yellow rust (Puccinia striiformis), brown rust
+      (Puccinia triticina), tan spot (Drechelerat tritici-repentis), eyespot
+      (Tapesia spp), aphids, Cereal Leaf Beetle Larva (Oulema melanopus)
+
+
+      Barley: powdery mildew (Blumeria graminis), brown rust (Puccinia hordei),
+      net blotch (Pyrenophora teres) and scald (Rhynchosporium commune), aphids,
+      Cereal Leaf Beetle Larva (Oulema melanopus)
+
+
+      Oat: powdery mildew (Blumeria graminis), aphids, Cereal Leaf Beetle Larva
+      (Oulema melanopus)
+
+
+      Rye: powdery mildew (Blumeria graminis), brown rust (Puccinia recondite),
+      Rhynchosporium, Trips
+
+
+      Triticale: powdery mildew (Blumeria graminis), yellow rust (Puccinia
+      striiformis), brown rust (Puccinia recondite).
+
+
+      THE MODEL: The models require information from field registration
+      typically in the period from GS 30-31 to GS 65-71 (assessments of
+      frequency of plants attacked) and for some diseases also precipitation is
+      required (days with more than 1 mm rain). Before getting information on
+      need for treatments - information on crop, cultivars susceptibility and
+      growth stage (BBCH) is required. Each disease has specific thresholds. The
+      models combine the total risk from diseases, e.g. if two diseases are
+      recorded at a risk below the threshold, they model might still recommend
+      to spray as a result of combining the two. The windows open for input are
+      relevant to address at the given growth stage. Closed windows are not
+      regarded relevant at the given growth stage.
 
 
       The growers need to check the crops at weekly intervals or as a minimum
-      follow the risk based on precipitation
-
-      or regional monitoring data for risk evaluation. In the Danish system
-      fungicides and dose rates are
-
-      recommended. In the IPM-decision system only a recommendation to treat or
-      not to treat is given.
+      follow the risk based on precipitation or regional monitoring data for
+      risk evaluation.
 
 
-      The models have been validated in Denmark and has also been tested in the
-      Baltic and Nordic
-
-      countries. It is expected to be valid in the northern part of Europe,
-      given that the monitoring part of
-
-      the system is followed.
+      DECISION: In the Danish system fungicides and dose rates are recommended.
+      In the IPM Decisions system only a recommendation to treat or not to treat
+      is given.
 
 
-      SOURCE: 
+      SOURCE: The models have been created by Aarhus University and SEGES and
+      released in Denmark since 1995. The system has been validated in Denmark
+      and has also been tested in the Baltic and Nordic countries. It is
+      expected to be valid in the northern part of Europe, given that the
+      monitoring part of the system is followed.
 
-      ASSUMPTIONS: 
 
       REFERENCE: 1. Hansen, J.G., Secher, B.J., Jørgensen, LN. & Welling, B.
-      1994. Threshold for control of
-
-      Septoria spp. in winter wheat based on precipitation and growth stage.
-      Plant Pathology
-
-      43, 183-189.
+      1994. Threshold for control of Septoria spp. in winter wheat based on
+      precipitation and growth stage. Plant Pathology 43, 183-189.
 
 
       2. Secher, B.J., Jørgensen, L.N, Murali N.S. & Boll P.S. (1995). Field
-      Validation of a
-
-      Decision Support System for Control of Pests and Diseases in Cereals in
-      Denmark.
-
-      Pesticide Science, 45, 195-199.
+      Validation of a Deci-sion Support System for Control of Pests and Diseases
+      in Cereals in Denmark. Pesticide Science, 45, 195-199.
 
 
-      3. Henriksen. K.E.; Jærgensen, L.N. & Nielsen, G.C.(2000) PC-Plant
-      Protection - a tool to reduce fungicide input in winter wheat, winter barley and spring barley in
-      Denmark.
-
-      Brighton Crop Protection Conference. Pest and diseases. 835-840.
+      3. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system
+      for inte-grated management of diesases and pest s in cereals. EPPO
+      Bulletin 33, 467-471.
 
 
-      4. Jørgensen, L.N. & Henriksen, K E. (2002) Control of diseases in
-      different winter wheat
-      varieties using thresholds and appropriate dosages. Petria vol 12 (1/2)
-      87-94
+      4. Jørgensen, L.N. Secher B.J.M., Olesen J.E. Mortensen, J. 1997. Need for
+      fungicide treat-ments when varying agricultural parameters. Aspect of
+      Applied Biology, Optimizing ce-real input: Its scientific basis. 50,
+      285-292.
 
 
-      5. Hagelskjær, L.& Jørgensen, LN, 2003 A web-based decision support system
-      for integrated management of diesases and pest s in cereals. EPPO Bulletin 33,
-      467-471.
-
-
-      6. Jørgensen, LN; Matzen, M, Nielsen, GC, Jalli, M; Ronis; Djule, A; Anderson, B; Ficke, A., Djule, A (2020) Validation of risk models for control of leaf blotch diseases in wheat in the Nordic and Baltic countries European Journal of Plante Pathology,. https://doi.org/10.1007/si 0658-020-02025-6
-
-      7. Jørgensen, LN; Matzen, N, Heick, T M, Madsen, HP; Kristjansen, H S; Kirkegaard, S; Almskou-Dahlgaard, A; Kristoffersen, R (2020). Control strategies in different cultivars. Applied Crop Protection 2019.DCA rapport, 167, 58-71. https://dcapub.au.dk/djfpublikation/index.asp?action=show&id=1325
+      5. Jørgensen, LN & Hagelskjær, L (2003) Comparative field trials of
+      various Decision Sup-port Systems for cereal disease control. in:
+      Wolffhechel H. (ed.): Proceedings of the Crop Protection Conference for
+      the Baltic Sea Region, 28-29 April 2003, Poznan. DIAS report Plant
+      Production no. 96, p. xx. 6. Jørgensen, Lise Nistrup; Heick, Thies Marten;
+      Matzen, Niels; Madsen, Hans-Peter; Kris-tjansen, Helene Saltoft;
+      Kirkegaard, Sidsel; Almskou-Dahlgaard, Anders (2020) Disease control in
+      cereals. In: Applied Crop Protection 2019. DCA report 167; p. 65-67
     citation: null
     keywords: none
     platform_validated: true
@@ -352,8 +364,7 @@ models:
         organization: Aarhus University
     execution:
       type: ONTHEFLY
-      endpoint: >-
-        https://plantevaernonline.dlbr.dk/cp/Applications/Disease/IPMModel.aspx
+      endpoint: https://plantevaernonline.dlbr.dk/cp/Applications/Disease/IPMModel.aspx
       form_method: post
       content_type: application/json
       input_schema_categories:
@@ -398,37 +409,37 @@ models:
       warning_status_interpretation:
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates are recommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates are recommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates are recommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates are recommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
         - explanation: >-
             The growers need to check the crops at weekly intervals or as a
-            minimum follow the risk based on precipitation or regional monitoring
-            data for risk evaluation. In the Danish system fungicides and dose
-            rates are recommended. In the IPM-decision system only a
+            minimum follow the risk based on precipitation or regional
+            monitoring data for risk evaluation. In the Danish system fungicides
+            and dose rates are recommended. In the IPM-decision system only a
             recommendation to treat or not to treat is given.
           recommended_action: ''
       chart_groups: []
@@ -439,3 +450,4 @@ models:
             The CPO's traffic light counterpart. 0 = No need for treatment. 1 =
             Treat if other problem needs treatment. 2 = Treat if other problem
             has treatmentId = 2 3 = Need for treatment
+

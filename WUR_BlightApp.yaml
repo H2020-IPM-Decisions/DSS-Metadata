@@ -2,7 +2,7 @@ id: nl.wur.LateBlight
 version: '1'
 name: BlightApp
 url: https://farmmaps.eu/en/
-logo_url: ''
+logo_url: '/dss/logo/farmmaps-logo.png'
 languages:
   - Dutch
   - English
@@ -22,11 +22,6 @@ models:
     type_of_output: The DSS provides spraying advice for late blight control
     description_URL: https://www.farmmaps.net/en/Apps/Application/Late-Blight
     purpose: >-
-      BlightApp helps you find the right timing and resources for phytophthora
-      control. BlightApp predicts infection chances and provides spraying
-      advice. The app gives advise on preventive-, curative- and stop sprayings.
-      You can also set up alerts for oospores and tuber infection risk.
-    description: >-
       THE PEST: Late bllight is a fungal disease that can cause severe damage to
       crop foliage and can also infect the tubers. 
 
@@ -64,7 +59,7 @@ models:
       buy the application. The costs of using BlightApp are 250€/year.
     citation: ''
     keywords: Late blight, DSS, Decision Support
-    platform_validated: false
+    platform_validated: true
     pests:
       - PHYTIN
     crops:
@@ -83,7 +78,7 @@ models:
         email: null
         organization: Wageningen Research
     execution:
-      type: ''
+      type: 'LINK'
       endpoint: ''
       form_method: ''
       content_type: ''
@@ -105,7 +100,7 @@ models:
       field_observation: null
     valid_spatial:
       countries:
-        - 'AUT '
+        - AUT
         - BEL
         - BGR
         - CHE

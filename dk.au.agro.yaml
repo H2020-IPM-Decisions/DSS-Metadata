@@ -1,0 +1,426 @@
+id: dk.au.agro
+version: '1.0'
+name: Aarhus University RustWatch
+url: https://agro.au.dk/forskning/projekter/rustwatch/wheat-rust-early-warning
+logo_url: ''
+languages:
+  - Danish
+  - English
+  - French
+  - Spanish
+  - Italian
+  - German
+organization:
+  name: Aarhus University, Department of Agroecology
+  country: Denmark
+  address: Blichers Alle 20
+  postal_code: '8830'
+  city: Tjele
+  email: agro@au.dk
+  url: https://agro.au.dk/en/
+models:
+  - name: Yellow Rust early warning
+    id: YellowRustEarlyWarning
+    version: '1.0'
+    type_of_decision: Short-term tactical, operational, strategic
+    type_of_output: Risk indication
+    description_URL: >-
+      https://gis-au.maps.arcgis.com/apps/opsdashboard/index.html#/6817a33478df49d39176863fdc67fe15
+    purpose: >-
+      Early-warning system to improve preparedness and resilience to emerging
+      rust diseases on wheat
+    description: >
+
+
+      RustWatch will establish a stakeholder driven early-warning system to
+      improve preparedness and resilience to emerging rust diseases on wheat,
+      which is Europe’s largest agricultural crop. This is urgent because Europe
+      in 2016 experienced the most severe epidemics of wheat stem rust for more
+      than 50 years, and the pre-existing population of wheat yellow rust has
+      been replaced by invasive races of non-European origin.
+
+
+      RustWatch will explore the drivers shaping the new European wheat rust
+      populations, assess their impact on agricultural productivity in the
+      context of IPM Directive 2009/128/EC, and finally develop research and
+      communication infrastructures including stakeholder networks and existing
+      global networks.
+
+
+      RustWatch provides beyond state-of-theart research within new diagnostic
+      tools, enabling rapid and precise identification of new invasive races,
+      and investigating the impact of virulence, aggressiveness and adaptation
+      to warmer temperatures as drivers of pathogen spread and establishment.
+      The research has potential for a break-through in the area of host
+      resistance phenotyping, e.g., by going beyond the observation of disease
+      and categorize resistance responses at the cellular level. This
+      phenotyping is essential for utilizing the vast amount of genomic sequence
+      information produced by new emerging breeding technologies.
+
+
+      The early warning system for prevention and control of rust diseases will
+      become implemented via case studies in five regions. The case studies will
+      aid in development and validation of the systems in collaboration with a
+      wide array of stakeholder groups, involve agricultural advisers in disease
+      surveillance and sampling for later diagnosis, and collect information
+      about potential barriers in adopting the system.
+
+
+      RustWatch engages 12 universities/research institutes, 5 agricultural
+      advisory services, and 7 SMEs/industries.
+    citation: ''
+    keywords: Yellow rust
+    platform_validated: true
+    pests:
+      - PUCCST
+      - PUCCSH
+      - PUCCSI
+    crops:
+      - TRZAW
+      - TRZAX
+    authors:
+      - name: Jens Grønbech Hansen
+        email: null
+        organization: null
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: '{"type": "Sphere"}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  - name: Stem Rust clade frequency distribution
+    id: StemRustCladeFrequency
+    version: '1.0'
+    type_of_decision: Short-term tactical, operational, strategic
+    type_of_output: Risk indication
+    description_URL: >-
+      https://web05.agro.au.dk/WheatRustToolbox/Show/SR_GeneticLineageFrequencyMap.aspx
+    purpose: >-
+      Early-warning system to improve preparedness and resilience to emerging
+      rust diseases on wheat
+    description: >
+
+
+      RustWatch will establish a stakeholder driven early-warning system to
+      improve preparedness and resilience to emerging rust diseases on wheat,
+      which is Europe’s largest agricultural crop. This is urgent because Europe
+      in 2016 experienced the most severe epidemics of wheat stem rust for more
+      than 50 years, and the pre-existing population of wheat yellow rust has
+      been replaced by invasive races of non-European origin.
+
+
+      RustWatch will explore the drivers shaping the new European wheat rust
+      populations, assess their impact on agricultural productivity in the
+      context of IPM Directive 2009/128/EC, and finally develop research and
+      communication infrastructures including stakeholder networks and existing
+      global networks.
+
+
+      RustWatch provides beyond state-of-theart research within new diagnostic
+      tools, enabling rapid and precise identification of new invasive races,
+      and investigating the impact of virulence, aggressiveness and adaptation
+      to warmer temperatures as drivers of pathogen spread and establishment.
+      The research has potential for a break-through in the area of host
+      resistance phenotyping, e.g., by going beyond the observation of disease
+      and categorize resistance responses at the cellular level. This
+      phenotyping is essential for utilizing the vast amount of genomic sequence
+      information produced by new emerging breeding technologies.
+
+
+      The early warning system for prevention and control of rust diseases will
+      become implemented via case studies in five regions. The case studies will
+      aid in development and validation of the systems in collaboration with a
+      wide array of stakeholder groups, involve agricultural advisers in disease
+      surveillance and sampling for later diagnosis, and collect information
+      about potential barriers in adopting the system.
+
+
+      RustWatch engages 12 universities/research institutes, 5 agricultural
+      advisory services, and 7 SMEs/industries.
+    citation: ''
+    keywords: ''
+    platform_validated: true
+    pests:
+      - PUCCGR
+      - PUCCGT
+    crops:
+      - TRZAW
+      - TRZAX
+    authors:
+      - name: Jens Grønbech Hansen
+        email: null
+        organization: null
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: '{"type": "Sphere"}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  - name: Leaf Rust genetic group frequency distribution
+    id: LeafRustGeneticGroupFrequency
+    version: '1.0'
+    type_of_decision: Short-term tactical, operational, strategic
+    type_of_output: Risk indication
+    description_URL: >-
+      https://web05.agro.au.dk/WheatRustToolbox/Show/LR_GeneticGroupFrequencyMap.aspx
+    purpose: >-
+      Early-warning system to improve preparedness and resilience to emerging
+      rust diseases on wheat
+    description: >-
+
+
+      RustWatch will establish a stakeholder driven early-warning system to
+      improve preparedness and resilience to emerging rust diseases on wheat,
+      which is Europe’s largest agricultural crop. This is urgent because Europe
+      in 2016 experienced the most severe epidemics of wheat stem rust for more
+      than 50 years, and the pre-existing population of wheat yellow rust has
+      been replaced by invasive races of non-European origin.
+
+
+      RustWatch will explore the drivers shaping the new European wheat rust
+      populations, assess their impact on agricultural productivity in the
+      context of IPM Directive 2009/128/EC, and finally develop research and
+      communication infrastructures including stakeholder networks and existing
+      global networks.
+
+
+      RustWatch provides beyond state-of-theart research within new diagnostic
+      tools, enabling rapid and precise identification of new invasive races,
+      and investigating the impact of virulence, aggressiveness and adaptation
+      to warmer temperatures as drivers of pathogen spread and establishment.
+      The research has potential for a break-through in the area of host
+      resistance phenotyping, e.g., by going beyond the observation of disease
+      and categorize resistance responses at the cellular level. This
+      phenotyping is essential for utilizing the vast amount of genomic sequence
+      information produced by new emerging breeding technologies.
+
+
+      The early warning system for prevention and control of rust diseases will
+      become implemented via case studies in five regions. The case studies will
+      aid in development and validation of the systems in collaboration with a
+      wide array of stakeholder groups, involve agricultural advisers in disease
+      surveillance and sampling for later diagnosis, and collect information
+      about potential barriers in adopting the system.
+
+
+      RustWatch engages 12 universities/research institutes, 5 agricultural
+      advisory services, and 7 SMEs/industries.
+    citation: ''
+    keywords: ''
+    platform_validated: true
+    pests:
+      - PUCCHD
+    crops:
+      - HORVX
+    authors:
+      - name: Jens Grønbech Hansen
+        email: null
+        organization: null
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: '{"type": "Sphere"}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  - name: Yellow Rust genetic group frequency distribution
+    id: YellowRustGeneticGroupFrequency
+    version: '1.0'
+    type_of_decision: Short-term tactical, operational, strategic
+    type_of_output: Risk indication
+    description_URL: >-
+      https://web05.agro.au.dk/WheatRustToolbox/Show/YR_GeneticLineageFrequencyMap.aspx
+    purpose: >-
+      Early-warning system to improve preparedness and resilience to emerging
+      rust diseases on wheat
+    description: >-
+
+
+      RustWatch will establish a stakeholder driven early-warning system to
+      improve preparedness and resilience to emerging rust diseases on wheat,
+      which is Europe’s largest agricultural crop. This is urgent because Europe
+      in 2016 experienced the most severe epidemics of wheat stem rust for more
+      than 50 years, and the pre-existing population of wheat yellow rust has
+      been replaced by invasive races of non-European origin.
+
+
+      RustWatch will explore the drivers shaping the new European wheat rust
+      populations, assess their impact on agricultural productivity in the
+      context of IPM Directive 2009/128/EC, and finally develop research and
+      communication infrastructures including stakeholder networks and existing
+      global networks.
+
+
+      RustWatch provides beyond state-of-theart research within new diagnostic
+      tools, enabling rapid and precise identification of new invasive races,
+      and investigating the impact of virulence, aggressiveness and adaptation
+      to warmer temperatures as drivers of pathogen spread and establishment.
+      The research has potential for a break-through in the area of host
+      resistance phenotyping, e.g., by going beyond the observation of disease
+      and categorize resistance responses at the cellular level. This
+      phenotyping is essential for utilizing the vast amount of genomic sequence
+      information produced by new emerging breeding technologies.
+
+
+      The early warning system for prevention and control of rust diseases will
+      become implemented via case studies in five regions. The case studies will
+      aid in development and validation of the systems in collaboration with a
+      wide array of stakeholder groups, involve agricultural advisers in disease
+      surveillance and sampling for later diagnosis, and collect information
+      about potential barriers in adopting the system.
+
+
+      RustWatch engages 12 universities/research institutes, 5 agricultural
+      advisory services, and 7 SMEs/industries.
+    citation: ''
+    keywords: ''
+    platform_validated: true
+    pests:
+      - PUCCST
+      - PUCCSH
+      - PUCCSI
+    crops:
+      - TRZAW
+      - TRZAX
+    authors:
+      - name: Jens Grønbech Hansen
+        email: null
+        organization: null
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: '{"type": "Sphere"}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+

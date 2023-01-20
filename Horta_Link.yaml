@@ -1,0 +1,245 @@
+id: it.horta.dss
+version: '1.0'
+name: Horta-srl
+url: https://www.horta-srl.it/
+logo_url: 'https://www.horta-srl.it/sito/wp-content/uploads/2018/05/logo-horta-2x.png '
+languages:
+  - Italian
+  - English
+  - Spanish
+  - Portuguese
+  - Greek
+  - Bulgarian
+  - Turkish
+organization:
+  name: Horta
+  country: Italy
+  address: Via Egidio Gorra 55
+  postal_code: '29122'
+  city: Piacenza
+  email: info@horta-srl.com
+  url: https://www.horta-srl.it/en/
+models:
+  - name: Horta Tomato DSS
+    id: it_horta_dss_tomato
+    version: 0.0.1
+    type_of_decision: Tactical
+    type_of_output: Risk level
+    description_URL: https://www.horta-srl.it/en/
+    purpose: The models aim to predict disease risk to tomato crops
+    description: >
+      Account required, charges apply. 
+
+
+      Phytophthora infestans 
+
+      THE DECISION: Guides application of protection strategies 
+
+      THE MODEL: The tomato late blight model takes into account the main
+      processes of the pathogen, of the environment and of the phenological
+      stage of the plant and elaborates all the input data in order to provide
+      information on the risk of infection in the field. 
+
+
+      Alternaria solani
+
+      THE DECISION: Application of protection strategies 
+
+      THE MODEL: The tomato early blight model takes into account the main
+      processes of the pathogen, of the environment and of the phenological
+      stage of the plant and elaborates all the input data in order to provide
+      information on the risk of infection in the field. 
+
+      SOURCE: Horta 2023
+
+
+      Pseudomonas syringae ; Xanthomonas campestris
+
+      THE DECISION: Application of protection strategies 
+
+      THE MODEL: The tomato bacterial speck model takes into account the main
+      processes of P. syringae, of the environment and of the phenological stage
+      of the plant and elaborates all the input data in order to provide
+      information on the risk of infection in the field. 
+
+
+      Xanthomonas campestris
+
+      THE DECISION: Application of protection strategies 
+
+      THE MODEL: The tomato bacterial speck model takes into account the main
+      processes of X. campestris, of the environment and of the phenological
+      stage of the plant and elaborates all the input data in order to provide
+      information on the risk of infection in the field. 
+
+
+      SOURCE: All models have been adapted/developed by Horta s.l.r
+
+      https://www.horta-srl.it/en/
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - PHYTIN
+      - ALTETP
+      - PSDMTM
+      - XANTKM
+    crops:
+      - LYPXP
+    authors: []
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  - name: 'Horta Wheat DSS '
+    id: it_horta_dss_wheat
+    version: 0.0.1
+    type_of_decision: Tactical
+    type_of_output: Risk level
+    description_URL: https://www.horta-srl.it/en/
+    purpose: The models aim to predict disease risk in wheat crops
+    description: >
+      Account required, charges apply. 
+
+
+      Puccinia striiformis
+
+      THE DECISION: Guides application of protection strategies 
+
+      THE MODEL: The yellow stripe rust model takes into account the main
+      processes of the pathogen, of the environment and of the phenological
+      stage of the plant and elaborates all the input data in order to provide
+      information on the risk of infection in the field. 
+
+
+      Puccinia triticina
+
+      THE DECISION: Application of protection strategies 
+
+      THE MODEL: The brown leaf rust model takes into account the main processes
+      of the pathogen, of the environment and of the phenological stage of the
+      plant and elaborates all the input data in order to provide information on
+      the risk of infection in the field. 
+
+
+      Fusarium graminearum
+
+      THE DECISION: Application of protection strategies 
+
+      THE MODEL: The fusarium head blight model takes into account the main
+      processes of the pathogen, of the environment and of the phenological
+      stage of the plant and elaborates all the input data in order to provide
+      information on the risk of infection in the field. The model also provide
+      the probability that the amount of mycotoxins exceeds the legal limit. 
+
+
+      Zymoseptoria tritici
+
+      THE DECISION: Application of protection strategies 
+
+      THE MODEL: The septoria model takes into account the main processes of the
+      pathogen, of the environment and of the phenological stage of the plant
+      and elaborates all the input data in order to provide information on the
+      risk of infection of peckled leaf spot (Septoria blotch) in the field. 
+
+
+      Blumeria graminis f. sp. tritici
+
+      THE DECISION: Application of protection strategies 
+
+      THE MODEL: The septoria model takes into account the main processes of the
+      pathogen, of the environment and of the phenological stage of the plant
+      and elaborates all the input data in order to provide information on the
+      risk of infection of powdery mildew of wheat in the field. 
+
+
+
+      SOURCE: All models have been adapted/developed by Horta s.l.r
+
+      https://www.horta-srl.it/en/
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - PUCCST
+      - PUCCRT
+      - GIBBZE
+      - SEPTTR
+      - ERYSGT
+    crops:
+      - 3WHEC
+    authors: []
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

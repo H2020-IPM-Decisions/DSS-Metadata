@@ -2,7 +2,7 @@ id: nl.wur.LateBlight
 version: '1'
 name: BlightApp
 url: https://farmmaps.eu/en/
-logo_url: '/dss/logo/farmmaps-logo.png'
+logo_url: /rest/dss/logo/farmmaps-logo.png
 languages:
   - Dutch
   - English

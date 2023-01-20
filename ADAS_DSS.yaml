@@ -2,7 +2,7 @@ id: adas.dss
 version: 0.0.4
 name: IPM Decisions
 url: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss
-logo_url: /dss/logo/IPMDecisions_ADAS.png
+logo_url: /rest/dss/logo/IPMDecisions_ADAS.png
 languages:
   - English
 organization:

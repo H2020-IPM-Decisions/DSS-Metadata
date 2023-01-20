@@ -2,7 +2,7 @@ id: no.nibio.vips
 version: '2.0'
 name: VIPS
 url: https://www.vips-landbruk.no/
-logo_url: /dss/logo/VIPSLogo.png
+logo_url: /rest/dss/logo/VIPSLogo.png
 languages:
   - Norwegian
   - English

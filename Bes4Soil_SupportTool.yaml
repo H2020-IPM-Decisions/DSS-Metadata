@@ -2,7 +2,7 @@ id: Best4Soil.Support.Tools
 version: '1.0'
 name: Best4Soil DSS for nematodes and soil borne diseases
 url: https://www.best4soil.eu/database
-logo_url: /dss/logo/Best4Soil_Logo_basic.png
+logo_url: /rest/dss/logo/Best4Soil_Logo_basic.png
 languages:
   - English
   - Dutch

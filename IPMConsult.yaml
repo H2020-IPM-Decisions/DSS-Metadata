@@ -2,7 +2,7 @@ id: com.ipmwise
 version: '4'
 name: IPMwise
 url: http://www.ipmwise.dk
-logo_url: /dss/logo/ipmconsult.png
+logo_url: /rest/dss/logo/ipmconsult.png
 languages:
   - English
   - Danish

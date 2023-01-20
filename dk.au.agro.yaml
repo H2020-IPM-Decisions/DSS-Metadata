@@ -121,8 +121,8 @@ models:
       chart_heading: ''
       chart_groups: []
       result_parameters: []
-  - name: Stem Rust clade frequency distribution
-    id: StemRustCladeFrequency
+  - name: Stem Rust genetic frequency distribution
+    id: StemRustGeneticFrequency
     version: '1.0'
     type_of_decision: Short-term tactical, operational, strategic
     type_of_output: Risk indication

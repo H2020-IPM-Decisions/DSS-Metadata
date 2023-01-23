@@ -54,8 +54,8 @@ models:
     crops:
       - DAUCS
     authors:
-      - name: Berit Nordskog
-        email: berit.nordskog@nibio.no
+      - name: ''
+        email: vips@nibio.no
         organization: NIBIO
     execution:
       type: ONTHEFLY
@@ -226,7 +226,7 @@ models:
       - BRSSS
     authors:
       - name: Tor Johansen
-        email: tor.johansen@nibio.no
+        email: vips@nibio.no
         organization: NIBIO
     execution:
       type: ONTHEFLY
@@ -387,7 +387,7 @@ models:
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARADIC/
+    description_URL: https://www.vips-landbruk.no/forecasts/models/MAMESTRABR/
     purpose: ''
     description: >-
       The model for the warning system for cabbage moth was developed by Dr.
@@ -430,7 +430,7 @@ models:
       - BRSSS
     authors:
       - name: Nina Johansen
-        email: nina.johansen@nibio.no
+        email: vips@nibio.no
         organization: NIBIO
     execution:
       type: ONTHEFLY
@@ -1114,24 +1114,29 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/NAERSTADMO/
-    purpose: ''
-    description: >-
-      The model is based on several years of experiments where trap plants have
-      been placed next to a potato field infected with late blight. Infections
-      on these plants have been correlated with weather conditions the day of
-      exposure, and this is the data the model is based on. The model predicts
-      if there are favourable conditions for spore production and the following
-      spread, survival and infection of these spores. The model produces an
-      infection risk, and a value of 2.5 corresponds to one spot of late blight
-      on each trap plant exposed. This value of 2.5 is the threshold where the
-      model issues a warning.
+    purpose: Daily risk of infection
+    description: >
+      THE PEST: Potato late blight is caused by Phytophthora infestans, a
+      fungus-like microorganism that causes the most devastating disease of
+      potato. It spreads rapidly in the canopy, and can also infect tubers
 
+      THE DECISION: Protective fungicide treatments are needed to protect the
+      crop when conditions for infection are favorable
 
-      SOURCE: 
+      THE MODEL: The model predicts if there are favorable conditions for spore
+      production and the following conditions for spread, survival and infection
+      of these spores. The model produces an infection risk, where a value of
+      2.5 is the threshold where a warning is issued.
 
-      ASSUMPTIONS: 
+      THE PARAMETERS: The model uses temperature, humidity, precipitation, wind,
+      radiation, leaf wetness and vapor pressure deficit as input parameters
 
-      REFERENCE: 
+      SOURCE: Developed by NIBIO in Norway 
+
+      ASSUMPTIONS: Spores of potato late blight are present
+
+      Reference: Hjelkrem et al. 2021.
+      https://doi.org/10.1016/j.ecolmodel.2021.109565
     citation: null
     platform_validated: true
     pests:
@@ -1140,8 +1145,8 @@ models:
       - SOLTU
     authors:
       - name: Ragnhild Nærstad
-        email: ragnhild.naerstad@syngenta.com
-        organization: Syngenta
+        email: vips@nibio.no
+        organization: NIBIO
     execution:
       type: ONTHEFLY
       endpoint: https://coremanager.vips.nibio.no/models/NAERSTADMO/run/ipmd
@@ -1196,51 +1201,22 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: >-
-            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
-            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
-            (Red)When a warning is issued, any control measure should be
-            considered based on cultivar resistance, choice of fungicide and
-            time of last application. Risk of infection is highest after several
-            consecutive days with warnings, and especially if late blight has
-            been observed in the area.
+        - explanation: ''
           recommended_action: ''
-        - explanation: >-
-            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
-            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
-            (Red)When a warning is issued, any control measure should be
-            considered based on cultivar resistance, choice of fungicide and
-            time of last application. Risk of infection is highest after several
-            consecutive days with warnings, and especially if late blight has
-            been observed in the area.
+        - explanation: ''
           recommended_action: ''
+        - explanation: Risk < 1 = no warning
+          recommended_action: No action needed
         - explanation: >-
-            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
-            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
-            (Red)When a warning is issued, any control measure should be
-            considered based on cultivar resistance, choice of fungicide and
-            time of last application. Risk of infection is highest after several
-            consecutive days with warnings, and especially if late blight has
-            been observed in the area.
-          recommended_action: ''
-        - explanation: >-
-            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
-            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
-            (Red)When a warning is issued, any control measure should be
-            considered based on cultivar resistance, choice of fungicide and
-            time of last application. Risk of infection is highest after several
-            consecutive days with warnings, and especially if late blight has
-            been observed in the area.
-          recommended_action: ''
-        - explanation: >-
-            Risk < 1 = no warning (Green)Risk > 1 and < 2,5 = possible warning
-            coming up if conditions persists (Yellow)Risk > 2,5 = warning issued
-            (Red)When a warning is issued, any control measure should be
-            considered based on cultivar resistance, choice of fungicide and
-            time of last application. Risk of infection is highest after several
-            consecutive days with warnings, and especially if late blight has
-            been observed in the area.
-          recommended_action: ''
+            Risk > 1 and < 2,5 = possible warning coming up if conditions
+            persists
+          recommended_action: watch warnings closely
+        - explanation: Risk > 2,5 = warning issued
+          recommended_action: >-
+            A control measure should be considered based on cultivar resistance,
+            time of last application and choice of fungicide. Risk of infection
+            is highest after several consecutive days with warnings, and
+            especially if late blight has been observed in the area.
       chart_groups:
         - id: G1
           title: Risk
@@ -1279,23 +1255,46 @@ models:
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/ALTERNARIA/
     purpose: ''
-    description: >-
-      TOMCAST is based on a model that was originally developed for leaf spot
-      diseases in tomato. The model that is used here is tested and adapted to
-      be used against early blight in potato in Denmark (Alternaria solani). The
-      model calculates daily risk values (DSV: Disease Severity Values) based on
+    description: >
+      THE PEST: Alternaria sp cause disease on a lot of horticultural crops, and
+      leaf spots are among the most common symptoms. 
+
+      THE DECISION: Fungicide treatments may be needed to protect the crop when
+      symptoms have been observed, and conditions are favourable for pathogen
+      spread and infection
+
+      THE MODEL: TOMCAST is a weather-based model, derived from a model
+      originally developed for leaf spot diseases in tomato. The model
+      calculates daily risk values (DSV: Disease Severity Values) based on
       temperature and leaf wetness the previous day. DSV represents the risk of
       attack of early blight the previous 24 hours. Daily values of DSV are
-      accumulated until a threshold value is reached, and treatment is
-      recommended. When a spray is performed and entered into the model,
+      accumulated until a threshold value (adjustable) is reached, and treatment
+      is recommended. When a spray is performed and entered into the model,
       accumulation of DSV is reset and starts over at 0.
 
+      THE PARAMETERS: The model uses temperature and leaf wetness as input
+      parameters
 
-      SOURCE: 
+      SOURCE: Based on the dew sub model of FAST (Madden et al., 1978),
+      originally targeted at predicting early blight, Septoria leaf spot and
+      anthracnose on tomatoes (Gleason et al., 1995). Tested and adapted to be
+      used against early blight (Alternaria solani) in potato in Denmark (Abuley
+      and Nielsen, 2017).
 
       ASSUMPTIONS: 
 
-      REFERENCE: 
+      Reference: 
+
+      Gleason, M.L., Macnab, A.A., Pitblado, R.E., Ricker, M.D., East, D.A.,
+      Latin, R.X., 1995. Disease warning systems for processing tomatoes in
+      eastern North America: are we there yet? Plant Dis. 79, 113-121.
+
+      Madden, L., Pennypacker, S.P., Macnab, A.A., 1978. Fast, a forecast system
+      for Alternaria Solani on tomato. Phytopathology 68, 1354-1358. 
+
+      Abuley, I.K., Nielsen, B. J. 2017. Evaluation of models to control potato
+      early blight (Alternaria solani) in Denmark. Crop Protection, 102,
+      118-128.
     citation: null
     platform_validated: false
     pests:
@@ -1349,34 +1348,23 @@ models:
     valid_spatial:
       countries:
         - NOR
+        - DK
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: >-
-            The model will be green (no risk) until it reaches 15. From this
-            value the warning will be yellow (possible risk) until the threshold
-            is reached, and the warning turns red (risk of infection).
+        - explanation: ''
           recommended_action: ''
-        - explanation: >-
-            The model will be green (no risk) until it reaches 15. From this
-            value the warning will be yellow (possible risk) until the threshold
-            is reached, and the warning turns red (risk of infection).
+        - explanation: ''
           recommended_action: ''
-        - explanation: >-
-            The model will be green (no risk) until it reaches 15. From this
-            value the warning will be yellow (possible risk) until the threshold
-            is reached, and the warning turns red (risk of infection).
-          recommended_action: ''
-        - explanation: >-
-            The model will be green (no risk) until it reaches 15. From this
-            value the warning will be yellow (possible risk) until the threshold
-            is reached, and the warning turns red (risk of infection).
-          recommended_action: ''
-        - explanation: >-
-            The model will be green (no risk) until it reaches 15. From this
-            value the warning will be yellow (possible risk) until the threshold
-            is reached, and the warning turns red (risk of infection).
-          recommended_action: ''
+        - explanation: 'DSV< 15= no warning '
+          recommended_action: No action needed
+        - explanation: 'DSV>15 and <20 = possible warning coming up if conditions persists '
+          recommended_action: watch warnings closely
+        - explanation: 'DSV > 20 = warning issued '
+          recommended_action: >-
+            A control measure should be considered based on cultivar resistance,
+            time of last application and choice of fungicide. Enter spray date
+            in model to reset the accumulation of DSV. 
       chart_groups:
         - id: G1
           title: Aggregated Daily Disease Severity Value
@@ -1819,13 +1807,37 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/BREMIALACT/
-    purpose: ''
-    description: |-
-      TODO
+    purpose: 'Weather based infection risk alerts '
+    description: >-
+      THE PEST: Lettuce downy mildew (Bremia lactucae) is a disease caused by a
+      fungus-like organism (oomycete). Symptoms are light green to yellow
+      angular lesions, with a white mass of spores favoured by wet conditions. 
 
-      SOURCE: 
-      ASSUMPTIONS: 
-      REFERENCE: 
+      THE DECISION: In the event of a risk alert, the potential need for
+      fungicide sprays should be assessed based on the relevant lettuce
+      varieties' resistance to downy mildew and the time interval from previous
+      treatments. 
+
+
+      The MODEL: The model indicates risk of Bremia lactucae infections in
+      lettuce crops based on climatic conditions. Criteria for both sporulation
+      and infection need to fulfilled before a risk period is calculated.
+      Sporulation requires high relative humidity at night. Infection will
+      require free moisture in the following day.  
+
+      THE PARAMETERS: leaf wetness, relative humidity, global radiation, maximum
+      temperature,
+
+      SOURCE: The model is based on studies from California, US (Scherm et al
+      1995, Scherm and van Bruggen, 1995, Wu et al 2002), with adaptations to
+      fit Norwegian conditions
+
+      REFERENCE: Nordskog, B. (2006). Studies on the epidemiology of lettuce
+      downy mildew (Bremia lactucae Regel), including a survey of fungal
+      pathogens in field lettuce (Lactuca sativa L.) in Norway. Norwegian
+      University of Life Sciences. PhD Thesis 2006:24.
+
+      E: 
     citation: null
     keywords: none
     platform_validated: false
@@ -1835,7 +1847,7 @@ models:
       - LACSS
     authors:
       - name: Berit Nordskog
-        email: berit.nordskog@nibio.no
+        email: vips@nibio.no
         organization: NIBIO
     execution:
       type: ONTHEFLY
@@ -1888,71 +1900,20 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: >-
-            Downy mildew in lettuce normally occurs in the second half of the
-            summer, and not every year in lettuce producing regions.Thus,
-            spraying should only be considered after considering the likelihood
-            of the disease being present.When the model indicates a high risk of
-            infection, spraying should be considered given a) the likelihoold of
-            the disease being present,given the time in the season, b) the
-            lettuce variant's resilience towards the disease and c) the time
-            since the last spraying.Normally you don't spray more often than
-            every 10th day, but if the infection risk is considered high over a
-            longer period and actual field observations being made, one can
-            consider a new treatment as early as 7 days since the last spraying.
+        - explanation: ''
           recommended_action: ''
-        - explanation: >-
-            Downy mildew in lettuce normally occurs in the second half of the
-            summer, and not every year in lettuce producing regions.Thus,
-            spraying should only be considered after considering the likelihood
-            of the disease being present.When the model indicates a high risk of
-            infection, spraying should be considered given a) the likelihoold of
-            the disease being present,given the time in the season, b) the
-            lettuce variant's resilience towards the disease and c) the time
-            since the last spraying.Normally you don't spray more often than
-            every 10th day, but if the infection risk is considered high over a
-            longer period and actual field observations being made, one can
-            consider a new treatment as early as 7 days since the last spraying.
+        - explanation: ''
           recommended_action: ''
-        - explanation: >-
-            Downy mildew in lettuce normally occurs in the second half of the
-            summer, and not every year in lettuce producing regions.Thus,
-            spraying should only be considered after considering the likelihood
-            of the disease being present.When the model indicates a high risk of
-            infection, spraying should be considered given a) the likelihoold of
-            the disease being present,given the time in the season, b) the
-            lettuce variant's resilience towards the disease and c) the time
-            since the last spraying.Normally you don't spray more often than
-            every 10th day, but if the infection risk is considered high over a
-            longer period and actual field observations being made, one can
-            consider a new treatment as early as 7 days since the last spraying.
+        - explanation: Weather condition sdo not favour sporulation and infection
+          recommended_action: No action needed
+        - explanation: n/a
           recommended_action: ''
-        - explanation: >-
-            Downy mildew in lettuce normally occurs in the second half of the
-            summer, and not every year in lettuce producing regions.Thus,
-            spraying should only be considered after considering the likelihood
-            of the disease being present.When the model indicates a high risk of
-            infection, spraying should be considered given a) the likelihoold of
-            the disease being present,given the time in the season, b) the
-            lettuce variant's resilience towards the disease and c) the time
-            since the last spraying.Normally you don't spray more often than
-            every 10th day, but if the infection risk is considered high over a
-            longer period and actual field observations being made, one can
-            consider a new treatment as early as 7 days since the last spraying.
-          recommended_action: ''
-        - explanation: >-
-            Downy mildew in lettuce normally occurs in the second half of the
-            summer, and not every year in lettuce producing regions.Thus,
-            spraying should only be considered after considering the likelihood
-            of the disease being present.When the model indicates a high risk of
-            infection, spraying should be considered given a) the likelihoold of
-            the disease being present,given the time in the season, b) the
-            lettuce variant's resilience towards the disease and c) the time
-            since the last spraying.Normally you don't spray more often than
-            every 10th day, but if the infection risk is considered high over a
-            longer period and actual field observations being made, one can
-            consider a new treatment as early as 7 days since the last spraying.
-          recommended_action: ''
+        - explanation: High risk of infection
+          recommended_action: >-
+            When the model indicates a high risk of infection, spraying should
+            be considered given a) the likelihoold of the disease being present,
+            b) the lettuce variant's resilience towards the disease and c) the
+            time since the last spraying. 
       chart_groups:
         - id: G1
           title: Results
@@ -1982,8 +1943,8 @@ models:
             color: '#00ff55'
         - id: ELWASYBST
           title: >-
-            Was there enough relative humidity after sunrise yesterday and befor
-            sunrise today
+            Was there enough relative humidity after sunrise yesterday and
+            before sunrise today
           description: >-
             Was there enough relative humidity after sunrise yesterday and befor
             sunrise today

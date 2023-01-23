@@ -18,7 +18,7 @@ organization:
   url: http://www.ipmconsult.dk
 models:
   - name: IPMwise Denmark
-    id: ipmwise.dk
+    id: ipmwiseDK
     version: '4'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
@@ -107,7 +107,7 @@ models:
         - DNK
       geoJSON: '{}'
   - name: VIPS-ugras Norway
-    id: ipmwise.no
+    id: ipmwiseNO
     version: '2'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
@@ -167,7 +167,7 @@ models:
         - NOR
       geoJSON: '{}'
   - name: IPMwise Spain
-    id: ipmwise.es
+    id: ipmwiseES
     version: '4'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
@@ -246,7 +246,7 @@ models:
         - ESP
       geoJSON: '{}'
   - name: IPMwise demo version
-    id: ipmwise.demo
+    id: ipmwiseDEMO
     version: '4'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,

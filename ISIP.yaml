@@ -8,7 +8,7 @@ languages:
 organization:
   name: ISIP (technical contact), ZEPP (agronomic contact)
   country: Germany
-  address: Rüdesheimer Str. 60-68
+  address: RÃ¼desheimer Str. 60-68
   postal_code: 55545 
   city: Bad Kreuznach
   email: roehrig@isip.de, kleinhenz@zepp.info
@@ -38,7 +38,7 @@ models:
       - TTLWI
       - HORVS
     authors:
-      - name: Dr. Manfred Röhrig (ISIP), Dr. Benno Kleinhenz (ZEPP)
+      - name: Dr. Manfred RÃ¶hrig (ISIP), Dr. Benno Kleinhenz (ZEPP)
         email: roehrig@isip.de, kleinhenz@zepp.info 
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:

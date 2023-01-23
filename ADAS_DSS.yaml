@@ -1793,3 +1793,96 @@ models:
             unit: count
             chart_type: line
             color: '#0000ff'
+####
+  - name: IPM Tool for crop planning
+    id: IPMTOOL
+    version: '1.0'
+    type_of_decision: Seasonal strategic
+    type_of_output: Guidance on IPM control methods     
+    description_URL: https://ipmtool.net
+    purpose: Provides guidance on IPM control methods for specific pests, diseases and weeds 
+    description: >-
+      THE PEST: This IPM planning tool provides information on all the major pests, weeds and diseases of
+      many arable and outdoor horticultural crops. 
+      THE DECISION: The user selects the crop types they grow.  The IPM Tool provides a list of the pests,
+      weeds and diseases which affect each type of crop, together with identification guides.  The user selects
+      the pests, weeds and diseases which are a problem on their farm. The Tool provides guidance on effective IPM 
+      control methods for each of the pests, weeds and diseases selected.  Links are provided to independent sources
+      of information about each method. The user can select those methods appropriate for their farming system.  
+      An IPM crop plan is then produced, recording the IPM control methods planned.  The plan can be updated during 
+      the crop season. 
+      SOURCE: The IPM Tool was developed by ADAS and SRUC, in a project led by the NFU and funded by Defra.
+      ASSUMPTIONS: The IPM Tool provides links to external sources of independent information from reputable
+      sources, but over which the developers of the tool have no control. 
+
+    citation: ''
+    keywords: null
+    platform_validated: true
+    pests:
+      - SITDMO
+      - MELIAE
+      - HAPDMA
+      - CARPPO
+      - RHOPPA
+      - PHYTIN
+      - SEPTTR
+      - HYLERA
+      - BARABR
+      - CERCBE
+    crops:
+      - TRZAW
+      - HORVW
+      - SOLTU
+      - GGGGG
+      - BRSNN
+      - ZEAMX
+      - BRSOX
+      - PIBSX
+      - PHSVX
+      - AVESA
+      - BEAVX
+      - MABSD
+    authors:
+      - name: J. Gadsby, A. Calatayud, P. Walker, H. Tricklebank, H. Creissen, N. Paveley
+        email: ''
+        organization: ''
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: ''
+          value: ''
+      weather_data_period_end:
+        - determined_by: ''
+          value: ''
+      field_observation: null
+    valid_spatial:
+      countries:
+        - GBR
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

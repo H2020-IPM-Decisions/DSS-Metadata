@@ -1,0 +1,83 @@
+id: ISIP
+version: '1.0'
+name: ISIP
+url: www.isip.de
+logo_url: 
+languages:
+  - German
+organization:
+  name: ISIP (technical contact), ZEPP (agronomic contact)
+  country: Germany
+  address: Rüdesheimer Str. 60-68
+  postal_code: 55545 
+  city: Bad Kreuznach
+  email: roehrig@isip.de, kleinhenz@zepp.info
+  url: www.isip.de, www.zepp.info
+models:
+  - name: ISIP
+    id: siggetreide
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+      
+    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    purpose: To calculate the daily infection conditions for the most important leaf diseases in winter cereals and summer barley.
+    description: >-
+      With weather-based forecast models for pests and diseases, you can calculate the occurrence of pathogens and periods 
+      of high infestation pressure. Infestation controls and recommendations from the plant protection services also inform you about the 
+      current situation in your region. In addition, programs are available for calculating plant development and choosing the most 
+      suitable tillage system.
+    citation: ''
+    keywords: null
+    platform_validated: true
+    pests: []
+    crops:
+      - TRZAW
+      - HORVW
+      - SECCW
+      - TTLWI
+      - HORVS
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Dr. Benno Kleinhenz (ZEPP)
+        email: roehrig@isip.de, kleinhenz@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: ''
+          value: ''
+      weather_data_period_end:
+        - determined_by: ''
+          value: ''
+      field_observation: null
+    valid_spatial:
+      countries:
+        - DEU
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

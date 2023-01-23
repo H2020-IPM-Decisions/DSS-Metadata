@@ -2,7 +2,7 @@ id: ISIP
 version: '1.0'
 name: ISIP
 url: www.isip.de
-logo_url: 
+logo_url: /rest/dss/logo/isip.png
 languages:
   - German
 organization:

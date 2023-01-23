@@ -1,0 +1,95 @@
+id: slugstatus.farming.co.uk
+version: '1.0'
+name: SlugWatch
+url: http://slugstatus.farming.co.uk/postcode/
+logo_url: https://www.farming.co.uk/images/Farming-online-main-menu-logo.png
+languages: []
+organization:
+  name: Farming Online Ltd
+  country: United Kingdom
+  address: PO Box 22
+  postal_code: TF13 9AD
+  city: Telford
+  email: accounts@farming.co.uk
+  url: farming.co.uk
+models:
+  - name: SlugWatch
+    id: SlugWatch2023
+    version: SlugWatch2023v1.0
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.certiseurope.co.uk/slugwatch-forecast/
+    purpose: View location-specific live and 7 day forecast slug activity data
+    description: >-
+      THE PEST: Widely present in many horticultural and arable fields, slugs
+      can damage crops all year round. With impacts on yield and/or quality
+      potentially severe, it is important to manage populations of key slug
+      species. 
+
+      THE DECISION: Management of slug infestations is most effective when
+      targeted at periods of high slug activity. The SlugWatch forecast provides
+      location-specific slug activity data, along with information on weather
+      conditions, helping make informed decisions on timing and location of slug
+      monitoring and subsequent management. 
+
+      THE MODEL: The SlugWatch model predicts slug activity based on forecast
+      weather conditions. 
+
+      THE PARAMETERS: The model uses soil temperature, air temperature and
+      rainfall. 
+
+      SOURCE: Created by CertisBelchim and developed by Farming Online Ltd.
+      Validated in the UK and France, considered to be appropriate for use with
+      caution in Ireland, Spain, Belgium the Netherlands, Germany, and Denmark. 
+
+      ASSUMPTIONS: This model makes no prediction on actual slug abundance, only
+      the relative risk of slug activity if they are present. In field
+      monitoring is required to assess the actual risk to crops of high slug
+      activity. Please refer to appropriate economic thresholds for treatment. 
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - 1DEROG
+    crops:
+      - All outdoor crops
+    authors: []
+    execution:
+      type: Link
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

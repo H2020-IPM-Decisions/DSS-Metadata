@@ -2,7 +2,7 @@ id: com.ipmwise
 version: '4'
 name: IPMwise
 url: http://www.ipmwise.dk
-logo_url: /rest/dss/logo/ipmconsult.png
+logo_url: ''
 languages:
   - English
   - Danish
@@ -18,14 +18,13 @@ organization:
   url: http://www.ipmconsult.dk
 models:
   - name: IPMwise Denmark
-    id: ipmwiseDK
+    id: ipmwise.dk
     version: '4'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://www.ipmwise.dk
-    purpose: ''
-    description: >-
+    description: >
       Dansk: Tilpas ukrudtsbekæmpelsen til netop dit behov som landmand eller
       konsulent. Bestem selv, hvor rene dine marker skal være - eller lad
       IPMwise
@@ -65,133 +64,30 @@ models:
 
       also use the program in conjunction with artificial intelligence,
       automatic weed recognition and spray maps.
-
-      citation: # Optional. Use the DOI as identifier (list)
-
-      - https://www.doi.org/10.1007/978-3-030-44402-0
-
-      - https://doi.org/10.1016/j.cropro.2014.06.012
-
-      - https://doi.org/10.1614/WT-D-13-00085.1
-
-
-      SOURCE: 
-
-      ASSUMPTIONS: 
-
-      REFERENCE: 
-    citation: null
+    citation: >-
+      https://www.doi.org/10.1007/978-3-030-44402-0
+      https://doi.org/10.1016/j.cropro.2014.06.012
+      https://doi.org/10.1614/WT-D-13-00085.1
     keywords: >-
       weeds, herbicides, tank mixtures, dose, recommendation, efficacy, cost,
       timing, weed density, weed size, weed species, crop growthstage, autumn
       sown crops, spring sown crops, IPM, IWM, efficacy tables, Field-Specific
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
-    platform_validated: false
     pests:
-      - ACHMI
-      - AETCY
-      - AGSST
-      - ALOGE
-      - ALOMY
-      - AMSCA
-      - ANGAR
-      - LYCAR
-      - ANTAR
-      - APHAR
-      - ARBTH
-      - ARTVU
-      - ATRPA
-      - AVEFA
-      - AVESA
-      - BIDTR
-      - BRSRS
-      - BRSNN
-      - BROMO
-      - BROST
-      - CENCY
-      - CERFO
-      - MATMT
-      - CHEAL
-      - CHYSE
-      - CIRAR
-      - CONAR
-      - CONCA
-      - DACGL
-      - AGRRE
-      - EPIMO
-      - EQUAR
-      - EROCI
-      - EPHHE
-      - EPHPE
-      - FESAR
-      - FESOV
-      - FESPR
-      - FESRU
-      - FUMOF
-      - GAESS
-      - GASSS
-      - GALAP
-      - GERMO
-      - GNAUL
-      - HORVX
-      - LAMSS
-      - LAPCO
-      - LOLMU
-      - LOLPE
-      - MATCH
-      - MENAR
-      - MYOAR
-      - PAPRH
-      - POAAN
-      - POAPR
-      - POATR
-      - POLAV
-      - POLCO
-      - POLLA
-      - POLPE
-      - MELAL
-      - RANRE
-      - RAPRA
-      - RUMCR
-      - RUMOB
-      - SECCE
-      - SENJA
-      - SENVE
-      - SENVU
-      - SETVI
-      - MELNO
-      - SINAR
-      - SOLNI
-      - SOLTU
-      - SONSS
-      - SPRAR
-      - STAPA
-      - STEME
-      - TAROF
-      - THLAR
-      - TRZAX
-      - TRFPR
-      - TRFRE
-      - MATIN
-      - TUSFA
-      - URTDI
-      - URTUR
-      - VERAR
-      - VERHE
-      - VERPE
-      - VIOAR
-      - VLPMY
+      - WEEDSP
     crops:
-      - 3WHEC
-      - 3BARC
-      - 3RYEC
-      - 3TRIC
-      - 3OATC
-      - 3BEEC
-      - 3CERC
-      - 3GRAC
-      - 3LEGC
+      - TRZAW
+      - TRZAS
+      - HORVS
+      - HORVW
+      - SECCW
+      - TTLWI
+      - AVESA
+      - BEASS
+      - GGGGGG
+      - BRSNN
+      - PIBSS
       - ZEAMX
     authors:
       - name: Per Rydahl
@@ -205,23 +101,19 @@ models:
       endpoint: http://www.ipmwise.dk/
       form_method: ''
       content_type: ''
-      input_schema_categories:
-        hidden:
-          - ''
       input_schema: ''
     valid_spatial:
       countries:
         - DNK
       geoJSON: '{}'
   - name: VIPS-ugras Norway
-    id: ipmwiseNO
+    id: ipmwise.no
     version: '2'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://vipsugras.ipmwise.com
-    purpose: ''
-    description: >-
+    description: >
       VIPS-Ugras 2.0 er en ny versjon av VIPS-ugras. IPM Consult har utviklet
       systemet og som på dansk heter IPMwise. 
 
@@ -238,13 +130,6 @@ models:
       optimal plantevernløsning for de fleste forhold 
 
       anbefaler vi at du bruker systemets effektkrav  
-
-
-      SOURCE: 
-
-      ASSUMPTIONS: 
-
-      REFERENCE: 
     citation: null
     keywords: >-
       weeds, herbicides, tank mixtures, dose, recommendation, efficacy, cost,
@@ -253,101 +138,14 @@ models:
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
     pests:
-      - ANGAR
-      - CONCA
-      - SENVU
-      - SENJA
-      - SENVE
-      - BIDTR
-      - GALAP
-      - ARTVU
-      - EPIMO
-      - APHAR
-      - GNAUL
-      - AVEFA
-      - MYOAR
-      - STEME
-      - TUSFA
-      - AMSCA
-      - CHEAL
-      - ARBTH
-      - ANTAR
-      - GAESS
-      - LAPCO
-      - BROMO
-      - BROST
-      - EROCI
-      - DACGL
-      - AETCY
-      - AGSST
-      - CERFO
-      - FUMOF
-      - MATIN
-      - MATMT
-      - MATCH
-      - SOLTU
-      - RAPRA
-      - TRFRE
-      - TRFPR
-      - CENCY
-      - GASSS
-      - LYCAR
-      - STAPA
-      - BRSRS
-      - MELNO
-      - MENAR
-      - ATRPA
-      - TAROF
-      - SOLNI
-      - URTUR
-      - URTDI
-      - CHYSE
-      - EQUAR
-      - THLAR
-      - POLLA
-      - POLPE
-      - POLCO
-      - POLAV
-      - MELAL
-      - LOLPE
-      - LOLMU
-      - RANRE
-      - POATR
-      - POAPR
-      - POAAN
-      - BRANA
-      - ALOMY
-      - ALOGE
-      - SINAR
-      - RUMOB
-      - RUMCR
-      - SETVI
-      - CONAR
-      - SPRAR
-      - HORVX
-      - AVESA
-      - TRZAX
-      - SECCE
-      - VIOAR
-      - GERSS
-      - SONSS
-      - FESPR
-      - FESRU
-      - FESOV
-      - FESAR
-      - CIRAR
-      - LAMSS
-      - PAPRH
-      - EPHPE
-      - EPHHE
-      - VLPMY
-      - VERAR
-      - VERPE
-      - VERHE
+      - WEEDSP
     crops:
-      - 3WHEC
-      - 3BARC
-      - 3OATC
+      - TRZAW
+      - TRZAS
+      - HORVS
+      - HORVW
+      - AVESA
+      - SECCW
     authors:
       - name: Kirsten Tørresen
         email: kirsten.torresen@nibio.no
@@ -363,24 +161,19 @@ models:
       endpoint: http://vipsugras.ipmwise.com
       form_method: ''
       content_type: ''
-      input_schema_categories:
-        hidden:
-          - ''
       input_schema: ''
     valid_spatial:
       countries:
         - NOR
       geoJSON: '{}'
-    platform_validated: false
   - name: IPMwise Spain
-    id: ipmwiseES
+    id: ipmwise.es
     version: '4'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://www.ipmwise.es
-    purpose: ''
-    description: >-
+    description: >
       Adapta tu manejo de malas hierbas a tus necesidades como un agricultor
       profesional o un asesor de cultivos. 
 
@@ -403,163 +196,35 @@ models:
       controlar tus infestaciones de malas hierbas.  
 
       citation: null # Optional. Use the DOI as identifier (list)
-
-
-      SOURCE: 
-
-      ASSUMPTIONS: 
-
-      REFERENCE: 
-    citation: null
     keywords: >-
       weeds, herbicides, tank mixtures, dose, recommendation, efficacy, cost,
       timing, weed density, weed size, weed species, crop growthstage, autumn
       sown crops, spring sown crops, IPM, IWM, efficacy tables, Field-Specific
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
-    platform_validated: false
     pests:
-      - ANGAR
-      - CONCA
-      - SENVU
-      - SENJA
-      - SENVE
-      - BIDTR
-      - GALAP
-      - ARTVU
-      - EPIMO
-      - APHAR
-      - GNAUL
-      - AVEFA
-      - MYOAR
-      - STEME
-      - TUSFA
-      - AMSCA
-      - CHEAL
-      - ARBTH
-      - ANTAR
-      - GAESS
-      - LAPCO
-      - BROMO
-      - BROST
-      - EROCI
-      - DACGL
-      - AETCY
-      - AGSST
-      - CERFO
-      - FUMOF
-      - MATIN
-      - MATMT
-      - MATCH
-      - SOLTU
-      - RAPRA
-      - TRFRE
-      - TRFPR
-      - CENCY
-      - GASSS
-      - LYCAR
-      - STAPA
-      - BRSRS
-      - MELNO
-      - MENAR
-      - ATRPA
-      - TAROF
-      - SOLNI
-      - URTUR
-      - URTDI
-      - CHYSE
-      - EQUAR
-      - THLAR
-      - POLLA
-      - POLPE
-      - POLCO
-      - POLAV
-      - MELAL
-      - LOLPE
-      - LOLMU
-      - RANRE
-      - POATR
-      - POAPR
-      - POAAN
-      - BRANA
-      - ALOMY
-      - ALOGE
-      - SINAR
-      - RUMOB
-      - RUMCR
-      - SETVI
-      - CONAR
-      - SPRAR
-      - HORVX
-      - AVESA
-      - TRZAX
-      - SECCE
-      - VIOAR
-      - GERSS
-      - SONSS
-      - FESPR
-      - FESRU
-      - FESOV
-      - FESAR
-      - CIRAR
-      - LAMSS
-      - PAPRH
-      - EPHPE
-      - EPHHE
-      - VLPMY
-      - VERAR
-      - VERPE
-      - VERHE
-      - AVEST
-      - BRODI
-      - DIPER
-      - KCHSC
-      - LACSE
-      - LOLRI
-      - MATCH
-      - PHABR
-      - PHAMI
-      - POASS
-      - POLSP
-      - RAPRA
-      - SHRAR
-      - AVELU
-      - ABUTH
-      - AMABL
-      - AMASS
-      - CHEAL
-      - CYPRO
-      - DATST
-      - DIGSA
-      - POLAV
-      - POLLA
-      - POROL
-      - PESGL
-      - SETVE
-      - SOLNI
-      - SORHA
-      - XANST
-      - XANSP
-      - SOLHA
-      - LITAR
-      - CHRCO
-      - SASKA
-      - PANSS
-      - CRYRI
-      - TRZAX
-      - HORVX
-      - LOLPE
-      - CENDI
-      - SYLMA
-      - CRYRI
+      - WEEDSP
     crops:
-      - 3WHEC
-      - 3BARC
-      - 3TRIC
-      - 3CERC
+      - TRZAW
+      - TRZAS
+      - HORVS
+      - HORVW
+      - TTLWI
+      - SECCW
+      - TRZDS
       - ZEAMX
       - GLXMA
-      - TRZDS
+      - MEDSA
+      - PIBSS
+      - LTHSA
+      - CMASA
+      - CIEAR
+      - VICFX
+      - LENCU
+      - HUMLU
+      - VICSA
+      - BRSNN
+      - HELAN
     authors:
       - name: José Maria Montull
         email: josemaria.montull@udl.cat
@@ -575,23 +240,19 @@ models:
       endpoint: http://www.ipmwise.es
       form_method: ''
       content_type: ''
-      input_schema_categories:
-        hidden:
-          - ''
       input_schema: ''
     valid_spatial:
       countries:
         - ESP
       geoJSON: '{}'
   - name: IPMwise demo version
-    id: ipmwiseDEMO
+    id: ipmwise.demo
     version: '4'
     type_of_output: >-
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://demo.ipmwise.com
-    purpose: ''
-    description: >-
+    description: >
       Adapt weed management to your needs as a professional farmer or crop
       advisor. Decide yourself, the level of weed control 
 
@@ -620,126 +281,17 @@ models:
       - https://doi.org/10.1016/j.cropro.2014.06.012
 
       - https://doi.org/10.1614/WT-D-13-00085.1
-
-
-      SOURCE: 
-
-      ASSUMPTIONS: 
-
-      REFERENCE: 
-    citation: null
     keywords: >-
       weeds, herbicides, tank mixtures, dose, recommendation, efficacy, cost,
       timing, weed density, weed size, weed species, crop growthstage, autumn
       sown crops, spring sown crops, IPM, IWM, efficacy tables, Field-Specific
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
-    platform_validated: false
     pests:
-      - ACHMI
-      - AETCY
-      - AGSST
-      - ALOGE
-      - ALOMY
-      - AMSCA
-      - ANGAR
-      - LYCAR
-      - ANTAR
-      - APHAR
-      - ARBTH
-      - ARTVU
-      - ATRPA
-      - AVEFA
-      - AVESA
-      - BIDTR
-      - BRSRS
-      - BRSNN
-      - BROMO
-      - BROST
-      - CENCY
-      - CERFO
-      - MATMT
-      - CHEAL
-      - CHYSE
-      - CIRAR
-      - CONAR
-      - CONCA
-      - DACGL
-      - AGRRE
-      - EPIMO
-      - EQUAR
-      - EROCI
-      - EPHHE
-      - EPHPE
-      - FESAR
-      - FESOV
-      - FESPR
-      - FESRU
-      - FUMOF
-      - GAESS
-      - GASSS
-      - GALAP
-      - GERMO
-      - GNAUL
-      - HORVX
-      - LAMSS
-      - LAPCO
-      - LOLMU
-      - LOLPE
-      - MATCH
-      - MENAR
-      - MYOAR
-      - PAPRH
-      - POAAN
-      - POAPR
-      - POATR
-      - POLAV
-      - POLCO
-      - POLLA
-      - POLPE
-      - MELAL
-      - RANRE
-      - RAPRA
-      - RUMCR
-      - RUMOB
-      - SECCE
-      - SENJA
-      - SENVE
-      - SENVU
-      - SETVI
-      - MELNO
-      - SINAR
-      - SOLNI
-      - SOLTU
-      - SONSS
-      - SPRAR
-      - STAPA
-      - STEME
-      - TAROF
-      - THLAR
-      - TRZAX
-      - TRFPR
-      - TRFRE
-      - MATIN
-      - TUSFA
-      - URTDI
-      - URTUR
-      - VERAR
-      - VERHE
-      - VERPE
-      - VIOAR
-      - VLPMY
+      - WEEDSP
     crops:
-      - 3WHEC
+      - TRZAW
       - ZEAMX
-      - 3BARC
-      - 3RYEC
-      - 3TRIC
-      - 3OATC
-      - 3BEEC
-      - 3CERC
-      - 3GRAC
-      - 3LEGC
     authors:
       - name: Per Rydahl
         email: per.rydahl@ipmconsult.dk
@@ -752,12 +304,8 @@ models:
       endpoint: http://demo.ipmwise.com/
       form_method: ''
       content_type: ''
-      input_schema_categories:
-        hidden:
-          - ''
       input_schema: ''
     valid_spatial:
       countries:
         - DNK
       geoJSON: '{}'
-

@@ -14,7 +14,7 @@ organization:
   email: roehrig@isip.de, kleinhenz@zepp.info
   url: www.isip.de, www.zepp.info
 models:
-  - name: ISIP
+  - name: ISIP (Germany only)
     id: siggetreide
     version: '1.0'
     type_of_decision: Short-term tactical

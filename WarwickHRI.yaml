@@ -1,0 +1,838 @@
+id: WarwickHRI
+version: 0.0.1
+name: WarwickHRI
+url: https://warwick.ac.uk/fac/sci/lifesci/wcc/morph
+logo_url: 
+languages:
+  - English
+organization:
+  name: Warwick HRI
+  country: England
+  address: The University of Warwick
+  postal_code:  CV35 9EF
+  city: Warwick
+  email: cropcentre@warwick.ac.uk
+  url: https://warwick.ac.uk
+
+models:
+  - name: Large Narcissus Fly Model
+    id: LAMTEQ
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/lamteq/Help/Api/POST-api-LAMTEQ
+    purpose: Estimates the timing of Large Narcissus Fly activity
+    description: >-
+      THE PEST: The Large Narcissus Fly (Merodon equestris) is a species of Hoverfly whose larvae feed on Narcissus (daffodils). 
+      Large narcissus flies overwinter inside damaged bulbs as fully-grown larvae which move into the soil to form pupae in the spring.
+      When they emerge, the adults lay their eggs in the soil close to narcissus bulbs. After they hatch, the larvae burrow through
+      the soil and enter the bulbs via the basal plate. The larvae feed and grow inside the bulbs and destroy their centres. 
+      There is only one generation each year.
+
+      THE DECISION: This model predicts the timing of adult emergence, egg laying and egg hatching, enabling users to undertake
+      targeted monitoring and/or mitigating actions to reduce the risk of damage to the crop.
+
+      THE MODEL: A series of development rate equations form the basis of the simulation model and are linked together in a program. 
+      The model simulates the development of cohorts of 500 individuals through adult emergence, egg laying and hatching. 
+      For each stage, the percentage development is calculated each day by integrating the appropriate development rate curve. 
+      This percentage is accumulated over days until it reaches 100. At this point the individual moves to the next stage.
+      Variability within the insect population is incorporated by assuming that, at any instant, the rates of development of a 
+      population held at a constant temperature are normally distributed (Phelps et al, 1993).  The model uses soil temperatures 
+      or air temperatures depending on the stage of development. As multiple cohorts progress simultaneously, adult emergence, egg 
+      laying and/or egg hatching can occur at the same time. 
+
+      THE PARAMETERS: The Large Narcissus Fly forecast requires hourly soil temperatures at a depth of approximately 6 cm and hourly air temperatures.
+
+      REGION: This DSS was adapted from work carried out in the UK
+
+      ASSUMPTION: The start date for the model is 1st February, as this is often the coldest period in the year.
+
+      REFERENCE: 
+      Collier, R.H. & Finch, S. (1992). The effects of temperature on development of the large narcissus fly (Merodon equestris).  Annals of Applied Biology, 120, 383-390.
+      Phelps, K., Collier, R.H., Reader, R.J. & Finch, S. (1993).  
+      Monte Carlo simulation method for forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - LAMTEQ
+    crops:
+      - NARSS
+    authors:
+      - name:  Richard Reader, Rosemary Collier (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: Rosemary.Collier@warwick.ac.uk, (hannah.griffiths@adas.co.uk)
+        organization: Warwick HRI,  (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/lamteq/api/LAMTEQ
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^LAMTEQ$", "title": "Model Id", "default":"LAMTEQ", "description":"Must be LAMTEQ"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },        
+              "optionalData" :{  
+                "title":"Optional parameters for the DSS",            
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                }
+              }
+          },
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002 #HOURLY AIR TEMPERATURE
+          interval: 3600
+        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE but using air temp data for now
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+    valid_spatial:
+      countries:
+        - GBR
+
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity. 
+          recommended_action: >-
+            The risk of 1) emergence, 2) egg hatching and/or 3) egg laying, is low.  Continue to review the risk.  
+        - explanation: >-
+            This model runs February - December. Based on current data available, the model is predicting medium risk. 
+          recommended_action: >-
+            The risk of 1) emergence, 2) egg laying and/or 3) egg hatching, is increasing. Increase monitoring efforts in 
+            vulnerable crops. Medium risk is indicated when any of the following is reached; 1) up to 10% cumulative emergence, 2) 
+            up to 10% cumulative egg laying and/or 3) up to 10% cumulative egg hatching. To determine the cause of the risk, 
+            please refer to the accompanying plots, which illustrate when a threshold has been surpassed. 
+        - explanation: >- 
+            This model runs February - December. Based on current data available, the model is predicting high risk. 
+          recommended_action: >-
+            The risk of 1) emergence, 2) egg hatching and/or 3) egg laying, is high. Monitor vulnerable crops for in-field 
+            activity.High risk is indicated when any of the following is reached; 1) 10-50% cumulative emergence, 10-50% 
+            cumulative egg laying and/or 10-50% cumulative egg hatching.  To determine the cause of the risk, please refer to the 
+            accompanying plots, which illustrate when a threshold has been surpassed.
+      chart_heading: Large Narcissus Fly
+      chart_groups:
+        - id: G1
+          title: Cumulative Emergence
+          result_parameter_ids:
+            - Cumulative_Emergence
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second 
+        - id: G2
+          title: Cumulative Egg Laying
+          result_parameter_ids:
+            - Cumulative_Egg_Laying
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second
+        - id: G3
+          title: Cumulative Egg Hatching
+          result_parameter_ids:
+            - Cumulative_Egg_Hatching
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second 
+      result_parameters:
+        - id: Cumulative_Emergence
+          title: Cumulative Emergence
+          description: Cumulative Emergence of the Large Narcissus Fly
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Cumulative_Egg_Laying
+          title: Cumulative Egg Laying
+          description: Cumulative Egg Laying of the Large Narcissus Fly
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Cumulative_Egg_Hatching
+          title: Cumulative Egg Hatching
+          description: Cumulative Egg Hatching of the Large Narcissus Fly
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Low_Risk_Threshold_First 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'
+        - id: Medium_Risk_Threshold
+          title: Medium Risk Threshold
+          description: Medium Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ffa500'
+        - id: High_Risk_Threshold
+          title: High Risk Threshold
+          description: High Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ff0000'
+        - id: Low_Risk_Threshold_Second 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'
+#####
+  - name: Pollen Beetle
+    id: MELIAE
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/MELIAE/Help/Api/POST-api-MELIAE
+    purpose: Estimates the timing of Pollen Beetle activity
+    description: >-
+      THE PEST: Adult pollen (bronzed-blossom) beetles (Meligethes aeneus/Brassicogethes aeneus) overwinter in the soil.  
+      The beetles become active in early spring and fly to flowering brassica crops about a month later, where they feed on 
+      the buds and flowers.  During feeding, females chew holes in the bases of the unopened flower buds and lay eggs in each hole.  
+      After hatching, the larvae feed initially on pollen but later feed on unopened flowers and finally on newly-formed seed pods. 
+      The fully-grown larvae drop to the soil where they pupate.  Adult (summer) beetles emerge 2-3 weeks later and the majority disperse
+      to feed on other plants, including the florets of cauliflower crops, before they move to overwintering sites.  
+      There is only one generation each year.
+
+      THE DECISION: This model predicts the timing of spring emergence of adult beetles, egg laying and then the emergence of a new (summer) 
+      generation of adults ready to disperse, followed by their dispersal.  This enables users to undertake targeted monitoring and/or 
+      mitigating actions to reduce the risk of damage to the crop.
+
+      THE MODEL: A series of development rate equations form the basis of the simulation model and are linked together in a program.  
+      The model simulates the development of cohorts of 500 individuals through spring emergence, egg laying and hatching, larval and pupal 
+      development and emergence, followed by dispersal of the new generation of adult beetles. For each stage, the percentage development is 
+      calculated each day by integrating the appropriate development rate curve. This percentage is accumulated over days until it reaches 100.
+      At this point the individual moves to the next stage. Variability within the insect population is incorporated by assuming that, at any instant, 
+      the rates of development of a population held at a constant temperature are normally distributed (Phelps et al, 1993).  The model uses soil 
+      temperatures or air temperatures depending on the stage of development. As multiple cohorts progress simultaneously, adult emergence/dispersal 
+      and egg laying can occur at the same time.
+
+      THE PARAMETERS: The Pollen Beetle forecast requires hourly soil temperatures at a depth of approximately 6 cm and hourly air temperatures.
+
+      REGION: This DSS was adapted from work carried out in the UK
+
+      ASSUMPTION: The start date for the model is 1st February, as this is often the coldest period in the year.
+
+      REFERENCE: Phelps, K., Collier, R.H., Reader, R.J. & Finch, S. (1993).  Monte Carlo simulation method for
+      forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
+
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - MELIAE
+    crops:
+      - BRSOB
+      - BRSOK
+      - BRSNN
+    authors:
+      - name:  Richard Reader, Rosemary Collier (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: Rosemary.Collier@warwick.ac.uk, (hannah.griffiths@adas.co.uk)
+        organization: Warwick HRI,  (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/meliae/api/MELIAE
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^MELIAE$", "title": "Model Id", "default":",MELIAE", "description":"Must be MELIAE"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },        
+              "optionalData" :{  
+                "title":"Optional parameters for the DSS",            
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                }
+              }
+          },
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002 #HOURLY AIR TEMPERATURE
+          interval: 3600
+        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE - using air temp for now
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+    valid_spatial:
+      countries:
+        - GBR
+
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
+          recommended_action: >-
+            The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, or 3) dispersal of summer adults, 
+            is low.  Continue to review the risk.    
+        - explanation: >-
+            This model runs February - December. Based on current data available, the model is predicting medium risk. 
+          recommended_action: >-
+            The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, and/or 3) dispersal of summer adults,
+            is increasing. Increase monitoring efforts in vulnerable crops.
+            Medium risk is indicated when any of the following is reached; 1) up to 10% cumulative spring emergence of adults, 2) up to 10% cumulative 
+            emergence of summer adults ready to disperse, and/or 3) up to 10% cumulative dispersal of summer adults.  To determine the cause of the risk, 
+            please refer to the accompanying plots, which illustrate when a threshold has been surpassed.
+
+        - explanation: >-
+            This model runs February - December. Based on current data available, the model is predicting high risk. 
+          recommended_action: >-
+            The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, and/or 3) dispersal of summer adults,
+            is high. Monitor vulnerable crops for in-field activity.
+            High risk is indicated when any of the following is reached; 1) 10-50% cumulative spring emergence of adults, 2) 10-50% cumulative
+            emergence of summer adults ready to disperse, and/or 3) 10-50% cumulative dispersal of summer adults.  To determine the cause of the 
+            risk, please refer to the accompanying plots, which will illustrate when a threshold has been surpassed.
+
+      chart_heading: Pollen Beetle
+      chart_groups:
+        - id: G1
+          title: Cumulative Emergence
+          result_parameter_ids:
+            - Cumulative_Emergence
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second 
+        - id: G2
+          title: Cumulative Adults
+          result_parameter_ids:
+            - Cumulative_Adults
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second
+        - id: G3
+          title: Cumulative Migration
+          result_parameter_ids:
+            - Cumulative_Migration
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second 
+      result_parameters:
+        - id: Cumulative_Emergence
+          title: Cumulative Emergence
+          description: Cumulative Emergence of the Pollen Beetle
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Cumulative_Adults
+          title: Cumulative Adults Ready to Migrate
+          description: Cumulative Adults of the Pollen Beetle
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Cumulative_Migration
+          title: Cumulative Migrtation
+          description: Cumulative Migration of the Pollen Beetle
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Low_Risk_Threshold_First 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'
+        - id: Medium_Risk_Threshold
+          title: Medium Risk Threshold
+          description: Medium Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ffa500'
+        - id: High_Risk_Threshold
+          title: High Risk Threshold
+          description: High Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ff0000'
+        - id: Low_Risk_Threshold_Second 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'
+###
+  - name: Cabbage Root Fly
+    id: HYLERA
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/HYLERA/Help/Api/POST-api-HYLERA
+    purpose: Estimates the timing of Cabbage Root Fly activity
+    description: >-
+      THE PEST: The cabbage root fly (Delia radicum) overwinters as a pupa, in diapause.  The first generation of adult flies emerges in the spring 
+      and mated female flies lay their eggs in the soil close to the base of brassica plants.  After hatching, the larvae feed on the roots and may
+      tunnel into them, causing damage.  These larvae form pupae, which lead to the emergence of a new generation of adults.  Depending on the local
+      climate the number of cabbage root fly generations and their timing can differ.  When the weather is particularly hot, cabbage root fly pupae 
+      may aestivate.  In some areas there is an additional biotype of cabbage root fly which has an extended pupal diapause and emerges later in the spring. 
+      We call the two biotypes ‘early emerging’ and ‘late emerging’.  
+
+      THE DECISION: The model predicts the timing of adult emergence and egg-laying throughout the year, enabling users to undertake targeted monitoring 
+      and/or mitigating actions to reduce the risk of damage to the crop.
+
+      THE MODEL: A series of development rate equations form the basis of the simulation model and are linked together in a program.  
+      The model simulates the development of cohorts of 500 individuals through adult emergence, egg laying and hatching. For each stage, the percentage
+      development is calculated each day by integrating the appropriate development rate curve. This percentage is accumulated over days until it reaches 
+      100. At this point the individual moves to the next stage. Variability within the insect population is incorporated by assuming that, at any instant, 
+      the rates of development of a population held at a constant temperature are normally distributed (Phelps et al, 1993).  The model uses soil temperatures 
+      or air temperatures depending on the stage of development. Within the model it is possible to specify the proportions of the early and late emerging biotypes 
+      in the simulated population. As multiple cohorts progress simultaneously, adult emergence and egg laying can occur at the same time.
+
+      THE PARAMETERS: The Cabbage Root Fly forecast requires hourly soil temperatures at a depth of approximately 6 cm and hourly air temperatures.
+
+      REGION: This DSS was adapted from work carried out in the UK
+
+      ASSUMPTION: The start date for the model is 1st February, as this is often the coldest period in the year.
+
+      REFERENCE: Collier, R.H. & Finch, S. (1983).  
+      Completion of diapause in field populations of the cabbage root fly (Delia radicum).  Entomologia experimentalis et applicata 34, 186 192.
+      Collier, R.H. & Finch, S. (1983).  
+      Effects of intensity and duration of low temperatures in regulating diapause development of the cabbage root fly (Delia radicum).  
+      Entomologia experimentalis et applicata 34, 193 200.
+      Collier, R. H. & Finch, S. (1986). 
+      Accumulated temperatures for predicting cabbage root fly, Delia radicum (L.), (Diptera; Anthomyiidae) emergence in the spring. 
+      Bulletin of Entomological Research 75, 395 404.
+      Finch, S. & Collier, R.H. (1983). 
+      Emergence of flies from overwintering populations of cabbage root fly pupae.  Ecological Entomology 8, 29 36.
+      Finch, S. & Collier, R.H. (1983). 
+      Emergence of flies from overwintering populations of cabbage root fly pupae.  Ecological Entomology 8, 29 36.
+      Finch, S. & Collier, R. H. (1985).  
+      Laboratory studies on aestivation in the cabbage root fly (Delia radicum).  Entomologia experimentalis et applicata 38, 137 143.
+      Finch, S., Collier, R. H. & Skinner, G. (1986). 
+      Local population differences in emergence of cabbage root flies from south west Lancashire; implications for pest forecasting and population divergence. 
+      Ecological Entomology 11, 139 145.
+      Phelps, K., Collier, R.H., Reader, R.J. & Finch, S. (1993).  
+      Monte Carlo simulation method for forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - HYLERA
+    crops:
+      - 1BRSG
+    authors:
+      - name:  (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: (hannah.griffiths@adas.co.uk)
+        organization:  (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/hylera/api/HYLERA
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^HYLERA$", "title": "Model Id", "default":"HYLERA", "description":"Must be HYLERA"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },        
+              "optionalData" :{  
+                "title":"Optional parameters for the DSS",            
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                }
+              }
+          },
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002 #HOURLY AIR TEMPERATURE
+          interval: 3600
+        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE - using air temp currently
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+    valid_spatial:
+      countries:
+        - GBR
+
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
+          recommended_action: >-
+            The risk of 1) emergence, and/or  2) egg laying, is low.  Continue to review the risk.
+        - explanation: >-
+            This model runs February - December. Based on current data available, the model is predicting medium risk. 
+          recommended_action: >-
+            The risk of 1) emergence, and/or  2) egg laying, is increasing. Increase monitoring efforts in vulnerable crops. 
+            Medium risk is indicated when any of the following is reached for any of the generations; 1) up to 10% cumulative emergence, and/or  
+            2) up to 10% cumulative egg laying.  To determine the cause of the risk, please refer to the accompanying plots, which illustrate when a
+            threshold has been surpassed.
+
+        - explanation: >-
+            This model runs February - December. Based on current data available, the model is predicting high risk. 
+          recommended_action: >-
+            The risk of 1) emergence, and/or  2) egg laying, is high. Monitor vulnerable crops for in-field activity.
+            High risk is indicated when any of the following is reached for any of the generations; 1) 10-50% cumulative emergence, and/or  
+            2) 10-50% cumulative egg laying.  To determine the cause of the risk, please refer to the accompanying plots,
+            which will illustrate when a threshold has been surpassed.
+
+      chart_heading: Cabbage Root Fly
+      chart_groups:
+        - id: G1
+          title: Cumulative Emergence
+          result_parameter_ids:
+            - Cumulative_Emergence
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second 
+        - id: G2
+          title: Cumulative Egg Laying
+          result_parameter_ids:
+            - Cumulative_Egg_Laying
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second
+      result_parameters:
+        - id: Cumulative_Emergence
+          title: Cumulative Emergence
+          description: Cumulative Emergence of the Pollen Beetle
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Cumulative_Egg_Laying
+          title: Cumulative Egg Laying
+          description: Cumulative Egg Laying
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Low_Risk_Threshold_First 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'
+        - id: Medium_Risk_Threshold
+          title: Medium Risk Threshold
+          description: Medium Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ffa500'
+        - id: High_Risk_Threshold
+          title: High Risk Threshold
+          description: High Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ff0000'
+        - id: Low_Risk_Threshold_Second 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'
+###
+  - name: Carrot Fly
+    id: PSILRO
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/PSILRO/Help/Api/POST-api-PSILRO
+    purpose: Estimates the timing of Carrot Fly activity
+    description: >-
+      THE PEST: Carrot flies (Psila rosae/Chamaepsila rosae) overwinter in the soil either as diapausing pupae or as larvae. 
+      Late-developing insects remain as larvae and continue to feed on carrot roots throughout the winter. The insects that 
+      overwinter as larvae form pupae during the spring.  Adult flies subsequently emerge from both types of pupae.  
+      The female flies lay eggs in the soil close to carrot plants and, after hatching, the larvae feed on the roots and 
+      tunnel into them, causing damage.  These larvae form pupae, which lead to the emergence of a new generation of adults.
+      Depending on the local climate the number of carrot fly generations and their timing can differ.  When the weather is 
+      particularly hot, carrot fly pupae may aestivate.
+
+      THE DECISION: The model predicts the timing of adult emergence and egg-laying throughout the year, enabling users to undertake
+      targeted monitoring and/or mitigating actions to reduce the risk of damage to the crop.
+
+      THE MODEL: A series of development rate equations form the basis of the simulation model and are linked together in a program.  
+      The model simulates the development of cohorts of 500 individuals through adult emergence, egg laying and hatching. For each stage, 
+      the percentage development is calculated each day by integrating the appropriate development rate curve. This percentage is accumulated 
+      over days until it reaches 100. At this point the individual moves to the next stage. Variability within the insect population is 
+      incorporated by assuming that, at any instant, the rates of development of a population held at a constant temperature are normally 
+      distributed (Phelps et al, 1993).  The model uses soil temperatures or air temperatures depending on the stage of development. 
+      As multiple cohorts progress simultaneously, adult emergence and egg laying can occur at the same time.
+
+      THE PARAMETERS: The Carrot Fly forecast requires hourly soil temperatures at a depth of approximately 6 cm and hourly air temperatures.
+
+      REGION: This DSS was adapted from work carried out in the UK
+
+      ASSUMPTION: The start date for the model is 1st February, as this is often the coldest period in the year.
+
+      REFERENCE: Phelps, K., Collier, R.H., Reader, R.J. & Finch, S. (1993).  
+      Monte Carlo simulation method for forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
+      Collier, R.H., Elliott, M.S. & Finch, S. (1994).  
+      Development of the overwintering stages of the carrot fly, Psila rosae, (Diptera:Psilidae).  Bulletin of Entomological Research 84, 469-476.
+      Collier, R.H. & Finch, S. (1996). 
+      Field and laboratory studies on the effects of temperature on the development of the carrot fly (Psila rosae F.).  Annals of Applied Biology 128, 1-11.
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - PSILRO
+    crops:
+      - DAUCS
+      - PAVSA
+      - APUGR
+      - PARCR
+    authors:
+      - name:  Richard Reader, Rosemary Collier (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: Rosemary.Collier@warwick.ac.uk, (hannah.griffiths@adas.co.uk)
+        organization: Warwick HRI,  (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/hylera/api/PSILRO
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^PSILRO$", "title": "Model Id", "default":"PSILRO", "description":"Must be PSILRO"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },        
+              "optionalData" :{  
+                "title":"Optional parameters for the DSS",            
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                }
+              }
+          },
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002 #HOURLY AIR TEMPERATURE
+          interval: 3600
+        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE - using air temperatrue for the time being
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+    valid_spatial:
+      countries:
+        - GBR
+
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
+          recommended_action: >-
+            The risk of 1) emergence, and/or 2) egg laying, is low. Continue to review the risk. 
+        - explanation: >-
+            This model runs February - December. Based on current data available, the model is predicting medium risk. 
+          recommended_action: >-
+            The risk of 1) emergence, and/or 2) egg laying, is increasing. Increase monitoring efforts in vulnerable crops.
+            Medium risk is indicated when any of the following is reached for any of the generations; 1) up to 10% cumulative emergence, 
+            and/or 2) up to 10% cumulative egg laying.  To determine the cause of the risk, please refer to the accompanying plots, 
+            which illustrate when a threshold has been surpassed.
+
+        - explanation: >-
+            This model runs February - December. Based on current data available, the model is predicting high risk. 
+          recommended_action: >-
+            The risk of 1) emergence, and/or 2) egg laying, is high.  Monitor vulnerable crops for in-field activity.
+            High risk is indicated when any of the following is reached for any of the generations; 1) 10-50% cumulative emergence, 
+            and/or 2) 10-50% cumulative egg laying.  To determine the cause of the risk, please refer to the accompanying plots, 
+            which illustrate when a threshold has been surpassed.
+
+      chart_heading: Carrot Fly
+      chart_groups:
+        - id: G1
+          title: Cumulative Emergence
+          result_parameter_ids:
+            - Cumulative_Emergence
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second 
+        - id: G2
+          title: Cumulative Egg Laying
+          result_parameter_ids:
+            - Cumulative_Egg_Laying
+            - Low_Risk_Threshold_First
+            - Medium_Risk_Threshold
+            - High_Risk_Threshold
+            - Low_Risk_Threshold_Second
+      result_parameters:
+        - id: Cumulative_Emergence
+          title: Cumulative Emergence
+          description: Cumulative Emergence
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Cumulative_Egg_Laying
+          title: Cumulative Egg Laying
+          description: Cumulative Egg Laying
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'
+        - id: Low_Risk_Threshold_First 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'
+        - id: Medium_Risk_Threshold
+          title: Medium Risk Threshold
+          description: Medium Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ffa500'
+        - id: High_Risk_Threshold
+          title: High Risk Threshold
+          description: High Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ff0000'
+        - id: Low_Risk_Threshold_Second 
+          title: Low Risk Threshold
+          description: Low Risk Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#3cb371'

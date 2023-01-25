@@ -1,0 +1,180 @@
+id: AHDB_OSR_disease_forecasts
+version: '1.0'
+name: AHDB OSR disease forecasts
+url: https://ahdb.org.uk/tools
+logo_url: >-
+  https://c1.thirdlight.com/file/24/K69nDR6K6O0AHFaK6HVYKvF4QEl/AHDB%20logo%20%28no%20words%29%20Blue%20RGB.png
+languages:
+  - English
+organization:
+  name: Agriculture and Horticulture Development Board
+  country: United Kingdom
+  address: Stoneleigh Park
+  postal_code: CV8 2TL
+  city: Kenilworth
+  email: siobhan.hillman@ahdb.org.uk
+  url: https://ahdb.org.uk/
+models:
+  - name: Sclerotinia forecast
+    id: SCLESC
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://ahdb.org.uk/sclerotinia-infection-risk-alerts-for-oilseed-rape
+    purpose: Predicts conditions in which infection by sclerotinia is possible
+    description: >-
+      Sclerotinia stem rot is usually the main disease to consider during the
+      flowering stages of oilseed rape. There are 3 main risk factors: the
+      presence of sclerotinia inoculum (spores), warm and humid conditions, and
+      crops in flower.
+
+      If spores are present and the crop is in flower, relative humidity must be
+      above 80% and air temperatures above 7°C for 23 continuous hours for the
+      pathogen to infect the crop. This is what is predicted by the model.
+    citation: >-
+      Caroline Young, Jon West, Velcourt R&D, and John Clarkson 'Sclerotinia
+      risk live-reporting system for oilseed rape'. AHDB final project report
+      no. 617. Available at:
+      https://projectblue.blob.core.windows.net/media/Default/Research%20Papers/Cereals%20and%20Oilseed/2020/PR617%20final%20project%20report.pdf
+    keywords: sclerotinia, oilseed rape
+    platform_validated: true
+    pests:
+      - SCLESC
+    crops:
+      - BRSNN
+    authors:
+      - name: Caroline Young
+        email: null
+        organization: ADAS
+      - name: Jon West
+        email: null
+        organization: Rothamsted Research
+      - name: Velcourt R&D
+        email: null
+        organization: Velcourt
+      - name: 'John Clarkson '
+        email: null
+        organization: University of Warwick
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start: []
+      weather_data_period_end: []
+      field_observation: null
+    valid_spatial:
+      countries:
+        - GBR
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  - name: Phoma leaf spot forecast
+    id: LEPTMA
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://ahdb.org.uk/phoma-leaf-spot-forecast
+    purpose: >-
+      Predicts the date when 10% of oilseed rape plants may show symptoms of
+      phoma leaf spot
+    description: >-
+      Temperature and rainfall information is used to simulate the development
+      of Leptosphaeria maculans – a key pathogen responsible for phoma leaf spot
+      and phoma stem canker.
+
+      The forecast predicts the date of the starting week when 10% of oilseed
+      rape plants could potentially show symptoms of phoma leaf spot.
+    citation: >-
+      Evans N, Baierl A, Semenov MA, Gladders P, Fitt BD. Range and severity of
+      a plant disease increased by global warming. J R Soc Interface. 2008 May
+      6;5(22):525-31. doi: 10.1098/rsif.2007.1136. PMID: 17711818; PMCID:
+      PMC3226977.
+    keywords: Phoma leaf spot, phoma stem canker, Leptosphaeria maculans, oilseed rape
+    platform_validated: true
+    pests:
+      - LEPTMA
+    crops:
+      - BRSNN
+    authors:
+      - name: Neal Evans
+        email: null
+        organization: Rothamsted Research
+      - name: Andreas Baierl
+        email: null
+        organization: Rothamsted Research
+      - name: Mikhail A Semenov
+        email: null
+        organization: Rothamsted Research
+      - name: Peter Gladders
+        email: null
+        organization: ADAS
+      - name: Bruce D.L Fitt
+        email: null
+        organization: Rothamsted Research
+      - name: Jason Pole
+        email: null
+        organization: AHDB
+      - name: Bastiaan Brak
+        email: null
+        organization: AHDB
+      - name: Robert Saville
+        email: null
+        organization: AHDB
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start: []
+      weather_data_period_end: []
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

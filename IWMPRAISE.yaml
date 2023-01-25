@@ -1,5 +1,5 @@
-id: IWMPRAISE_Integrated_Weed_Management_Tool
-version: IWMPRAISE_Tool_v1.0
+id: nl.wur.IWMPRAISE
+version: 1.0
 name: IWMPRAISE Integrated Weed Management Tool
 url: 'https://framework.iwmtool.eu/ '
 logo_url: >-
@@ -17,7 +17,7 @@ organization:
 models:
   - name: IWMPRAISE Weed Management Tool
     id: IWMPRAISE_Tool
-    version: IWMPRAISE_Tool_v1.0
+    version: 1.0
     type_of_decision: Strategic
     type_of_output: IPM Tactic selection for weed management
     description_URL: https://iwmpraise.eu/wp-content/uploads/2018/06/WP1_IS_1_IWMPRAISE_eng.pdf

@@ -29,7 +29,7 @@ models:
       crops in flower.
 
       If spores are present and the crop is in flower, relative humidity must be
-      above 80% and air temperatures above 7°C for 23 continuous hours for the
+      above 80% and air temperatures above 7&deg;C for 23 continuous hours for the
       pathogen to infect the crop. This is what is predicted by the model.
     citation: >-
       Caroline Young, Jon West, Velcourt R&D, and John Clarkson 'Sclerotinia
@@ -102,7 +102,7 @@ models:
       phoma leaf spot
     description: >-
       Temperature and rainfall information is used to simulate the development
-      of Leptosphaeria maculans – a key pathogen responsible for phoma leaf spot
+      of Leptosphaeria maculans ï¿½ a key pathogen responsible for phoma leaf spot
       and phoma stem canker.
 
       The forecast predicts the date of the starting week when 10% of oilseed

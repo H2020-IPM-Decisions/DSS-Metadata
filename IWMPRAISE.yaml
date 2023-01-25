@@ -1,0 +1,102 @@
+id: IWMPRAISE_Integrated_Weed_Management_Tool
+version: IWMPRAISE_Tool_v1.0
+name: IWMPRAISE Integrated Weed Management Tool
+url: 'https://framework.iwmtool.eu/ '
+logo_url: >-
+  https://iwmpraise.eu/wp-content/uploads/2017/09/cropped-IWM_logo-e1506517736333.png 
+languages:
+  - English
+organization:
+  name: Wageningen University and Research
+  country: The Netherlands
+  address: P.O. Box 9101
+  postal_code: 6700 HB
+  city: Wageningen
+  email: ''
+  url: https://www.wur.nl/en.htm
+models:
+  - name: IWMPRAISE Weed Management Tool
+    id: IWMPRAISE_Tool
+    version: IWMPRAISE_Tool_v1.0
+    type_of_decision: Strategic
+    type_of_output: IPM Tactic selection for weed management
+    description_URL: https://iwmpraise.eu/wp-content/uploads/2018/06/WP1_IS_1_IWMPRAISE_eng.pdf
+    purpose: >-
+      An online strategic tool for identifying suitable management practices for
+      annual and perennial weeds in narrow row, broad row and perennial crops.
+    description: >-
+      THE PEST: Perennial and annual weed infestations can lead to direct and
+      indirect damage to a wide range of outdoor crops. 
+
+      THE DECISION: Integrated weed management tactics may affect one or more
+      axes in the weed life cycle. They may prevent the establishment of
+      seedlings from the seedbank (axis 1), reduce the impact established weeds
+      have on the crop (axis 2), or reduce the weed seed/bud return to the soil
+      (axis 3).
+
+      THE IWMPRAISE TOOL: This tool supports users in identifying and
+      understanding the IPM tools and tactics available to manage perennial and
+      annual weeds in narrow row, broad row and perennial crops. Users can
+      select/de-select options to identify the best approach for them. This tool
+      is currently available in English only. 
+
+      SOURCE: The IWMPRAISE TOOL was developed as part of the EU funded Horizon
+      2020 IWMPRAISE (727321), 2017-2022. It is designed for use across
+      Europe.  
+
+      REFERENCE: Kudsk et al (2020) Outlooks on Pest Management, 31, 152-159,
+      https://doi.org/10.1564/v31_aug_02
+       
+    citation: https://doi.org/10.1564/v31_aug_02
+    keywords: 'Annual, perennial, weeds '
+    platform_validated: true
+    pests:
+      - WEEDSP
+    crops:
+      - ALLCROPS
+    authors:
+      - name: Marleen Riemens
+        email: marleen.riemens@wur.nl
+        organization: Wageningen University and Research
+      - name: Timo Sprangers
+        email: timo.sprangers@wur.nl
+        organization: Wageningen University and Research
+    execution:
+      type: Link
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries: []
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

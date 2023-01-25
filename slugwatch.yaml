@@ -50,9 +50,9 @@ models:
     keywords: ''
     platform_validated: false
     pests:
-      - 1DEROG
+      - WEEDSP
     crops:
-      - All outdoor crops
+      - ALLCROPS
     authors: []
     execution:
       type: Link

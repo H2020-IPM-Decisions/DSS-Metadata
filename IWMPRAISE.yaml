@@ -51,7 +51,7 @@ models:
     keywords: 'Annual, perennial, weeds '
     platform_validated: true
     pests:
-      - WEEDSP
+      - 3WEEDT
     crops:
       - ALLCROPS
     authors:
@@ -83,7 +83,37 @@ models:
           value: '{CURRENT_YEAR}-12-31'
       field_observation: null
     valid_spatial:
-      countries: []
+      countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
+        - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:

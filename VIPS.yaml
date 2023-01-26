@@ -1348,7 +1348,7 @@ models:
     valid_spatial:
       countries:
         - NOR
-        - DK
+        - DNK
       geoJSON: '{}'
     output:
       warning_status_interpretation:

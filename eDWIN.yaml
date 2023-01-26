@@ -1,0 +1,91 @@
+id: pl.gov.edwin
+version: 0.0.1
+name: eDWIN
+url: https://www.edwin.gov.pl/
+logo_url: ''
+languages:
+  - Polish
+organization:
+  name: WODR
+  country: Poland
+  address: Sieradzka 29
+  postal_code: '60-163 '
+  city: Poznań
+  email: Pomoc@edwin.gov.pl
+  url: https://www.wodr.poznan.pl/
+models:
+  - name: eDWIN Platform (Poland only)
+    id: eDWIN_LINK
+    version: 0.0.1
+    type_of_decision: DSS Platform Poland
+    type_of_output: Risk indication, pest observations, weather data
+    description_URL: https://www.edwin.gov.pl/euslugi
+    purpose: Pest decision support platform available in Poland
+    description: >-
+       
+      The eDWIN "Virtual farm" allows users in Poland to obtain, collect and
+      share information about the occurrence of pests in a given area and
+      provides notifications about possible threats in the field.
+
+      The eDWIN platform, also provides access to data from about 600
+      meteorological stations throughout Poland, monitoring (among others)
+      temperature, air humidity, rainfall total and intensity, atmospheric
+      pressure and wind speed and direction.
+
+      The eDWIN advisory platform was created as part of the project "Internet
+      Platform for Advisory and Decision Support in Integrated Plant
+      Protection". 
+
+      The platform is completely free and available to everyone on computers and
+      as an application on mobile devices, but only currently accessible to
+      users in Poland. 
+
+
+      https://www.edwin.gov.pl/euslugi/wirtualne-gospodarstwo
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests: MULTPEST
+    crops:
+      - ALLCROPS
+    authors: []
+    execution:
+      type: LINK
+      endpoint: ''
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - POL
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []

@@ -76,7 +76,15 @@ models:
           value: '{CURRENT_YEAR}-12-31'
       field_observation: null
     valid_spatial:
-      countries: []
+      countries: 
+      - GBR
+      - FRA
+      - IRL
+      - ESP
+      - BEL
+      - NLD
+      - DEU
+      - DNK
       geoJSON: ''
     output:
       warning_status_interpretation:

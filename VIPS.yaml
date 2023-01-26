@@ -388,7 +388,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/MAMESTRABR/
-    purpose: ''
+    purpose: 'Estimates risk of damage by Cabbage Moth'
     description: >-
       The model for the warning system for cabbage moth was developed by Dr.
       Nina Svae Johansen. 
@@ -587,7 +587,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/PSILAROBSE/
-    purpose: ''
+    purpose: 'Estimates risk of damage by Carrot Rust Fly'
     description: >-
       The warning system model is based on weekly observations of adult carrot
       rust flies captured on yellow sticky traps. The model is based in its
@@ -816,7 +816,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARFOBS/
-    purpose: ''
+    purpose: 'Estimates risk of damage by Cabbage Root Fly and Turnip Fly'
     description: >-
       The warning system model is based on weekly observations of oviposition by
       the 
@@ -1254,7 +1254,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/ALTERNARIA/
-    purpose: ''
+    purpose: 'Daily risk of infection'
     description: >
       THE PEST: Alternaria sp cause disease on a lot of horticultural crops, and
       leaf spots are among the most common symptoms. 
@@ -1403,17 +1403,17 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/NEGPROGMOD/
-    purpose: ''
+    purpose: 'Estimates risk of Late Blight infection'
     description: >-
       THE PEST: Potato late blight, caused by the fungus-like organism
       Phytophthora infestans causes severe damage to the foliage and can infect
       the tubers at harvest. THE DECISION: The model is designed to guide the
       timing of the first late blight fungicide application, when used in
       combination with other agronomic risk factors.  THE MODEL: The model uses
-      weather data to estimate the ‘epidemic free’ period (‘negative prognosis’)
+      weather data to estimate the 'epidemic free' period ('negative prognosis')
       by calculating the accumulated blight risk from the date of crop
       emergence. The model guides the first spray timing at the end of the
-      ‘epidemic free’ period.  THE PARAMETERS: From the date of crop emergence,
+      'epidemic free' period.  THE PARAMETERS: From the date of crop emergence,
       daily risk values are accumulated based on weather data (temperature,
       relative humidity and precipitation). The risk is an accumulated value of
       how the weather affects late blight germination/infection, sporulation and
@@ -1492,7 +1492,7 @@ models:
       warning_status_interpretation:
         - explanation: >-
             This model calculates accumulated blight risk from crop emergence.
-            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            'Risk Status' shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
             particular day). ’Infection risk’ shows the increasing accumulated
             risk.     This risk model guides the timing of the first fungicide
@@ -1505,8 +1505,8 @@ models:
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
-            emergence. Click on ‘Edit Parameters’, enter your crop emergence
-            date and ‘Save’.  When accumulated risk is less than 120 (green),
+            emergence. Click on 'Edit Parameters', enter your crop emergence
+            date and 'Save'.  When accumulated risk is less than 120 (green),
             the risk of blight is low. Between 120 and 150 (orange), there is a
             risk of blight if other risk factors (e.g. sources of blight
             inoculum or cultivar susceptibility) are high. Above 150 (red), the
@@ -1517,9 +1517,9 @@ models:
           recommended_action: Consult your adviser or other source of blight risk information.
         - explanation: >-
             This model calculates accumulated blight risk from crop emergence.
-            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            'Risk Status' shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
-            particular day). ’Infection risk’ shows the increasing accumulated
+            particular day). 'Infection risk' shows the increasing accumulated
             risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
@@ -1535,9 +1535,9 @@ models:
             of blight is low. Check the risk of blight regularly.  
         - explanation: >-
             This model calculates accumulated blight risk from crop emergence.
-            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            'Risk Status' shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
-            particular day). ’Infection risk’ shows the increasing accumulated
+            particular day). 'Infection risk' shows the increasing accumulated
             risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
@@ -1555,9 +1555,9 @@ models:
             of blight regularly.
         - explanation: >-
             This model calculates accumulated blight risk from crop emergence.
-            ‘Risk Status’ shows the accumulated risk reached on each day (i.e.
+            'Risk Status' shows the accumulated risk reached on each day (i.e.
             it does not show if the weather was high or low blight risk on that
-            particular day). ’Infection risk’ shows the increasing accumulated
+            particular day). 'Infection risk' shows the increasing accumulated
             risk.     This risk model guides the timing of the first fungicide
             application. When accumulated risk is less than 120 (green), the
             risk of blight is low. Between 120 and 150 (orange), there is a risk
@@ -1601,7 +1601,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/SEPAPIICOL/
-    purpose: ''
+    purpose: 'Estimates risk of Septoria apiicola'
     description: >-
       This model is based on a calculation of how leaf wetness periods influence
       infection of celery by Septoria apiicola in susceptible host plants.

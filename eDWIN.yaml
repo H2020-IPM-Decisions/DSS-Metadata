@@ -22,7 +22,6 @@ models:
     description_URL: https://www.edwin.gov.pl/euslugi
     purpose: Pest decision support platform available in Poland
     description: >-
-       
       The eDWIN "Virtual farm" allows users in Poland to obtain, collect and
       share information about the occurrence of pests in a given area and
       provides notifications about possible threats in the field.
@@ -45,7 +44,8 @@ models:
     citation: ''
     keywords: ''
     platform_validated: false
-    pests: MULTPEST
+    pests: 
+      - MULTPEST
     crops:
       - ALLCROPS
     authors: []

@@ -1537,59 +1537,48 @@ models:
           - modelId
       input_schema: |
         {
-          "type":"object",
-          "properties": { 
-              "modelId": {"type": "string", "pattern":"^DEROAG_Cereals$", "title": "Model Id", "default":"DEROAG_Cereals", "description":"Must be DEROAG_Cereals"},
-              "configParameters" :{  
-                "title":"Configuration parameters to run the threshold DSS",            
-                "type": "object",
-                "properties": {
-                  "startDate": {"type":"string","format": "date", "title": "Model Start Date", "default": "{CURRENT_YEAR}-01-01"},
-                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
-                  "observationClass":{
-                    "type":"array",
-                    "title": "Field Observations",
-                    "items":{ "$ref": "#/$defs/obs" }
-                    },
-                  "thresholdClass":{
-                    "type":"array",
-                    "title": "Thresholds",
-                    "maxItems": 3,
-                    "items":{ "$ref": "#/$defs/thres" },
-                    "defaults": [
-                        [{
-                            "startRange": "{CURRENT_YEAR}-01-01",
-                            "endRange": "{CURRENT_YEAR}-12-31"
-                            "threshold": 4,
-                            "risk": 4
-                        }]
-                    ]
+            "type": "object",
+            "properties": {
+               "modelId": {"type": "string","pattern": "^DEROAG_Cereals$","title": "Model Id", "default": "DEROAG_Cereals","description": "Must be DEROAG_Cereals"},
+                "configParameters": {
+                    "title": "Configuration parameters to run the threshold DSS",
+                    "type": "object",
+                    "properties": {
+                        "startDate": {"type": "string", "format": "date","title": "Model Start Date","default": "{CURRENT_YEAR}-01-01"},
+                        "endDate": {"type": "string","format": "date", "title": "Model End Date (YYYY-MM-DD)","default": "{CURRENT_YEAR}-12-31"},
+                        "observationClass": {"type": "array","title": "Field Observations","items": {"$ref": "#/$defs/obs"}},
+                        "thresholdClass": {
+                            "type": "array",
+                            "title": "Thresholds",
+                            "maxItems": 3,
+                            "items": {"$ref": "#/$defs/thres"},
+                            "defaults": [[{"startRange": "{CURRENT_YEAR}-01-01", "endRange": "{CURRENT_YEAR}-12-31","threshold": 4,"risk": 4}]]       
+                            }
+                        },
+                     "required": ["modelId", "configParameters"],
+                     "$defs": {
+                        "obs": {
+                            "type": "object",
+                            "required": ["date", "observation"],
+                            "properties": {
+                                "date": { "type": "string","format": "date","title": "Date of Observation"},
+                                "observation": {"type": "double","title": "Observation"}
+                                }
+                            },
+                        "thres": {
+                            "type": "object",
+                            "required": ["startRange", "endRange", "threshold", "risk"],
+                            "properties": {
+                                "startRange": {"type": "string","format": "date","title": "Start date for threshold"},
+                                "endRange": {"type": "string","format": "date","title": "End date for threshold"},
+                                "threshold": {"type": "double","title": "Pest threshold"},
+                                "risk": {"type": "int","title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)"
+                                }
+                            }
+                        }
                     }
-                  }, 
-                  "required": ["modelId", "configParameters"],
-                  "$defs": {
-                      "obs": {
-                          "type": "object",
-                          "required": ["date", "observation"],
-                          "properties":{
-                            "date": {"type":"string","format": "date", "title": "Date of Observation"},
-                            "observation": {"type":"double", "title": "Observation"}
-                          },
-                      },
-                       "thres": {
-                          "type": "object",
-                          "required": ["startRange", "endRange", "threshold", "risk"],
-                          "properties":{
-                            "startRange": {"type":"string","format": "date", "title": "Start date for threshold"},
-                            "endRange": {"type":"string","format": "date", "title": "End date for threshold"},
-                            "threshold": {"type":"double", "title": "Pest threshold"},
-                            "risk": {"type":"int", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)"}
-                           
-                          }                   
-                      }
-                  }
-              }
-          }
+                }
+            }
         }
     input:
       field_observation:
@@ -1597,7 +1586,7 @@ models:
           - DEROAG
     valid_spatial:
       countries:
-        - 
+        - GBR
       geoJSON: '{}'
     output:
       warning_status_interpretation:
@@ -1694,66 +1683,52 @@ models:
           - modelId
       input_schema: |
         {
-          "type":"object",
-          "properties": { 
-              "modelId": {"type": "string", "pattern":"^DEROAG_OSR$", "title": "Model Id", "default":"DEROAG_OSR", "description":"Must be DEROAG_OSR"},
-              "configParameters" :{  
-                "title":"Configuration parameters to run the threshold DSS",            
-                "type": "object",
-                "properties": {
-                  "startDate": {"type":"string","format": "date", "title": "Model Start Date", "default": "{CURRENT_YEAR}-01-01"},
-                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
-                  "observationClass":{
-                    "type":"array",
-                    "title": "Field Observations",
-                    "items":{ "$ref": "#/$defs/obs" }
-                    },
-                  "thresholdClass":{
-                    "type":"array",
-                    "title": "Thresholds",
-                    "maxItems": 3,
-                    "items":{ "$ref": "#/$defs/thres" }
-                    }
-                  }, 
+            "type": "object",
+            "properties": {
+               "modelId": {"type": "string","pattern": "^DEROAG_OSR$","title": "Model Id", "default": "DEROAG_OSR","description": "Must be DEROAG_OSR"},
+               "configParameters": {
+                  "title": "Configuration parameters to run the threshold DSS",
+                  "type": "object",
+                  "properties": {
+                     "startDate": {"type": "string", "format": "date","title": "Model Start Date","default": "{CURRENT_YEAR}-01-01"},
+                     "endDate": {"type": "string","format": "date", "title": "Model End Date (YYYY-MM-DD)","default": "{CURRENT_YEAR}-12-31"},
+                     "observationClass": {"type": "array","title": "Field Observations","items": {"$ref": "#/$defs/obs"}},
+                     "thresholdClass": {"type": "array","title": "Thresholds","maxItems": 3,"items": {"$ref": "#/$defs/thres"}      
+                     }
+                  },
                   "required": ["modelId", "configParameters"],
-                  "$defs": {
-                      "obs": {
-                          "type": "object",
-                          "required": ["date", "observation"],
-                          "properties":{
-                            "date": {"type":"string","format": "date", "title": "Date of Observation"},
-                            "observation": {"type":"double", "title": "Observation"}
-                          },
-                      },
-                       "thres": {
-                          "type": "object",
-                          "required": ["startRange", "endRange", "threshold", "risk"],
-                          "properties":{
-                            "startRange": {"type":"string","format": "date", "title": "Start date for threshold"},
-                            "endRange": {"type":"string","format": "date", "title": "End date for threshold"},
-                            "threshold": {"type":"double", "title": "Pest threshold"},
-                            "risk": {"type":"int", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)"}
-                          },
-                          "defaults": [
-                            [{
-                            "startRange": "{CURRENT_YEAR}-01-01",
-                            "endRange": "{CURRENT_YEAR}-12-31"
-                            "threshold": 1,
-                            "risk": 4
-                            }]
-                          ]
+                   "$defs": {
+                        "obs": {
+                             "type": "object",
+                             "required": ["date", "observation"],
+                             "properties": {
+                                 "date": { "type": "string","format": "date","title": "Date of Observation"},
+                                 "observation": {"type": "double","title": "Observation"}
+                                 }
+                             },
+                         "thres": {
+                             "type": "object",
+                             "required": ["startRange", "endRange", "threshold", "risk"],
+                             "properties": {
+                                 "startRange": {"type": "string","format": "date","title": "Start date for threshold"},
+                                 "endRange": {"type": "string","format": "date","title": "End date for threshold"},
+                                 "threshold": {"type": "double","title": "Pest threshold"},
+                                 "risk": {"type": "int","title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)"
+                                 },
+                             "defaults": [[{"startRange": "{CURRENT_YEAR}-01-01", "endRange": "{CURRENT_YEAR}-12-31","threshold": 1,"risk": 4}]] 
+                             }
+                         }
                       }
-                  }
-              }
-          }
-        }
+                 }
+             }
+         }
     input:
       field_observation:
         species:
           - DEROAG
     valid_spatial:
       countries:
-        - 
+        - GBR
       geoJSON: '{}'
     output:
       warning_status_interpretation:

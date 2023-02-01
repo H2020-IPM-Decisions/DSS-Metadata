@@ -6,13 +6,13 @@ logo_url: /rest/dss/logo/UofW.jpg
 languages:
   - English
 organization:
-  name: Warwick HRI
+  name: University of Warwick (Warwick Crop Centre)
   country: England
-  address: The University of Warwick
+  address: School of Life Sciences, University of Warwick, Wellesbourne Campus
   postal_code:  CV35 9EF
   city: Warwick
   email: cropcentre@warwick.ac.uk
-  url: https://warwick.ac.uk
+  url: https://warwick.ac.uk/fac/sci/lifesci/wcc/research/modelling/vegpests
 
 models:
   - name: Large Narcissus Fly Model
@@ -63,7 +63,7 @@ models:
       - name:  Richard Reader, Rosemary Collier (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
         email: Rosemary.Collier@warwick.ac.uk, (hannah.griffiths@adas.co.uk)
-        organization: Warwick HRI,  (RSK ADAS Ltd)
+        organization: University of Warwick,  (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/lamteq/api/LAMTEQ
@@ -95,7 +95,7 @@ models:
       weather_parameters:
         - parameter_code: 1002 #HOURLY AIR TEMPERATURE
           interval: 3600
-        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE but using air temp data for now
+        - parameter_code: 1102 #HOURLY SOIL TEMPERATURE
           interval: 3600
       weather_data_period_start:
         - determined_by: INPUT_SCHEMA_PROPERTY
@@ -272,7 +272,7 @@ models:
       - name:  Richard Reader, Rosemary Collier (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
         email: Rosemary.Collier@warwick.ac.uk, (hannah.griffiths@adas.co.uk)
-        organization: Warwick HRI,  (RSK ADAS Ltd)
+        organization: University of Warwick,  (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/meliae/api/MELIAE
@@ -304,7 +304,7 @@ models:
       weather_parameters:
         - parameter_code: 1002 #HOURLY AIR TEMPERATURE
           interval: 3600
-        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE - using air temp for now
+        - parameter_code: 1102 #HOURLY SOIL TEMPERATURE
           interval: 3600
       weather_data_period_start:
         - determined_by: INPUT_SCHEMA_PROPERTY
@@ -494,10 +494,10 @@ models:
     crops:
       - 1BRSG
     authors:
-      - name:  (Integrated to
+      - name: Richard Reader, Rosemary Collier (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
-        email: (hannah.griffiths@adas.co.uk)
-        organization:  (RSK ADAS Ltd)
+        email: Rosemary.Collier@warwick.ac.uk, (hannah.griffiths@adas.co.uk)
+        organization: University of Warwick,  (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/hylera/api/HYLERA
@@ -529,7 +529,7 @@ models:
       weather_parameters:
         - parameter_code: 1002 #HOURLY AIR TEMPERATURE
           interval: 3600
-        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE - using air temp currently
+        - parameter_code: 1102 #HOURLY SOIL TEMPERATURE
           interval: 3600
       weather_data_period_start:
         - determined_by: INPUT_SCHEMA_PROPERTY
@@ -694,7 +694,7 @@ models:
       - name:  Richard Reader, Rosemary Collier (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
         email: Rosemary.Collier@warwick.ac.uk, (hannah.griffiths@adas.co.uk)
-        organization: Warwick HRI,  (RSK ADAS Ltd)
+        organization: University of Warwick,  (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/hylera/api/PSILRO
@@ -726,7 +726,7 @@ models:
       weather_parameters:
         - parameter_code: 1002 #HOURLY AIR TEMPERATURE
           interval: 3600
-        - parameter_code: 1002 #HOURLY SOIL TEMPERATURE - using air temperatrue for the time being
+        - parameter_code: 1102 #HOURLY SOIL TEMPERATURE
           interval: 3600
       weather_data_period_start:
         - determined_by: INPUT_SCHEMA_PROPERTY

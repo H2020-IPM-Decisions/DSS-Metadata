@@ -1,25 +1,28 @@
 id: pl.gov.edwin
-version: 0.0.1
+version: 0.0.2
 name: eDWIN
 url: https://www.edwin.gov.pl/
-logo_url: ''
+logo_url: >-
+  https://drive.google.com/file/d/1AqMY9oT-2PTp6o9SuaAQgIzekvxehoNH/view?usp=sharing
 languages:
   - Polish
 organization:
-  name: WODR
+  name: >-
+    Institute of Bioorganic Chemistry of the Polish Academy of Sciences - 
+    Poznan Supercomputing and Networking Center
   country: Poland
-  address: Sieradzka 29
-  postal_code: '60-163 '
+  address: ul Z. Noskowskiego 12/14
+  postal_code: 61-704
   city: Poznań
-  email: Pomoc@edwin.gov.pl
-  url: https://www.wodr.poznan.pl/
+  email: office@man.poznan.pl
+  url: https://www.psnc.pl/
 models:
   - name: eDWIN Platform (Poland only)
     id: eDWIN_LINK
     version: 0.0.1
     type_of_decision: DSS Platform Poland
     type_of_output: Risk indication, pest observations, weather data
-    description_URL: https://www.edwin.gov.pl/euslugi
+    description_URL: https://www.edwin.gov.pl/
     purpose: Pest decision support platform available in Poland
     description: >-
       The eDWIN "Virtual farm" allows users in Poland to obtain, collect and

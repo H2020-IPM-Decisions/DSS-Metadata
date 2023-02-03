@@ -1617,9 +1617,10 @@ models:
                         }
                     }
                 },
-                "required": ["modelId", "configParameters"]
+               "required": ["startDate", "endDate", "observationClass"]
             }
-          }
+          },
+          "required": ["modelId", "configParameters"]
         }
     input:
       field_observation:
@@ -1804,9 +1805,10 @@ models:
                         }
                     }
                 },
-                "required": ["modelId", "configParameters"]
+               "required": ["startDate", "endDate", "observationClass"]
             }
-          }
+          },
+          "required": ["modelId", "configParameters"]
         }
     input:
       field_observation:

@@ -131,28 +131,8 @@ for file_name in files:
                     old_content[row[0]] = row
                 else:
                     old_header = row
-        # Check that structure is intact
-        # DO WE NEED TO DO THIS??
-        """
-        # Must be same length
-        validation_ok = True
-        if len(old_content) != len(props):
-            print("ERROR: new content for %s has %s properties, old content has %s." % (file_name, len(old_content), len(props)))
-            validation_ok = False
-        # Keysets must be identical
-        for p in old_content:
-            if props.get(p,None) is None:
-                print("ERROR: for file %s, %s exists, but is missing in the new content. Exiting." % (file_name, p))
-                validation_ok = False
-        for p in props:
-            if old_content.get(p, None) is None:
-                print("ERROR: In the new content, %s exists, but is missing in the file %s. Exiting." % (p, file_name))
-                validation_ok = False
-        if not validation_ok:
-            print("Exiting due to errors")
-            exit(1)
-        """
 
+        # Merging old CSV with new info from YAML
         # Delete props in old_content that are not part of the new content
         obsolete_props = []
         for p in old_content:

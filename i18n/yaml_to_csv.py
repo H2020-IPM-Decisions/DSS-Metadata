@@ -17,7 +17,7 @@
 
 # Extract translatable properties from YAML file and 
 # * Create a new CSV file OR
-# * Edit an existing CSV file
+# * Edit an existing CSV file. Using the one in csv_from_excel, writing the new one in csv_from_yaml
 #
 # Author: Tor-Einar Skog <tor-einar.skog@nibio.no>
 
@@ -45,6 +45,7 @@ for file_name in files:
 if not files_ok:
     exit(1)
 
+csv_indir = "csv_from_excel" # The latest version of CSV with translations (from previous release)
 csv_outdir = "csv_from_yaml"
 separator = ";"
 
@@ -88,31 +89,38 @@ for file_name in files:
                 if rp.get("id", None) is not None and rp["id"] != "":
                     props["%s.output.result_parameters.%s.title" % (model_path, rp["id"])] = make_csv_compatible_value(rp["title"])
                     props["%s.output.result_parameters.%s.description" % (model_path, rp["id"])] = make_csv_compatible_value(rp["description"])
-                
-            input_schema_flattened = flatten(json.loads(model["execution"]["input_schema"]),".")
-            for prop in input_schema_flattened:
-                if prop.endswith(props_of_interest):
-                    props["%s.execution.input_schema.%s" % (model_path,prop)] = input_schema_flattened[prop]
+            
+            try:
+                input_schema_flattened = flatten(json.loads(model["execution"]["input_schema"]),".")
+                for prop in input_schema_flattened:
+                    if prop.endswith(props_of_interest):
+                        props["%s.execution.input_schema.%s" % (model_path,prop)] = input_schema_flattened[prop]
+            except (ValueError, json.decoder.JSONDecodeError) as e:
+                pass
 
             props = dict(sorted(props.items()))  
-    
+
+    #print(props)
+    #exit(0)
+            
     # Writing to CSV
     # Check if file exists
-    csv_file_path = "%s/%s_TEST.csv" % (csv_outdir, dss_metadata["id"])
-    if not os.path.exists(csv_file_path):
+    csv_input_file_path = "%s/%s.csv" % (csv_indir, dss_metadata["id"])
+    csv_output_file_path = "%s/%s_TEST.csv" % (csv_outdir, dss_metadata["id"])
+    if not os.path.exists(csv_input_file_path):
         # New file
-        with open(csv_file_path, "w") as f:
+        with open(csv_output_file_path, "w") as f:
             csvwriter = csv.writer(f, delimiter=";",quotechar="\"")    
             csvwriter.writerow(["KEY","default"])
             for key in props:
                 csvwriter.writerow([key, props[key]])  
-        print("Produced new CSV file %s" % csv_file_path)
+        print("Produced new CSV file %s" % csv_output_file_path)
     else:
         print("File exists!")
         # Read existing file
         old_content = {}
         old_header = []
-        with open(csv_file_path, "r") as f:
+        with open(csv_input_file_path, "r") as f:
             csvreader = csv.reader(f, delimiter=";",quotechar="\"")
             for row in csvreader:
                 if row[0].lower() != "key":
@@ -120,7 +128,9 @@ for file_name in files:
                 else:
                     old_header = row
         # Check that structure is intact
-        # Must be same lenght
+        # DO WE NEED TO DO THIS??
+        """
+        # Must be same length
         validation_ok = True
         if len(old_content) != len(props):
             print("ERROR: new content for %s has %s properties, old content has %s." % (file_name, len(old_content), len(props)))
@@ -137,15 +147,30 @@ for file_name in files:
         if not validation_ok:
             print("Exiting due to errors")
             exit(1)
+        """
+
+        # Delete props in old_content that are not part of the new content
+        obsolete_props = []
+        for p in old_content:
+            if props.get(p) is None:
+                obsolete_props.append(p)
+        for obsolete_prop in obsolete_props:
+            old_content.pop(obsolete_prop)
+        # Add props that are part of new content and not currently in old_content
+        for p in props:
+            if old_content.get(p) is None:
+                old_content[p] = [p, props[p]]
         # Replacing contents of the default column
         for p in old_content:
             old_content[p][1] = props[p]
-        with open(csv_file_path, "w") as f:
+        with open(csv_output_file_path, "w") as f:
             csvwriter = csv.writer(f, delimiter=";",quotechar="\"")    
             csvwriter.writerow(old_header)
-            for key in old_content:
-                csvwriter.writerow(old_content[key]) 
-        print("Changed CSV file %s" % csv_file_path)
+            all_props = list(old_content)
+            all_props.sort
+            for prop in all_props:
+                csvwriter.writerow(old_content[prop]) 
+        print("Changed CSV file %s" % csv_output_file_path)
     #print(props)
 
         

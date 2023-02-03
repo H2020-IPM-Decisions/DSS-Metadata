@@ -110,7 +110,7 @@ for file_name in files:
     # Writing to CSV
     # Check if file exists
     csv_input_file_path = "%s/%s.csv" % (csv_indir, dss_metadata["id"])
-    csv_output_file_path = "%s/%s_TEST.csv" % (csv_outdir, dss_metadata["id"])
+    csv_output_file_path = "%s/%s.csv" % (csv_outdir, dss_metadata["id"])
     if not os.path.exists(csv_input_file_path):
         # New file
         with open(csv_output_file_path, "w") as f:

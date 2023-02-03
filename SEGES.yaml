@@ -337,16 +337,18 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: No risk
+          recommended_action: No action is needed
+        - explanation: A limited risk is recognized
+          recommended_action: Pay attention and revisit the fields in five days
+        - explanation: High risk of infection
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against powdery mildew
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1440,3 +1442,4 @@ models:
             The CPO's traffic light counterpart. 0 = No need for treatment. 1 =
             Treat if other problem needs treatment. 2 = Treat if other problem
             has treatmentId = 2 3 = Need for treatment
+

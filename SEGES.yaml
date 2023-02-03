@@ -348,7 +348,7 @@ models:
         - explanation: High risk of infection
           recommended_action: >-
             Treatment is recommended. Choose a product known to be effective
-            against powdery mildew
+            against powdery mildew. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -453,16 +453,22 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: No risk
+          recommended_action: No action needed
+        - explanation: >-
+            A limited risk is recognized, but level of disease is still below
+            the control threshold
+          recommended_action: >-
+            No need to take action yet, but pay attention and revisit the field
+            within a week
+        - explanation: High risk of infection is identified
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effctive
+            against brown rust. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -567,16 +573,22 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: 'No risk '
+          recommended_action: 'No action needed '
+        - explanation: >-
+            A limited risk is recognized, but level of disease is still below
+            the control threshold
+          recommended_action: >-
+            No need to take action yet, but pay attention and revisit the field
+            within a week
+        - explanation: High risk of infection is identified
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against net blotch. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -751,16 +763,20 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: No Risk
+          recommended_action: 'No action needed '
+        - explanation: ''
+          recommended_action: ''
+        - explanation: >-
+            High risk of infection is identified, which is expected to lead to
+            yield loss
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against aphids. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -871,16 +887,22 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: 'No risk '
+          recommended_action: 'No action needed '
+        - explanation: >-
+            A limited risk is recognized, but level of disease is still below
+            the control threshold
+          recommended_action: >-
+            No need to take action yet, but pay attention and revisit the field
+            within a week
+        - explanation: High risk of infection is identified
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against  powdery mildew. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -983,16 +1005,22 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: No risk
+          recommended_action: 'No action needed '
+        - explanation: >-
+            A limited risk is recognized, but level of disease is still below
+            the control threshold
+          recommended_action: >-
+            No need to take action yet, but pay attention and revisit the field
+            within a week
+        - explanation: High risk of infection is identified
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against yellow rust. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1100,16 +1128,24 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: 'No risk '
+          recommended_action: 'No action needed '
+        - explanation: >-
+            A limited risk is recognized, but risk is still evaluated to be
+            below the control threshold
+          recommended_action: >-
+            No need to take action yet, but pay attention and revisit the
+            weather data and field a week
+        - explanation: >-
+            High risk of infection is identified based on days with
+            precipitation
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against septoria diseases. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1212,16 +1248,22 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: 'No risk '
+          recommended_action: No action needed
+        - explanation: >-
+            A limited risk is recognized, but level of disease is still below
+            the control threshold
+          recommended_action: >-
+            No need to take action yet, but pay attention and revisit the field
+            within the following week
+        - explanation: High risk of infection is identified
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against brown rust. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1324,16 +1366,22 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: 'No risk '
+          recommended_action: 'No action needed '
+        - explanation: >-
+            A limited risk is recognized, but level of disease is still below
+            the control threshold
+          recommended_action: >-
+            No need to take action yet, but pay attention and revisit the field
+            within the next week
+        - explanation: High risk of infection is identified
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against tan spot. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1428,12 +1476,16 @@ models:
           recommended_action: TODO
         - explanation: TODO
           recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
-        - explanation: TODO
-          recommended_action: TODO
+        - explanation: 'no risk '
+          recommended_action: 'no action needed '
+        - explanation: ''
+          recommended_action: ''
+        - explanation: >-
+            High risk of infection is identified which could lead to a
+            significant yield loss
+          recommended_action: >-
+            Treatment is recommended. Choose a product known to be effective
+            against aphids. If uncertain contact your local advisor
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID

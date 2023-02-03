@@ -1601,30 +1601,41 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/SEPAPIICOL/
-    purpose: 'Estimates risk of Septoria apiicola'
-    description: >-
-      This model is based on a calculation of how leaf wetness periods influence
-      infection of celery by Septoria apiicola in susceptible host plants.
+    purpose: Infection risk alerts for Septoria apiicola in celery
+    description: >+
+      THE PEST: Septoria apiicola is the cause of late blight of celery and
+      celeriac.  Leaf spots with characteristic small dark pycnidia form on
+      leaves and stems. 
 
 
-      Forecasts of infection risk are given after a minimum of 12 consecutive
-      hours of leaf wetness. The wet periods are calculated from sensors placed
-      30 cm above ground. If such a sensor is not available, data from leaf
-      wetness sensors placed 2 m above ground are used.
+      THE DECISION: If inoculum is present, symptoms can be expected to appear
+      7-14 days after predicted infection risk. It is recommended to intensify
+      field inspections after periods of risk alerts.
 
 
-      The model is developed in Michigan, USA and published by Lacy, 1994.
+      THE MODEL: This model is based on a calculation of how leaf wetness
+      periods influence infection of celery by Septoria apiicola in susceptible
+      host plants.
 
 
-      It is generally assumed that this model has additional relevance for
-      Septoria petroselini in parsley.
+      THE PARAMETERS: Forecasts of infection risk are given after a minimum of
+      12 consecutive hours of leaf wetness. 
 
+      SOURCE: The model is developed in Michigan, USA and published by Lacy,
+      1994.
 
       SOURCE: 
 
-      ASSUMPTIONS: 
+      ASSUMPTIONS: In Norway, the model is recommended used as a guidance for
+      field inspections for early detection of symptoms. It is generally assumed
+      that this model has additional relevance for Septoria petroselini in
+      parsley.
 
-      REFERENCE: 
+      Reference: Lacy, 1994. Influence of wetness periods on infection of celery
+      by Septoria apiicola and use in timing sprays for control. Plant Disease
+      1994 78, 975-979,
+      https://www.cabdirect.org/cabdirect/abstract/19952304511 
+
     citation: null
     platform_validated: false
     pests:
@@ -1713,16 +1724,25 @@ models:
       geoJSON: '{}'
     output:
       warning_status_interpretation:
-        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+        - explanation: The model is not active
           recommended_action: ''
-        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+        - explanation: Data is missing
           recommended_action: ''
-        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
+        - explanation: No risk of infection.
           recommended_action: ''
-        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
-          recommended_action: ''
-        - explanation: "Green = No risk of infection.Yellow = Weather conditions favorable for infection risk. No known sources of inoculum in the region.Red\_= Risk of infection and infections of Septoria late blight has been reported in the nearby region. Disease reports and field inspections are performed in collaboration with advisors in the Norwegian Agricultural Advisory service."
-          recommended_action: ''
+        - explanation: >-
+            Weather conditions favorable for infection risk. No known sources of
+            inoculum in the region.
+          recommended_action: >-
+            Field inspections are recommended. Consult your advisory service.
+            Consider action to protect your crop based on observations in your
+            own field.
+        - explanation: >-
+            Weather conditions favorable for infection risk, and infections of
+            Septoria late blight have been reported in the nearby region. 
+          recommended_action: >-
+            Consult your advisory service. Consider action to protect your crop
+            based on observations in your own field.
       chart_groups:
         - id: G1
           title: Results

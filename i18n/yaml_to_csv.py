@@ -72,31 +72,35 @@ for file_name in files:
             # Basics
             for prop_label in ["name","purpose","description"]:
                 props["%s.%s" % (model_path, prop_label)] = make_csv_compatible_value(model[prop_label])
-            # Warning status interpretation (implicitly ordered list)
-            i=0
-            for wsi in model["output"]["warning_status_interpretation"]:
-                props["%s.output.warning_status_interpretation.%s.explanation" % (model_path,i)] = make_csv_compatible_value(wsi["explanation"])
-                props["%s.output.warning_status_interpretation.%s.recommended_action" % (model_path,i)] = make_csv_compatible_value(wsi["recommended_action"])
-                #print(wsi)
-                i = i+1
-            # Charts
-            props["%s.output.chart_heading" % model_path] = make_csv_compatible_value(model["output"].get("chart_heading",""))
-            for cg in model["output"]["chart_groups"]:
-                if cg.get("id", None) is not None and cg["id"] != "":
-                    props["%s.output.chart_groups.%s.title" % (model_path, cg["id"])] = make_csv_compatible_value(cg["title"])
-            # Result parameters
-            for rp in model["output"]["result_parameters"]:
-                if rp.get("id", None) is not None and rp["id"] != "":
-                    props["%s.output.result_parameters.%s.title" % (model_path, rp["id"])] = make_csv_compatible_value(rp["title"])
-                    props["%s.output.result_parameters.%s.description" % (model_path, rp["id"])] = make_csv_compatible_value(rp["description"])
             
-            try:
-                input_schema_flattened = flatten(json.loads(model["execution"]["input_schema"]),".")
-                for prop in input_schema_flattened:
-                    if prop.endswith(props_of_interest):
-                        props["%s.execution.input_schema.%s" % (model_path,prop)] = input_schema_flattened[prop]
-            except (ValueError, json.decoder.JSONDecodeError) as e:
-                pass
+            # If the model is a LINK, skip these
+            #print(model["execution"]["type"])
+            if model["execution"]["type"].lower() != "link":
+                # Warning status interpretation (implicitly ordered list)
+                i=0
+                for wsi in model["output"]["warning_status_interpretation"]:
+                    props["%s.output.warning_status_interpretation.%s.explanation" % (model_path,i)] = make_csv_compatible_value(wsi["explanation"])
+                    props["%s.output.warning_status_interpretation.%s.recommended_action" % (model_path,i)] = make_csv_compatible_value(wsi["recommended_action"])
+                    #print(wsi)
+                    i = i+1
+                # Charts
+                props["%s.output.chart_heading" % model_path] = make_csv_compatible_value(model["output"].get("chart_heading",""))
+                for cg in model["output"]["chart_groups"]:
+                    if cg.get("id", None) is not None and cg["id"] != "":
+                        props["%s.output.chart_groups.%s.title" % (model_path, cg["id"])] = make_csv_compatible_value(cg["title"])
+                # Result parameters
+                for rp in model["output"]["result_parameters"]:
+                    if rp.get("id", None) is not None and rp["id"] != "":
+                        props["%s.output.result_parameters.%s.title" % (model_path, rp["id"])] = make_csv_compatible_value(rp["title"])
+                        props["%s.output.result_parameters.%s.description" % (model_path, rp["id"])] = make_csv_compatible_value(rp["description"])
+                
+                try:
+                    input_schema_flattened = flatten(json.loads(model["execution"]["input_schema"]),".")
+                    for prop in input_schema_flattened:
+                        if prop.endswith(props_of_interest):
+                            props["%s.execution.input_schema.%s" % (model_path,prop)] = input_schema_flattened[prop]
+                except (ValueError, json.decoder.JSONDecodeError) as e:
+                    pass
 
             props = dict(sorted(props.items()))  
 

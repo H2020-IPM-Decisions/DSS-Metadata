@@ -1,0 +1,10 @@
+KEY;default
+AHDB_OSR_disease_forecasts.1_0.models.LEPTMA.description;"Temperature and rainfall information is used to simulate the development of Leptosphaeria maculans -- a key pathogen responsible for phoma leaf spot and phoma stem canker.
+The forecast predicts the date of the starting week when 10% of oilseed rape plants could potentially show symptoms of phoma leaf spot."
+AHDB_OSR_disease_forecasts.1_0.models.LEPTMA.name;Phoma leaf spot forecast
+AHDB_OSR_disease_forecasts.1_0.models.LEPTMA.purpose;Predicts the date when 10% of oilseed rape plants may show symptoms of phoma leaf spot
+AHDB_OSR_disease_forecasts.1_0.models.SCLESC.description;"Sclerotinia stem rot is usually the main disease to consider during the flowering stages of oilseed rape. There are 3 main risk factors: the presence of sclerotinia inoculum (spores), warm and humid conditions, and crops in flower.
+If spores are present and the crop is in flower, relative humidity must be above 80% and air temperatures above 7&deg;C for 23 continuous hours for the pathogen to infect the crop. This is what is predicted by the model."
+AHDB_OSR_disease_forecasts.1_0.models.SCLESC.name;Sclerotinia forecast
+AHDB_OSR_disease_forecasts.1_0.models.SCLESC.purpose;Predicts conditions in which infection by sclerotinia is possible
+AHDB_OSR_disease_forecasts.1_0.name;AHDB OSR disease forecasts

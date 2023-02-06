@@ -1,0 +1,54 @@
+KEY;default
+it.horta.dss.1_0.models.it_horta_dss_tomato.description;"Account required, charges apply. 
+
+Phytophthora infestans 
+THE DECISION: Guides application of protection strategies 
+THE MODEL: The tomato late blight model takes into account the main processes of the pathogen, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection in the field. 
+
+Alternaria solani
+THE DECISION: Application of protection strategies 
+THE MODEL: The tomato early blight model takes into account the main processes of the pathogen, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection in the field. 
+SOURCE: Horta 2023
+
+Pseudomonas syringae ; Xanthomonas campestris
+THE DECISION: Application of protection strategies 
+THE MODEL: The tomato bacterial speck model takes into account the main processes of P. syringae, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection in the field. 
+
+Xanthomonas campestris
+THE DECISION: Application of protection strategies 
+THE MODEL: The tomato bacterial speck model takes into account the main processes of X. campestris, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection in the field. 
+
+SOURCE: All models have been adapted/developed by Horta s.l.r
+https://www.horta-srl.it/en/
+"
+it.horta.dss.1_0.models.it_horta_dss_tomato.name;Horta Tomato DSS
+it.horta.dss.1_0.models.it_horta_dss_tomato.purpose;The models aim to predict disease risk to tomato crops
+it.horta.dss.1_0.models.it_horta_dss_wheat.description;"Account required, charges apply. 
+
+Puccinia striiformis
+THE DECISION: Guides application of protection strategies 
+THE MODEL: The yellow stripe rust model takes into account the main processes of the pathogen, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection in the field. 
+
+Puccinia triticina
+THE DECISION: Application of protection strategies 
+THE MODEL: The brown leaf rust model takes into account the main processes of the pathogen, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection in the field. 
+
+Fusarium graminearum
+THE DECISION: Application of protection strategies 
+THE MODEL: The fusarium head blight model takes into account the main processes of the pathogen, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection in the field. The model also provide the probability that the amount of mycotoxins exceeds the legal limit. 
+
+Zymoseptoria tritici
+THE DECISION: Application of protection strategies 
+THE MODEL: The septoria model takes into account the main processes of the pathogen, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection of peckled leaf spot (Septoria blotch) in the field. 
+
+Blumeria graminis f. sp. tritici
+THE DECISION: Application of protection strategies 
+THE MODEL: The septoria model takes into account the main processes of the pathogen, of the environment and of the phenological stage of the plant and elaborates all the input data in order to provide information on the risk of infection of powdery mildew of wheat in the field. 
+
+
+SOURCE: All models have been adapted/developed by Horta s.l.r
+https://www.horta-srl.it/en/
+"
+it.horta.dss.1_0.models.it_horta_dss_wheat.name;Horta Wheat DSS 
+it.horta.dss.1_0.models.it_horta_dss_wheat.purpose;The models aim to predict disease risk in wheat crops
+it.horta.dss.1_0.name;Horta-srl

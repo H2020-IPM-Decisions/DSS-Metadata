@@ -1,0 +1,10 @@
+KEY;default
+nl.wur.IWMPRAISE.1_0.models.IWMPRAISE_Tool.description;"THE PEST: Perennial and annual weed infestations can lead to direct and indirect damage to a wide range of outdoor crops. 
+THE DECISION: Integrated weed management tactics may affect one or more axes in the weed life cycle. They may prevent the establishment of seedlings from the seedbank (axis 1), reduce the impact established weeds have on the crop (axis 2), or reduce the weed seed/bud return to the soil (axis 3).
+THE IWMPRAISE TOOL: This tool supports users in identifying and understanding the IPM tools and tactics available to manage perennial and annual weeds in narrow row, broad row and perennial crops. Users can select/de-select options to identify the best approach for them. This tool is currently available in English only. 
+SOURCE: The IWMPRAISE TOOL was developed as part of the EU funded Horizon 2020 IWMPRAISE (727321), 2017-2022. It is designed for use across Europe.  
+REFERENCE: Kudsk et al (2020) Outlooks on Pest Management, 31, 152-159, https://doi.org/10.1564/v31_aug_02
+ "
+nl.wur.IWMPRAISE.1_0.models.IWMPRAISE_Tool.name;IWMPRAISE Weed Management Tool
+nl.wur.IWMPRAISE.1_0.models.IWMPRAISE_Tool.purpose;An online strategic tool for identifying suitable management practices for annual and perennial weeds in narrow row, broad row and perennial crops.
+nl.wur.IWMPRAISE.1_0.name;IWMPRAISE Integrated Weed Management Tool

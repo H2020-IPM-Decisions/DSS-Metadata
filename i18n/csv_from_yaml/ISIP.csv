@@ -1,0 +1,5 @@
+KEY;default
+ISIP.1_0.models.siggetreide.description;With weather-based forecast models for pests and diseases, you can calculate the occurrence of pathogens and periods  of high infestation pressure. Infestation controls and recommendations from the plant protection services also inform you about the  current situation in your region. In addition, programs are available for calculating plant development and choosing the most  suitable tillage system.
+ISIP.1_0.models.siggetreide.name;ISIP (Germany only)
+ISIP.1_0.models.siggetreide.purpose;To calculate the daily infection conditions for the most important leaf diseases in winter cereals and summer barley.
+ISIP.1_0.name;ISIP

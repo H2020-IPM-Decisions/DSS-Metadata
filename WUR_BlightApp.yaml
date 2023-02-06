@@ -21,8 +21,9 @@ models:
     type_of_decision: Short term operational advice on late blight control
     type_of_output: The DSS provides spraying advice for late blight control
     description_URL: https://www.farmmaps.net/en/Apps/Application/Late-Blight
-    purpose: >-
-      THE PEST: Late bllight is a fungal disease that can cause severe damage to
+    purpose: Provide optimized preventive potato late blight control strategy
+    description: >-
+      THE PEST: Late blight is a fungal disease that can cause severe damage to
       crop foliage and can also infect the tubers. 
 
       THE DECISION: Fungicides are used to control late blight. Spraying time

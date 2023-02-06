@@ -115,7 +115,7 @@ for file_name in files:
         # New file
         with open(csv_output_file_path, "w") as f:
             csvwriter = csv.writer(f, delimiter=";",quotechar="\"")    
-            csvwriter.writerow(["KEY","default"])
+            csvwriter.writerow(["KEY","default","dk","de","nl","sl","no","se","fi","lt","fr","it","gr","pl","es","pt"])
             for key in props:
                 csvwriter.writerow([key, props[key]])  
         print("Produced new CSV file %s" % csv_output_file_path)

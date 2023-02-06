@@ -24,6 +24,7 @@ models:
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://www.ipmwise.dk
+    purpose: Weed treatment advice
     description: >
       Dansk: Tilpas ukrudtsbekæmpelsen til netop dit behov som landmand eller
       konsulent. Bestem selv, hvor rene dine marker skal være - eller lad
@@ -113,6 +114,7 @@ models:
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://vipsugras.ipmwise.com
+    purpose: Weed treatment advice
     description: >
       VIPS-Ugras 2.0 er en ny versjon av VIPS-ugras. IPM Consult har utviklet
       systemet og som på dansk heter IPMwise. 
@@ -173,6 +175,7 @@ models:
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://www.ipmwise.es
+    purpose: Weed treatment advice
     description: >
       Adapta tu manejo de malas hierbas a tus necesidades como un agricultor
       profesional o un asesor de cultivos. 
@@ -252,6 +255,7 @@ models:
       Treatment advice, Efficacy of herbicides, Tank mixture composition,
       Efficacy tables
     description_URL: http://demo.ipmwise.com
+    purpose: Weed treatment advice
     description: >
       Adapt weed management to your needs as a professional farmer or crop
       advisor. Decide yourself, the level of weed control 

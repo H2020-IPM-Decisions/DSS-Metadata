@@ -85,11 +85,11 @@ for file_name in files:
                     i = i+1
                 # Charts
                 props["%s.output.chart_heading" % model_path] = make_csv_compatible_value(model["output"].get("chart_heading",""))
-                for cg in model["output"]["chart_groups"]:
+                for cg in model["output"].get("chart_groups",[]):
                     if cg.get("id", None) is not None and cg["id"] != "":
                         props["%s.output.chart_groups.%s.title" % (model_path, cg["id"])] = make_csv_compatible_value(cg["title"])
                 # Result parameters
-                for rp in model["output"]["result_parameters"]:
+                for rp in model["output"].get("result_parameters",[]):
                     if rp.get("id", None) is not None and rp["id"] != "":
                         props["%s.output.result_parameters.%s.title" % (model_path, rp["id"])] = make_csv_compatible_value(rp["title"])
                         props["%s.output.result_parameters.%s.description" % (model_path, rp["id"])] = make_csv_compatible_value(rp["description"])

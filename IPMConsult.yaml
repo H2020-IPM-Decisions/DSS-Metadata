@@ -132,7 +132,6 @@ models:
       optimal plantevernløsning for de fleste forhold 
 
       anbefaler vi at du bruker systemets effektkrav  
-    citation: null
     keywords: >-
       weeds, herbicides, tank mixtures, dose, recommendation, efficacy, cost,
       timing, weed density, weed size, weed species, crop growthstage, autumn
@@ -198,7 +197,6 @@ models:
       simular si en momentos anteriores o posteriores al actual es posible
       controlar tus infestaciones de malas hierbas.  
 
-      citation: null # Optional. Use the DOI as identifier (list)
     keywords: >-
       weeds, herbicides, tank mixtures, dose, recommendation, efficacy, cost,
       timing, weed density, weed size, weed species, crop growthstage, autumn
@@ -278,13 +276,10 @@ models:
       This demo has been restricted concerning the number of crops and weeds
       compared to the full Danish version.
 
-      citation: # Optional. Use the DOI as identifier (list)
-
-      - https://www.doi.org/10.1007/978-3-030-44402-0
-
-      - https://doi.org/10.1016/j.cropro.2014.06.012
-
-      - https://doi.org/10.1614/WT-D-13-00085.1
+    citation: >-
+      https://www.doi.org/10.1007/978-3-030-44402-0
+      https://doi.org/10.1016/j.cropro.2014.06.012
+      https://doi.org/10.1614/WT-D-13-00085.1
     keywords: >-
       weeds, herbicides, tank mixtures, dose, recommendation, efficacy, cost,
       timing, weed density, weed size, weed species, crop growthstage, autumn

@@ -15,7 +15,7 @@ organization:
   email: info@farmmaps.eu
   url: www.wur.nl
 models:
-  - name: 'DSS Potato Late Blight '
+  - name: DSS Potato Late Blight
     id: BlightApp
     version: '1'
     type_of_decision: Short term operational advice on late blight control
@@ -36,13 +36,13 @@ models:
 
       THE MODEL: Spray advice is based on analysis of continously updated, 500 x
       500  m high resolution weather data, on field level. Forecasted weather
-      data is used to identify potentioal in fection events in the near future.
+      data is used to identify potential infection events in the near future.
       Measured weather data is used to check for gaps in the crop's protection
       under the actual spray schedule. The BlightApp will recommend a preventive
       spray application shortly before predicted infection events. A curative
       spray application is recommended when infection just may have occurred.
       Eradicant spray applications are recommended when infection may have
-      occurred in the recent past. BlightAPp also takes into account the
+      occurred in the recent past. BlightApp also takes into account the
       sometimes rapid growth of a crop. Fast growth in combination with high
       disease pressure may require a shorter spray interval. The level of
       disease pressure can be increased or lowered according to the local

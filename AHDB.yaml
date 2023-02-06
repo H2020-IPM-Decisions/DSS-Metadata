@@ -102,7 +102,7 @@ models:
       phoma leaf spot
     description: >-
       Temperature and rainfall information is used to simulate the development
-      of Leptosphaeria maculans � a key pathogen responsible for phoma leaf spot
+      of Leptosphaeria maculans -- a key pathogen responsible for phoma leaf spot
       and phoma stem canker.
 
       The forecast predicts the date of the starting week when 10% of oilseed

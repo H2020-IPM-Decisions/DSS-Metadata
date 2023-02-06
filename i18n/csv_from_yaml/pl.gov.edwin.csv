@@ -1,4 +1,4 @@
-KEY;default
+KEY;default;dk;de;nl;sl;no;se;fi;lt;fr;it;gr;pl;es;pt
 pl.gov.edwin.0_0_2.models.eDWIN_LINK.description;"The eDWIN \""Virtual farm\"" allows users in Poland to obtain, collect and share information about the occurrence of pests in a given area and provides notifications about possible threats in the field.
 The eDWIN platform, also provides access to data from about 600 meteorological stations throughout Poland, monitoring (among others) temperature, air humidity, rainfall total and intensity, atmospheric pressure and wind speed and direction.
 The eDWIN advisory platform was created as part of the project \""Internet Platform for Advisory and Decision Support in Integrated Plant Protection\"". 

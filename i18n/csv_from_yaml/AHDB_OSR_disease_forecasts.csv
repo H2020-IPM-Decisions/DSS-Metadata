@@ -1,4 +1,4 @@
-KEY;default
+KEY;default;dk;de;nl;sl;no;se;fi;lt;fr;it;gr;pl;es;pt
 AHDB_OSR_disease_forecasts.1_0.models.LEPTMA.description;"Temperature and rainfall information is used to simulate the development of Leptosphaeria maculans -- a key pathogen responsible for phoma leaf spot and phoma stem canker.
 The forecast predicts the date of the starting week when 10% of oilseed rape plants could potentially show symptoms of phoma leaf spot."
 AHDB_OSR_disease_forecasts.1_0.models.LEPTMA.name;Phoma leaf spot forecast

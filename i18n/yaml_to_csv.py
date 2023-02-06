@@ -63,12 +63,12 @@ for file_name in files:
     with open(file_name) as f:
         dss_metadata = yaml.safe_load(f)
         ## Build the namespace / paths
-        base_path = "%s.%s" % (dss_metadata["id"], dss_metadata["version"].replace(".","_"))
+        base_path = "%s.%s" % (dss_metadata["id"], str(dss_metadata["version"]).replace(".","_"))
         props["%s.name" % base_path] = dss_metadata["name"]
         # Looping through DSS model list
         for model in dss_metadata["models"]:
             model_path = "%s.models.%s" % (base_path, model["id"])
-            print("Model path: %s" % model_path)
+            #print("Model path: %s" % model_path)
             # Basics
             for prop_label in ["name","purpose","description"]:
                 props["%s.%s" % (model_path, prop_label)] = make_csv_compatible_value(model[prop_label])

@@ -283,7 +283,7 @@ models:
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
       countries previously, but this might not have included testing of the
-      specific brown rust part.  This model may be of use in other countries in
+      specific mildew rust part.  This model may be of use in other countries in
       Northern Europe.
     citation: null
     keywords: none
@@ -589,8 +589,8 @@ models:
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
       countries previously, but this might not have included testing of the
-      specific brown rust part.  This model may be of use in other countries in
-      Northern Europe.
+      specific barley net blotch part.  This model may be of use in other
+      countries in Northern Europe.
     citation: null
     keywords: none
     platform_validated: true
@@ -1014,8 +1014,8 @@ models:
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
       countries previously, but this might not have included testing of the
-      specific powdery mildew part.   The model may be of use in other countries
-      in Northern Europe.
+      specific yellow rust part.   The model may be of use in other countries in
+      Northern Europe.
     citation: null
     keywords: none
     platform_validated: true
@@ -1169,8 +1169,8 @@ models:
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
       countries previously, but this might not have included testing of the
-      specific powdery mildew part.   The model may be of use in other countries
-      in Northern Europe.
+      specific Septoria part.   The model may be of use in other countries in
+      Northern Europe.
     citation: null
     keywords: none
     platform_validated: true
@@ -1329,8 +1329,8 @@ models:
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
       countries previously, but this might not have included testing of the
-      specific powdery mildew part.   The model may be of use in other countries
-      in Northern Europe.
+      specific brown rust part.   The model may be of use in other countries in
+      Northern Europe.
     citation: null
     keywords: none
     platform_validated: true
@@ -1480,8 +1480,8 @@ models:
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
       countries previously, but this might not have included testing of the
-      specific powdery mildew part.   The model may be of use in other countries
-      in Northern Europe.
+      specific tan spot part.   The model may be of use in other countries in
+      Northern Europe.
     citation: null
     keywords: none
     platform_validated: true
@@ -1702,3 +1702,4 @@ models:
             The CPO's traffic light counterpart. 0 = No need for treatment. 1 =
             Treat if other problem needs treatment. 2 = Treat if other problem
             has treatmentId = 2 3 = Need for treatment
+

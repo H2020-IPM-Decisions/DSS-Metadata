@@ -1535,6 +1535,7 @@ models:
       input_schema_categories:
         hidden:
           - modelId
+          - thresholdClass
       input_schema: |
         {
         "definitions": {
@@ -1555,20 +1556,8 @@ models:
            },
             "thresholds": {
                 "type": "object",
-                "required": ["startRange", "endRange", "threshold", "risk"],
+                "required": [ "threshold", "risk"],
                 "properties": {
-                    "startRange": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Start date for threshold",
-                        "default": "{CURRENT_YEAR}-01-01"            
-                    },
-                    "endRange": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "End date for threshold",
-                        "default": "{CURRENT_YEAR}-12-31"  
-                    },
                     "threshold": {
                         "type": "number",
                         "title": "Pest threshold",
@@ -1589,18 +1578,6 @@ models:
                 "title": "Configuration parameters to run the threshold DSS",
                 "type": "object",
                 "properties": {
-                    "startDate": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Model Start Date",
-                        "default": "{CURRENT_YEAR}-01-01"        
-                     },
-                    "endDate": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Model End Date (YYYY-MM-DD)",
-                        "default": "{CURRENT_YEAR}-12-31"    
-                     },
                     "observationClass": {
                         "type": "array",
                         "title": "Field Observations",
@@ -1614,10 +1591,16 @@ models:
                         "maxItems": 3,
                         "items": {
                             "$ref": "#/definitions/thresholds"      
-                        }
+                        },
+                        "default": [
+                            {
+                                "threshold": 4,
+                                "risk": 4
+                            }
+                        ]
                     }
                 },
-               "required": ["startDate", "endDate", "observationClass"]
+               "required": [ "observationClass"]
             }
           },
           "required": ["modelId", "configParameters"]
@@ -1723,6 +1706,7 @@ models:
       input_schema_categories:
         hidden:
           - modelId
+          - thresholdClass
       input_schema: |
         {
         "definitions": {
@@ -1743,20 +1727,9 @@ models:
            },
             "thresholds": {
                 "type": "object",
-                "required": ["startRange", "endRange", "threshold", "risk"],
+                "required": ["threshold", "risk"],
                 "properties": {
-                    "startRange": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Start date for threshold",
-                        "default": "{CURRENT_YEAR}-01-01"            
-                    },
-                    "endRange": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "End date for threshold",
-                        "default": "{CURRENT_YEAR}-12-31"  
-                    },
+
                     "threshold": {
                         "type": "number",
                         "title": "Pest threshold",
@@ -1777,18 +1750,6 @@ models:
                 "title": "Configuration parameters to run the threshold DSS",
                 "type": "object",
                 "properties": {
-                    "startDate": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Model Start Date",
-                        "default": "{CURRENT_YEAR}-01-01"        
-                     },
-                    "endDate": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Model End Date (YYYY-MM-DD)",
-                        "default": "{CURRENT_YEAR}-12-31"    
-                     },
                     "observationClass": {
                         "type": "array",
                         "title": "Field Observations",
@@ -1802,10 +1763,16 @@ models:
                         "maxItems": 3,
                         "items": {
                             "$ref": "#/definitions/thresholds"      
-                        }
+                        },
+                        "default": [
+                            {
+                            "threshold": 1,
+                            "risk": 4
+                            }
+                        ]
                     }
                 },
-               "required": ["startDate", "endDate", "observationClass"]
+               "required": [ "observationClass"]
             }
           },
           "required": ["modelId", "configParameters"]
@@ -1845,17 +1812,23 @@ models:
           result_parameter_ids:
             - Observation
             - FirstThreshold
-            - SecondThreshold
-            - ThirdThreshold
       result_parameters:
-        - id: Third_Instar_Count
-          title: Larval Batches Surviving to Third Instar.
-          description: Number of larval batches surviving to third instar.
+        - id: Observation
+          title: Observation
+          description: Observation
           chart_info:
             default_visible: true
             unit: count
             chart_type: line
             color: '#0000ff'
+        - id: FirstThreshold
+          title: Threshold
+          description: Threshold
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#ffa500'
 ####
   - name: IPM Tool for crop planning
     id: IPMTOOL

@@ -60,8 +60,8 @@ for file_name in files:
         path_elements = base_file_name.split("/")
         base_file_name = path_elements[len(path_elements)-1]
         path = "/".join(path_elements[0:len(path_elements)-1])
-        #print (path)
-        #print(base_file_name)
+        print (path)
+        print(base_file_name)
         props_all = {}
         for lang in rowreader.fieldnames[1:]:
             props_for_lang = {}

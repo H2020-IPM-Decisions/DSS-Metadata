@@ -88,7 +88,7 @@ models:
                   "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
                 }
               }
-          },
+          }
           "required": ["modelId"]
         }
     input:

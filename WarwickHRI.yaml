@@ -85,10 +85,10 @@ models:
                 "type": "object",
                 "properties": {
                   "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
-                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"}
                 }
               }
-          }
+          },
           "required": ["modelId"]
         }
     input:
@@ -294,7 +294,7 @@ models:
                 "type": "object",
                 "properties": {
                   "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
-                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"}
                 }
               }
           },
@@ -448,7 +448,7 @@ models:
       tunnel into them, causing damage.  These larvae form pupae, which lead to the emergence of a new generation of adults.  Depending on the local
       climate the number of cabbage root fly generations and their timing can differ.  When the weather is particularly hot, cabbage root fly pupae 
       may aestivate.  In some areas there is an additional biotype of cabbage root fly which has an extended pupal diapause and emerges later in the spring. 
-      We call the two biotypes �early emerging� and �late emerging�.  
+      We call the two biotypes "early emerging" and "late emerging".  
 
       THE DECISION: The model predicts the timing of adult emergence and egg-laying throughout the year, enabling users to undertake targeted monitoring 
       and/or mitigating actions to reduce the risk of damage to the crop.
@@ -519,7 +519,7 @@ models:
                 "type": "object",
                 "properties": {
                   "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
-                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"}
                 }
               }
           },
@@ -716,7 +716,7 @@ models:
                 "type": "object",
                 "properties": {
                   "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-02-01"},
-                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"}
                 }
               }
           },

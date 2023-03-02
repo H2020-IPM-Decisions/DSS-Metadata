@@ -48,9 +48,9 @@ models:
     keywords: ''
     platform_validated: false
     pests: 
-      - MULTPEST
+      - XPESTS
     crops:
-      - ALLCROPS
+      - XCROPS
     authors: []
     execution:
       type: LINK

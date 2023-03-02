@@ -30,7 +30,8 @@ models:
     citation: ''
     keywords: null
     platform_validated: true
-    pests: []
+    pests: 
+      - XPESTS
     crops:
       - TRZAW
       - HORVW

@@ -52,7 +52,7 @@ models:
     pests:
       - WEEDSP
     crops:
-      - ALLCROPS
+      - XCROPS
     authors: []
     execution:
       type: Link

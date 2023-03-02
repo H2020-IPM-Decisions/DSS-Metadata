@@ -53,7 +53,7 @@ models:
     pests:
       - 3WEEDT
     crops:
-      - ALLCROPS
+      - XCROPS
     authors:
       - name: Marleen Riemens
         email: marleen.riemens@wur.nl

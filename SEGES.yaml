@@ -310,7 +310,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Barley (Spring barley)","value":10},
+            "CropId": {"type":"number","title":"Barley (Spring barley)","default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to Mildew","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%", "75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -463,7 +463,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Barley (Spring barley)","value":10},
+            "CropId": {"type":"number","title":"Barley (Spring barley)","default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to brown rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%", "75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -616,7 +616,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Barley (Spring barley)","value":10},
+            "CropId": {"type":"number","title":"Barley (Spring barley)","default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to barley net blotch","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -750,7 +750,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Barley (Spring barley)","value":10},
+            "CropId": {"type":"number","title":"Barley (Spring barley)", "default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to aphids","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0-24%","25-39%","40-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -889,7 +889,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","value":30},
+            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to mildew","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1041,7 +1041,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","value":30},
+            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to yellow rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1196,7 +1196,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","value":30},
+            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to Septoria","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0-10%","11-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1356,7 +1356,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","value":30},
+            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to brown rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1507,7 +1507,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","value":30},
+            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to tan spot","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1637,7 +1637,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","value":30},
+            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to aphids","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0-24%","25-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1702,4 +1702,3 @@ models:
             The CPO's traffic light counterpart. 0 = No need for treatment. 1 =
             Treat if other problem needs treatment. 2 = Treat if other problem
             has treatmentId = 2 3 = Need for treatment
-

@@ -581,6 +581,40 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#0033cc'
+        - id: MAMESTRABR.SWARMING_START
+          title: DD Threshold for start of swarming
+          description: DD Threshold for start of swarming
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#00993'
+        - id: MAMESTRABR.EGG_DEPOSIT_START
+          title: DD Threshold for egg deposits
+          description: DD Threshold for start of egg deposits
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ffff00'
+        - id: MAMESTRABR.TREATMENT_OPTIMUM
+          title: DD Threshold for optimal treatment time
+          description: DD Threshold for optimal treatment time
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#cc3300'
+        - id: MAMESTRABR.TREATMENT_LATE
+          title: DD Threshold for beyond optimal time to treat
+          description: DD Threshold for beyond optimal time to treat
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ffff00'
+            
+
   - name: Carrot rust fly observation model
     id: PSILAROBSE
     version: '1.0'

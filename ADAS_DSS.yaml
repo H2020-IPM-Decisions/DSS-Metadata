@@ -246,7 +246,7 @@ models:
     pests:
       - SITDMO
     crops:
-      - TRZAX
+      - TRZAW
       - TRZAS
       - SECCS
       - SECCW
@@ -593,7 +593,7 @@ models:
     pests:
       - HAPDMA
     crops:
-      - TRZAX
+      - TRZAW
       - TRZAS
       - SECCS
       - HORVW

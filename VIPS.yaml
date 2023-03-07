@@ -1272,6 +1272,11 @@ models:
           description: >-
             When the calculated risk exceeds this threshold, the infection risk
             changes from low risk to some risk
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#ffff00'
         - id: THRESHOLD_HIGH
           title: Threshold high infection risk
           description: >-

@@ -1167,14 +1167,6 @@ models:
             unit: ''
             chart_type: line
             color: '#ff0000'
-        - id: Baseline
-          title: ''
-          description: ''
-          chart_info:
-            default_visible: false
-            unit: ''
-            chart_type: line
-            color: '#000000'
         - id: Proportion_1
           title: Proportion of day where temperature exceeds 11 degrees C
           description: Proportion of day where temperature exceeds 11 degrees C

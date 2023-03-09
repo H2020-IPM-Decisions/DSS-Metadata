@@ -306,19 +306,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Barley (Spring barley)","default":10},
+            "ProblemId": {"type":"integer","title":"Mildew","default":40101},
+            "CropId": {"type":"integer","title":"Barley (Spring barley)","default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to Mildew","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%", "75-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%", "75-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -326,10 +328,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -465,19 +467,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Barley (Spring barley)","default":10},
+            "ProblemId": {"type":"integer","title":"Brown rust","default":40108},
+            "CropId": {"type":"integer","title":"Barley (Spring barley)","default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to brown rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%", "75-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%", "75-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -485,10 +489,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -624,19 +628,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Barley (Spring barley)","default":10},
+            "ProblemId": {"type":"integer","title":"Barley net blotch","default":40102},
+            "CropId": {"type":"integer","title":"Barley (Spring barley)","default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to barley net blotch","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -644,10 +650,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -745,7 +751,7 @@ models:
       incidence of aphids attacked main stems, based on scouting the crop. 
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - 1APHIF
     crops:
@@ -784,10 +790,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -909,19 +915,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
+            "ProblemId": {"type":"integer","title":"Mildew","default":40101},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to mildew","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -929,10 +937,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -1067,19 +1075,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
+            "ProblemId": {"type":"integer","title":"Yellow rust","default":40110},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to yellow rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -1087,10 +1097,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -1228,19 +1238,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
+            "ProblemId": {"type":"integer","title":"Mildew","default":40104},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to Septoria","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0-10%","11-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0-10%","11-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -1248,10 +1260,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -1394,19 +1406,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
+            "ProblemId": {"type":"integer","title":"Brown rust","default":40108},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to brown rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -1414,10 +1428,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -1551,19 +1565,21 @@ models:
       input_schema_categories:
         hidden:
           - CropId
+          - ProblemId
       input_schema: |
         {
           "type":"object",
           "properties": {
-            "CropId": {"type":"number","title":"Wheat (spring wheat)","default":30},
+            "ProblemId": {"type":"integer","title":"Tan spot","default":40113},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to tan spot","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
-            "GrowthStage": {"type": "number","title":"Current growth stage (BBCH code)"},
-            "Severity": {"type":"number", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
+            "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
+            "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
             "WeatherData": {
               "$ref": "https://ipmdecisions.nibio.no/api/wx/rest/schema/weatherdata"
             }
           },
-          "required": ["CropId","Susceptibility","GrowthStage","Severity"]
+          "required": ["CropId","ProblemId","Susceptibility","GrowthStage","Severity"]
         }
     input:
       weather_parameters:
@@ -1571,10 +1587,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR
@@ -1668,7 +1684,7 @@ models:
       observations and update the risk. 
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - 1APHIF
     crops:
@@ -1707,10 +1723,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-01-01"
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: "{CURRENT_YEAR}-12-31"
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - NOR

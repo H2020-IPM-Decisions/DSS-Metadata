@@ -55,7 +55,7 @@ models:
       - XCROPS
     authors: []
     execution:
-      type: Link
+      type: LINK
       endpoint: ''
       form_method: ''
       content_type: ''

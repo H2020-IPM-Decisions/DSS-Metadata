@@ -62,7 +62,7 @@ models:
         email: timo.sprangers@wur.nl
         organization: Wageningen University and Research
     execution:
-      type: Link
+      type: LINK
       endpoint: ''
       form_method: ''
       content_type: ''

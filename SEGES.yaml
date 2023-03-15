@@ -287,7 +287,7 @@ models:
       Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - ERYSGR
     crops:
@@ -448,7 +448,7 @@ models:
       Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - PUCCHD
     crops:
@@ -609,7 +609,7 @@ models:
       countries in Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - PYRNTE
     crops:
@@ -896,7 +896,7 @@ models:
       in Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - ERYSGR
     crops:
@@ -1056,7 +1056,7 @@ models:
       Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - PUCCST
     crops:
@@ -1219,7 +1219,7 @@ models:
       Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - SEPTTR
     crops:
@@ -1387,7 +1387,7 @@ models:
       Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - PUCCRE
     crops:
@@ -1546,7 +1546,7 @@ models:
       Northern Europe.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - PYRNTR
     crops:

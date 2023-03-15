@@ -1143,7 +1143,6 @@ models:
           result_parameter_ids:
             - T-Sum
             - ThresholdLine
-            - Baseline
         - id: G2
           title: Proportion of Day
           result_parameter_ids:
@@ -1527,7 +1526,7 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-          - thresholdClass
+          - configParameters.thresholdClass
       input_schema: |
         {
         "definitions": {
@@ -1545,23 +1544,7 @@ models:
                         "title": "Observation"         
                    }
                }
-           },
-            "thresholds": {
-                "type": "object",
-                "required": [ "threshold", "risk"],
-                "properties": {
-                    "threshold": {
-                        "type": "number",
-                        "title": "Pest threshold",
-                        "default": 4       
-                    },
-                    "risk": {
-                        "type": "integer",
-                        "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)",
-                        "default": 4      
-                    }
-               }
-            }
+            }           
         },
         "type": "object",
         "properties": {
@@ -1578,19 +1561,16 @@ models:
                         }
                     },
                     "thresholdClass": {
-                        "type": "array",
+                        "type": "object",
                         "title": "Thresholds",
-                        "maxItems": 3,
-                        "items": {
-                            "$ref": "#/definitions/thresholds"      
-                        },
-                        "default": [
-                            {
-                                "threshold": 4,
-                                "risk": 4
-                            }
-                        ]
+                        "required": [ "threshold", "risk"],
+                        "properties": {
+                          "threshold": {"type": "number", "title": "Pest threshold", "default": 4}  ,     
+                          "risk": {"type": "integer", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)","default": 4}      
+                        }
                     }
+
+                    
                 },
                "required": [ "observationClass"]
             }
@@ -1698,7 +1678,7 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-          - thresholdClass
+          - configParameters.thresholdClass
       input_schema: |
         {
         "definitions": {
@@ -1716,25 +1696,8 @@ models:
                         "title": "Observation"         
                    }
                }
-           },
-            "thresholds": {
-                "type": "object",
-                "required": ["threshold", "risk"],
-                "properties": {
-
-                    "threshold": {
-                        "type": "number",
-                        "title": "Pest threshold",
-                        "default": 1      
-                    },
-                    "risk": {
-                        "type": "integer",
-                        "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)",
-                        "default": 4      
-                    }
-                 }
-             }
-          },
+            }
+         },
          "type": "object",
          "properties": {
             "modelId": {"type": "string","pattern": "^DEROAG_OSR$","title": "Model Id", "default": "DEROAG_OSR","description": "Must be DEROAG_OSR"},
@@ -1750,18 +1713,14 @@ models:
                         }
                     },
                     "thresholdClass": {
-                        "type": "array",
+                        "type": "object",
                         "title": "Thresholds",
-                        "maxItems": 3,
-                        "items": {
-                            "$ref": "#/definitions/thresholds"      
-                        },
-                        "default": [
-                            {
-                            "threshold": 1,
-                            "risk": 4
-                            }
-                        ]
+                        "required": [ "threshold", "risk"],
+                        "properties": {
+                          "threshold": {"type": "number", "title": "Pest threshold", "default": 1}  ,     
+                          "risk": {"type": "integer", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)","default": 4}      
+                        }
+
                     }
                 },
                "required": [ "observationClass"]

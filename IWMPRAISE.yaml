@@ -63,7 +63,7 @@ models:
         organization: Wageningen University and Research
     execution:
       type: LINK
-      endpoint: ''
+      endpoint: https://framework.iwmtool.eu/
       form_method: ''
       content_type: ''
       input_schema_categories:

@@ -1805,7 +1805,7 @@ models:
 
     citation: ''
     keywords: null
-    platform_validated: true
+    platform_validated: false
     pests:
       - SITDMO
       - MELIAE

@@ -130,6 +130,7 @@ models:
     valid_spatial:
       countries:
         - GBR
+        - IRL
         - BEL
         - LUX
         - NLD

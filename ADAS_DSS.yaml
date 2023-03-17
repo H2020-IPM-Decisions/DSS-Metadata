@@ -1538,11 +1538,11 @@ models:
                     "date": {
                         "type": "string",
                         "format": "date",
-                        "title": "Date of Observation"               
+                        "title": "Date of Observation (N.B. there should be only one observation per day)"               
                     },
                     "observation": {
                         "type": "number",
-                        "title": "Observation"         
+                        "title": "Observation (average number of slugs per trap)"         
                    }
                }
             }           
@@ -1690,11 +1690,11 @@ models:
                     "date": {
                         "type": "string",
                         "format": "date",
-                        "title": "Date of Observation"               
+                        "title": "Date of Observation (N.B. there should be only one observation per day)"               
                     },
                     "observation": {
                         "type": "number",
-                        "title": "Observation"         
+                        "title": "Observation (average number of slugs per trap)"         
                    }
                }
             }

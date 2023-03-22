@@ -78,7 +78,7 @@ models:
       https://www.horta-srl.it/en/
     citation: ''
     keywords: ''
-    platform_validated: false
+    platform_validated: true
     pests:
       - PHYTIN
       - ALTETP
@@ -194,7 +194,7 @@ models:
       https://www.horta-srl.it/en/
     citation: ''
     keywords: ''
-    platform_validated: false
+    platform_validated: true
     pests:
       - PUCCST
       - PUCCRT

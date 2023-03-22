@@ -75,6 +75,7 @@ models:
       sown crops, spring sown crops, IPM, IWM, efficacy tables, Field-Specific
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
+    platform_validated: true
     pests:
       - WEEDSP
     crops:
@@ -138,6 +139,7 @@ models:
       sown crops, spring sown crops, IPM, IWM, efficacy tables, Field-Specific
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
+    platform_validated: true
     pests:
       - WEEDSP
     crops:
@@ -203,6 +205,7 @@ models:
       sown crops, spring sown crops, IPM, IWM, efficacy tables, Field-Specific
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
+    platform_validated: true
     pests:
       - WEEDSP
     crops:
@@ -286,6 +289,7 @@ models:
       sown crops, spring sown crops, IPM, IWM, efficacy tables, Field-Specific
       Crop Management, Integrated weed control, Legislative framework, Crop
       Protection Online, Dose-response curves
+    platform_validated: true
     pests:
       - WEEDSP
     crops:

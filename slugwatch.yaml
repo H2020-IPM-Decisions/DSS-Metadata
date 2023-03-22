@@ -48,7 +48,7 @@ models:
       activity. Please refer to appropriate economic thresholds for treatment. 
     citation: ''
     keywords: ''
-    platform_validated: false
+    platform_validated: true
     pests:
       - WEEDSP
     crops:

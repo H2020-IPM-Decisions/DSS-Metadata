@@ -46,7 +46,7 @@ models:
       https://www.edwin.gov.pl/euslugi/wirtualne-gospodarstwo
     citation: ''
     keywords: ''
-    platform_validated: false
+    platform_validated: true
     pests: 
       - XPESTS
     crops:

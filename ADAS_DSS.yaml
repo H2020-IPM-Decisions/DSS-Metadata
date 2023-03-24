@@ -451,7 +451,7 @@ models:
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
-            "growthStage": {"type": "number", "description":"Input current crop growth stage, using the BBCH System. Only crops at growth stage 51-59 (Inflorescence/flower-bud emergence) are vulnerable to damage by pollen beetle"},
+            "growthStage": {"type": "number", "default": "0","description":"Input current crop growth stage, using the BBCH System. Only crops at growth stage 51-59 (Inflorescence/flower-bud emergence) are vulnerable to damage by pollen beetle"},
             "optionalData" :{   
               "title":"Optional parameters for the DSS", 
               "type": "object",

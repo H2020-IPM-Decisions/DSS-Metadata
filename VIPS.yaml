@@ -1335,7 +1335,7 @@ models:
       early blight (Alternaria solani) in Denmark. Crop Protection, 102,
       118-128.
     citation: null
-    platform_validated: false
+    platform_validated: true
     pests:
       - ALTESO
     crops:

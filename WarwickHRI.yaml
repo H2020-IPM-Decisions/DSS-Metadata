@@ -100,6 +100,7 @@ models:
           interval: 3600
         - parameter_code: 1102 #HOURLY SOIL TEMPERATURE
           interval: 3600
+          is_required: false
       weather_data_period_start:
         - determined_by: FIXED_DATE
           value: '{CURRENT_YEAR}-02-01'
@@ -297,6 +298,7 @@ models:
           interval: 3600
         - parameter_code: 1102 #HOURLY SOIL TEMPERATURE
           interval: 3600
+          is_required: false
       weather_data_period_start:
         - determined_by: FIXED_DATE
           value: '{CURRENT_YEAR}-02-01'

@@ -90,6 +90,7 @@ models:
       weather_parameters:
         - parameter_code: 1002
           interval: 86400
+          is_required: true
       weather_data_period_start:
         - determined_by: INPUT_SCHEMA_PROPERTY
           value: configParameters.timeStart

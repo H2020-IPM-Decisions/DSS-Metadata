@@ -47,7 +47,7 @@ models:
       REGION: This DSS was adapted from work carried out in the UK
 
       ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a 
-      limited number of locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+      limited number of locations; please select "Edit Parameters" and select the most appropriate location for your farm.
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
       REFERENCE: 
@@ -122,13 +122,13 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm. 
+            locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm. 
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity. 
           recommended_action: >-
             The risk of 1) emergence, 2) egg hatching and/or 3) egg laying, is low.  Continue to review the risk.  
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm. 
+            locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) emergence, 2) egg laying and/or 3) egg hatching, is increasing. Increase monitoring efforts in 
@@ -137,7 +137,7 @@ models:
             please refer to the accompanying plots, which illustrate when a threshold has been surpassed. 
         - explanation: >- 
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm. 
+            locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) emergence, 2) egg hatching and/or 3) egg laying, is high. Monitor vulnerable crops for in-field 
@@ -252,7 +252,7 @@ models:
       REGION: This DSS was adapted from work carried out in the UK
 
       ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations; 
-      please select ‘Edit Parameters’ and select the most appropriate location for your farm. 
+      please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm. 
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
       REFERENCE: Phelps, K., Collier, R.H., Reader, R.J. & Finch, S. (1993).  Monte Carlo simulation method for
@@ -329,14 +329,14 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number 
-            of locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm. 
+            of locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm. 
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
           recommended_action: >-
             The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, or 3) dispersal of summer adults, 
             is low.  Continue to review the risk.    
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number 
-            of locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm. 
+            of locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, and/or 3) dispersal of summer adults,
@@ -346,7 +346,7 @@ models:
             please refer to the accompanying plots, which illustrate when a threshold has been surpassed.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number 
-            of locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm. 
+            of locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, and/or 3) dispersal of summer adults,
@@ -460,7 +460,7 @@ models:
       REGION: This DSS was adapted from work carried out in the UK
 
       ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations;
-      please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+      please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm.
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
       REFERENCE: Collier, R.H. & Finch, S. (1983).  
@@ -550,13 +550,13 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited 
-            number of locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+            number of locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm.
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
           recommended_action: >-
             The risk of 1) emergence, and/or  2) egg laying, is low.  Continue to review the risk.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited 
-            number of locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+            number of locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or  2) egg laying, is increasing. Increase monitoring efforts in vulnerable crops. 
@@ -565,7 +565,7 @@ models:
             threshold has been surpassed.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited 
-            number of locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+            number of locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or  2) egg laying, is high. Monitor vulnerable crops for in-field activity.
@@ -754,7 +754,7 @@ models:
 
       REGION: This DSS was adapted from work carried out in the UK
 
-      ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations; please select ‘Edit Parameters’ 
+      ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations; please select ï¿½Edit Parametersï¿½ 
       and select the most appropriate location for your farm.
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
@@ -835,13 +835,13 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+            locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm.
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
           recommended_action: >-
             The risk of 1) emergence, and/or 2) egg laying, is low. Continue to review the risk. 
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+            locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or 2) egg laying, is increasing. Increase monitoring efforts in vulnerable crops.
@@ -850,7 +850,7 @@ models:
             which illustrate when a threshold has been surpassed.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select ‘Edit Parameters’ and select the most appropriate location for your farm.
+            locations; please select ï¿½Edit Parametersï¿½ and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or 2) egg laying, is high.  Monitor vulnerable crops for in-field activity.

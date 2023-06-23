@@ -15,8 +15,8 @@ organization:
   url: https://warwick.ac.uk/fac/sci/lifesci/wcc/research/modelling/vegpests
 
 models:
-  - name: Large Narcissus Fly Model
-    id: LAMTEQ
+  - name: Large Narcissus Fly Model (Warwick HRI)
+    id: LAMTEQ_WarwickHRI
     version: 0.0.1
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
@@ -47,7 +47,7 @@ models:
       REGION: This DSS was adapted from work carried out in the UK
 
       ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a 
-      limited number of locations; please select "Edit Parameters" and select the most appropriate location for your farm.
+      limited number of locations; please select 'Edit Parameters' and select the most appropriate location for your farm.
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
       REFERENCE: 
@@ -56,7 +56,7 @@ models:
       Monte Carlo simulation method for forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - LAMTEQ
     crops:
@@ -78,14 +78,14 @@ models:
         {
           "type":"object",
           "properties": { 
-              "modelId": {"type": "string", "pattern":"^LAMTEQ$", "title": "Model Id", "default":"LAMTEQ", "description":"Must be LAMTEQ"},
+              "modelId": {"type": "string", "pattern":"^LAMTEQ_WarwickHRI$", "title": "Model Id", "default":"LAMTEQ_WarwickHRI", "description":"Must be LAMTEQ_WarwickHRI"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
               },
               "databaseLocation": {
                 "type":"string",
                 "title": "Select a location of historic weather data appropriate for your farm",
-                "default": "UK - Cornwall - Newquay",
+                "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
@@ -122,13 +122,13 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select �Edit Parameters� and select the most appropriate location for your farm. 
+            locations; please select 'Edit Parameters' and select the most appropriate location for your farm. 
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity. 
           recommended_action: >-
             The risk of 1) emergence, 2) egg hatching and/or 3) egg laying, is low.  Continue to review the risk.  
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select �Edit Parameters� and select the most appropriate location for your farm. 
+            locations; please select 'Edit Parameters'  and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) emergence, 2) egg laying and/or 3) egg hatching, is increasing. Increase monitoring efforts in 
@@ -137,7 +137,7 @@ models:
             please refer to the accompanying plots, which illustrate when a threshold has been surpassed. 
         - explanation: >- 
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select �Edit Parameters� and select the most appropriate location for your farm. 
+            locations; please select 'Edit Parameters' and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) emergence, 2) egg hatching and/or 3) egg laying, is high. Monitor vulnerable crops for in-field 
@@ -217,8 +217,8 @@ models:
             chart_type: line
             color: '#3cb371'
 #####
-  - name: Pollen Beetle
-    id: MELIAE
+  - name: Pollen Beetle (Warwick HRI)
+    id: MELIAE_WarwickHRI
     version: 0.0.1
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
@@ -252,7 +252,7 @@ models:
       REGION: This DSS was adapted from work carried out in the UK
 
       ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations; 
-      please select �Edit Parameters� and select the most appropriate location for your farm. 
+      please select 'Edit Parameters' and select the most appropriate location for your farm. 
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
       REFERENCE: Phelps, K., Collier, R.H., Reader, R.J. & Finch, S. (1993).  Monte Carlo simulation method for
@@ -260,7 +260,7 @@ models:
 
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - MELIAE
     crops:
@@ -284,14 +284,14 @@ models:
         {
           "type":"object",
           "properties": { 
-              "modelId": {"type": "string", "pattern":"^MELIAE$", "title": "Model Id", "default":"MELIAE", "description":"Must be MELIAE"},
+              "modelId": {"type": "string", "pattern":"^MELIAE_WarwickHRI$", "title": "Model Id", "default":"MELIAE_WarwickHRI", "description":"Must be MELIAE_WarwickHRI"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
               },
               "databaseLocation": {
                 "type":"string",
                 "title": "Select a location of historic weather data appropriate for your farm",
-                "default": "UK - Cornwall - Newquay",
+                "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
@@ -329,14 +329,14 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number 
-            of locations; please select �Edit Parameters� and select the most appropriate location for your farm. 
+            of locations; please select 'Edit Parameters' and select the most appropriate location for your farm. 
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
           recommended_action: >-
             The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, or 3) dispersal of summer adults, 
             is low.  Continue to review the risk.    
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number 
-            of locations; please select �Edit Parameters� and select the most appropriate location for your farm. 
+            of locations; please select 'Edit Parameters' and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, and/or 3) dispersal of summer adults,
@@ -346,7 +346,7 @@ models:
             please refer to the accompanying plots, which illustrate when a threshold has been surpassed.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number 
-            of locations; please select �Edit Parameters� and select the most appropriate location for your farm. 
+            of locations; please select 'Edit Parameters' and select the most appropriate location for your farm. 
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) spring emergence of overwintered beetles, 2) emergence of summer adults ready to disperse, and/or 3) dispersal of summer adults,
@@ -428,8 +428,8 @@ models:
             chart_type: line
             color: '#3cb371'
 ###
-  - name: Cabbage Root Fly
-    id: HYLERA
+  - name: Cabbage Root Fly (Warwick HRI)
+    id: HYLERA_WarwickHRI
     version: 0.0.4
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
@@ -460,7 +460,7 @@ models:
       REGION: This DSS was adapted from work carried out in the UK
 
       ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations;
-      please select �Edit Parameters� and select the most appropriate location for your farm.
+      please select 'Edit Parameters' and select the most appropriate location for your farm.
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
       REFERENCE: Collier, R.H. & Finch, S. (1983).  
@@ -484,7 +484,7 @@ models:
       Monte Carlo simulation method for forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
     citation: null
     keywords: none
-    platform_validated: true
+    platform_validated: false
     pests:
       - HYLERA
     crops:
@@ -506,14 +506,14 @@ models:
         {
           "type":"object",
           "properties": { 
-              "modelId": {"type": "string", "pattern":"^HYLERA$", "title": "Model Id", "default":"HYLERA", "description":"Must be HYLERA"},
+              "modelId": {"type": "string", "pattern":"^HYLERA_WarwickHRI$", "title": "Model Id", "default":"HYLERA_WarwickHRI", "description":"Must be HYLERA_WarwickHRI"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
               },
               "databaseLocation": {
                 "type":"string",
                 "title": "Select a location of historic weather data appropriate for your farm",
-                "default": "UK - Cornwall - Newquay",
+                "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
@@ -550,13 +550,13 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited 
-            number of locations; please select �Edit Parameters� and select the most appropriate location for your farm.
+            number of locations; please select 'Edit Parameters' and select the most appropriate location for your farm.
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
           recommended_action: >-
             The risk of 1) emergence, and/or  2) egg laying, is low.  Continue to review the risk.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited 
-            number of locations; please select �Edit Parameters� and select the most appropriate location for your farm.
+            number of locations; please select 'Edit Parameters' and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or  2) egg laying, is increasing. Increase monitoring efforts in vulnerable crops. 
@@ -565,7 +565,7 @@ models:
             threshold has been surpassed.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited 
-            number of locations; please select �Edit Parameters� and select the most appropriate location for your farm.
+            number of locations; please select 'Edit Parameters' and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or  2) egg laying, is high. Monitor vulnerable crops for in-field activity.
@@ -581,9 +581,6 @@ models:
             - Cumulative_EmergenceGen1
             - Cumulative_EmergenceGen2
             - Cumulative_EmergenceGen3
-            - Cumulative_EmergenceGen4
-            - Cumulative_EmergenceGen5
-            - Cumulative_EmergenceGen6
             - Medium_Risk_Threshold
             - High_Risk_Threshold
             - Low_Risk_Threshold
@@ -593,9 +590,6 @@ models:
             - Cumulative_Egg_LayingGen1
             - Cumulative_Egg_LayingGen2
             - Cumulative_Egg_LayingGen3
-            - Cumulative_Egg_LayingGen4
-            - Cumulative_Egg_LayingGen5
-            - Cumulative_Egg_LayingGen6
             - Medium_Risk_Threshold
             - High_Risk_Threshold
             - Low_Risk_Threshold
@@ -616,34 +610,10 @@ models:
             default_visible: true
             unit: '%'
             chart_type: line
-            color: '#373D3F'
+            color: '#555F61'
         - id: Cumulative_EmergenceGen3
           title: Cumulative Emergence Generation 3
           description: Cumulative Emergence Generation 3
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#555F61'
-        - id: Cumulative_EmergenceGen4
-          title: Cumulative Emergence Generation 4
-          description: Cumulative Emergence Generation 4
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#6F7C80'
-        - id: Cumulative_EmergenceGen5
-          title: Cumulative Emergence Generation 5
-          description: Cumulative Emergence Generation 5
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#8C979A'
-        - id: Cumulative_EmergenceGen6
-          title: Cumulative Emergence Generation 6
-          description: Cumulative Emergence Generation 6
           chart_info:
             default_visible: true
             unit: '%'
@@ -664,34 +634,10 @@ models:
             default_visible: true
             unit: '%'
             chart_type: line
-            color: '#373D3F'
+            color: '#555F61'
         - id: Cumulative_Egg_LayingGen3
           title: Cumulative Egg Laying Generation 3
           description: Cumulative Egg Laying Generation 3
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#555F61'
-        - id: Cumulative_Egg_LayingGen4
-          title: Cumulative Egg Laying Generation 4
-          description: Cumulative Egg Laying Generation 4
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#6F7C80'
-        - id: Cumulative_Egg_LayingGen5
-          title: Cumulative Egg Laying Generation 5
-          description: Cumulative Egg Laying Generation 5
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#8C979A'
-        - id: Cumulative_Egg_LayingGen6
-          title: Cumulative Egg Laying Generation 6
-          description: Cumulative Egg Laying Generation 6
           chart_info:
             default_visible: true
             unit: '%'
@@ -722,8 +668,8 @@ models:
             chart_type: line
             color: '#3cb371'
 ###
-  - name: Carrot Fly
-    id: PSILRO
+  - name: Carrot Fly (Warwick HRI)
+    id: PSILRO_WarwickHRI
     version: 0.0.1
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
@@ -754,7 +700,7 @@ models:
 
       REGION: This DSS was adapted from work carried out in the UK
 
-      ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations; please select �Edit Parameters� 
+      ASSUMPTION: This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of locations; please select 'Edit Parameters' 
       and select the most appropriate location for your farm.
       The start date for the model is 1st February, as this is often the coldest period in the year.
 
@@ -781,7 +727,7 @@ models:
         organization: University of Warwick,  (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
-      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/hylera/api/PSILRO
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/WHRI/psilro/api/PSILRO
       form_method: post
       content_type: application/json
       input_schema_categories:
@@ -791,14 +737,14 @@ models:
        {
           "type":"object",
           "properties": { 
-              "modelId": {"type": "string", "pattern":"^PSILRO$", "title": "Model Id", "default":"PSILRO", "description":"Must be PSILRO"},
+              "modelId": {"type": "string", "pattern":"^PSILRO_WarwickHRI$", "title": "Model Id", "default":"PSILRO_WarwickHRI", "description":"Must be PSILRO_WarwickHRI"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
               },
               "databaseLocation": {
                 "type":"string",
                 "title": "Select a location of historic weather data appropriate for your farm",
-                "default": "UK - Cornwall - Newquay",
+                "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
@@ -835,13 +781,13 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select �Edit Parameters� and select the most appropriate location for your farm.
+            locations; please select 'Edit Parameters' and select the most appropriate location for your farm.
             This model is collecting data to run. Based on the data available, the model results indicate no current risk of pest activity.
           recommended_action: >-
             The risk of 1) emergence, and/or 2) egg laying, is low. Continue to review the risk. 
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select �Edit Parameters� and select the most appropriate location for your farm.
+            locations; please select 'Edit Parameters' and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting medium risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or 2) egg laying, is increasing. Increase monitoring efforts in vulnerable crops.
@@ -850,7 +796,7 @@ models:
             which illustrate when a threshold has been surpassed.
         - explanation: >-
             This model requires historic data to provide risk forecasts. At present, suitable historic data is only available for a limited number of 
-            locations; please select �Edit Parameters� and select the most appropriate location for your farm.
+            locations; please select 'Edit Parameters' and select the most appropriate location for your farm.
             This model runs February - December. Based on current data available, the model is predicting high risk. 
           recommended_action: >-
             The risk of 1) emergence, and/or 2) egg laying, is high.  Monitor vulnerable crops for in-field activity.
@@ -866,9 +812,6 @@ models:
             - Cumulative_EmergenceGen1
             - Cumulative_EmergenceGen2
             - Cumulative_EmergenceGen3
-            - Cumulative_EmergenceGen4
-            - Cumulative_EmergenceGen5
-            - Cumulative_EmergenceGen6
             - Medium_Risk_Threshold
             - High_Risk_Threshold
             - Low_Risk_Threshold
@@ -878,9 +821,6 @@ models:
             - Cumulative_Egg_LayingGen1
             - Cumulative_Egg_LayingGen2
             - Cumulative_Egg_LayingGen3
-            - Cumulative_Egg_LayingGen4
-            - Cumulative_Egg_LayingGen5
-            - Cumulative_Egg_LayingGen6
             - Medium_Risk_Threshold
             - High_Risk_Threshold
             - Low_Risk_Threshold
@@ -901,34 +841,10 @@ models:
             default_visible: true
             unit: '%'
             chart_type: line
-            color: '#373D3F'
+            color: '#555F61'
         - id: Cumulative_EmergenceGen3
           title: Cumulative Emergence Generation 3
           description: Cumulative Emergence Generation 3
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#555F61'
-        - id: Cumulative_EmergenceGen4
-          title: Cumulative Emergence Generation 4
-          description: Cumulative Emergence Generation 4
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#6F7C80'
-        - id: Cumulative_EmergenceGen5
-          title: Cumulative Emergence Generation 5
-          description: Cumulative Emergence Generation 5
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#8C979A'
-        - id: Cumulative_EmergenceGen6
-          title: Cumulative Emergence Generation 6
-          description: Cumulative Emergence Generation 6
           chart_info:
             default_visible: true
             unit: '%'
@@ -949,34 +865,10 @@ models:
             default_visible: true
             unit: '%'
             chart_type: line
-            color: '#373D3F'
+            color: '#555F61'
         - id: Cumulative_Egg_LayingGen3
           title: Cumulative Egg Laying Generation 3
           description: Cumulative Egg Laying Generation 3
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#555F61'
-        - id: Cumulative_Egg_LayingGen4
-          title: Cumulative Egg Laying Generation 4
-          description: Cumulative Egg Laying Generation 4
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#6F7C80'
-        - id: Cumulative_Egg_LayingGen5
-          title: Cumulative Egg Laying Generation 5
-          description: Cumulative Egg Laying Generation 5
-          chart_info:
-            default_visible: true
-            unit: '%'
-            chart_type: line
-            color: '#8C979A'
-        - id: Cumulative_Egg_LayingGen6
-          title: Cumulative Egg Laying Generation 6
-          description: Cumulative Egg Laying Generation 6
           chart_info:
             default_visible: true
             unit: '%'

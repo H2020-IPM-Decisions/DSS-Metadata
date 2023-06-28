@@ -2,6 +2,8 @@ id: gr.gaiasense.ipm
 version: '0.1'
 name: gaiasense
 url: https://www.gaiasense.gr
+logo_url: 
+
 organization:
   name: NEUROPUBLIC
   country: Greece
@@ -14,7 +16,7 @@ languages:
 - Greek
 - English
 models:
-- name: Downy mildew of grapevine
+- name: Downy mildew of grapevine (North East Region of Peloponnese, Greece only)
   id: PLASVI
   version: '1.0'
   authors:
@@ -28,68 +30,97 @@ models:
   keywords: none
   type_of_decision: Short-term tactical
   type_of_output: Risk indication
-  description_URL: http://www.gaiapedia.gr/gaiapedia/index.php/%CE%A0%CE%B5%CF%81%CE%BF%CE%BD%CF%8C%CF%83%CF%80%CE%BF%CF%81%CE%BF%CF%82_%CE%B1%CE%BC%CF%80%CE%AD%CE%BB%CE%BF%CF%85
-  description: "The warning system model «Downy mildew of grapevine» is based on prediction\
-    \ model that utilises as input the following parameters: temperatute, humidity\
-    \ and leaf-wetness. Also the current growth stage of the plant is considered.(this\
-    \ description to be further updated)\n\nSOURCE: \nASSUMPTIONS: \nREFERENCE: "
-  citation:
+  description_URL: >-
+    http://sense-web.neuropublic.gr:8888/documentation#/Models/
+  description: >- 
+    THE DISEASE: Downy mildew is a highly destructive disease of grapevines in all grape-growing areas of the world. In order to control the pathogen, 
+    approved pesticides are used (chemical control). The symptoms, causes by Plasmopara viticola, firstly appear on the grape leaves 7-10 days after infection. 
+    Foliar symptoms appear as yellow circular spots with an oily appearance (oilspots). Under favorable weather conditions (warm temperatures and high relative humidity), 
+    a white downy fungal growth will appear on the underside of the leaves and other infected plant parts such as grapes. 
+
+    THE MODEL: The model for downy mildew estimates infection from an organism’s (Plasmopara viticola) using cardinal temperatures (Tmin, Topt, Tmax) and leaf surface wetness 
+    duration requirements for infection (Wmin, Wmax). The parameter Wmax provides an upper boundary on the value of W since temperature is not always a limiting factor. 
+    The model is based upon a temperature response function which is scaled to the leaf wetness duration requirement. Interruptions to wetness are also important for estimating 
+    infection from hourly weather data, so hours of interruption are used as an input. The model’s output data are normalized from 0 -100, with 0 being the lowest risk index and 100 the highest.  
+    THE PARAMETERS: Tmin (° C) recorded by the local weather station, Tmax (° C) recorded by the local weather station, Topt (° C) recorded by the local weather station, Leaf Wetness min (hr) recorded by the local weather station,
+    Leaf Wetness max (hr) recorded by the local weather station, Hours of interruption (20h), Hours of calculation (72h)
+
+    SOURCE: The provided service is part of the integrated "gaiasense" smart-farming solution. 
+    "Gaiasense" collects data from the field, the satellite, the scientist, and the farmer, and provides the tools to the agricultural advisor, the researcher and the farmer in order for them to 
+    take advantage of every opportunity to produce better, more and economical agricultural product from the Greek land. "Gaiasense"  follows the "Smart Farming as a Service" (SFaaS) paradigm, 
+    aiming to support small-scale farmers, by taking over the technological investment burden and offering next generation farming advice through the combined utilization of heterogeneous information sources. 
+    A detailed analysis of the system is available in "Adamides, G.; Kalatzis, N.; Stylianou, A.; Marianos, N.; Chatzipapadopoulos, F.; Giannakopoulou, M.; Papadavid, G.; Vassiliou, V.; Neocleous, D. Smart Farming Techniques for Climate Change Adaptation in Cyprus. Atmosphere 2020, 11, 557"
+
+
+    ASSUMPTIONS: 1)The pathogen has established in the area. 2) An organism’s temperature requirements for infection can be summarized by the cardinal temperatures, 
+    Tmin, Topt and Tmax and moisture duration requirements can be summarized by Wmin, the minimum leaf wetness duration requirement for infection.
+
+    REFERENCE: The prediciton model is developed based on literature review and adaptations through experiments and observation on local conditions. 
+    An indicative reference is "Orlandini S, Massetti L, Dalla Marta (2008) An agrometeorological approach for the simulation of Plasmopara viticola. Computers and Electronics in Agriculture 64, 149-16"
+
+
+  citation: null
   valid_spatial:
     countries:
     - GRC
     geoJSON: |
       {"type": "FeatureCollection","features": [{"type": "Feature","properties": {},"geometry": {"type": "Polygon","coordinates": [[[22.572097778320312,38.050794662666895],[22.564544677734375,37.83690319650765],[22.680587768554684,37.76040136229719],[22.974472045898438,37.820632846207864],[22.926406860351562,37.93174204861119],[22.848129272460934,37.938240808726576],[22.787704467773434,37.97343243999255],[22.734832763671875,38.02213147353745],[22.666854858398434,38.05512020731343],[22.572097778320312,38.050794662666895]]]}}]}
-  input:
-    weather_parameters:
+  platform_validated: true
   execution:
-    type: ONTHEFLY
-    endpoint: https://gaiasense.neuropublic.gr/np_dws/ws/dispatcher.php
-    form_method: get
-    content_type: application/json
-    input_schema: |
-      {
-        "type":"object",
-        "properties": {
-          "id": {"type": "integer", "title": "WebService ID" , "default" : "5"},
-          "from": {"type":"string","format": "date", "title": "Start date of calculation (YYYY-MM-DD HH:mm:ss)"},
-          "to": {"type":"string","format": "date", "title": "End date of calculation (YYYY-MM-DD HH:mm:ss)"},
-          "token": {"type": "string", "title":"AuthToken" , "default" : "55382eea-b886-11eb-8529-0242ac130003" },
-          "export": {"type": "string", "title": "Supported export types : csv , json" , "default" : "json"},
-          "datatype": {"type": "string", "title": "Measurement Type" , "default" : "models"},
-          "locid": {"type": "integer", "title": "Location ID" , "default" : "74"},
-          "model": {"type": "string", "title": "Model Name" , "default" : "downy_mildew"}
-        },
-        "required": [ "id", "from", "to", "token", "datatype", "locid", "model" ]
-      }
-    input_schema_categories:
-      hidden:
-      - modelId
-  output:
-    warning_status_interpretation:
-    - explanation: |
-        Values return are Risk Percentages. Lower percentages , translate into lower risk of infection.
-      recommended_action: ''
-    - explanation: |
-        Values return are Risk Percentages. Lower percentages , translate into lower risk of infection.
-      recommended_action: ''
-    - explanation: |
-        Values return are Risk Percentages. Lower percentages , translate into lower risk of infection.
-      recommended_action: ''
-    - explanation: |
-        Values return are Risk Percentages. Lower percentages , translate into lower risk of infection.
-      recommended_action: ''
-    - explanation: |
-        Values return are Risk Percentages. Lower percentages , translate into lower risk of infection.
-      recommended_action: ''
-    chart_heading: Downy mildew risk index
-    result_parameters:
-    - id: TMDD4C
-      title: Pest infestation risk index
-      description: Calculated risk index based on the enviromental parameters of the
-        area.
-      chart_info:
-        default_visible: true
-        unit: '%'
-        chart_type: line
-        color: '#0066ff'
-  purpose: ''
+      type: ONTHEFLY
+      endpoint: http://sense-web.neuropublic.gr:8888/locations/models
+      form_method: get
+      content_type: application/json
+      authentication_type: BASIC
+      input_schema_categories:
+        hidden:
+          - modelId
+          - locationid
+      input_schema: |
+        {
+          "type":"object",
+          "properties": { 
+              "modelId": {"type": "string", "pattern":"^downy_mildew$", "title": "Model Id", "default":"downy_mildew", "description":"Must be downy_mildew"},
+              "locationid": {"type": "number", "title": "Location Id", "default":"74", "description":"Must be 74"},
+              "fromdate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-15"},
+              "todate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-10"}
+              }
+          },
+          "required": ["modelId" , "fromdate", "todate"]
+        }
+      output:
+        warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >- 
+            Risk < 20. Values returned are Risk Percentages where lower percentages translate into lower risk of infection. 
+
+          recommended_action: >- 
+            No action is suggested.
+
+        - explanation: >-
+           Risk between 20 -30. Values returned are Risk Percentages where lower percentages translate into lower risk of infection.
+
+          recommended_action: >-
+           Field observation if any disease symptoms appeared.
+  
+        - explanation: >- 
+            Risk > 30. Values return are Risk Percentages where lower percentages translate into lower risk of infection.
+
+          recommended_action: >-
+            Field observation if any disease symptoms appeared. Pesticide application is suggested. Disease symptoms may appear after 7- 10 days. 
+
+      chart_heading: Downy mildew risk index
+      result_parameters:
+        - id: PLASVI
+          title: Pest infestation risk index
+          description: Calculated risk index based on the enviromental parameters of the area.
+          chart_info:
+            default_visible: true
+            unit: '%''
+            chart_type: line
+            color: '#0066ff'
+
+      purpose: Estimates Downy Mildew infection risk

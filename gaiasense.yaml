@@ -120,6 +120,11 @@ models:
         Field observation if any disease symptoms appeared. Pesticide application is suggested. Disease symptoms may appear after 7- 10 days. 
 
     chart_heading: Downy mildew risk index
+    chart_groups:
+      - id: G1
+        title: PLASVI
+        result_parameter_ids:
+          - PLASVI
     result_parameters:
       - id: PLASVI
         title: Pest infestation risk index

@@ -88,39 +88,39 @@ models:
           },
           "required": ["modelId" , "fromdate", "todate"]
         }
-      output:
-        warning_status_interpretation:
-        - explanation: ''
-          recommended_action: ''
-        - explanation: Missing data.
-          recommended_action: Review error message.
-        - explanation: >- 
-            Risk < 20. Values returned are Risk Percentages where lower percentages translate into lower risk of infection. 
+  output:
+    warning_status_interpretation:
+    - explanation: ''
+      recommended_action: ''
+    - explanation: Missing data.
+      recommended_action: Review error message.
+    - explanation: >- 
+        Risk < 20. Values returned are Risk Percentages where lower percentages translate into lower risk of infection. 
 
-          recommended_action: >- 
-            No action is suggested.
+      recommended_action: >- 
+        No action is suggested.
 
-        - explanation: >-
-           Risk between 20 -30. Values returned are Risk Percentages where lower percentages translate into lower risk of infection.
+    - explanation: >-
+        Risk between 20 -30. Values returned are Risk Percentages where lower percentages translate into lower risk of infection.
 
-          recommended_action: >-
-           Field observation if any disease symptoms appeared.
-  
-        - explanation: >- 
-            Risk > 30. Values return are Risk Percentages where lower percentages translate into lower risk of infection.
+      recommended_action: >-
+        Field observation if any disease symptoms appeared.
 
-          recommended_action: >-
-            Field observation if any disease symptoms appeared. Pesticide application is suggested. Disease symptoms may appear after 7- 10 days. 
+    - explanation: >- 
+        Risk > 30. Values return are Risk Percentages where lower percentages translate into lower risk of infection.
 
-      chart_heading: Downy mildew risk index
-      result_parameters:
-        - id: PLASVI
-          title: Pest infestation risk index
-          description: Calculated risk index based on the enviromental parameters of the area.
-          chart_info:
-            default_visible: true
-            unit: '%''
-            chart_type: line
-            color: '#0066ff'
+      recommended_action: >-
+        Field observation if any disease symptoms appeared. Pesticide application is suggested. Disease symptoms may appear after 7- 10 days. 
 
-      purpose: Estimates Downy Mildew infection risk
+    chart_heading: Downy mildew risk index
+    result_parameters:
+      - id: PLASVI
+        title: Pest infestation risk index
+        description: Calculated risk index based on the enviromental parameters of the area.
+        chart_info:
+          default_visible: true
+          unit: '%''
+          chart_type: line
+          color: '#0066ff'
+
+  purpose: Estimates Downy Mildew infection risk

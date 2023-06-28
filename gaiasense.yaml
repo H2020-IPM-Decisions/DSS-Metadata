@@ -81,13 +81,20 @@ models:
           "type":"object",
           "properties": { 
               "modelId": {"type": "string", "pattern":"^downy_mildew$", "title": "Model Id", "default":"downy_mildew", "description":"Must be downy_mildew"},
-              "locationid": {"type": "number", "title": "Location Id", "default":"74", "description":"Must be 74"},
+              "locationid": {"type": "integer", "title": "Location Id", "default":"74", "description":"Must be 74"},
               "fromdate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-15"},
-              "todate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-10"}
-              }
+              "todate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-10"}   
           },
           "required": ["modelId" , "fromdate", "todate"]
         }
+  input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: fromdate
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: todate
   output:
     warning_status_interpretation:
     - explanation: ''

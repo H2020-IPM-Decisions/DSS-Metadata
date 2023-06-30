@@ -2,7 +2,7 @@ id: gr.gaiasense.ipm
 version: '0.1'
 name: gaiasense
 url: https://www.gaiasense.gr
-logo_url: 
+logo_url: /rest/dss/logo/gaiasense.png
 
 organization:
   name: NEUROPUBLIC

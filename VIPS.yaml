@@ -1893,7 +1893,7 @@ models:
         organization: NIBIO
     execution:
       type: ONTHEFLY
-      endpoint: https://coremanager.vips.nibio.no/models/run/ipmd
+      endpoint: https://coremanager.vips.nibio.no/models/BREMIALACT/run/ipmd
       form_method: post
       content_type: application/json
       input_schema_categories:

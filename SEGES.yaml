@@ -472,7 +472,7 @@ models:
         {
           "type":"object",
           "properties": {
-            "ProblemId": {"type":"integer","title":"Brown rust","default":40108},
+            "ProblemId": {"type":"integer","title":"Brown rust","default":40103},
             "CropId": {"type":"integer","title":"Barley (Spring barley)","default":10},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to brown rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},

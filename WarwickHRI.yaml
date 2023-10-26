@@ -56,7 +56,7 @@ models:
       Monte Carlo simulation method for forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
     citation: null
     keywords: none
-    platform_validated: false
+    platform_validated: true
     pests:
       - LAMTEQ
     crops:
@@ -260,7 +260,7 @@ models:
 
     citation: null
     keywords: none
-    platform_validated: false
+    platform_validated: true
     pests:
       - MELIAE
     crops:
@@ -484,11 +484,11 @@ models:
       Monte Carlo simulation method for forecasting the timing of pest insect attacks.  Crop Protection 12, 335-342.
     citation: null
     keywords: none
-    platform_validated: false
+    platform_validated: true
     pests:
       - HYLERA
     crops:
-      - 1BRSG
+      - BRSSS
     authors:
       - name: Richard Reader, Rosemary Collier (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
@@ -712,7 +712,7 @@ models:
       Field and laboratory studies on the effects of temperature on the development of the carrot fly (Psila rosae F.).  Annals of Applied Biology 128, 1-11.
     citation: null
     keywords: none
-    platform_validated: false
+    platform_validated: true
     pests:
       - PSILRO
     crops:

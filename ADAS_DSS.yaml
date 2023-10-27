@@ -1051,6 +1051,11 @@ models:
       input_schema_categories:
         hidden:
           - modelId
+        internal:
+          - optionalData.upperTemperatureThreshold
+          - optionalData.lowerTemperatureThreshold
+          - optionalData.mediumRiskThreshold
+          - optionalData.highRiskThreshold
       input_schema: |
         {
             "type":"object",
@@ -1065,7 +1070,11 @@ models:
                 "properties": {
                   "startDate": {"type":"string","format": "date", "title": "Model Start Date/Emergence Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-10-01"},
                   "endDate": {"type":"string","format": "date", "title": "Model End Date/Growth Stage 31 (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-31"},
-                  "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"}
+                  "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"},
+                  "upperTemperatureThreshold": {"type": "number", "default":"170", "title": "Upper Temperature Threshold"},
+                  "lowerTemperatureThreshold": {"type": "number", "default":"3", "title": "Lower Temperature Threshold"},
+                  "mediumRiskThreshold": {"type": "number", "default":"50", "title": "Medium Risk Threshold"},
+                  "highRiskThreshold": {"type": "number", "default":"100", "title": "High Risk Threshold"},
                 }            
               }
             },

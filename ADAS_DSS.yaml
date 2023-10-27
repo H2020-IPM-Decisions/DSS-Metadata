@@ -1074,7 +1074,7 @@ models:
                   "upperTemperatureThreshold": {"type": "number", "default":"170", "title": "Upper Temperature Threshold"},
                   "lowerTemperatureThreshold": {"type": "number", "default":"3", "title": "Lower Temperature Threshold"},
                   "mediumRiskThreshold": {"type": "number", "default":"50", "title": "Medium Risk Threshold"},
-                  "highRiskThreshold": {"type": "number", "default":"100", "title": "High Risk Threshold"},
+                  "highRiskThreshold": {"type": "number", "default":"100", "title": "High Risk Threshold"}
                 }            
               }
             },

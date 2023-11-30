@@ -983,27 +983,26 @@ models:
                   "title": "Field observations",
                   "type": "array",
                   "items": {
-                    "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
-                  }
-                },
-                "fieldObservationQuantifications": {
-                  "title": "Field observation quantifications",
-                  "type": "array",
-                  "items": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/definitions/fieldObs_HYLERA"
+                    "type": "object",
+                    "title": "Field observation",
+                    "properties": {
+                      "fieldObservation": {
+                        "title": "Generic field observation information",
+                        "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
+                      },
+                      "quantification": {
+                        "$ref": "#/definitions/fieldObs_DELIAR"
                       }
-                    ]
+                    }
                   }
                 }
               },
-              "required": ["timeZone","startDateCalculation","endDateCalculation"]
+              "required": ["timeZone","startDateGrowth","endDateCalculation"]
             }
           },
           "required": ["modelId","configParameters"],
           "definitions": {
-            "fieldObs_HYLERA": {
+            "fieldObs_DELIAR": {
               "title": "Delia radicum egg quantification", 
               "properties": {
                 "counting01":{"title":"Number of eggs, plant 1", "type":"integer", "minimum": 0},

@@ -221,6 +221,7 @@ models:
       of attack. The model only applies for cabbage fly, not turnip fly.
     citation: null
     keywords: none
+    platform_validated: true
     pests:
       - HYLERA
     crops:
@@ -310,6 +311,7 @@ models:
           recommended_action: >-
             Consult your advisory service. Consider action to protect your crop
             based on observations in your own field.
+      chart_heading: Day degrees
       chart_groups:
         - id: G1
           title: Day degrees
@@ -381,15 +383,13 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#990000'
-      chart_heading: Day degrees
-    platform_validated: true
   - name: Cabbage moth model
     id: MAMESTRABR
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/MAMESTRABR/
-    purpose: 'Estimates risk of damage by Cabbage Moth'
+    purpose: Estimates risk of damage by Cabbage Moth
     description: >-
       The model for the warning system for cabbage moth was developed by Dr.
       Nina Svae Johansen. 
@@ -589,7 +589,7 @@ models:
             default_visible: true
             unit: '&deg;C'
             chart_type: line
-            color: '#00993'
+            color: '#000000'
         - id: MAMESTRABR.EGG_DEPOSIT_START
           title: DD Threshold for egg deposits
           description: DD Threshold for start of egg deposits
@@ -614,15 +614,13 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#ffff00'
-            
-
   - name: Carrot rust fly observation model
     id: PSILAROBSE
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/PSILAROBSE/
-    purpose: 'Estimates risk of damage by Carrot Rust Fly'
+    purpose: Estimates risk of damage by Carrot Rust Fly
     description: >-
       The warning system model is based on weekly observations of adult carrot
       rust flies captured on yellow sticky traps. The model is based in its
@@ -886,7 +884,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARFOBS/
-    purpose: 'Estimates risk of damage by Cabbage Root Fly and Turnip Fly'
+    purpose: Estimates risk of damage by Cabbage Root Fly and Turnip Fly
     description: >-
       The warning system model is based on weekly observations of oviposition by
       the 
@@ -1328,7 +1326,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/ALTERNARIA/
-    purpose: 'Daily risk of infection'
+    purpose: Daily risk of infection
     description: >
       THE PEST: Alternaria sp cause disease on a lot of horticultural crops, and
       leaf spots are among the most common symptoms. 
@@ -1477,7 +1475,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/NEGPROGMOD/
-    purpose: 'Estimates risk of Late Blight infection'
+    purpose: Estimates risk of Late Blight infection
     description: >-
       THE PEST: Potato late blight, caused by the fungus-like organism
       Phytophthora infestans causes severe damage to the foliage and can infect
@@ -1675,7 +1673,7 @@ models:
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/SEPAPIICOL/
-    purpose: Infection risk alerts for Septoria apiicola in celery
+    purpose: Weather-based infection risk alerts for Septoria apiicola in celery
     description: >+
       THE PEST: Septoria apiicola is the cause of late blight of celery and
       celeriac.  Leaf spots with characteristic small dark pycnidia form on
@@ -1842,7 +1840,7 @@ models:
             unit: Yes/no
             chart_type: line
             color: '#ff0000'
-  - name: Bremia lactucae (Downy mildew of lettuce) model
+  - name: Lettuce downy mildew model
     id: BREMIALACT
     version: '1.0'
     type_of_decision: Short-term tactical
@@ -1945,15 +1943,15 @@ models:
           recommended_action: ''
         - explanation: ''
           recommended_action: ''
-        - explanation: Weather condition sdo not favour sporulation and infection
+        - explanation: Weather conditions do not favour sporulation and infection
           recommended_action: No action needed
         - explanation: n/a
           recommended_action: ''
         - explanation: High risk of infection
           recommended_action: >-
             When the model indicates a high risk of infection, spraying should
-            be considered given a) the likelihoold of the disease being present,
-            b) the lettuce variant's resilience towards the disease and c) the
+            be considered given a) the likelihood of the disease being present,
+            b) the lettuce variety's resictance towards the disease and c) the
             time since the last spraying. 
       chart_groups:
         - id: G1
@@ -1987,8 +1985,8 @@ models:
             Was there enough relative humidity after sunrise yesterday and
             before sunrise today
           description: >-
-            Was there enough relative humidity after sunrise yesterday and befor
-            sunrise today
+            Was there enough relative humidity after sunrise yesterday and
+            before sunrise today
           chart_info:
             default_visible: true
             unit: Yes/no
@@ -2020,4 +2018,182 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#ff0000'
+  - name: Onion downy mildew DOWNCAST
+    id: DOWNCASTMO
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.vips-landbruk.no/forecasts/models/DOWNCASTMO/
+    purpose: 'Weather-based infection risk alerts '
+    description: >-
+      THE PEST: Onion downy mildew (Peronospora destructor) is a disease caused
+      by a fungus-like organism (oomycete). Symptoms are pale green to yellow
+      leaf lesions with a greyish to purple mass of spores.  
 
+      THE DECISION: In the event of a risk alert, the onion farmer should first
+      assess whether there is inoculum of the pathogen present in the region.
+      Potential need for fungicide sprays is to be considered based on presence
+      of inoculum, susceptibility of the onion crop and the time interval from
+      previous treatments. 
+
+
+      The MODEL: The model calculates sporulation and infection risk of
+      Peronospora destructor using weather data. Criteria for both sporulation
+      and infection need to fulfilled to issue a high infection risk (red
+      alert).
+
+
+      Sporulation events are calculated based on high relative humidity (RH)
+      (>92%) at night. Sporulation may occur at temperatures between 4 and 26 °C
+      (optimum 12-20 °C). A sporulation index of 1-3 is calculated based on high
+      RH and temperature duration, where an index of 3 indicates optimal
+      sporulation conditions. Sporulation events are not expected to occur after
+      rainfall between 00:00 and 06:00 AM, or temperatures exceeding 27 °C the
+      previous day .
+
+
+      Infection events are based on leaf wetness. A direct infection requires a
+      minimum of 2 hours of leaf wetness the morning after sporulation (optimum
+      temperature 6-16 °C). Delayed infections may occur up to 72 hours after
+      sporulation, given at least 144 minutes of leaf wetness during a 3-hour
+      period. It is assumed that only one infection event can occur after each
+      sporulation event.
+
+
+      Short periods of leaf wetness (90-150 minutes during a 5 hour period) may
+      cause the spores to germinate and die, resulting in a failed infection. A
+      later infection event will require a new sporulation event.
+
+
+      A sporulation event triggers a yellow alert (possible infection risk). A
+      sporulation event followed by an infection event within 72 hours triggers
+      a red alert (high infection risk).
+
+      THE PARAMETERS: hourly values of maximum temperature, leaf wetness,
+      precipitation, relative humidity 
+
+      SOURCE: The model is implemented from descriptions in the publication by
+      DeVisser, 1998. 
+
+      REFERENCE: de Visser, C.L.M. 1998. Development of a downy mildew advisory
+      model based on downcast. European Journal of Plant Pathology 104: 933-943.
+       
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - PERODE
+    crops:
+      - ALLCE
+      - ALLFI
+    authors:
+      - name: ''
+        email: null
+        organization: null
+    execution:
+      type: ONTHEFLY
+      endpoint: https://coremanager.vips.nibio.no/models/DOWNCASTMO/run/ipmd
+      form_method: post
+      content_type: application/json
+      authentication_type: NONE
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: |-
+        {
+                  "type":"object",
+                  "properties": {
+                    "modelId": {"type": "string", "pattern":"^DOWNCASTMO$", "title": "Model Id", "default":"DOWNCASTMO", "description":"Must be DOWNCASTMO"},
+                    "configParameters": {
+                      "title":"Configuration parameters",
+                      "type": "object",
+                      "properties": {
+                        "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo", "options":{"infoText":"The time zone information is used when hourly temperature values need to be converted to daily."}}
+                      },
+                      "required": ["timeZone"]
+                    },
+                    "weatherData": {
+                      "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+                    }
+                  },
+                  "required": ["modelId","configParameters"]
+                }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+          is_required: true
+        - parameter_code: 2001
+          interval: 3600
+          is_required: true
+        - parameter_code: 3002
+          interval: 3600
+          is_required: true
+        - parameter_code: 3103
+          interval: 3600
+          is_required: true
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - NOR
+        - SWE
+        - NLD
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: Warning not applicable
+          recommended_action: ''
+        - explanation: Missing data
+          recommended_action: ''
+        - explanation: 'Weather conditions unfavourable for sporulation. '
+          recommended_action: No action necessary
+        - explanation: 'Weather conditions favourable for sporulation. '
+          recommended_action: Please consult with your advisor
+        - explanation: Weather conditions favourable for an infection event.
+          recommended_action: Please consult with your advisor
+      chart_heading: DOWNCAST result chart
+      chart_groups:
+        - id: G1
+          title: DOWNCAST result chart
+          result_parameter_ids:
+            - SPORULATION_VALUE
+            - IDAS
+            - ITAS
+      result_parameters:
+        - id: SPORULATION_VALUE
+          title: Sporulation value
+          description: >-
+            A sporulation index of 1-3 is calculated based on high RH and
+            temperature duration, where an index of 3 indicates optimal
+            sporulation conditions
+          chart_info:
+            default_visible: true
+            unit: Number
+            chart_type: line
+            color: '#000000'
+        - id: IDAS
+          title: Infection directly after sporulation
+          description: Infection directly after sporulation
+          chart_info:
+            default_visible: true
+            unit: True/false
+            chart_type: bar
+            color: '#613583'
+        - id: ITAS
+          title: Infection delayed after sporulation
+          description: Infection delayed after sporulation
+          chart_info:
+            default_visible: true
+            unit: True/false
+            chart_type: bar
+            color: '#dc8add'

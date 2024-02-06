@@ -2039,7 +2039,7 @@ models:
 
       The MODEL: The model calculates sporulation and infection risk of
       Peronospora destructor using weather data. Criteria for both sporulation
-      and infection need to fulfilled to issue a high infection risk (red
+      and infection need to be fulfilled to issue a high infection risk (red
       alert).
 
 

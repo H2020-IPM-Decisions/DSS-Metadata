@@ -256,9 +256,7 @@ models:
       example, if 25 plants out of 100 show even a very small amount of disease
       and the remaining 75 plants are completely healthy, then the observation
       is 25%. In susceptible cultivars treatments are recommended at lower
-      incidence levels than in resistant cultivars.  If a green color appears
-      then no action is needed, yellow means that a limited risk is recognized,
-      while red indicates that action is recommended.  If treatments are
+      incidence levels than in resistant cultivars. If treatments are
       recommended, specific fungicides known to be effective against this
       disease should be chosen.  When running the powdery mildew model, the risk
       for yield losses from other diseases is not considered. If no action is
@@ -274,11 +272,10 @@ models:
       Enter information on the incidence of attacked plants by powdery mildew
       based on scouting the crop. Between GS  29-31 whole crop should be
       assessed. Between GS 32 and 40 assessments should only be done on 3 upper
-      leaves.  Entering information on last fungicide spray dates is vital for
-      the model. This is also done in 'Edit parameters'.  Clicking on 'Save'
-      will keep the information entered and the model will immediately update
-      the risk estimate.  After spraying, the model assumes that the crop is
-      protected for  14 days if a broad spectrum fungicide has been applied.
+      leaves. Clicking on 'Save' will keep the entered information and update
+      the risk.  The model does not automatically adjust risk for the effect of
+      previous fungicide sprays. If a fungicide effective against mildew has
+      been applied in the last 10 days, the risk can be interpreted as low. 
            
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
@@ -356,39 +353,37 @@ models:
           recommended_action: Consult your advisory service
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            powdery mildew (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of mildew is low.  Go to 'Edit
-            parameters' to check and update disease observations, growth stages
-            and spray dates. This model runs March to June.  
+            powdery mildew (Percentage of plants showing infection) and crop
+            growth stages, the risk of mildew is low.  Go to 'Edit parameters'
+            to check and update disease observations and growth stages. This
+            model runs March to June.  
           recommended_action: >-
-            Continue to monitor crops and update crop growth stage and date of
-            fungicide applications through the season
+            Continue to monitor crops and update crop growth stage through the
+            season
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            powdery mildew (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of powdery mildew is moderate. Go
-            to 'Edit parameters' to check and update growth stages and spray
-            dates.  This model runs March to June. 
+            powdery mildew (Percentage of plants showing infection) and crop
+            growth stages, the risk of powdery mildew is moderate. Go to 'Edit
+            parameters' to check and update growth stages.  This model runs
+            March to June. 
           recommended_action: >-
-            If the threshold for mildew is not exceeded, but other diseases are 
-            assessed to also cause a risk and the crop has not been  treated in 
+            If the threshold for mildew is not exceeded, but other diseases are
+            assessed to also cause a risk and the crop has not been treated in
             the last ten days, choose an effective fungicide, which also
             controls  powdery mildew. Continue to check for risk updates and 
-            monitor crops.  Update crop growth stage and date of fungicide 
-            applications through the season.
+            monitor crops.  Update crop growth stage through the season.
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            powdery mildew (Percentage of plants showing infection), crop growth
-            stages and previous spray dates, the risk of mildew is high. Go to
-            'Edit  parameters' to check and update growth stages and spray
-            dates. This model runs March-end of June. 
+            powdery mildew (Percentage of plants showing infection) and crop
+            growth stages, the risk of mildew is high. Go to 'Edit  parameters'
+            to check and update growth stages. This model runs March-end of
+            June. 
           recommended_action: >-
             If the crop has not been treated against powdery mildew in the last
             ten days, treat according to need. Apart from effectiveness on
             powdery mildew the choice of fungicide product should also account
             for risks of other diseases. Continue to check for risk updates and
-            monitor crops. Update crop growth stage and date of fungicide
-            applications through the season  
+            monitor crops. Update crop growth stage through the season.
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -411,17 +406,17 @@ models:
       elongation  (GS 30)  and full flowering (GS 65), to protect leaves from
       attack of brown rust and yield losses. 
 
+
       THE MODEL: The CPO brown rust model is recommending treatments in barley
       when thresholds are exceeded.  The risk of attack is based on visual
-      monitoring using frequency of plants attacked.   In susceptible cultivars
+      monitoring using frequency of plants attacked. In susceptible cultivars
       treatments are recommended at lower incidence levels than in resistant
-      cultivars.  If a green color appears then no action is needed, yellow
-      means that a limited risk is recognized, while red indicates that action
-      is recommended.  If treatments are recommended, specific fungicides known
-      to be effective against barley brown rust  should be chosen.  When running
-      the brown rust model the risk for yield losses from other diseases is not
-      considered.   If no action is recommended it is advised to revisit the
-      crop after approximately one week to make a new evaluation of the risk. 
+      cultivars.  If treatments are recommended, specific fungicides known to be
+      effective against barley brown rust  should be chosen.  When running the
+      brown rust model the risk for yield losses from other diseases is not
+      considered. If no action is recommended it is advised to revisit the crop
+      after approximately one week to make a new evaluation of the risk. 
+
 
       THE PARAMETERS  To obtain accurate risk  predictions it is essential to
       click on the 'Edit parameters' button and enter information on the
@@ -435,11 +430,12 @@ models:
       very small amount of disease and the remaining 75 plants are completely
       healthy, then the observation is 25%. Between GS  30-31 whole crop should
       be assessed. Between GS 32 and 65 assessments should be based only on 3
-      upper leaves.  Entering information on last fungicide spray dates is vital
-      for the model. This is also done in 'Edit parameters'.   Clicking on
-      'Save' will keep the observations entered and the model will immediately
-      update the risk.  After spraying, the model assumes that the crop is
-      protected for 14 days if a broad spectrum fungicide has been applied.
+      upper leaves. Clicking on 'Save' will keep the observations entered and
+      update the risk.  The model does not automatically adjust risk for the
+      effect of previous fungicide sprays. If a fungicide effective against
+      brown rust has been applied in the last 10 days, the risk can be
+      interpreted as low.
+
 
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
@@ -517,39 +513,35 @@ models:
           recommended_action: Consult your advisory service
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            brown rust (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of brown rust is low.  Go to 'Edit
-            parameters' to check and update disease observations, growth stages
-            and spray dates. This model runs March to June.  
+            brown rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of brown rust is low.  Go to 'Edit parameters' to
+            check and update disease observations and growth stages. This model
+            runs March to June.  
           recommended_action: >-
-            Continue to monitor crops and update crop growth stage and date of
-            fungicide applications through the season
+            Continue to monitor crops and update crop growth stage through the
+            season
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            brown rust (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of brown rust is moderate. Go to
-            'Edit parameters' to check and update growth stages and spray
-            dates.  This model runs March to June. 
+            brown rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of brown rust is moderate. Go to 'Edit parameters'
+            to check and update growth stages.  This model runs March to June. 
           recommended_action: >-
             If the threshold for brown rust is not exceeded, but other diseases
             are assessed to also cause a risk and the crop has not been treated
             in the last ten days, choose an effective fungicide, which also
             controls brown rust . Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season 
+            crops. Update crop growth stage through the season 
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            brown rust (Percentage of plants showing infection), crop growth
-            stages and previous spray dates, the risk of brown rust is high. Go
-            to 'Edit parameters' to check and update growth stages and spray
-            dates. This model runs March to June. 
+            brown rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of brown rust is high. Go to 'Edit parameters' to
+            check and update growth stages. This model runs March to June. 
           recommended_action: >-
             If the crop has not been treated against brown rust in the last ten
             days, treat according to need. Apart from effectiveness on brown
             rust  the choice of fungicide product should also account for risks
             of other diseases. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season
+            crops. Update crop growth stage through the season
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -579,9 +571,7 @@ models:
       out of 100 show even a very small amount of disease and the remaining 80
       plants are completely healthy, then the observation is 25%. In susceptible
       cultivars treatments are recommended at lower incidence levels than in
-      resistant cultivars.  If a green color appears then no action is needed,
-      yellow means that a limited risk is recognized, while red indicates that
-      action is recommended.  If treatments are recommended specific fungicides
+      resistant cultivars. If treatments are recommended specific fungicides
       known to be effective against net blotch  should be chosen.  When running
       the net blotch model, the risk for yield losses from other diseases is not
       considered.   If no action is recommended it is advised to revisit the
@@ -595,12 +585,12 @@ models:
       specific growth stages at the time when the crop monitoring was done. 
       Enter information on the incidence of attacked plants by net blotch based
       on scouting the crop. Between GS  30-31 whole plants should be assessed.
-      Between GS 32 and 65 assessments should be based only on 3 upper leaves. 
-      Entering information on last fungicide spray dates is vital for the model.
-      This is also done in 'Edit parameters'.  Clicking on 'Save' will keep the
-      observations entered and the model will update the risk.  After spraying,
-      the model assumes that the crop is protected for 14 days if a broad
-      spectrum fungicide has been applied.
+      Between GS 32 and 65 assessments should be based only on 3 upper leaves.
+      Clicking on 'Save' will keep the observations entered and update the risk.
+      The model does not automatically adjust risk for the effect of previous
+      fungicide sprays. If a fungicide effective against net blotch has been
+      applied in the last 10 days, the risk can be interpreted as low.
+
 
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
@@ -678,39 +668,37 @@ models:
           recommended_action: Consult your advisory service
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            net blotch (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of net blotch is low.  Go to 'Edit
-            parameters' to check and update disease observations, growth stages
-            and spray dates. This model runs March to June.  
+            net blotch (Percentage of plants showing infection) and crop growth
+            stages, the risk of net blotch is low.  Go to 'Edit parameters' to
+            check and update disease observations and growth stages. This model
+            runs March to June.  
           recommended_action: >-
-            Continue to monitor crops and update crop growth stage and date of
-            fungicide applications through the season
+            Continue to monitor crops and update crop growth stage through the
+            season
         - explanation: >-
             Based on your observations of the frequency of the plants infected
-            with net blotch (Percentage of plants showing infection), crop
-            growth stages and spray dates, the risk of net blotch is moderate.
-            Go to 'Edit parameters' to check and update growth stages and spray
-            dates. This model runs March to June. 
+            with net blotch (Percentage of plants showing infection) and crop
+            growth stages, the risk of net blotch is moderate. Go to 'Edit
+            parameters' to check and update growth stages. This model runs March
+            to June. 
           recommended_action: >-
             If the threshold for net blotch is not exceeded, but other diseases
             are assessed to also cause a risk and the crop has not been treated
             in the last ten days, choose an effective fungicide, which also
             controls net blotch . Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season 
+            crops. Update crop growth stages through the season 
         - explanation: >-
             Based on your observations of the frequency of the plants infected
-            with net blotch (Percentage of plants showing infection), crop
-            growth stages and previous spray dates, the risk of net blotch is
-            high. Go to 'Edit  parameters' to check and update growth stages and
-            spray dates. This model runs March-end of June. 
+            with net blotch (Percentage of plants showing infection) and crop
+            growth stages, the risk of net blotch is high. Go to 'Edit 
+            parameters' to check and update growth stages. This model runs
+            March-end of June. 
           recommended_action: >-
             If the crop has not been treated against net blotch in the last ten
             days, treat according to need. Apart from effectiveness on net
             blotch the choice of fungicide product should also account for risks
             of other diseases. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season  
+            crops. Update crop growth stage through the season  
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -740,9 +728,7 @@ models:
       out of 100 show even a very small amount of disease and the remaining 75
       plants are completely healthy, then the observation is 25%. In susceptible
       cultivars treatments are recommended at lower incidence levels than in
-      resistant cultivars.  If a green color appears then no action is needed,
-      yellow means that a limited risk is recognized, while red indicates that
-      action is recommended.  If treatments are recommended specific fungicides
+      resistant cultivars.  If treatments are recommended specific fungicides
       known to be effective against this disease should be chosen.  When running
       the powdery mildew model the risk for yield losses from other diseases is
       not considered.   If no action is recommended it is advised to revisit the
@@ -757,11 +743,11 @@ models:
       Enter information on the incidence of attacked plants by powdery mildew
       based on scouting the crop.  Between GS  29-31 infection on whole plants
       should be assessed. Between GS 32 and 40 assessments should only be done
-      on the 3 upper leaves.  Entering information on previous fungicide spray
-      dates is vital for the model. This is also done in 'Edit parameters'.  
-      Clicking on 'Save' will keep the observations entered and update the
-      risk.  After spraying, the model assumes that the crop is protected for 14
-      days if a fungicide effective against mildew has been applied.
+      on the 3 upper leaves.  Clicking on 'Save' will keep the observations
+      entered and update the risk.  The model does not automatically adjust the
+      risk for the effect of previous fungicide sprays.  If a fungicide
+      effective against mildew has been applied within the previous 10 days, the
+      risk can be interpreted as low. 
 
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
@@ -795,7 +781,7 @@ models:
           "type":"object",
           "properties": {
             "ProblemId": {"type":"integer","title":"Mildew","default":40101},
-            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":60},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to mildew","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -839,39 +825,39 @@ models:
           recommended_action: Consult your advisory service
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            powdery mildew (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of mildew is low.  Go to 'Edit
-            parameters' to check and update disease observations, growth stages
-            and spray dates. This model runs March to June.  
+            powdery mildew (Percentage of plants showing infection) and crop
+            growth stages, the risk of mildew is low.  Go to 'Edit parameters'
+            to check and update disease observations and growth stages. This
+            model runs March to June.  
           recommended_action: >-
-            Continue to monitor crops and update crop growth stage and date of
-            fungicide applications through the season.
+            Continue to monitor crops and update crop growth stage through the
+            season.
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            powdery mildew (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of powdery mildew is moderate. Go
-            to 'Edit parameters' to check and update growth stages and spray
-            dates.  This model runs March-June. 
+            powdery mildew (Percentage of plants showing infection) and crop
+            growth stages, the risk of powdery mildew is moderate, unless the
+            crop has been sprayed with a fungicide effective against mildew in
+            the last 10 days. Go to 'Edit parameters' to check and update growth
+            stages.  This model runs March-June. 
           recommended_action: >-
             If the threshold for powdery mildew is not exceeded, but other
             diseases are assessed to also cause a risk and the crop has not been
             treated in the last ten days, choose an effective fungicide, which
             also controls powdery mildew. Continue to check for risk updates and
-            monitor crops. Update crop growth stage and date of fungicide
-            applications through the season 
+            monitor crops. Update crop growth stage through the season 
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            powdery mildew (Percentage of plants showing infection), crop growth
-            stages and previous spray dates, the risk of mildew is high. Go to
-            'Edit parameters' to check and update growth stages and spray dates.
+            powdery mildew (Percentage of plants showing infection) and crop
+            growth stages, the risk of mildew is high, unless the crop has been
+            treated with a fungicide effective against mildew in the last 10
+            days. Go to 'Edit parameters' to check and update growth stages.
             This model runs March to June. 
           recommended_action: >-
             If the crop has not been treated against powdery mildew in the last
             ten days, treat according to need. Apart from effectiveness on
             powdery mildew the choice of fungicide product should also account
             for risks of other diseases. Continue to check for risk updates and
-            monitor crops. Update crop growth stage and  date of fungicide
-            applications through the season  
+            monitor crops. Update crop growth stages through the season  
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -899,9 +885,7 @@ models:
       even a very small amount of disease and the remaining 75 plants are
       completely healthy, then the observation is 25%.   In susceptible
       cultivars treatments are recommended at lower incidence levels than in
-      resistant cultivars.  If a green color appears then no action is needed,
-      yellow means that a limited risk is recognized, while red indicates that
-      action is recommended.  If treatments are recommended specific fungicides
+      resistant cultivars. If treatments are recommended specific fungicides
       known to be effective against wheat yellow rust should be chosen.  When
       running the yellow rust model the risk for yield losses from other
       diseases is not considered.   If no action is recommended it is advised to
@@ -917,11 +901,11 @@ models:
       Enter information on the incidence of attacked plants by yellow rust 
       based on scouting the crop.  Between GS  29-31 whole crop should be
       assessed. Between GS 32 and 71 assessments should be based only on 3 upper
-      leaves.  Entering information on fungicide spray dates is vital for the
-      model. This is also done in 'Edit parameters'.  Clicking on 'Save' will
-      keep the observations  entered and update the risk.  After spraying, the
-      model assumes that the crop is protected for 14 days if a fungicide
-      effective against yellow rust has been applied.
+      leaves.  Clicking on 'Save' will keep the observations  entered and update
+      the risk.  The model does not automatically adjust the risk for the effect
+      of previous fungicide sprays.  If a fungicide effective against yellow
+      rust has been applied within the previous ten days, the risk can be
+      interpreted as low. 
 
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
@@ -955,7 +939,7 @@ models:
           "type":"object",
           "properties": {
             "ProblemId": {"type":"integer","title":"Yellow rust","default":40110},
-            "CropId": {"type":"integer","title":"Wheat (winter wheat)","default":60},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to yellow rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -999,39 +983,39 @@ models:
           recommended_action: Consult your advisory service
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            yellow rust (Percentage of plants showing infection) , crop growth
-            stages and spray dates, the risk of yellow rust is low.  Go to 'Edit
-            parameters' to check and update disease observations, growth stages
-            and spray dates. This model runs March to June.  
+            yellow rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of yellow rust is low.  Go to 'Edit parameters' to
+            check and update disease observations and growth stages. This model
+            runs March to June.  
           recommended_action: >-
-            Continue to monitor crops and update crop growth stage and date of
-            fungicide applications through the season
+            Continue to monitor crops and update crop growth stage through the
+            season
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            yellow rust (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of yellow rust is moderate. Go to
-            'Edit parameters' to check and update growth stages and spray dates.
-            This model runs March to June. 
+            yellow rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of yellow rust is moderate, unless the crop has
+            been treated with a fungicide effective against yellow rust in the
+            last 10 days. Go to 'Edit parameters' to check and update growth
+            stages. This model runs March to June. 
           recommended_action: >-
             If the threshold for yellow rust is not exceeded, but other diseases
             are assessed to also cause a risk and the crop has not been treated
             in the last ten days, choose an effective fungicide, which also
             controls yellow rust. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season 
+            crops. Update crop growth stage through the season 
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            yellow rust (Percentage of plants showing infection), crop growth
-            stages and previous spray dates, the risk of yellow rust is high. Go
-            to 'Edit  parameters' to check and update growth stages and spray
-            dates. This model runs March to June. 
+            yellow rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of yellow rust is high, unless the crop has been
+            treated with a fungicide effective against yellow rust in the last
+            10 days. Go to 'Edit  parameters' to check and update growth stages.
+            This model runs March to June. 
           recommended_action: >-
             If the crop has not been treated against yellow rust in the last ten
             days, treat according to need. Apart from effectiveness on yellow
             rust the choice of fungicide product should also account for risks
             of other diseases. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and  date of fungicide applications
-            through the season  
+            crops. Update crop growth stage through the season  
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1050,7 +1034,7 @@ models:
     description: >-
       THE PEST: Leaf blotch diseases of wheat can be caused by septoria tritici
       blotch (Zymoseptoria tritici), and Septoria nodorum blotch (Stagonospora
-      nodorium),  which are both favoured by wet conditions.  THE DECISION:
+      nodorium), which are both favoured by wet conditions.  THE DECISION:
       Fungicide treatments may need to be applied once or twice between stem
       extension (GS 32) and flowering (GS 69),  mainly to protect the upper
       leaves from attack of Septoria diseases.  THE MODEL: The CPO Septoria
@@ -1061,10 +1045,8 @@ models:
       assumed after 5 days with rain (>1mm) between GS 37 and GS 69. Counting of
       days with rain goes back a maximum of 30 days.  When running the Septoria
       model the risk for yield losses from other diseases than Septoria is not
-      considered.   If a green color appears then no action is needed, yellow
-      means that a limited risk is recognized, while red indicates that action
-      is recommended.  If no action is recommended it is advised to revisit the
-      crop after approximately one week to make a new evaluation of the risk. 
+      considered.  If no action is recommended it is advised to revisit the crop
+      after approximately one week to make a new evaluation of the risk. 
 
       THE PARAMETERS  To obtain accurate risk  predictions it is essential to
       click on the 'Edit parameters' button and enter information on the
@@ -1077,11 +1059,10 @@ models:
       the top. If more than 10% of 3rd leaves (flag leaf -2) are attacked  and
       no previous treatments have been applied against Septoria it is
       recommended to spray even if fewer than 4 days with precipitation has been
-      counted.  Entering information on fungicide spray dates is vital for the
-      model. This is also done in 'Edit parameters'.  Clicking on 'Save' will
-      keep the observations entered and update the risk.  After spraying, the
-      model assumes that the crop is protected for 14 days if a broad spectrum
-      fungicide has been applied.
+      counted.  Clicking on 'Save' will keep the observations entered and update
+      the risk.  The model does not automatically adjust for the effect of
+      previous fungicide sprays.  If a fungicide effective against septoria has
+      been applied in the last 10 days, the risk can be interpreted as low. 
 
       ASSUMPTIONS: Septoria tritici blotch is present in the crop and periods
       with high humidity create risk for a damaging epidemic
@@ -1118,7 +1099,7 @@ models:
           "type":"object",
           "properties": {
             "ProblemId": {"type":"integer","title":"Mildew","default":40104},
-            "CropId": {"type":"integer","title":"Wheat (winter wheat)","default":60},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to Septoria","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0-10%","11-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1163,42 +1144,40 @@ models:
         - explanation: >-
             Based on weather data and your observations of the frequency of
             plants infected with septoria (Percentage of plants showing
-            infection on 3rd leaf from top), crop growth stages and septoria
-            spray dates, the risk of septoria is low.  Go to 'Edit parameters'
-            to check and weather data, update disease observations, growth
-            stages and spray dates. This model runs March to June.  
+            infection on 3rd leaf from top) and crop growth stages, the risk of
+            septoria is low.  Go to 'Edit parameters' to update disease
+            observations and growth stages. This model runs March to June.  
           recommended_action: >-
             Continue to monitor days with precipitation, monitor the crops and
-            update crop growth stage and date of fungicide applications through
-            the season
+            update crop growth stage through the season.
         - explanation: >-
             Based on weather data and your observations of the frequency of
             plants infected with septoria (Percentage of plants showing
-            infection on 3rd leaf from top), crop growth stages and septoria
-            spray dates, the risk of septoria is moderate. Go to 'Edit
-            parameters' to check and update growth stages and spray dates. This
-            model runs March-end of June.
+            infection on 3rd leaf from top) and crop growth stages, the risk of
+            septoria is moderate, unless the crop has been sprayed with a
+            fungicide effective against septoria in the last 10 days. Go to
+            'Edit parameters' to check and update growth stages. This model runs
+            March-end of June.
           recommended_action: >-
             If the risk threshold for septoria is not exceeded, but other
             diseases are assessed to also cause a risk and the crop has not been
             treated in the last ten days, choose an effective fungicide, which 
             also controls septoria. Continue to check for risk updates and
-            monitor crops. Update crop growth stage and date of fungicide
-            applications through the season 
+            monitor crops. Update crop growth stage through the season 
         - explanation: >-
             Based on weather data and your observations of the frequency of
             plants infected with septoria (Percentage of plants showing
-            infection on 3rd leaf from top), crop growth stages and septoria
-            spray dates, the risk of septoria is high. Go to 'Edit parameters'
-            to check and update growth stages and spray dates. This model runs
-            March to June. 
+            infection on 3rd leaf from top) and crop growth stages, the risk of
+            septoria is high, unless the crop has been sprayed with a fungicide
+            effective against septoria in the last 10 days. Go to 'Edit
+            parameters' to check and update growth stages. This model runs March
+            to June. 
           recommended_action: >-
             If the crop has not been treated against septoria in the last ten
             days, treat according to need. Apart from effectiveness on septoria
             the choice of fungicide product should also account for risks of
             other diseases. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season  
+            crops. Update crop growth stage through the season  
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1227,10 +1206,8 @@ models:
       show even a very small amount of disease and the remaining 75 plants are
       completely healthy, then the observation is 25%). In susceptible cultivars
       treatments are recommended at lower incidence levels than in resistant
-      cultivars. If a green color appears then no action is needed, yellow means
-      that a limited risk is recognized, while red indicates that action is
-      recommended.  If treatments are recommended specific fungicides known to
-      be effective against this brown rust should be chosen.  When running the
+      cultivars. If treatments are recommended specific fungicides known to be
+      effective against this brown rust should be chosen.  When running the
       brown rust model the risk for yield losses from other diseases is not
       considered.  If no action is recommended it is advised to revisit the crop
       after approximately one week to make a new evaluation of the risk. 
@@ -1245,11 +1222,10 @@ models:
       Enter information on the incidence of attacked plants by brown rust based
       on scouting the crop. Between GS 30-31 whole crop should be assessed.
       Between GS 32 and 65 assessments should be based only on 3 upper leaves.
-      Entering information on fungicide spray dates is vital for the model. This
-      is also done in 'Edit parameters'.  Clicking on 'Save' will keep the
-      observations  entered and update the risk.   After spraying, the model
-      assumes that the crop is protected for 14 days if a broad spectrum
-      fungicide has been applied.
+      Clicking on 'Save' will keep the observations  entered and update the
+      risk.   The model does not automatically adjust the risk for the effect of
+      previous fungicide sprays. If a fungicide effective against brown rust has
+      been applied within the last 10 days, the risk can be interpreted as low. 
 
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
@@ -1283,7 +1259,7 @@ models:
           "type":"object",
           "properties": {
             "ProblemId": {"type":"integer","title":"Brown rust","default":40108},
-            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":60},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to brown rust","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1327,39 +1303,39 @@ models:
           recommended_action: Consult your advisory service
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            brown rust (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of brown rust is low.  Go to 'Edit
-            parameters' to check and update disease observations, growth stages
-            and spray dates. This model runs March to June.  
+            brown rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of brown rust is low.  Go to 'Edit parameters' to
+            check and update disease observations and growth stages. This model
+            runs March to June.  
           recommended_action: >-
-            Continue to monitor crops and update crop growth stage and date of
-            fungicide applications through the season
+            Continue to monitor crops and update crop growth stage through the
+            season
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            brown rust (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of brown rust is moderate. Go to 
-            'Edit parameters' to check and update growth stages and spray
-            dates.  This model runs March to June. 
+            brown rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of brown rust is moderate, unless a spray effective
+            against brown rust has been applied in the last 10 days. Go to 'Edit
+            parameters' to check and update growth stages. This model runs March
+            to June. 
           recommended_action: >-
             If the threshold for brown rust is not exceeded, but other diseases
             are assessed to also cause a risk and the crop has not been treated
             in the last ten days, choose an effective fungicide, which also
             controls brown rust. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season 
+            crops. Update crop growth stage through the season 
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            brown rust (Percentage of plants showing infection), crop growth
-            stages and previous spray dates, the risk of brown rust is high. Go
-            to 'Edit  parameters' to check and update growth stages and spray
-            dates. This model runs March to June. 
+            brown rust (Percentage of plants showing infection) and crop growth
+            stages, the risk of brown rust is high, unless the crop has been
+            treated with a fungicide effective against brown rust in the last 10
+            days. Go to 'Edit  parameters' to check and update growth stages.
+            This model runs March to June. 
           recommended_action: >-
             If the crop has not been treated against brown rust in the last ten
             days, treat according to need. Apart from effectiveness on brown
             rust the choice of fungicide product should also account for risks
             of other diseases. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide applications
-            through the season  
+            crops. Update crop growth stage through the season  
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID
@@ -1379,21 +1355,23 @@ models:
       THE PEST: Tan spot (Pyrenophora tritici-repentis) is known to attack
       wheat   THE DECISION: Fungicide treatments may need to be applied between
       beginning of elongation (GS 31)  and beginning of grain filling (GS 71),
-      to protect leaves from attack of tan spot and yield losses.  THE MODEL:
-      The CPO tan spot model is recommending treatments in wheat when thresholds
-      are exceeded.  The risk of attack is based on visual monitoring using
-      frequency of plants attacked. The disease observation is the percentage of
-      plants showing any infection.  For example, if 25 plants out of 100 show
-      even a very small amount of disease and the remaining 75 plants are
-      completely healthy, then the observation is 25%.  In susceptible cultivars
-      treatments are recommended at lower incidence levels than in resistant
-      cultivars.  If a green color appears then no action is needed, yellow
-      means that a limited risk is recognized, while red indicates that action
-      is recommended.  If treatments are recommended specific fungicides known
-      to be effective against this tan spot should be chosen.  When running the
-      tan spot model the risk for yield losses from other diseases is not
-      considered.   If no action is recommended it is advised to revisit the
-      crop after approximately one week to make a new evaluation of the risk. 
+      to protect leaves from attack of tan spot and yield losses.  
+
+
+      THE MODEL: The CPO tan spot model is recommending treatments in wheat when
+      thresholds are exceeded.  The risk of attack is based on visual monitoring
+      using frequency of plants attacked. The disease observation is the
+      percentage of plants showing any infection.  For example, if 25 plants out
+      of 100 show even a very small amount of disease and the remaining 75
+      plants are completely healthy, then the observation is 25%.  In
+      susceptible cultivars treatments are recommended at lower incidence levels
+      than in resistant cultivars. If treatments are recommended specific
+      fungicides known to be effective against this tan spot should be chosen. 
+      When running the tan spot model the risk for yield losses from other
+      diseases is not considered. If no action is recommended it is advised to
+      revisit the crop after approximately one week to make a new evaluation of
+      the risk. 
+
 
       THE PARAMETERS  To obtain accurate risk predictions it is essential to
       click on the 'Edit parameters' button and enter information on the
@@ -1404,11 +1382,11 @@ models:
       Enter information on the incidence of attacked plants by tan spot based on
       scouting the crop. Between GS  29-31 whole crop should be assessed. 
       Between GS 32 and 71 assessments should be based only on 3 upper leaves. 
-      Enter information on last fungicide spray dates is vital for the model.
-      This is also  done in 'Edit parameters'.  Clicking on 'Save' will keep the
-      observations entered and update the risk.   After spraying, the model
-      assumes that the crop is protected for 14 days if a broad spectrum
-      fungicide has been applied.
+      Clicking on 'Save' will keep the observations entered and update the risk.
+      The model does not automatically adjust risk for the effect of previous
+      fungicide sprays. If a fungicide effective against tan spot has been
+      applied in the last 10 days, the risk can be interpreted as low.
+
 
       SOURCE: Created by Aarhus University and SEGES and released in Denmark in
       2000. The whole CPO model has been tested in the Nordic and Baltic
@@ -1442,7 +1420,7 @@ models:
           "type":"object",
           "properties": {
             "ProblemId": {"type":"integer","title":"Tan spot","default":40113},
-            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":60},
+            "CropId": {"type":"integer","title":"Wheat (spring wheat)","default":30},
             "Susceptibility": {"type":"string","title":"Susceptibility of the variety to tan spot","enum":["R","S"], "options":{"enum_titles":["Resistant","Susceptible"]} },
             "GrowthStage": {"type": "integer","title":"Current growth stage (BBCH code)"},
             "Severity": {"type":"integer", "enum":[0,1,2,3,10],"options":{"enum_titles":["0%","1-10%","11-25%","26-50%","51-75%","75-100%","Unknown"]},"title":"Severity (% infected plants)"},
@@ -1486,39 +1464,35 @@ models:
           recommended_action: Consult your advisory service
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            tan spot (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of tan spot is low.  Go to 'Edit
-            parameters' to check and update disease observations, growth stages
-            and spray dates. This model runs March to June.  
+            tan spot (Percentage of plants showing infection) and crop growth
+            stages, the risk of tan spot is low.  Go to 'Edit parameters' to
+            check and update disease observations and growth stages. This model
+            runs March to June.  
           recommended_action: >-
-            Continue to monitor crops and update crop growth stage and date of
-            fungicide applications through the season
+            Continue to monitor crops and update crop growth stage through the
+            season
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            tan spot (Percentage of plants showing infection), crop growth
-            stages and spray dates, the risk of tan spot is moderate. Go to
-            'Edit parameters' to check and update growth stages and spray dates.
-            This model runs March to June. 
+            tan spot (Percentage of plants showing infection) and crop growth
+            stages, the risk of tan spot is moderate. Go to 'Edit parameters' to
+            check and update growth stages. This model runs March to June. 
           recommended_action: >-
             If the threshold for tan spot is not exceeded, but other diseases
             are assessed to also cause a risk and the crop has not been treated
             in the last ten days, choose an effective fungicide, which also
             controls tan spot . Continue to check for risk updates and monitor
-            crops. Update crop growth stage and date of fungicide  applications
-            through the season 
+            crops. Update crop growth stage through the season 
         - explanation: >-
             Based on your observations of the frequency of plants infected with
-            tan spot (Percentage of plants showing infection), crop growth
-            stages and previous spray dates, the risk of tan spot is high. Go to
-            'Edit  parameters' to check and update growth stages and spray
-            dates. This  model runs March to June. 
+            tan spot (Percentage of plants showing infection) and crop growth
+            stages, the risk of tan spot is high. Go to 'Edit  parameters' to
+            check and update growth stages. This  model runs March to June. 
           recommended_action: >-
             If the crop has not been treated against tan spot in the last ten
             days, treat according to need. Apart from effectiveness on tan spot
             the choice of fungicide product should also account for risks of
             other diseases. Continue to check for risk updates and monitor
-            crops. Update crop growth stage and  date of fungicide applications
-            through the season  
+            crops. Update crop growth stage through the season  
       chart_groups: []
       result_parameters:
         - id: TREATMENT_ID

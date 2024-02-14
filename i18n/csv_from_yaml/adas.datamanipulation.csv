@@ -1,0 +1,156 @@
+KEY;default;dk;de;nl;sl;no;se;fi;lt;fr;it;gr;pl;es;pt
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.description;"This model calculates hourly tempertaure values based on the CIBSE model for multiple days (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in each day using the CIBSE Guide A2 (1982). 
+Maximum temperature is then linked, using a sinusoidal curve to the minimum temperature of the following day. Capping is introduced in this model whereby if the generated value is higher than the maximum temperature then it is reduced to the maximum tempertaure,
+and if lower than the minium temperature the generated value is changed to the minimum temperature.
+
+SOURCE: 
+ASSUMPTIONS: 
+REFERENCE: "
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.name;CIBSE hourly temperature for multiple days
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.chart_heading;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.result_parameters.TMH.description;The hourly tempertaures are provided for each hour of each day.
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.result_parameters.TMH.title;Hourly temperature
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.0.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.0.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.1.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.1.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.2.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.2.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.3.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.3.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.4.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.output.warning_status_interpretation.4.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEmultipledays.purpose;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.description;"This model calculates hourly tempertaure values based on the CIBSE model for a single day (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in the day using the CIBSE Guide A2 (1982). 
+The model then uses these predicted times aswell as minimum and maximum air tempertaures to fit the data via sinusoidal curves.
+
+SOURCE: 
+ASSUMPTIONS: 
+REFERENCE: "
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.name;CIBSE hourly temperature for a single day
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.chart_heading;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.result_parameters.TMH.description;The hourly tempertaures are provided for each hour of the day.
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.result_parameters.TMH.title;Hourly temperatures
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.0.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.0.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.1.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.1.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.2.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.2.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.3.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.3.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.4.explanation;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.output.warning_status_interpretation.4.recommended_action;
+adas.datamanipulation.0_0_6.models.CIBSEsingleday.purpose;
+adas.datamanipulation.0_0_6.models.Hourly_RH.description;"This model simulates hourly realtive humidity from hourly temperature (Eccel, 2012). The assumption is made that minimum temperature is a first guess estimate of dew point temperature.
+The model then expresses relative humidity as the ratio between actual water vapour and saturation vapour.
+
+SOURCE: 
+ASSUMPTIONS: 
+REFERENCE: "
+adas.datamanipulation.0_0_6.models.Hourly_RH.name;Hourly Relative Humidiy
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.chart_heading;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.result_parameters.RHH.description;The hourly relative humidity is provided for each hour of the day.
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.result_parameters.RHH.title;Hourly relative humidity
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.0.explanation;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.0.recommended_action;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.1.explanation;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.1.recommended_action;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.2.explanation;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.2.recommended_action;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.3.explanation;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.3.recommended_action;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.4.explanation;
+adas.datamanipulation.0_0_6.models.Hourly_RH.output.warning_status_interpretation.4.recommended_action;
+adas.datamanipulation.0_0_6.models.Hourly_RH.purpose;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.description;"
+This is a simple relative humidity (RH) threshold model for calcualtion of hourly leaf wetness duration (LWD). 
+It compares each RH observation in a datted (date and time (hour)) list with a threhsold (currently 87%), and if the observation exceeds the threshold, the value for the hour return is 1, 0 otherwise.
+
+SOURCE: 
+ASSUMPTIONS: 
+REFERENCE: "
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.name;Leaf Wetness Duration
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.chart_heading;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.result_parameters.LWD.description;Whether each observation in a list is greater than the relative humidty threshold (87%)
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.result_parameters.LWD.title;Leaf Wetness Duration
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.0.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.0.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.1.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.1.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.2.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.2.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.3.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.3.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.4.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.output.warning_status_interpretation.4.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration.purpose;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.description;"This is a simple relative humidity (RH) threshold model for calcualtion of hourly leaf wetness duration (LWD). 
+It compares a single RH obsevation with a threshold (currently 87%) and if the observation is greater than the threshold, the hour is assumed to contribute to (LWD), so returns an hourly LWD value of 1.
+
+SOURCE: 
+ASSUMPTIONS: 
+REFERENCE: "
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.name;Leaf Wetness Duration_RH
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.chart_heading;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.result_parameters.LWD_RH.description;Whether a given observation is greater than the threshold (87%)
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.result_parameters.LWD_RH.title;Leaf Wetness Duration, Relative Humidity
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.0.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.0.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.1.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.1.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.2.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.2.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.3.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.3.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.4.explanation;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.output.warning_status_interpretation.4.recommended_action;
+adas.datamanipulation.0_0_6.models.LeafWetnessDuration_RH.purpose;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.description;"This model calculates hourly tempertaure values based on the Sin14R-1 model for multiple days (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in each day, based upon sunrise and sunset times for the given location.
+Sunrise and sunset times are dependent on the users inputs for latitude, longtiude and GMT offset.
+The model assumes that maximum temperature always occured at hour 14, and minimum temperature an hour before sunrise. 
+Maximum temperature is then linked, using a sinusoidal curve to the minimum temperature of the following day. Capping is introduced in this model whereby if the generated value is higher than the maximum temperature then it is reduced to the maximum tempertaure,
+and if lower than the minium temperature the generated value is changed to the minimum temperature. 
+
+SOURCE: 
+ASSUMPTIONS: 
+REFERENCE: "
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.name;Sin14R-1 hourly temperature for multiple days
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.chart_heading;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.result_parameters.TMH.description;The hourly tempertaures are provided for each hour of each day.
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.result_parameters.TMH.title;Hourly temperature
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.0.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.0.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.1.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.1.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.2.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.2.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.3.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.3.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.4.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.output.warning_status_interpretation.4.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1multipledays.purpose;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.description;"This model calculates hourly tempertaure values based on the Sin14R-1 model for a single day (Chow & Levermore, 2007). The model first allocates times for when  maximum and minimum temperatures occur in the day, based upon sunrise and sunset times for the given location. 
+Sunrise and sunset times are dependent on the users inputs for latitude, longtiude and GMT offset.
+The model assumes that maximum temperature always occured at hour 14, and minimum temperature an hour before sunrise.
+The model then uses these predicted times aswell as minimum and maximum air tempertaures to fit the data via sinusoidal curves.
+
+SOURCE: 
+ASSUMPTIONS: 
+REFERENCE: "
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.name;Sin14R-1 hourly temperature for a single day
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.chart_heading;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.result_parameters.TMH.description;The hourly tempertaures are provided for each hour of the day.
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.result_parameters.TMH.title;Hourly temperature
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.0.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.0.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.1.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.1.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.2.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.2.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.3.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.3.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.4.explanation;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.output.warning_status_interpretation.4.recommended_action;
+adas.datamanipulation.0_0_6.models.Sin14R-1singleday.purpose;
+adas.datamanipulation.0_0_6.name;Models

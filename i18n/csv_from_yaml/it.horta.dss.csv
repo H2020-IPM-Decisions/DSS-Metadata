@@ -1,4 +1,5 @@
 KEY;default;dk;de;nl;sl;no;se;fi;lt;fr;it;gr;pl;es;pt
+it.horta.dss.1_0.name;Horta-srl;Horta-srl;Horta-srl;;Horta-srl;;Horta-srl;Horta-srl;Horta-srl;Horta-srl;Horta-srl;Horta-srl;;;
 it.horta.dss.1_0.models.it_horta_dss_tomato.description;"Account required, charges apply. 
 
 Phytophthora infestans 
@@ -20,9 +21,184 @@ THE MODEL: The tomato bacterial speck model takes into account the main processe
 
 SOURCE: All models have been adapted/developed by Horta s.l.r
 https://www.horta-srl.it/en/
-"
-it.horta.dss.1_0.models.it_horta_dss_tomato.name;Horta Tomato DSS
-it.horta.dss.1_0.models.it_horta_dss_tomato.purpose;The models aim to predict disease risk to tomato crops
+";"Konto påkrævet, gebyrer pålægges.
+
+Phytophthora infestans
+BESLUTNINGEN: Vejleder omkring anvendelse af beskyttelsesstrategier
+MODELLEN: Modellen med tomatskimmel tager højde for hovedprocesserne for patogenet, miljøet og plantens fænologiske stadie og udarbejder alle inputdata for at give information om risikoen for infektion i marken.
+
+Alternaria solani
+BESLUTNINGEN: Anvendelse af beskyttelsesstrategier
+MODELLEN: Modellen for tidlig tomatskimmel tager højde for hovedprocesserne for patogenet, miljøet og plantens fænologiske stadie og udarbejder alle inputdata for at give information om risikoen for infektion i marken.
+KILDE: Horta 2023
+
+Pseudomonas syringae; Xanthomonas campestris
+BESLUTNINGEN: Anvendelse af beskyttelsesstrategier
+MODELLEN: Tomatbakteriemodellen tager højde for hovedprocesserne i P. syringae, miljøet og plantens fænologiske stadie og udarbejder alle inputdata for at give information om risikoen for infektion i marken.
+
+Xanthomonas campestris
+BESLUTNINGEN: Anvendelse af beskyttelsesstrategier
+MODELLEN: Tomatbakteriemodellen tager højde for X. campestris' hovedprocesser, miljøet og plantens fænologiske stadie og udarbejder alle inputdata for at give information om risikoen for infektion i marken.
+
+KILDE: Alle modeller er tilpasset/udviklet af Horta s.l.r
+https://www.horta-srl.it/da/";"Registrierung erforderlich, es fallen Gebühren an. 
+
+Phytophthora infestans 
+ENTSCHEIDUNG: Leitfaden für die Anwendung von Schutzstrategien 
+MODELL: Das Modell für die Kraut- und Braunfäule der Tomate berücksichtigt die wichtigsten Prozesse des Erregers, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko auf dem Feld zu liefern. 
+
+Alternaria solani
+ENTSCHEIDUNG: Anwendung von Schutzstrategien 
+MODELL: Das Modell für die Dürrfleckenkrankheit der Tomate berücksichtigt die wichtigsten Prozesse des Krankheitserregers, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko im Feld zu liefern. 
+QUELLE: Horta 2023
+
+Pseudomonas syringae ; Xanthomonas campestris
+ENTSCHEIDUNG: Anwendung von Schutzstrategien 
+MODELL: Das Modell für die Bakterielle Welke der Tomate berücksichtigt die wichtigsten Prozesse von P. syringae, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko auf dem Feld zu liefern. 
+
+Xanthomonas campestris
+DIE ENTSCHEIDUNG: Anwendung von Schutzstrategien 
+DAS MODELL: Das Modell für die Bakterienfruchtflecken der Tomate berücksichtigt die wichtigsten Prozesse von X. campestris, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko auf dem Feld zu liefern. 
+
+QUELLE: Alle Modelle wurden von Horta s.l.r. angepasst/entwickelt.
+https://www.horta-srl.it/en/";"Account vereist, kosten van toepassing. 
+
+Phytophthora infestans 
+DE BESLISSING: Toepassing van beschermingsstrategieën.  
+HET MODEL: Het model voor Phytophthora bij tomaten houdt rekening met de belangrijkste processen van de ziekteverwekker, de omgeving en het fenologische stadium van de plant en werkt alle invoergegevens uit om informatie te verstrekken over het infectierisico in het veld. 
+
+Alternaria solani
+DE BESLISSING: Toepassing van beschermingsstrategieën. 
+HET MODEL: Het Alternaria-model houdt rekening met de belangrijkste processen van de ziekteverwekker, de omgeving en het fenologische stadium van de plant en werkt alle inputgegevens uit om informatie te verstrekken over het infectierisico in het veld. 
+BRON: Horta 2023
+
+Pseudomonas syringae ; Xanthomonas campestris
+DE BESLISSING: Toepassing van beschermingsstrategieën. 
+HET MODEL: Het Pseudomonas-model houdt rekening met de belangrijkste processen van P. syringae, van de omgeving en van het fenologische stadium van de plant en werkt alle invoergegevens uit om informatie te verstrekken over het infectierisico in het veld. 
+
+Xanthomonas campestris
+DE BESLISSING: Toepassing van beschermingsstrategieën. 
+HET MODEL: Het Xanthomonas-model houdt rekening met de belangrijkste processen van X. campestris, van het milieu en van het fenologische stadium van de plant en werkt alle invoergegevens uit om informatie te verstrekken over het infectierisico in het veld. 
+
+BRON: Alle modellen zijn aangepast/ontwikkeld door Horta s.l.r.
+https://www.horta-srl.it/en/";"Potreben je račun, DSS je plačljiv.
+
+ŠKODLJIV ORGANIZEM: Paradižnikova plesen (Phytophthora infestans)
+ODLOČITEV: Vodiči za uporabo strategij zaščite
+MODEL: Model paradižnikove plesni upošteva glavne procese patogena, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe na polju.
+
+ŠKODLJIV ORGANIZEM: Črna listna pegavost paradižnika (Alternaria solani)
+ODLOČITEV: Uporaba strategij varstva
+MODEL: Model črne listne pegavosti paradižnika upošteva glavne procese patogena, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe na polju.
+VIR: Horta 2023
+
+ŠKODLJIV ORGANIZEM: bakterijski ožig paradižnika (Pseudomonas syringae) ; bakterijska listna pegavost plodov (Xanthomonas campestris)
+ODLOČITEV: Uporaba strategij varstva
+MODEL: Model bakterijskega ožiga paradižnika upošteva glavne procese P. syringae, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe na polju.
+
+ŠKODLJIV ORGANIZEM: bakterijska listna pegavost plodov (Xanthomonas campestris)ODLOČITEV: Uporaba strategij varstva
+MODEL: Model bakterijske pegavosti paradižnika upošteva glavne procese X. campestris, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe na polju.
+
+VIR: Vse modele je prilagodilo/razvilo podjetje Horta s.l.r.
+https://www.horta-srl.it/en/";Betalingskonto kreves;Registrering krävs, används mot betalning;"Vaaditaan tiliä
+Phytophthora infestans
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Phytophthora infestans -malli tomaatilla ottaa huomioon patogeenin, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja arvioi tartunnan riskiä.
+Alternaria Solani
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Tomaattien lehtipoltemalli ottaa huomioon patogeenin, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja arvioi tartunnan riskiä.
+LÄHDE: Horta 2023
+Pseudomonas Syringae; Xanthomonas campestris
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Tomaatin bakteeritautien malli ottaa huomioon patogeenin, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja arvioi tartunnan riskiä.
+Xanthomonas campestris
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Tomaatin bakteeritaudin malli ottaa huomioon patogeenin, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja arvioi tartunnan riskiä.
+LÄHDE: Horta S.L.R on mukautettu/kehittänyt kaikki mallit.
+https://www.horta-srl.it/en/";"Reikalinga paskyra, taikomi mokesčiai
+
+Phytophthora infestans 
+SPRENDIMAS: Pagalba taikant apsaugos strategijas. 
+MODELIS: Pomidorų maro modelyje atsižvelgiama į pagrindinius su patogenu, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie infekcijos riziką pasėlyje. 
+
+Alternaria solani
+SPRENDIMAS: Apsaugos strategijų taikymas. 
+MODELIS: Pomidorų sausligės modelyje atsižvelgiama į pagrindinius su patogenu, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie infekcijos riziką pasėlyje. 
+ŠALTINIS: Horta 2023
+
+Pseudomonas syringae; Xanthomonas campestris
+SPRENDIMAS: Apsaugos strategijų taikymas. 
+MODELIS: Pomidorų bakterinės dėmėtligės modelyje atsižvelgiama į pagrindinius su patogeno P. syringae, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie infekcijos riziką pasėlyje. 
+
+Xanthomonas campestris
+SPRENDIMAS: Apsaugos strategijų taikymas. 
+MODELIS: Pomidorų bakterinės dėmėtligės modelyje atsižvelgiama į pagrindinius su patogeno X. campestris, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie infekcijos riziką pasėlyje.
+ŠALTINIS: Visus modelius pritaikė/sukūrė Horta s.l.r.
+https://www.horta-srl.it/en/
+";"Compte requis (payant).
+
+Phytophthora infestans
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle de mildiou de la tomate prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection au champ.
+
+Alternaria solani
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle d’alternariose de la tomate prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection au champ.
+SOURCE : Horta 2023
+
+ Pseudomonas syringae ; Xanthomonas campestris
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle de tache bactérienne de la tomate prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection au champ.
+
+ Xanthomonas campestris
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle de moucheture bactérienne de la tomate prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection au champ.
+
+ SOURCE : Tous les modèles ont été adaptés/développés par Horta s.l.r https://www.ho
+rta-srl.it/en/";"""È necessario un profilo, si applicano le spese"". 
+
+Phytophthora infestans 
+LA DECISIONE: guida l'applicazione di strategie di protezione 
+IL MODELLO: Il modello di peronospora del pomodoro tiene conto dei principali processi del patogeno, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione in campo. 
+
+Alternaria solani
+LA DECISIONE: Applicazione di strategie di protezione 
+IL MODELLO: Il modello di peronospora del pomodoro tiene conto dei principali processi del patogeno, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione in campo. 
+FONTE: Horta 2023
+
+Pseudomonas syringae ; Xanthomonas campestris
+LA DECISIONE: Applicazione di strategie di protezione 
+IL MODELLO: Il modello di speck batterico del pomodoro tiene conto dei principali processi di P. syringae, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione in campo. 
+
+Xanthomonas campestris
+LA DECISIONE: Applicazione di strategie di protezione 
+IL MODELLO: Il modello di speck batterico del pomodoro tiene conto dei principali processi di X. campestris, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione in campo. 
+
+FONTE: Tutti i modelli sono stati adattati/sviluppati da Horta s.l.r.
+https://www.horta-srl.it/en/
+""";"Απαιτείται λογαριασμός, ισχύουν χρεώσεις. 
+
+Phytophthora infestans 
+Η ΑΠΟΦΑΣΗ: Καθοδηγεί την εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο του όψιμου παθογόνου της τομάτας λαμβάνει υπόψη τις κύριες διεργασίες του παθογόνου, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παρέχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης στον αγρό. 
+
+Alternaria solani
+Η ΑΠΟΦΑΣΗ: Εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο της πρώιμης σήψης της τομάτας λαμβάνει υπόψη τις κύριες διεργασίες του παθογόνου, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παρέχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης στον αγρό. 
+ΠΗΓΗ: Horta 2023
+
+Pseudomonas syringae ; Xanthomonas campestris
+Η ΑΠΟΦΑΣΗ: Εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο βακτηριακής κηλίδας της τομάτας λαμβάνει υπόψη τις κύριες διεργασίες του P. syringae, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παρέχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης στον αγρό. 
+
+Xanthomonas campestris
+Η ΑΠΟΦΑΣΗ: Εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο βακτηριακής κηλίδας της τομάτας λαμβάνει υπόψη τις κύριες διεργασίες του X. campestris, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παρέχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης στον αγρό. 
+
+ΠΗΓΗ: Όλα τα μοντέλα έχουν προσαρμοστεί/αναπτυχθεί από την Horta s.l.r.
+https://www.horta-srl.it/en/";;;
+it.horta.dss.1_0.models.it_horta_dss_tomato.name;Horta Tomato DSS;Horta Tomat DSS;Horta Tomaten DSS;Horta Tomaten BOS;Horta Tomato DSS;Horta Tomat DSS;Horta Tomato DSS;Horta Tomato DSS;Horta Pomidorų SPS;Horta Tomato DSS;Horta DSS Pomodoro;Τομάτα Horta DSS;;;
+it.horta.dss.1_0.models.it_horta_dss_tomato.purpose;The models aim to predict disease risk to tomato crops;Modellerne sigter mod at forudsige sygdomsrisiko for tomatafgrøder;Die Modelle zielen darauf ab, das Krankheitsrisiko in Tomaten vorherzusagen;De modellen zijn bedoeld om het ziekterisico in tomatengewassen te voorspellen.;Modeli so namenjeni napovedovanju tveganja za okužbe paradižnika z boleznimi;Modellen har som mål att förutsäga risken för sjukdom i tomatodling;Modellen har som formål å forutsi risikoen for sykdom i tomatavling.;Malli arvioi kasvitautiriskiä tomaatilla;Modelių tikslas prognozuoti ligų riziką pomidorų pasėliuose.;Les modèles visent à prédire le risque de maladie pour les cultures de tomates.;I modelli mirano a prevedere il rischio di malattia per le colture di pomodoro.;Τα μοντέλα αποσκοπούν στην πρόβλεψη του κινδύνου εμφάνισης ασθενειών στις καλλιέργειες τομάτας;;;
 it.horta.dss.1_0.models.it_horta_dss_wheat.description;"Account required, charges apply. 
 
 Puccinia striiformis
@@ -48,7 +224,225 @@ THE MODEL: The septoria model takes into account the main processes of the patho
 
 SOURCE: All models have been adapted/developed by Horta s.l.r
 https://www.horta-srl.it/en/
-"
-it.horta.dss.1_0.models.it_horta_dss_wheat.name;Horta Wheat DSS 
-it.horta.dss.1_0.models.it_horta_dss_wheat.purpose;The models aim to predict disease risk in wheat crops
-it.horta.dss.1_0.name;Horta-srl
+";"Konto påkrævet, gebyrer pålægges.
+
+Puccinia striiformis
+BESLUTNINGEN: Vejleder om anvendelse af beskyttelsesstrategier
+MODELLEN: Gulrustmodellen tager højde for hovedprocesserne for patogenet, miljøet og plantens fænologiske stadie og uddyber alle inputdata for at give information om risikoen for infektion i marken.
+
+Puccinia triticina
+BESLUTNINGEN: Anvendelse af beskyttelsesstrategier
+MODELLEN: Brunrustmodellen tager højde for hovedprocesserne for patogenet, miljøet og plantens fænologiske stadie og uddyber alle inputdata for at give information om risikoen for infektion i marken.
+
+Fusarium graminearum
+BESLUTNINGEN: Anvendelse af beskyttelsesstrategier
+MODELLEN: Fusarium-modellen tager højde for hovedprocesserne for patogenet, miljøet og plantens fænologiske stadie og udarbejder alle inputdata for at give information om risikoen for infektion i marken. Modellen giver også sandsynligheden for, at mængden af ​​mykotoksiner overstiger den lovlige grænse.
+
+Zymoseptoria tritici
+BESLUTNINGEN: Anvendelse af beskyttelsesstrategier
+MODELLEN: Septoria-modellen tager højde for hovedprocesserne for patogenet, miljøet og plantens fænologiske stadie og udarbejder alle inputdata for at give information om risikoen for infektion af plettet bladplet (Septoria plet) ) i marken.
+
+Blumeria graminis f. sp. tritici
+BESLUTNINGEN: Anvendelse af beskyttelsesstrategier
+MODELLEN: Septoria-modellen tager højde for hovedprocesserne for patogenet, miljøet og plantens fænologiske stadie og udarbejder alle inputdata for at give information om risikoen for infektion med meldug af hvede i Mark.
+
+KILDE: Alle modeller er tilpasset/udviklet af Horta s.l.r
+https://www.horta-srl.it/da/";"Registrierung erforderlich, es fallen Gebühren an. 
+
+Puccinia striiformis
+ENTSCHEIDUNG: Leitfaden für die Anwendung von Schutzstrategien 
+MODELL: Das Modell für den Gelbrost berücksichtigt die wichtigsten Prozesse des Erregers, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko auf dem Feld zu liefern. 
+
+Puccinia triticina
+ENTSCHEIDUNG: Anwendung von Schutzstrategien 
+MODELL: Das Modell für den Braunrost berücksichtigt die wichtigsten Prozesse des Erregers, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko auf dem Feld zu liefern. 
+
+Fusarium graminearum
+ENTSCHEIDUNG: Anwendung von Schutzstrategien 
+MODELL: Das Model für Ährenfusariosen berücksichtigt die wichtigsten Prozesse des Erregers, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko auf dem Feld zu liefern. Das Modell liefert auch die Wahrscheinlichkeit, dass die Menge der Mykotoxine den gesetzlichen Grenzwert überschreitet. 
+
+Zymoseptoria tritici
+ENTSCHEIDUNG: Anwendung von Schutzstrategien 
+MODELL: Das Septoria-Modell berücksichtigt die wichtigsten Prozesse des Erregers, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Risiko einer Infektion mit der Septotia-Blattdürre im Feld zu liefern. 
+
+Blumeria graminis f. sp. tritici
+ENTSCHEIDUNG: Anwendung von Schutzstrategien 
+MODELL: Das Mehltau-Modell berücksichtigt die wichtigsten Prozesse des Krankheitserregers, der Umwelt und des phänologischen Stadiums der Pflanze und verarbeitet alle Eingabedaten, um Informationen über das Infektionsrisiko des Echten Mehltaus bei Weizen im Feld zu liefern. 
+
+
+QUELLE: Alle Modelle wurden von Horta s.l.r. angepasst/entwickelt
+https://www.horta-srl.it/en/
+";"Account vereist, kosten van toepassing. 
+
+Puccinia striiformis
+DE BESLISSING: Begeleidt de toepassing van beschermingsstrategieën 
+HET MODEL: Het model voor gele roest houdt rekening met de belangrijkste processen van de ziekteverwekker, van de omgeving en van het fenologische stadium van de plant en werkt alle invoergegevens uit om informatie te verstrekken over het infectierisico op het veld. 
+
+Puccinia triticina
+DE BESLISSING: Toepassing van beschermingsstrategieën 
+HET MODEL: Het model voor bruine roest houdt rekening met de belangrijkste processen van de ziekteverwekker, van de omgeving en van het fenologische stadium van de plant en werkt alle inputgegevens uit om informatie te verstrekken over het infectierisico op het veld. 
+
+Fusarium graminearum
+DE BESLISSING: Toepassing van beschermingsstrategieën 
+Het model houdt rekening met de belangrijkste processen van de ziekteverwekker, de omgeving en het fenologische stadium van de plant en werkt alle invoergegevens uit om informatie te verstrekken over het infectierisico op het veld. Het model geeft de kans aan dat de hoeveelheid mycotoxinen de wettelijke grenswaarde overschrijdt. 
+
+Zymoseptoria tritici
+DE BESLISSING: Toepassing van beschermingsstrategieën 
+HET MODEL: Het septoria-model houdt rekening met de belangrijkste processen van de ziekteverwekker, van het milieu en van het fenologische stadium van de plant en werkt alle invoergegevens uit om informatie te verstrekken over het risico van besmetting met bladvlekken op het veld. 
+
+Blumeria graminis f. sp. tritici
+DE BESLISSING: Toepassing van beschermingsstrategieën 
+HET MODEL: Het septoria-model houdt rekening met de belangrijkste processen van de ziekteverwekker, van de omgeving en van het fenologische stadium van de plant en werkt alle invoergegevens uit om informatie te verstrekken over het risico op besmetting met echte meeldauw in tarwe op het veld. 
+
+BRON: Alle modellen zijn aangepast/ontwikkeld door Horta s.l.r.
+https://www.horta-srl.it/en/";"Potreben je račun, DSS je plačljiv.
+
+Puccinia striiformis
+ODLOČITEV: Nasveti za uporabo strategij varstva
+MODEL: Model rumene progaste rje upošteva glavne procese patogena, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe na polju.
+
+ŠKODLJIV ORGANIZEM: Pšenične liste rje (Puccinia triticina)
+ODLOČITEV: Uporaba strategij varstva
+MODEL: Model rjave listne rje upošteva glavne procese patogena, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe na polju.
+
+ŠKODLJIV ORGANIZEM: Fuzarioza (Fusarium graminearum)
+ODLOČITEV: Uporaba strategij varstva
+MODEL: Model fuzarijske kapice upošteva glavne procese patogena, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe na polju. Model zagotavlja tudi verjetnost, da količina mikotoksinov preseže zakonsko določeno mejo.
+
+ŠKODLJIV ORGANIZEM: Pšenična listna pegavost (Zymoseptoria tritici)
+ODLOČITEV: Uporaba strategij varstva
+MODEL: Model septorije upošteva glavne procese patogena, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe s pegasto listno pegavostjo (Septoria blotch) na polju.
+
+ŠKODLJIV ORGANIZEM: Žitna pepelovka (Blumeria graminis f. sp. tritici)
+ODLOČITEV: Uporaba strategij varstva
+MODEL: Model septorije upošteva glavne procese patogena, okolja in fenološke faze rastline ter izdela vse vhodne podatke, da bi zagotovil informacije o tveganju okužbe pšenice s pepelovko na polju.
+
+VIR: Vse modele je prilagodilo/razvilo podjetje Horta s.l.r.
+https://www.horta-srl.it/en/";"Konto kreves, kostnader påløper. 
+Puccinia striiformis. AVGJØRELSEN: Veileder bruken av plantevern-strategier. MODELLEN: Gulrustmodellen tar hensyn til skadegjørerens viktigste strategier, omgivelsene og plantens fenologiske stadium og andre input data for å gi informasjon om smittefaren i kulturen.
+Puccinia triticina. AVGJØRELSEN: Veileder bruken av plantevern-strategier. MODELLEN: Brunrustmodellen tar hensyn til skadegjørerens viktigste strategier, omgivelsene og plantens fenologiske stadium og andre input data for å gi informasjon om smittefaren i kulturen.
+Fusarium graminearum. AVGJØRELSEN: Veileder bruken av plantevern-strategier. MODELLEN: Fusariose-modellen tar hensyn til skadegjørerens viktigste strategier, omgivelsene og plantens fenologiske stadium og andre input data for å gi informasjon om smittefaren i kulturen. Modellen beregner også sannsynligheten for at mengeden mykotoksiner overskrider den lovlige minimumsgrensen.
+Zymoseptoria tritici. AVGJØRELSEN: Veileder bruken av plantevern-strategier. MODELLEN: Hvetebladprikk-modellen modellen tar hensyn til skadegjørerens viktigste strategier, omgivelsene og plantens fenologiske stadium og andre input data for å gi informasjon om risikoen for hvetebladprikk i kulturen.
+Blumeria graminis f. sp. tritici. AVGJØRELSEN: Veileder bruken av plantevern-strategier. MODELLEN: Grasmjøldogg-modellen modellen tar hensyn til skadegjørerens viktigste strategier, omgivelsene og plantens fenologiske stadium og andre input data for å gi informasjon om risikoen for grasmjøldogg i kulturen.
+KILDE: Alle modellene er tilpasset/utviklet av Horta s.l.r. https://www.horta-srl.it/en/
+";Registrering krävs, används mot betalning;"Tili vaaditaan, veloitetaan.
+
+Puccinia striiformis
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Keltaruostemalli ottaa huomioon taudinaiheuttajan, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja ennustaa tartuntariskistä pellolla.
+Puccinia triticina
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista 
+MALLI: Ruskearuostemalli ottaa huomioon taudinaiheuttajan, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja ennustaa tartuntariskistä pellolla.
+Fusarium graminearum
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Viljojen punahomemalli ottaa huomioon taudinaiheuttajan, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja ennustaa tartuntariskistä pellolla. Malli antaa myös todennäköisyyden, jossa mykotoksiinien määrä ylittää lain salliman rajan.
+Zymoseptoria tritici
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Harmaalaikkumalli ottaa huomioon taudinaiheuttajan, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja ennustaa tartuntariskistä pellolla.
+Blumeria graminis f. sp. tritici
+PÄÄTÖS: Ohjaa kasvintuhoojan hallintamenetelmän soveltamista
+MALLI: Härmämalli ottaa huomioon taudinaiheuttajan, ympäristön ja kasvin fenologisen vaiheen pääprosessit ja ennustaa tartuntariskistä pellolla.
+LÄHDE: Horta s.l.r. on mukauttanut/kehittänyt kaikki mallit
+https://www.horta-srl.it/en/
+";"Reikalinga paskyra, taikomi mokesčiai
+
+Puccinia striiformis
+SPRENDIMAS: Pagalba taikant apsaugos strategijas. 
+MODELIS: Geltonųjų rūdžių modelyje atsižvelgiama į pagrindinius su patogeno, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie infekcijos riziką pasėlyje
+
+Puccinia triticina
+SPRENDIMAS: Apsaugos strategijų taikymas. 
+MODELIS: Rudųjų rūdžių modelyje atsižvelgiama į pagrindinius su patogeno, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie infekcijos riziką pasėlyje
+
+Fusarium graminearum
+SPRENDIMAS: Apsaugos strategijų taikymas. 
+MODELIS: Fuzariozės modelyje atsižvelgiama į pagrindinius su patogeno, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie infekcijos riziką pasėlyje. Modelyje taip pat nurodoma tikimybė, kada mikotoksinų kiekis viršija leistiną 
+
+Zymoseptoria tritici
+SPRENDIMAS: Apsaugos strategijų taikymas. 
+MODELIS: Lapų septoriozės modelyje atsižvelgiama į pagrindinius su patogeno, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie lapų septoriozės infekcijos riziką pasėlyje. 
+
+Blumeria graminis f. sp. tritici
+SPRENDIMAS: Apsaugos strategijų taikymas. 
+MODELIS: Miltligės modelyje atsižvelgiama į pagrindinius su patogeno, aplinka ir augalo fenologiniu tarpsniu susijusius procesus ir apdoroja visus įvestus duomenis, kad būtų galima pateikti informaciją apie miltigės infekcijos riziką pasėlyje. 
+
+ŠALTINIS: Visus modelius pritaikė/sukūrė Horta s.l.r. 
+https://www.horta-srl.it/en/
+";"Compte requis (payant).
+
+ Puccinia striiformis 
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle de rouille jaune prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection au champ. 
+
+ Puccinia triticina 
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle de rouille brune prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection au champ. 
+
+ Fusarium graminearum 
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle de fusariose prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection au champ. Le modèle fournit également la probabilité que la quantité de mycotoxines dépasse la limite légale. 
+
+ Zymoseptoria tritici 
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle de septoriose prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection de la septoriose au champ. 
+
+ Blumeria graminis f. sp. tritici 
+LA DÉCISION : Aide à la définition de stratégies de protection
+LE MODÈLE : Le modèle prend en compte la biologie de l'agent pathogène, l'environnement et le stade phénologique de la plante, et tient compte des données d'entrée pour évaluer le risque d'infection de l'oïdium du blé au champ. 
+
+
+ SOURCE : Tous les modèles ont été adaptés/développés par Horta s.l.r https://www.ho
+rta-srl.it/en/
+";"""Richiesto profilo, si applicano le spese"". 
+
+Puccinia striiformis
+LA DECISIONE: guida l'applicazione delle strategie di protezione 
+IL MODELLO: Il modello di ruggine striata gialla tiene conto dei principali processi del patogeno, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione in campo. 
+
+Puccinia triticina
+LA DECISIONE: Applicazione di strategie di protezione 
+IL MODELLO: Il modello di ruggine fogliare tiene conto dei principali processi del patogeno, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione in campo. 
+
+Fusarium graminearum
+LA DECISIONE: Applicazione di strategie di protezione 
+IL MODELLO: Il modello di fusarium head blight tiene conto dei principali processi del patogeno, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione in campo. Il modello fornisce anche la probabilità che la quantità di micotossine superi il limite legale. 
+
+Zymoseptoria tritici
+LA DECISIONE: Applicazione di strategie di protezione 
+IL MODELLO: Il modello di septoriosi tiene conto dei principali processi del patogeno, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input al fine di fornire informazioni sul rischio di infezione di macchia fogliare (Septoria blotch) in campo. 
+
+Blumeria graminis f. sp. tritici
+LA DECISIONE: Applicazione delle strategie di protezione 
+IL MODELLO: Il modello della septoriosi tiene conto dei principali processi del patogeno, dell'ambiente e dello stadio fenologico della pianta ed elabora tutti i dati di input per fornire informazioni sul rischio di infezione dell'oidio del grano in campo. 
+
+
+FONTE: Tutti i modelli sono stati adattati/sviluppati da Horta s.l.r.
+https://www.horta-srl.it/en/
+""";"Απαιτείται λογαριασμός, ισχύουν χρεώσεις. 
+
+Puccinia striiformis
+Η ΑΠΟΦΑΣΗ: Καθοδηγεί την εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο της κίτρινης ραβδωτής σκωρίασης λαμβάνει υπόψη τις κύριες διεργασίες του παθογόνου, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παρέχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης στον αγρό. 
+
+Puccinia triticina
+Η ΑΠΟΦΑΣΗ: Εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο της καστανής σκωρίασης των φύλλων λαμβάνει υπόψη τις κύριες διεργασίες του παθογόνου, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παράσχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης στον αγρό. 
+
+Fusarium graminearum
+Η ΑΠΟΦΑΣΗ: Εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο για το fusarium head blight λαμβάνει υπόψη τις κύριες διεργασίες του παθογόνου, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παρέχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης στον αγρό. Το μοντέλο παρέχει επίσης την πιθανότητα η ποσότητα των μυκοτοξινών να υπερβαίνει το νόμιμο όριο. 
+
+Zymoseptoria tritici
+Η ΑΠΟΦΑΣΗ: Εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο Septoria λαμβάνει υπόψη τις κύριες διεργασίες του παθογόνου, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παράσχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης από την κηλίδα των φύλλων (Septoria blotch) στον αγρό. 
+
+Blumeria graminis f. sp. tritici
+Η ΑΠΟΦΑΣΗ: Εφαρμογή στρατηγικών προστασίας 
+ΤΟ ΜΟΝΤΕΛΟ: Το μοντέλο Septoria λαμβάνει υπόψη τις κύριες διεργασίες του παθογόνου, του περιβάλλοντος και του φαινολογικού σταδίου του φυτού και επεξεργάζεται όλα τα δεδομένα εισόδου προκειμένου να παρέχει πληροφορίες σχετικά με τον κίνδυνο μόλυνσης από το ωίδιο του σιταριού στον αγρό. 
+
+
+ΠΗΓΗ: Όλα τα μοντέλα έχουν προσαρμοστεί/αναπτυχθεί από την Horta s.l.r.
+https://www.horta-srl.it/en/
+";;;
+it.horta.dss.1_0.models.it_horta_dss_wheat.name;Horta Wheat DSS ;Horta Hvede DSS ;Horta Weizen DSS ;Horta Tarwe BOS;Horta Wheat DSS ;Horta Hvete DSS;Horta Vete DSS;Horta Vehnä DSS;Horta Kviečių SPS;Horta Wheat DSS;Horta DSS Grano;Horta DSS σιταριού;;;
+it.horta.dss.1_0.models.it_horta_dss_wheat.purpose;The models aim to predict disease risk in wheat crops;Modellerne sigter mod at forudsige sygdomsrisiko i hvedeafgrøder;Die Modelle zielen darauf ab, das Krankheitsrisiko in Weizen vorherzusagen;De modellen zijn bedoeld om het ziekterisico in tarwegewassen te voorspellen.;Modeli so namenjeni napovedovanju tveganja za nastanek bolezni v posevkih pšenice;Modellen har til hensikt å forutsi risikoen for sjukdom i hvete;Modellen är avsedd att förutsäga sjukdom i vete;Malli arvioi vehnän kasvitautiriskejä.;Modelių tikslas prognozuoti ligų riziką kviečių pasėliuose.;Les modèles visent à prédire le risque de maladie dans les cultures de blé.;I modelli hanno lo scopo di prevedere il rischio di malattia nelle colture di grano;Τα μοντέλα αποσκοπούν στην πρόβλεψη του κινδύνου εμφάνισης ασθενειών σε καλλιέργειες σιταριού;;;

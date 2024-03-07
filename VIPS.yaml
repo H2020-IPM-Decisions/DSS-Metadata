@@ -878,303 +878,6 @@ models:
             unit: Number
             chart_type: line
             color: '#ff0000'
-  - name: Cabbage root fly and turnip fly observation model
-    id: DELIARFOBS
-    version: '1.0'
-    type_of_decision: Short-term tactical
-    type_of_output: Risk indication
-    description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARFOBS/
-    purpose: Estimates risk of damage by Cabbage Root Fly and Turnip Fly
-    description: >-
-      The warning system model is based on weekly observations of oviposition by
-      the 
-
-      brassica root flies [CITATION Bli991 \l 1044 ]. The model is based in its
-      entirety 
-
-      on observations, with no input of weather data or weather forecasts. The
-      model does 
-
-      not distinguish between the cabbage maggot and the turnip fly. The
-      observations consist 
-
-      of collecting sand from the base of 10 plants and floating the eggs in
-      water. The 
-
-      counts are registered in VIPS and the mean number of eggs is calculated.
-      The observations 
-
-      are compared to damage thresholds [CITATION Bli99 \l 1044 ] and warnings
-      are calculated.
-
-      The damage thresholds are related to the plants developmental stage and
-      tell how many eggs 
-
-      that can be on a plant before there will be a reduction in growth and
-      yield. VIPS presents 
-
-      two warning system models based on damage thresholds: one for newly
-      planted cabbage and 
-
-      one for cabbage that has been in the field more than 4 weeks. The model
-      can also be set up 
-
-      as a private warning for the farmer’s own field, in which case the model
-      will vary between 
-
-      the two different damage thresholds based on the age of the cabbage crop
-      (starting at the 
-
-      time of planting).
-
-      The warning system model is only valid for cabbage, cauliflower and
-      broccoli. The damage 
-
-      threshold for cabbage, cauliflower and broccoli the first 4 weeks after
-      planting is 14 eggs 
-
-      per plant per week. After 4 weeks the damage threshold changes to 40 eggs
-      per plant per 
-
-      week. Damage thresholds have not been determined for other crucifers.
-
-
-      SOURCE: 
-
-      ASSUMPTIONS: 
-
-      REFERENCE: 
-    citation: null
-    platform_validated: false
-    pests:
-      - HYLERA
-      - HYLEFL
-    crops:
-      - BRSOL
-      - BRSOB
-      - BRSOK
-    authors:
-      - name: Richard Meadow
-        email: richard.meadow@nibio.no
-        organization: NIBIO
-    execution:
-      type: ONTHEFLY
-      endpoint: https://coremanager.vips.nibio.no/models/DELIARFOBS/run/ipmd
-      form_method: post
-      content_type: application/json
-      input_schema_categories:
-        hidden:
-          - modelId
-      input_schema: |
-        {
-          "type":"object",
-          "properties": {
-            "modelId": {"type": "string", "pattern":"^DELIARFOBS$", "title": "Model Id", "default":"DELIARFOBS", "description":"Must be DELIARFOBS"},
-            "configParameters": {
-              "title":"Configuration parameters",
-              "type": "object",
-              "properties": {
-                "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)", "default":"Europe/Oslo"},
-                "startDateGrowth": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
-                "endDateCalculation": {"type":"string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
-                "fieldObservations": {
-                  "title": "Field observations",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "title": "Field observation",
-                    "properties": {
-                      "fieldObservation": {
-                        "title": "Generic field observation information",
-                        "$ref": "https://platform.ipmdecisions.net/api/dss/rest/schema/fieldobservation"
-                      },
-                      "quantification": {
-                        "$ref": "#/definitions/fieldObs_DELIAR"
-                      }
-                    }
-                  }
-                }
-              },
-              "required": ["timeZone","startDateGrowth","endDateCalculation"]
-            }
-          },
-          "required": ["modelId","configParameters"],
-          "definitions": {
-            "fieldObs_DELIAR": {
-              "title": "Delia radicum egg quantification", 
-              "properties": {
-                "counting01":{"title":"Number of eggs, plant 1", "type":"integer", "minimum": 0},
-                "counting02":{"title":"Number of eggs, plant 2", "type":"integer", "minimum": 0},
-                "counting03":{"title":"Number of eggs, plant 3", "type":"integer", "minimum": 0},
-                "counting04":{"title":"Number of eggs, plant 4", "type":"integer", "minimum": 0},
-                "counting05":{"title":"Number of eggs, plant 5", "type":"integer", "minimum": 0},
-                "counting06":{"title":"Number of eggs, plant 6", "type":"integer", "minimum": 0},
-                "counting07":{"title":"Number of eggs, plant 7", "type":"integer", "minimum": 0},
-                "counting08":{"title":"Number of eggs, plant 8", "type":"integer", "minimum": 0},
-                "counting09":{"title":"Number of eggs, plant 9", "type":"integer", "minimum": 0},
-                "counting10":{"title":"Number of eggs, plant 10","type":"integer", "minimum": 0}
-              }
-            }
-          }
-        }
-    input:
-      field_observation:
-        species:
-          - HYLERA
-          - HYLEFL
-    valid_spatial:
-      countries:
-        - NOR
-      geoJSON: '{}'
-    output:
-      warning_status_interpretation:
-        - explanation: >-
-            Green rectangles indicate that the damage threshold for cabbage
-            based on the time from planting until the registration has not been
-            reached and control measures are not needed.Red rectangles indicate
-            that the damage threshold f for cabbage based on the time from
-            planting until the registration has been reached and it may be
-            necessary to use control measures. The field should be checked to
-            evaluate whether treatment is necessary.This model does not use
-            yellow rectangles. The warning goes directly from green to red when
-            the damage threshold is exceeded.Blue rectangles indicate that there
-            are missing observations. An observation is valid for 8 days. If
-            there are more than 8 days before a new observation is registered in
-            the system, the model will give a blue warning.The damage thresholds
-            are related to the plants developmental stage and tell how many eggs
-            that can be on a plant before there will be a reduction in growth
-            and yield.The warning should tell the best time for treatment in
-            relation to the damage thresholds. If the number of eggs registered
-            exceeds the damage threshold, treatment against the maggots is
-            recommended, if the plants are not protected by other means. Observe
-            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
-            treated against maggots, treatment early in the season is not
-            necessary.
-          recommended_action: ''
-        - explanation: >-
-            Green rectangles indicate that the damage threshold for cabbage
-            based on the time from planting until the registration has not been
-            reached and control measures are not needed.Red rectangles indicate
-            that the damage threshold f for cabbage based on the time from
-            planting until the registration has been reached and it may be
-            necessary to use control measures. The field should be checked to
-            evaluate whether treatment is necessary.This model does not use
-            yellow rectangles. The warning goes directly from green to red when
-            the damage threshold is exceeded.Blue rectangles indicate that there
-            are missing observations. An observation is valid for 8 days. If
-            there are more than 8 days before a new observation is registered in
-            the system, the model will give a blue warning.The damage thresholds
-            are related to the plants developmental stage and tell how many eggs
-            that can be on a plant before there will be a reduction in growth
-            and yield.The warning should tell the best time for treatment in
-            relation to the damage thresholds. If the number of eggs registered
-            exceeds the damage threshold, treatment against the maggots is
-            recommended, if the plants are not protected by other means. Observe
-            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
-            treated against maggots, treatment early in the season is not
-            necessary.
-          recommended_action: ''
-        - explanation: >-
-            Green rectangles indicate that the damage threshold for cabbage
-            based on the time from planting until the registration has not been
-            reached and control measures are not needed.Red rectangles indicate
-            that the damage threshold f for cabbage based on the time from
-            planting until the registration has been reached and it may be
-            necessary to use control measures. The field should be checked to
-            evaluate whether treatment is necessary.This model does not use
-            yellow rectangles. The warning goes directly from green to red when
-            the damage threshold is exceeded.Blue rectangles indicate that there
-            are missing observations. An observation is valid for 8 days. If
-            there are more than 8 days before a new observation is registered in
-            the system, the model will give a blue warning.The damage thresholds
-            are related to the plants developmental stage and tell how many eggs
-            that can be on a plant before there will be a reduction in growth
-            and yield.The warning should tell the best time for treatment in
-            relation to the damage thresholds. If the number of eggs registered
-            exceeds the damage threshold, treatment against the maggots is
-            recommended, if the plants are not protected by other means. Observe
-            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
-            treated against maggots, treatment early in the season is not
-            necessary.
-          recommended_action: ''
-        - explanation: >-
-            Green rectangles indicate that the damage threshold for cabbage
-            based on the time from planting until the registration has not been
-            reached and control measures are not needed.Red rectangles indicate
-            that the damage threshold f for cabbage based on the time from
-            planting until the registration has been reached and it may be
-            necessary to use control measures. The field should be checked to
-            evaluate whether treatment is necessary.This model does not use
-            yellow rectangles. The warning goes directly from green to red when
-            the damage threshold is exceeded.Blue rectangles indicate that there
-            are missing observations. An observation is valid for 8 days. If
-            there are more than 8 days before a new observation is registered in
-            the system, the model will give a blue warning.The damage thresholds
-            are related to the plants developmental stage and tell how many eggs
-            that can be on a plant before there will be a reduction in growth
-            and yield.The warning should tell the best time for treatment in
-            relation to the damage thresholds. If the number of eggs registered
-            exceeds the damage threshold, treatment against the maggots is
-            recommended, if the plants are not protected by other means. Observe
-            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
-            treated against maggots, treatment early in the season is not
-            necessary.
-          recommended_action: ''
-        - explanation: >-
-            Green rectangles indicate that the damage threshold for cabbage
-            based on the time from planting until the registration has not been
-            reached and control measures are not needed.Red rectangles indicate
-            that the damage threshold f for cabbage based on the time from
-            planting until the registration has been reached and it may be
-            necessary to use control measures. The field should be checked to
-            evaluate whether treatment is necessary.This model does not use
-            yellow rectangles. The warning goes directly from green to red when
-            the damage threshold is exceeded.Blue rectangles indicate that there
-            are missing observations. An observation is valid for 8 days. If
-            there are more than 8 days before a new observation is registered in
-            the system, the model will give a blue warning.The damage thresholds
-            are related to the plants developmental stage and tell how many eggs
-            that can be on a plant before there will be a reduction in growth
-            and yield.The warning should tell the best time for treatment in
-            relation to the damage thresholds. If the number of eggs registered
-            exceeds the damage threshold, treatment against the maggots is
-            recommended, if the plants are not protected by other means. Observe
-            the ”days-to-harvest”. If the seeds (cauliflower or broccoli) were
-            treated against maggots, treatment early in the season is not
-            necessary.
-          recommended_action: ''
-      chart_groups:
-        - id: G1
-          title: Egg count
-          result_parameter_ids:
-            - OBS_AVG
-            - THRESHOLD_YOUNG
-            - THRESHOLD_OLD
-      result_parameters:
-        - id: OBS_AVG
-          title: Average egg count
-          description: Average of counting of eggs on 10 plants
-          chart_info:
-            default_visible: true
-            unit: Number
-            chart_type: line
-            color: '#000000'
-        - id: THRESHOLD_YOUNG
-          title: Economic threshold in young plants
-          description: Economic threshold in young plants (up to 4 weeks)
-          chart_info:
-            default_visible: true
-            unit: Number
-            chart_type: line
-            color: '#ffffff'
-        - id: THRESHOLD_OLD
-          title: Economic threshold in mature plants
-          description: Economic threshold in mature plants (4 weeks and older)
-          chart_info:
-            default_visible: true
-            unit: Number
-            chart_type: line
-            color: '#ff00ff'
   - name: Nærstad model
     id: NAERSTADMO
     version: '1.0'
@@ -1878,7 +1581,6 @@ models:
 
       E: 
     citation: null
-    keywords: none
     platform_validated: false
     pests:
       - BREMLA
@@ -2018,6 +1720,7 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#ff0000'
+    keywords: none
   - name: Onion downy mildew DOWNCAST
     id: DOWNCASTMO
     version: '1.0'
@@ -2095,7 +1798,6 @@ models:
       endpoint: https://coremanager.vips.nibio.no/models/DOWNCASTMO/run/ipmd
       form_method: post
       content_type: application/json
-      authentication_type: NONE
       input_schema_categories:
         hidden:
           - modelId
@@ -2122,6 +1824,7 @@ models:
                   },
                   "required": ["modelId","configParameters"]
                 }
+      authentication_type: NONE
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -2161,7 +1864,6 @@ models:
           recommended_action: Please consult with your advisor
         - explanation: Weather conditions favourable for an infection event.
           recommended_action: Please consult with your advisor
-      chart_heading: DOWNCAST result chart
       chart_groups:
         - id: G1
           title: DOWNCAST result chart
@@ -2197,3 +1899,4 @@ models:
             unit: True/false
             chart_type: bar
             color: '#dc8add'
+      chart_heading: DOWNCAST result chart

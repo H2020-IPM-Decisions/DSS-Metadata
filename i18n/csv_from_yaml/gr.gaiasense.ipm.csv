@@ -1,0 +1,30 @@
+KEY;default;dk;de;nl;sl;no;se;fi;lt;fr;it;gr;pl;es;pt
+gr.gaiasense.ipm.0_1.models.PLASVI.description;"THE DISEASE: Downy mildew is a highly destructive disease of grapevines in all grape-growing areas of the world. In order to control the pathogen,  approved pesticides are used (chemical control). The symptoms, causes by Plasmopara viticola, firstly appear on the grape leaves 7-10 days after infection.  Foliar symptoms appear as yellow circular spots with an oily appearance (oilspots). Under favorable weather conditions (warm temperatures and high relative humidity),  a white downy fungal growth will appear on the underside of the leaves and other infected plant parts such as grapes. 
+THE MODEL: The model for downy mildew estimates infection from an organism’s (Plasmopara viticola) using cardinal temperatures (Tmin, Topt, Tmax) and leaf surface wetness  duration requirements for infection (Wmin, Wmax). The parameter Wmax provides an upper boundary on the value of W since temperature is not always a limiting factor.  The model is based upon a temperature response function which is scaled to the leaf wetness duration requirement. Interruptions to wetness are also important for estimating  infection from hourly weather data, so hours of interruption are used as an input. The model’s output data are normalized from 0 -100, with 0 being the lowest risk index and 100 the highest.   THE PARAMETERS: Tmin (° C) recorded by the local weather station, Tmax (° C) recorded by the local weather station, Topt (° C) recorded by the local weather station, Leaf Wetness min (hr) recorded by the local weather station, Leaf Wetness max (hr) recorded by the local weather station, Hours of interruption (20h), Hours of calculation (72h)
+SOURCE: The provided service is part of the integrated \""gaiasense\"" smart-farming solution.  \""Gaiasense\"" collects data from the field, the satellite, the scientist, and the farmer, and provides the tools to the agricultural advisor, the researcher and the farmer in order for them to  take advantage of every opportunity to produce better, more and economical agricultural product from the Greek land. \""Gaiasense\""  follows the \""Smart Farming as a Service\"" (SFaaS) paradigm,  aiming to support small-scale farmers, by taking over the technological investment burden and offering next generation farming advice through the combined utilization of heterogeneous information sources.  A detailed analysis of the system is available in \""Adamides, G.; Kalatzis, N.; Stylianou, A.; Marianos, N.; Chatzipapadopoulos, F.; Giannakopoulou, M.; Papadavid, G.; Vassiliou, V.; Neocleous, D. Smart Farming Techniques for Climate Change Adaptation in Cyprus. Atmosphere 2020, 11, 557\""
+
+ASSUMPTIONS: 1)The pathogen has established in the area. 2) An organism’s temperature requirements for infection can be summarized by the cardinal temperatures,  Tmin, Topt and Tmax and moisture duration requirements can be summarized by Wmin, the minimum leaf wetness duration requirement for infection.
+REFERENCE: The prediciton model is developed based on literature review and adaptations through experiments and observation on local conditions.  An indicative reference is \""Orlandini S, Massetti L, Dalla Marta (2008) An agrometeorological approach for the simulation of Plasmopara viticola. Computers and Electronics in Agriculture 64, 149-16\"""
+gr.gaiasense.ipm.0_1.models.PLASVI.execution.input_schema.properties.fromdate.title;Model Start Date (YYYY-MM-DD)
+gr.gaiasense.ipm.0_1.models.PLASVI.execution.input_schema.properties.locationid.description;Must be 74
+gr.gaiasense.ipm.0_1.models.PLASVI.execution.input_schema.properties.locationid.title;Location Id
+gr.gaiasense.ipm.0_1.models.PLASVI.execution.input_schema.properties.modelId.description;Must be downy_mildew
+gr.gaiasense.ipm.0_1.models.PLASVI.execution.input_schema.properties.modelId.title;Model Id
+gr.gaiasense.ipm.0_1.models.PLASVI.execution.input_schema.properties.todate.title;Model End Date (YYYY-MM-DD)
+gr.gaiasense.ipm.0_1.models.PLASVI.name;Downy mildew of grapevine (North East Region of Peloponnese, Greece only)
+gr.gaiasense.ipm.0_1.models.PLASVI.output.chart_groups.G1.title;PLASVI
+gr.gaiasense.ipm.0_1.models.PLASVI.output.chart_heading;Downy mildew risk index
+gr.gaiasense.ipm.0_1.models.PLASVI.output.result_parameters.PLASVI.description;Calculated risk index based on the enviromental parameters of the area.
+gr.gaiasense.ipm.0_1.models.PLASVI.output.result_parameters.PLASVI.title;Pest infestation risk index
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.0.explanation;
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.0.recommended_action;
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.1.explanation;Missing data.
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.1.recommended_action;Review error message.
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.2.explanation;Risk < 20. Values returned are Risk Percentages where lower percentages translate into lower risk of infection. 
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.2.recommended_action;No action is suggested.
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.3.explanation;Risk between 20 -30. Values returned are Risk Percentages where lower percentages translate into lower risk of infection.
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.3.recommended_action;Field observation if any disease symptoms appeared.
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.4.explanation;Risk > 30. Values return are Risk Percentages where lower percentages translate into lower risk of infection.
+gr.gaiasense.ipm.0_1.models.PLASVI.output.warning_status_interpretation.4.recommended_action;Field observation if any disease symptoms appeared. Pesticide application is suggested. Disease symptoms may appear after 7- 10 days. 
+gr.gaiasense.ipm.0_1.models.PLASVI.purpose;Estimates Downy Mildew infection risk
+gr.gaiasense.ipm.0_1.name;gaiasense

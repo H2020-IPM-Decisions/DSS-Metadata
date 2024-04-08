@@ -11,4 +11,4 @@ risk_map_providers:
       - id: SEPTREFHUM_EU
         platform_validated: true
         title: Septoria Reference Humidity Model
-        wms_url: https://testvips.nibio.no/cgi-bin/SEPTREFHUM_EU
+        wms_url: https://gridweb.vips.nibio.no/cgi-bin/SEPTREFHUM_EU

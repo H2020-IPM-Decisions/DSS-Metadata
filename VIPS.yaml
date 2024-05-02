@@ -1783,7 +1783,7 @@ models:
        
     citation: ''
     keywords: ''
-    platform_validated: false
+    platform_validated: true
     pests:
       - PERODE
     crops:

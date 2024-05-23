@@ -9,28 +9,31 @@ organization:
   name: ISIP (technical contact), ZEPP (agronomic contact)
   country: Germany
   address: Rüdesheimer Str. 60-68
-  postal_code: 55545 
+  postal_code: '55545'
   city: Bad Kreuznach
   email: roehrig@isip.de, kleinhenz@zepp.info
   url: www.isip.de, www.zepp.info
 models:
-  - name: ISIP (Germany only)
+  - name: ISIP LINK (Germany only)
     id: siggetreide
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-      
     description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
-    purpose: To calculate the daily infection conditions for the most important leaf diseases in winter cereals and summer barley.
+    purpose: >-
+      To calculate the daily infection conditions for the most important leaf
+      diseases in winter cereals and summer barley.
     description: >-
-      With weather-based forecast models for pests and diseases, you can calculate the occurrence of pathogens and periods 
-      of high infestation pressure. Infestation controls and recommendations from the plant protection services also inform you about the 
-      current situation in your region. In addition, programs are available for calculating plant development and choosing the most 
-      suitable tillage system.
+      With weather-based forecast models for pests and diseases, you can
+      calculate the occurrence of pathogens and periods  of high infestation
+      pressure. Infestation controls and recommendations from the plant
+      protection services also inform you about the  current situation in your
+      region. In addition, programs are available for calculating plant
+      development and choosing the most  suitable tillage system.
     citation: ''
     keywords: null
     platform_validated: true
-    pests: 
+    pests:
       - XPESTS
     crops:
       - TRZAW
@@ -40,7 +43,7 @@ models:
       - HORVS
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Dr. Benno Kleinhenz (ZEPP)
-        email: roehrig@isip.de, kleinhenz@zepp.info 
+        email: roehrig@isip.de, kleinhenz@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: LINK
@@ -62,6 +65,88 @@ models:
       weather_data_period_end:
         - determined_by: ''
           value: ''
+      field_observation: null
+    valid_spatial:
+      countries:
+        - DEU
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  - name: ISIP Brown rust in cereals
+    id: PUCCRE
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    purpose: >-
+      To calculate the daily infection conditions for the most important leaf
+      diseases in winter cereals and summer barley.
+    description: ''
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - PUCCRE
+    crops:
+      - TRZAW
+      - SECCW
+      - TTLWI
+    authors: []
+    execution:
+      type: ONTHEFLY
+      endpoint: ''
+      form_method: POST
+      content_type: application/json
+      authentication_type: BEARER_TOKEN
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: |-
+        {
+          "type":"object",
+          "properties": {  
+           "modelId": {"type": "string", "pattern":"^PUCCRE$", "title": "Model Id", "default":"PUCCRE", "description":"Must be PUCCRE"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "crop": {"type": "string", "description":"One of [TRZAW,SECCW,TTLWI] (winter barley, winter rye, winter triticale)"},
+            "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
+          },
+          "required": ["modelId", "crop","timeZone"]
+        } 
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+          is_required: true
+        - parameter_code: 3002
+          interval: 3600
+          is_required: true
+        - parameter_code: 2001
+          interval: 3600
+          is_required: true
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-14'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-07-01'
       field_observation: null
     valid_spatial:
       countries:

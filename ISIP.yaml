@@ -112,8 +112,10 @@ models:
       content_type: application/json
       authentication_type: BEARER_TOKEN
       input_schema_categories:
-        hidden: []
-        internal: []
+        hidden:
+          - modelId
+        internal: 
+          - crop
         triggered: []
         user_init: []
         system: []

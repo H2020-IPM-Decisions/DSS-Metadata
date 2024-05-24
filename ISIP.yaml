@@ -107,7 +107,7 @@ models:
     authors: []
     execution:
       type: ONTHEFLY
-      endpoint: ''
+      endpoint: 'http://demovips.nibio.no/ipmd/siggetreide'
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN

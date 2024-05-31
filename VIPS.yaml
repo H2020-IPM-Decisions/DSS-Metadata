@@ -1086,6 +1086,9 @@ models:
       input_schema_categories:
         hidden:
           - modelId
+        internal
+          - configParameters.thresholdDSVTempMin
+          - configParameters.thresholdDSVMax
       input_schema: |
         {
           "type":"object",
@@ -1098,7 +1101,9 @@ models:
                 "timeZone": {"type": "string", "title": "Time zone (e.g. Europe/Oslo)","default":"Europe/Oslo"},
                 "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
                 "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
-                "sprayingDates": {"type": "array", "minItems":0, "maxItems":3, "title": "Spraying dates","items":{"type":"string","format":"date", "default":"{CURRENT_YEAR}-06-01"}}
+                "sprayingDates": {"type": "array", "minItems":0, "maxItems":3, "title": "Spraying dates","items":{"type":"string","format":"date", "default":"{CURRENT_YEAR}-06-01"}},
+                "thresholdDSVTempMin": {"type": "float", "default": 13.0, "title": "Minimum temperature for DSV calculation"},
+                "thresholdDSVMax": {"type": "float", "default": 20.0, "title": "DSV threshold for high infection risk"}
               },
               "required": ["timeZone","timeStart","timeEnd"]
             },

@@ -156,16 +156,16 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: ''
-          recommended_action: ''
-        - explanation: ''
-          recommended_action: ''
-        - explanation: ''
-          recommended_action: ''
-        - explanation: ''
-          recommended_action: ''
-        - explanation: ''
-          recommended_action: ''
-      chart_heading: ''
+        - explanation: 'Test exp 1'
+          recommended_action: 'Test rec action 1'
+        - explanation: 'Test exp 2'
+          recommended_action: 'Test rec action 2'
+        - explanation: 'Test exp 3'
+          recommended_action: 'Test rec action 3'
+        - explanation: 'Test exp 4'
+          recommended_action: 'Test rec action 4'
+        - explanation: 'Test exp 5'
+          recommended_action: 'Test rec action 5'
+      chart_heading: null
       chart_groups: []
       result_parameters: []

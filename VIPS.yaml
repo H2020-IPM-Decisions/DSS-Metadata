@@ -1086,7 +1086,7 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-        internal
+        internal:
           - configParameters.thresholdDSVTempMin
           - configParameters.thresholdDSVMax
       input_schema: |

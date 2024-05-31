@@ -114,11 +114,11 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-        internal: 
-          - crop
+        internal: [] 
         triggered: []
         user_init: []
-        system: []
+        system: 
+          - crop
       input_schema: |-
         {
           "type":"object",

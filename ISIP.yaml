@@ -585,3 +585,86 @@ models:
       chart_heading: null
       chart_groups: []
       result_parameters: []
+  - name: ISIP Barley net blotch
+    id: PYRNTE
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    purpose: >-
+      To calculate the daily infection conditions for the most important leaf
+      diseases in winter cereals and summer barley.
+    description: ''
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - PYRNTE
+    crops:
+      - HORVW
+      - HORVS
+    authors: []
+    execution:
+      type: ONTHEFLY
+      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      form_method: POST
+      content_type: application/json
+      authentication_type: BEARER_TOKEN
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal: []
+        triggered: []
+        user_init: []
+        system:
+          - crop
+      input_schema: |-
+        {
+          "type":"object",
+          "properties": {  
+           "modelId": {"type": "string", "pattern":"^SPYRNTE$", "title": "Model Id", "default":"PYRNTE", "description":"Must be PYRNTE"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "crop": {"type": "string", "description":"One of [HORVW, HORVS] (winter and summer barley)"},
+            "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
+          },
+          "required": ["modelId", "crop","timeZone"]
+        } 
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+          is_required: true
+        - parameter_code: 3002
+          interval: 3600
+          is_required: true
+        - parameter_code: 2001
+          interval: 3600
+          is_required: true
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-14'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-07-01'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - DEU
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: Test exp 1
+          recommended_action: Test rec action 1
+        - explanation: Test exp 2
+          recommended_action: Test rec action 2
+        - explanation: Test exp 3
+          recommended_action: Test rec action 3
+        - explanation: Test exp 4
+          recommended_action: Test rec action 4
+        - explanation: Test exp 5
+          recommended_action: Test rec action 5
+      chart_heading: null
+      chart_groups: []
+      result_parameters: []

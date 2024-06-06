@@ -1056,10 +1056,13 @@ models:
       used against early blight (Alternaria solani) in potato in Denmark (Abuley
       and Nielsen, 2017).
 
-      ASSUMPTIONS: 
+      ASSUMPTIONS: This model is equal to the Modified TOMCAST (Abuley and Nielsen, 
+      2017), where the minimum temperature for calculation of DSV is set to 10 degrees. 
+      Threshold value for calulation of spray intervals is DSV=20. The original 
+      FAST-Dew model (Madden et al 1978) is available by selecting a base temperature 
+      of 13 degrees in the DSS Adaptation Dashboard.
 
-      Reference: 
-
+      REFERENCE:
       Gleason, M.L., Macnab, A.A., Pitblado, R.E., Ricker, M.D., East, D.A.,
       Latin, R.X., 1995. Disease warning systems for processing tomatoes in
       eastern North America: are we there yet? Plant Dis. 79, 113-121.

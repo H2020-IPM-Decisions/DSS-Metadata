@@ -11,7 +11,7 @@ organization:
   address: Rüdesheimer Str. 60-68
   postal_code: '55545'
   city: Bad Kreuznach
-  email: roehrig@isip.de, kleinhenz@zepp.info
+  email: roehrig@isip.de, schmitt@zepp.info
   url: www.isip.de, www.zepp.info
 models:
   - name: ISIP LINK (Germany only)
@@ -19,17 +19,13 @@ models:
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
+      To calculate the daily infection risk of brown rust in cereals.
     description: >-
-      With weather-based forecast models for pests and diseases, you can
-      calculate the occurrence of pathogens and periods  of high infestation
-      pressure. Infestation controls and recommendations from the plant
-      protection services also inform you about the  current situation in your
-      region. In addition, programs are available for calculating plant
-      development and choosing the most  suitable tillage system.
+      With this weather-based simulation model, you can calculate the infection probablility of major leaf diseases in cereals 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: null
     platform_validated: true
@@ -42,8 +38,8 @@ models:
       - TTLWI
       - HORVS
     authors:
-      - name: Dr. Manfred Röhrig (ISIP), Dr. Benno Kleinhenz (ZEPP)
-        email: roehrig@isip.de, kleinhenz@zepp.info
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: LINK
@@ -85,16 +81,18 @@ models:
       chart_heading: ''
       chart_groups: []
       result_parameters: []
-  - name: ISIP Brown rust in cereals
+  - name: Infection risk of brown rust in cereals
     id: PUCCRE
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
-    description: ''
+      To calculate the daily infection risk of brown rust in cereals.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of brown rust in cereals 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: ''
     platform_validated: false
@@ -104,7 +102,10 @@ models:
       - TRZAW
       - SECCW
       - TTLWI
-    authors: []
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
       endpoint: http://demovips.nibio.no/ipmd/siggetreide
@@ -156,29 +157,31 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: Test exp 1
-          recommended_action: Test rec action 1
-        - explanation: Test exp 2
-          recommended_action: Test rec action 2
-        - explanation: Test exp 3
-          recommended_action: Test rec action 3
-        - explanation: Test exp 4
-          recommended_action: Test rec action 4
-        - explanation: Test exp 5
-          recommended_action: Test rec action 5
-      chart_heading: null
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: ISIP Powdery Mildew in cereals
+  - name: Infection risk of powdery mildew in cereals
     id: ERYSGR
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
-    description: ''
+      To calculate the daily infection risk of powdery mildew in cereals.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of powdery mildew in cereals 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: ''
     platform_validated: false
@@ -190,7 +193,10 @@ models:
       - TTLWI
       - HORVW
       - HORVS
-    authors: []
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
       endpoint: http://demovips.nibio.no/ipmd/siggetreide
@@ -242,29 +248,31 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: Test exp 1
-          recommended_action: Test rec action 1
-        - explanation: Test exp 2
-          recommended_action: Test rec action 2
-        - explanation: Test exp 3
-          recommended_action: Test rec action 3
-        - explanation: Test exp 4
-          recommended_action: Test rec action 4
-        - explanation: Test exp 5
-          recommended_action: Test rec action 5
-      chart_heading: null
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: ISIP Tan spot of wheat
+  - name: Infection risk of tan spot in winter wheat
     id: PYRNTR
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
-    description: ''
+      To calculate the daily infection risk of tan spot in winter wheat.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of tan spot in winter wheat 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: ''
     platform_validated: false
@@ -272,7 +280,10 @@ models:
       - PYRNTR
     crops:
       - TRZAW
-    authors: []
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
       endpoint: http://demovips.nibio.no/ipmd/siggetreide
@@ -324,29 +335,31 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: Test exp 1
-          recommended_action: Test rec action 1
-        - explanation: Test exp 2
-          recommended_action: Test rec action 2
-        - explanation: Test exp 3
-          recommended_action: Test rec action 3
-        - explanation: Test exp 4
-          recommended_action: Test rec action 4
-        - explanation: Test exp 5
-          recommended_action: Test rec action 5
-      chart_heading: null
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: ISIP Septoria in wheat
+  - name: Infection risk of septoria leaf spot in winter wheat
     id: SEPTTR
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
-    description: ''
+      To calculate the daily infection risk of septoria leaf spot in winter wheat.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of septoria leaf spot in winter wheat 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: ''
     platform_validated: false
@@ -354,7 +367,10 @@ models:
       - SEPTTR
     crops:
       - TRZAW
-    authors: []
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
       endpoint: http://demovips.nibio.no/ipmd/siggetreide
@@ -406,29 +422,31 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: Test exp 1
-          recommended_action: Test rec action 1
-        - explanation: Test exp 2
-          recommended_action: Test rec action 2
-        - explanation: Test exp 3
-          recommended_action: Test rec action 3
-        - explanation: Test exp 4
-          recommended_action: Test rec action 4
-        - explanation: Test exp 5
-          recommended_action: Test rec action 5
-      chart_heading: null
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: ISIP Yellow rust
+  - name: Infection risk of yellow rust in winter wheat and winter rye
     id: PUCCST
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
-    description: ''
+      To calculate the daily infection risk of yellow rust in winter wheat and winter rye.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of yellow rust in winter wheat and winter rye 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: ''
     platform_validated: false
@@ -437,7 +455,10 @@ models:
     crops:
       - TRZAW
       - TTLWI
-    authors: []
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
       endpoint: http://demovips.nibio.no/ipmd/siggetreide
@@ -489,29 +510,31 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: Test exp 1
-          recommended_action: Test rec action 1
-        - explanation: Test exp 2
-          recommended_action: Test rec action 2
-        - explanation: Test exp 3
-          recommended_action: Test rec action 3
-        - explanation: Test exp 4
-          recommended_action: Test rec action 4
-        - explanation: Test exp 5
-          recommended_action: Test rec action 5
-      chart_heading: null
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: ISIP Ramularia leaf spot of barley
+  - name: Infection risk of ramularia leaf spot in barley
     id: RAMUCC
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
-    description: ''
+      To calculate the daily infection risk of ramularia leaf spot in barley.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of ramularia leaf spot in barley 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: ''
     platform_validated: false
@@ -520,7 +543,10 @@ models:
     crops:
       - HORVW
       - HORVS
-    authors: []
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
       endpoint: http://demovips.nibio.no/ipmd/siggetreide
@@ -572,29 +598,31 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: Test exp 1
-          recommended_action: Test rec action 1
-        - explanation: Test exp 2
-          recommended_action: Test rec action 2
-        - explanation: Test exp 3
-          recommended_action: Test rec action 3
-        - explanation: Test exp 4
-          recommended_action: Test rec action 4
-        - explanation: Test exp 5
-          recommended_action: Test rec action 5
-      chart_heading: null
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: ISIP Barley net blotch
+  - name: Infection risk of net blotch in barley
     id: PYRNTE
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: https://www.isip.de/isip/servlet/isip-de/entscheidungshilfen
+    description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection conditions for the most important leaf
-      diseases in winter cereals and summer barley.
-    description: ''
+      To calculate the daily infection risk of net blotch in barley.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of net blotch in barley 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
     citation: ''
     keywords: ''
     platform_validated: false
@@ -603,7 +631,10 @@ models:
     crops:
       - HORVW
       - HORVS
-    authors: []
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
       endpoint: http://demovips.nibio.no/ipmd/siggetreide
@@ -655,16 +686,194 @@ models:
       geoJSON: ''
     output:
       warning_status_interpretation:
-        - explanation: Test exp 1
-          recommended_action: Test rec action 1
-        - explanation: Test exp 2
-          recommended_action: Test rec action 2
-        - explanation: Test exp 3
-          recommended_action: Test rec action 3
-        - explanation: Test exp 4
-          recommended_action: Test rec action 4
-        - explanation: Test exp 5
-          recommended_action: Test rec action 5
-      chart_heading: null
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
+      chart_groups: []
+      result_parameters: []
+  - name: Infection risk of leaf blotch in cereals
+    id: RHYNSE
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://zepp.info/component/content/article?id=176
+    purpose: >-
+      To calculate the daily infection risk of leaf blotch in cereals.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of leaf blotch in cereals 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - RHYNSE
+    crops:
+      - HORVW
+      - SECCW
+      - TTLWI
+      - HORVS
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
+    execution:
+      type: ONTHEFLY
+      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      form_method: POST
+      content_type: application/json
+      authentication_type: BEARER_TOKEN
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal: []
+        triggered: []
+        user_init: []
+        system:
+          - crop
+      input_schema: |-
+        {
+          "type":"object",
+          "properties": {  
+           "modelId": {"type": "string", "pattern":"^SRHYNSE$", "title": "Model Id", "default":"RHYNSE", "description":"Must be RHYNSE"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "crop": {"type": "string", "description":"One of [SECCW,TTLWI,HORVW,HORVS] (winter rye, winter triticale, winter barley, summer barley)"},
+            "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
+          },
+          "required": ["modelId", "crop","timeZone"]
+        } 
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+          is_required: true
+        - parameter_code: 3002
+          interval: 3600
+          is_required: true
+        - parameter_code: 2001
+          interval: 3600
+          is_required: true
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-14'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-07-01'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - DEU
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
+      chart_groups: []
+      result_parameters: []
+  - name: Infection risk of dwarf leaf rust in barley
+    id: PUCCHD
+    version: '1.0'
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: https://zepp.info/component/content/article?id=176
+    purpose: >-
+      To calculate the daily infection risk of dwarf leaf rust in barley.
+    description: >-
+      With this weather-based simulation model, you can calculate the infection probablility of dwarf leaf rust in barley 
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      it serves as an indicator for field inspections.
+    citation: ''
+    keywords: ''
+    platform_validated: false
+    pests:
+      - PUCCHD
+    crops:
+      - HORVW
+      - HORVS
+    authors:
+      - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
+        email: roehrig@isip.de, schmitt@zepp.info 
+        organization: ISIP (technical contact), ZEPP (agronomic contact)
+    execution:
+      type: ONTHEFLY
+      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      form_method: POST
+      content_type: application/json
+      authentication_type: BEARER_TOKEN
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal: []
+        triggered: []
+        user_init: []
+        system:
+          - crop
+      input_schema: |-
+        {
+          "type":"object",
+          "properties": {  
+           "modelId": {"type": "string", "pattern":"^SPUCCHD$", "title": "Model Id", "default":"PUCCHD", "description":"Must be PUCCHD"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "crop": {"type": "string", "description":"One of [HORVW, HORVS] (winter and summer barley)"},
+            "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
+          },
+          "required": ["modelId", "crop","timeZone"]
+        } 
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 3600
+          is_required: true
+        - parameter_code: 3002
+          interval: 3600
+          is_required: true
+        - parameter_code: 2001
+          interval: 3600
+          is_required: true
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-02-14'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-07-01'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - DEU
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: 'No data/out of season'
+          recommended_action: 'No action needed'
+        - explanation: 'Infections are improbable'
+          recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
+        - explanation: 'Infections are possible'
+          recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
+        - explanation: 'Infections are probable'
+          recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []

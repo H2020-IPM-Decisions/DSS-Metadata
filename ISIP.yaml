@@ -188,14 +188,15 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
+        
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -308,14 +309,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -424,14 +425,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -540,14 +541,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -657,14 +658,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -774,14 +775,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -891,14 +892,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -1010,14 +1011,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -1127,14 +1128,14 @@ models:
       warning_status_interpretation:
         - explanation: 'No data/out of season'
           recommended_action: 'No action needed'
+        - explanation: ''
+          recommended_action: ''
         - explanation: 'Infections are improbable'
           recommended_action: 'No action needed. Even in high risk situations (e.g. susceptible variety) the weather conditions do not favour an infection'
         - explanation: 'Infections are possible'
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        - explanation: ''
-          recommended_action: ''
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []

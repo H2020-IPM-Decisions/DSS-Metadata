@@ -153,7 +153,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -244,7 +273,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -331,7 +389,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -418,7 +505,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -506,7 +622,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -594,7 +739,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -682,7 +856,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -772,7 +975,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:
@@ -860,7 +1092,36 @@ models:
       field_observation: null
     valid_spatial:
       countries:
+        - AUT
+        - BEL
+        - BGR
+        - HRV
+        - CYP
+        - CZE
+        - DNK
+        - EST
+        - FIN
+        - FRA
         - DEU
+        - GRC
+        - HUN
+        - IRL
+        - ITA
+        - LVA
+        - LTU
+        - LUX
+        - MLT
+        - NLD
+        - POL
+        - PRT
+        - ROU
+        - SVK
+        - SVN
+        - ESP
+        - SWE
+        - GBR
+        - NOR
+        - CHE
       geoJSON: ''
     output:
       warning_status_interpretation:

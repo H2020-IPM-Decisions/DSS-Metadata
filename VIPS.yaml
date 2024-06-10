@@ -1796,7 +1796,7 @@ models:
       - PERODE
     crops:
       - ALLCE
-      - ALLFI
+      - ALLSS
     authors:
       - name: ''
         email: null

@@ -594,7 +594,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^SPUCCST$", "title": "Model Id", "default":"PUCCST", "description":"Must be PUCCST"},
+           "modelId": {"type": "string", "pattern":"^PUCCST$", "title": "Model Id", "default":"PUCCST", "description":"Must be PUCCST"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
@@ -711,7 +711,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^SRAMUCC$", "title": "Model Id", "default":"RAMUCC", "description":"Must be RAMUCC"},
+           "modelId": {"type": "string", "pattern":"^RAMUCC$", "title": "Model Id", "default":"RAMUCC", "description":"Must be RAMUCC"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
@@ -828,7 +828,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^SPYRNTE$", "title": "Model Id", "default":"PYRNTE", "description":"Must be PYRNTE"},
+           "modelId": {"type": "string", "pattern":"^PYRNTE$", "title": "Model Id", "default":"PYRNTE", "description":"Must be PYRNTE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
@@ -947,7 +947,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^SRHYNSE$", "title": "Model Id", "default":"RHYNSE", "description":"Must be RHYNSE"},
+           "modelId": {"type": "string", "pattern":"^RHYNSE$", "title": "Model Id", "default":"RHYNSE", "description":"Must be RHYNSE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
@@ -1064,7 +1064,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^SPUCCHD$", "title": "Model Id", "default":"PUCCHD", "description":"Must be PUCCHD"},
+           "modelId": {"type": "string", "pattern":"^PUCCHD$", "title": "Model Id", "default":"PUCCHD", "description":"Must be PUCCHD"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },

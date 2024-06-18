@@ -108,7 +108,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -229,7 +229,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -345,7 +345,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -461,7 +461,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -578,7 +578,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -695,7 +695,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -812,7 +812,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -931,7 +931,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN
@@ -1048,7 +1048,7 @@ models:
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
-      endpoint: http://demovips.nibio.no/ipmd/siggetreide
+      endpoint: https://ipmdecisions.nibio.no/ipmd/siggetreide
       form_method: POST
       content_type: application/json
       authentication_type: BEARER_TOKEN

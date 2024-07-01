@@ -16,3 +16,7 @@ risk_map_providers:
         platform_validated: true
         title: Pollen Beetle Migration Model
         wms_url: https://gridweb.vips.nibio.no/cgi-bin/ADASMELIAE_EU
+      - id: CYDIAPOMON_EU
+        platform_validated: true
+        title: Codling Moth Model
+        wms_url: https://gridweb.vips.nibio.no/cgi-bin/CYDIAPOMON_EU

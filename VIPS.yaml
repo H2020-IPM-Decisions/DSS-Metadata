@@ -1,5 +1,5 @@
 id: no.nibio.vips
-version: '2.0'
+version: "2.0"
 name: VIPS
 url: https://www.vips-landbruk.no/
 logo_url: /rest/dss/logo/VIPSLogo.png
@@ -10,14 +10,14 @@ organization:
   name: NIBIO
   country: Norway
   address: Postboks 115
-  postal_code: '1431'
+  postal_code: "1431"
   city: Ås
   email: berit.nordskog@nibio.no
   url: https://www.nibio.no/
 models:
   - name: Carrot fly flight model
     id: PSILARTEMP
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/PSILARTEMP/
@@ -54,7 +54,7 @@ models:
     crops:
       - DAUCS
     authors:
-      - name: ''
+      - name: ""
         email: vips@nibio.no
         organization: NIBIO
     execution:
@@ -100,7 +100,7 @@ models:
     valid_spatial:
       countries:
         - NOR
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
         - explanation: The flight period of the 1st generation is over.
@@ -113,7 +113,7 @@ models:
             or if accumulated degree-days were close to 260 degree-days
         - explanation: >-
             Based on current data available, the model results indicate low risk
-            of carrot fly flight.This model runs April - September. 
+            of carrot fly flight.This model runs April - September.
           recommended_action: >-
             No action needed. Consider deploying yellow sticky traps in your
             fields when 260 degree-days is approching.
@@ -131,7 +131,7 @@ models:
             reached.The risk of adult carrot fly flight activity is high, which
             indicates that egg laying will soon occur on vulnerable carrot
             crops.  Monitor vulnerable crops for in-field activity and apply
-            suitable treatments according to need. 
+            suitable treatments according to need.
           recommended_action: >-
             Consult your advisory service. Consider action to protect your crop
             based on observations in your own field.
@@ -152,9 +152,9 @@ models:
             celcius
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#0033cc'
+            color: "#0033cc"
         - id: THRESHOLD_1
           title: Threshold for start of flight period
           description: >-
@@ -162,9 +162,9 @@ models:
             period is starting up
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ffff00'
+            color: "#ffff00"
         - id: THRESHOLD_2
           title: Threshold for peak flight period
           description: >-
@@ -172,9 +172,9 @@ models:
             the peak flight period
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
         - id: THRESHOLD_3
           title: Threshold for end of 1st generation flight period
           description: >-
@@ -182,12 +182,12 @@ models:
             generation flight period is over
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#999999'
+            color: "#999999"
   - name: Cabbage fly flight model (Scandinavia)
     id: DELIARADIC
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/DELIARADIC/
@@ -274,7 +274,7 @@ models:
     valid_spatial:
       countries:
         - NOR
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
         - explanation: The flight period is over.
@@ -307,7 +307,7 @@ models:
             4*C has been reached.The risk of adult cabbage root fly flight
             activity is high, it is likely that egg laying has begun on
             vulnerable brassica crops.  Monitor vulnerable crops for in-field
-            activity and apply suitable treatments according to need. 
+            activity and apply suitable treatments according to need.
           recommended_action: >-
             Consult your advisory service. Consider action to protect your crop
             based on observations in your own field.
@@ -330,9 +330,9 @@ models:
             of 4 degrees celcius
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#0066ff'
+            color: "#0066ff"
         - id: TJM10DD4C
           title: Accumulated soil temperature day degrees
           description: >-
@@ -340,9 +340,9 @@ models:
             of 4 degrees celcius
           chart_info:
             default_visible: false
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#00ccff'
+            color: "#00ccff"
         - id: TMDD4CLT
           title: Lower threshold value for TMDD4C
           description: >-
@@ -350,9 +350,9 @@ models:
             the first oviposition is close
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ffff00'
+            color: "#ffff00"
         - id: TMDD4CUT
           title: Upper threshold value for TMDD4C
           description: >-
@@ -360,9 +360,9 @@ models:
             begun.
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
         - id: TJM10DD4CLT
           title: Lower threshold value for TJM10DD4C
           description: >-
@@ -370,9 +370,9 @@ models:
             the first oviposition is close
           chart_info:
             default_visible: false
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ff9900'
+            color: "#ff9900"
         - id: TJM10DD4CUT
           title: Upper threshold value for TJM10DD4C
           description: >-
@@ -380,12 +380,12 @@ models:
             begun.
           chart_info:
             default_visible: false
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#990000'
+            color: "#990000"
   - name: Cabbage moth model
     id: MAMESTRABR
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/MAMESTRABR/
@@ -421,7 +421,7 @@ models:
 
       ASSUMPTIONS: 
 
-      REFERENCE: 
+      REFERENCE:
     citation: null
     keywords: none
     platform_validated: true
@@ -477,7 +477,7 @@ models:
     valid_spatial:
       countries:
         - NOR
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
         - explanation: >-
@@ -496,7 +496,7 @@ models:
             the larvae are small and easily targeted on the outer leaves.Grey
             rectangles indicate that the warning has ended. The larvae are so
             big that chemical control is very difficult or no longer possible.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that there is no danger of attack. Green
             rectangles are shown prior to the start of oviposition (SUMDG <
@@ -513,7 +513,7 @@ models:
             the larvae are small and easily targeted on the outer leaves.Grey
             rectangles indicate that the warning has ended. The larvae are so
             big that chemical control is very difficult or no longer possible.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that there is no danger of attack. Green
             rectangles are shown prior to the start of oviposition (SUMDG <
@@ -530,7 +530,7 @@ models:
             the larvae are small and easily targeted on the outer leaves.Grey
             rectangles indicate that the warning has ended. The larvae are so
             big that chemical control is very difficult or no longer possible.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that there is no danger of attack. Green
             rectangles are shown prior to the start of oviposition (SUMDG <
@@ -547,7 +547,7 @@ models:
             the larvae are small and easily targeted on the outer leaves.Grey
             rectangles indicate that the warning has ended. The larvae are so
             big that chemical control is very difficult or no longer possible.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that there is no danger of attack. Green
             rectangles are shown prior to the start of oviposition (SUMDG <
@@ -564,7 +564,7 @@ models:
             the larvae are small and easily targeted on the outer leaves.Grey
             rectangles indicate that the warning has ended. The larvae are so
             big that chemical control is very difficult or no longer possible.
-          recommended_action: ''
+          recommended_action: ""
       chart_heading: Accumulated day degrees
       chart_groups:
         - id: G1
@@ -579,44 +579,44 @@ models:
             celcius
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#0033cc'
+            color: "#0033cc"
         - id: MAMESTRABR.SWARMING_START
           title: DD Threshold for start of swarming
           description: DD Threshold for start of swarming
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#000000'
+            color: "#000000"
         - id: MAMESTRABR.EGG_DEPOSIT_START
           title: DD Threshold for egg deposits
           description: DD Threshold for start of egg deposits
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ffff00'
+            color: "#ffff00"
         - id: MAMESTRABR.TREATMENT_OPTIMUM
           title: DD Threshold for optimal treatment time
           description: DD Threshold for optimal treatment time
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#cc3300'
+            color: "#cc3300"
         - id: MAMESTRABR.TREATMENT_LATE
           title: DD Threshold for beyond optimal time to treat
           description: DD Threshold for beyond optimal time to treat
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ffff00'
+            color: "#ffff00"
   - name: Carrot rust fly observation model
     id: PSILAROBSE
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/PSILAROBSE/
@@ -644,7 +644,7 @@ models:
 
       ASSUMPTIONS: 
 
-      REFERENCE: 
+      REFERENCE:
     citation: null
     keywords: none
     platform_validated: false
@@ -752,7 +752,7 @@ models:
     valid_spatial:
       countries:
         - NOR
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
         - explanation: >-
@@ -772,7 +772,7 @@ models:
             true-leaf stage. Consider, based on previous experience and the size
             and shape of the field whether the entire field or only the border
             rows should be treated.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that the damage threshold has not been
             reached and there is no need for treatment.Yellow rectangles
@@ -790,7 +790,7 @@ models:
             true-leaf stage. Consider, based on previous experience and the size
             and shape of the field whether the entire field or only the border
             rows should be treated.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that the damage threshold has not been
             reached and there is no need for treatment.Yellow rectangles
@@ -808,7 +808,7 @@ models:
             true-leaf stage. Consider, based on previous experience and the size
             and shape of the field whether the entire field or only the border
             rows should be treated.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that the damage threshold has not been
             reached and there is no need for treatment.Yellow rectangles
@@ -826,7 +826,7 @@ models:
             true-leaf stage. Consider, based on previous experience and the size
             and shape of the field whether the entire field or only the border
             rows should be treated.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Green rectangles indicate that the damage threshold has not been
             reached and there is no need for treatment.Yellow rectangles
@@ -844,7 +844,7 @@ models:
             true-leaf stage. Consider, based on previous experience and the size
             and shape of the field whether the entire field or only the border
             rows should be treated.
-          recommended_action: ''
+          recommended_action: ""
       chart_heading: Trap countings
       chart_groups:
         - id: G1
@@ -861,7 +861,7 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#000000'
+            color: "#000000"
         - id: TRAP_COUNT_CROP_EDGE
           title: Insect trap count at the edge of the field
           description: Insect trap count at the edge of the field
@@ -869,7 +869,7 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#ffff00'
+            color: "#ffff00"
         - id: TRAP_COUNT_CROP_INSIDE
           title: Insect trap count inside the field
           description: Insect trap count inside the field
@@ -877,10 +877,10 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
   - name: Nærstad model
     id: NAERSTADMO
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/NAERSTADMO/
@@ -968,13 +968,13 @@ models:
       countries:
         - NOR
         - SWE
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
-        - explanation: ''
-          recommended_action: ''
-        - explanation: ''
-          recommended_action: ''
+        - explanation: ""
+          recommended_action: ""
+        - explanation: ""
+          recommended_action: ""
         - explanation: Risk < 1 = no warning
           recommended_action: No action needed
         - explanation: >-
@@ -1002,7 +1002,7 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#000000'
+            color: "#000000"
         - id: THRESHOLD_LOW
           title: Threshold low infection risk
           description: >-
@@ -1012,7 +1012,7 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#ffff00'
+            color: "#ffff00"
         - id: THRESHOLD_HIGH
           title: Threshold high infection risk
           description: >-
@@ -1022,10 +1022,10 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
   - name: Alternaria TOMCAST
     id: ALTERNARIA
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/ALTERNARIA/
@@ -1105,8 +1105,8 @@ models:
                 "timeStart": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-03-01", "title": "Start date of calculation (YYYY-MM-DD)"},
                 "timeEnd": {"type": "string","format": "date", "default": "{CURRENT_YEAR}-09-01", "title": "End date of calculation (YYYY-MM-DD)"},
                 "sprayingDates": {"type": "array", "minItems":0, "maxItems":3, "title": "Spraying dates","items":{"type":"string","format":"date", "default":"{CURRENT_YEAR}-06-01"}},
-                "thresholdDSVTempMin": {"type": "float", "default": 10.0, "title": "Minimum temperature for DSV calculation"},
-                "thresholdDSVMax": {"type": "float", "default": 20.0, "title": "DSV threshold for high infection risk"}
+                "thresholdDSVTempMin": {"type": "double", "default": 10.0, "title": "Minimum temperature for DSV calculation"},
+                "thresholdDSVMax": {"type": "double", "default": 20.0, "title": "DSV threshold for high infection risk"}
               },
               "required": ["timeZone","timeStart","timeEnd"]
             },
@@ -1132,22 +1132,22 @@ models:
       countries:
         - NOR
         - DNK
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
-        - explanation: ''
-          recommended_action: ''
-        - explanation: ''
-          recommended_action: ''
-        - explanation: 'DSV< 15= no warning '
+        - explanation: ""
+          recommended_action: ""
+        - explanation: ""
+          recommended_action: ""
+        - explanation: "DSV< 15= no warning "
           recommended_action: No action needed
-        - explanation: 'DSV>15 and <20 = possible warning coming up if conditions persists '
+        - explanation: "DSV>15 and <20 = possible warning coming up if conditions persists "
           recommended_action: watch warnings closely
-        - explanation: 'DSV > 20 = warning issued '
+        - explanation: "DSV > 20 = warning issued "
           recommended_action: >-
             A control measure should be considered based on cultivar resistance,
             time of last application and choice of fungicide. Enter spray date
-            in model to reset the accumulation of DSV. 
+            in model to reset the accumulation of DSV.
       chart_groups:
         - id: G1
           title: Aggregated Daily Disease Severity Value
@@ -1161,28 +1161,28 @@ models:
           description: The aggregated risk
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#000000'
+            color: "#000000"
         - id: THRESHOLD_DSV_BASE
           title: Lower threshold
           description: Lower threshold
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ffff00'
+            color: "#ffff00"
         - id: THRESHOLD_DSV_MAX
           title: High treshold
           description: High risk
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
   - name: Negative prognosis
     id: NEGPROGMOD
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/NEGPROGMOD/
@@ -1213,7 +1213,7 @@ models:
       countries (e.g. by Taylor M. C. 2003 in the UK) and was commonly combined
       with other models to guide subsequent fungicide applications.  Combined
       models, such as NegFry, have been tested in many countries, e.g. by Hansen
-      J. G. et al., 1995 in Denmark; 
+      J. G. et al., 1995 in Denmark;
     citation: null
     platform_validated: true
     pests:
@@ -1221,7 +1221,7 @@ models:
     crops:
       - SOLTU
     authors:
-      - name: 'J. Ullrich and H. Schrödter '
+      - name: "J. Ullrich and H. Schrödter "
     execution:
       type: ONTHEFLY
       endpoint: https://coremanager.vips.nibio.no/models/NEGPROGMOD/run/ipmd
@@ -1270,7 +1270,7 @@ models:
         - NOR
         - DEU
         - POL
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
         - explanation: >-
@@ -1309,13 +1309,13 @@ models:
             of blight if other risk factors (e.g. sources of blight inoculum or
             cultivar susceptibility) are high. Above 150 (red), the risk is
             likely to be high. Above 200 the model becomes inactive as the first
-            spray should already have been applied in most circumstances. 
+            spray should already have been applied in most circumstances.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
             emergence. Click on 'Edit Parameters', enter your crop emergence
             date and 'Save'. Accumulated risk is less than 120 (green); the risk
-            of blight is low. Check the risk of blight regularly.  
+            of blight is low. Check the risk of blight regularly.
         - explanation: >-
             This model calculates accumulated blight risk from crop emergence.
             'Risk Status' shows the accumulated risk reached on each day (i.e.
@@ -1327,7 +1327,7 @@ models:
             of blight if other risk factors (e.g. sources of blight inoculum or
             cultivar susceptibility) are high. Above 150 (red), the risk is
             likely to be high. Above 200 the model becomes inactive as the first
-            spray should already have been applied in most circumstances. 
+            spray should already have been applied in most circumstances.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
@@ -1347,7 +1347,7 @@ models:
             of blight if other risk factors (e.g. sources of blight inoculum or
             cultivar susceptibility) are high. Above 150 (red), the risk is
             likely to be high. Above 200 the model becomes inactive as the first
-            spray should already have been applied in most circumstances. 
+            spray should already have been applied in most circumstances.
           recommended_action: >-
             This risk model guides the timing of the first fungicide application
             by calculating accumulated blight risk from the date of crop
@@ -1369,7 +1369,7 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#000000'
+            color: "#000000"
         - id: INFECTION_THRESHOLD
           title: Infection threshold
           description: Threshold for "High infection risk"
@@ -1377,10 +1377,10 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
   - name: Septoria apiicola model
     id: SEPAPIICOL
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/SEPAPIICOL/
@@ -1504,15 +1504,15 @@ models:
     valid_spatial:
       countries:
         - NOR
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
         - explanation: The model is not active
-          recommended_action: ''
+          recommended_action: ""
         - explanation: Data is missing
-          recommended_action: ''
+          recommended_action: ""
         - explanation: No risk of infection.
-          recommended_action: ''
+          recommended_action: ""
         - explanation: >-
             Weather conditions favorable for infection risk. No known sources of
             inoculum in the region.
@@ -1522,7 +1522,7 @@ models:
             own field.
         - explanation: >-
             Weather conditions favorable for infection risk, and infections of
-            Septoria late blight have been reported in the nearby region. 
+            Septoria late blight have been reported in the nearby region.
           recommended_action: >-
             Consult your advisory service. Consider action to protect your crop
             based on observations in your own field.
@@ -1540,7 +1540,7 @@ models:
             default_visible: true
             unit: Yes/no
             chart_type: line
-            color: '#000000'
+            color: "#000000"
         - id: PEST_OBSERVED
           title: >-
             Has the pest been observed in or near the field, or in the nearby
@@ -1550,14 +1550,14 @@ models:
             default_visible: true
             unit: Yes/no
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
   - name: Lettuce downy mildew model
     id: BREMIALACT
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/BREMIALACT/
-    purpose: 'Weather based infection risk alerts '
+    purpose: "Weather based infection risk alerts "
     description: >-
       THE PEST: Lettuce downy mildew (Bremia lactucae) is a disease caused by a
       fungus-like organism (oomycete). Symptoms are light green to yellow
@@ -1587,7 +1587,7 @@ models:
       pathogens in field lettuce (Lactuca sativa L.) in Norway. Norwegian
       University of Life Sciences. PhD Thesis 2006:24.
 
-      E: 
+      E:
     citation: null
     platform_validated: false
     pests:
@@ -1639,30 +1639,30 @@ models:
           interval: 3600
       weather_data_period_start:
         - determined_by: INPUT_SCHEMA_PROPERTY
-          value: '{CURRENT_YEAR}-04-01'
+          value: "{CURRENT_YEAR}-04-01"
       weather_data_period_end:
         - determined_by: INPUT_SCHEMA_PROPERTY
-          value: '{CURRENT_YEAR}-09-01'
+          value: "{CURRENT_YEAR}-09-01"
     valid_spatial:
       countries:
         - NOR
-      geoJSON: '{}'
+      geoJSON: "{}"
     output:
       warning_status_interpretation:
-        - explanation: ''
-          recommended_action: ''
-        - explanation: ''
-          recommended_action: ''
+        - explanation: ""
+          recommended_action: ""
+        - explanation: ""
+          recommended_action: ""
         - explanation: Weather conditions do not favour sporulation and infection
           recommended_action: No action needed
         - explanation: n/a
-          recommended_action: ''
+          recommended_action: ""
         - explanation: High risk of infection
           recommended_action: >-
             When the model indicates a high risk of infection, spraying should
             be considered given a) the likelihood of the disease being present,
             b) the lettuce variety's resictance towards the disease and c) the
-            time since the last spraying. 
+            time since the last spraying.
       chart_groups:
         - id: G1
           title: Results
@@ -1679,9 +1679,9 @@ models:
           description: The maximum daily temperature
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ffaa55'
+            color: "#ffaa55"
         - id: ELWAST
           title: Was there enough leaf wetness after sunrise today
           description: Was there enough leaf wetness after sunrise today
@@ -1689,7 +1689,7 @@ models:
             default_visible: true
             unit: Yes/no
             chart_type: line
-            color: '#00ff55'
+            color: "#00ff55"
         - id: ELWASYBST
           title: >-
             Was there enough relative humidity after sunrise yesterday and
@@ -1701,7 +1701,7 @@ models:
             default_visible: true
             unit: Yes/no
             chart_type: line
-            color: '#00ffff'
+            color: "#00ffff"
         - id: SLN
           title: Was there sporulation last night
           description: Was there sporulation last night
@@ -1709,7 +1709,7 @@ models:
             default_visible: true
             unit: Yes/no
             chart_type: line
-            color: '#aaffff'
+            color: "#aaffff"
         - id: SYN
           title: Was there sporulation yesterday night
           description: Was there sporulation yesterday night
@@ -1717,7 +1717,7 @@ models:
             default_visible: true
             unit: Yes/no
             chart_type: line
-            color: '#aaff33'
+            color: "#aaff33"
         - id: TXD_THRESHOLD
           title: Max threshold for temperature for infection
           description: >-
@@ -1725,17 +1725,17 @@ models:
             occur
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: "&deg;C"
             chart_type: line
-            color: '#ff0000'
+            color: "#ff0000"
     keywords: none
   - name: Onion downy mildew DOWNCAST
     id: DOWNCASTMO
-    version: '1.0'
+    version: "1.0"
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://www.vips-landbruk.no/forecasts/models/DOWNCASTMO/
-    purpose: 'Weather-based infection risk alerts '
+    purpose: "Weather-based infection risk alerts "
     description: >-
       THE PEST: Onion downy mildew (Peronospora destructor) is a disease caused
       by a fungus-like organism (oomycete). Symptoms are pale green to yellow
@@ -1788,9 +1788,9 @@ models:
 
       REFERENCE: de Visser, C.L.M. 1998. Development of a downy mildew advisory
       model based on downcast. European Journal of Plant Pathology 104: 933-943.
-       
-    citation: ''
-    keywords: ''
+
+    citation: ""
+    keywords: ""
     platform_validated: true
     pests:
       - PERODE
@@ -1798,7 +1798,7 @@ models:
       - ALLCE
       - ALLSS
     authors:
-      - name: ''
+      - name: ""
         email: null
         organization: null
     execution:
@@ -1849,26 +1849,26 @@ models:
           is_required: true
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: '{CURRENT_YEAR}-01-01'
+          value: "{CURRENT_YEAR}-01-01"
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: '{CURRENT_YEAR}-12-31'
+          value: "{CURRENT_YEAR}-12-31"
       field_observation: null
     valid_spatial:
       countries:
         - NOR
         - SWE
         - NLD
-      geoJSON: ''
+      geoJSON: ""
     output:
       warning_status_interpretation:
         - explanation: Warning not applicable
-          recommended_action: ''
+          recommended_action: ""
         - explanation: Missing data
-          recommended_action: ''
-        - explanation: 'Weather conditions unfavourable for sporulation. '
+          recommended_action: ""
+        - explanation: "Weather conditions unfavourable for sporulation. "
           recommended_action: No action necessary
-        - explanation: 'Weather conditions favourable for sporulation. '
+        - explanation: "Weather conditions favourable for sporulation. "
           recommended_action: Please consult with your advisor
         - explanation: Weather conditions favourable for an infection event.
           recommended_action: Please consult with your advisor
@@ -1890,7 +1890,7 @@ models:
             default_visible: true
             unit: Number
             chart_type: line
-            color: '#000000'
+            color: "#000000"
         - id: IDAS
           title: Infection directly after sporulation
           description: Infection directly after sporulation
@@ -1898,7 +1898,7 @@ models:
             default_visible: true
             unit: True/false
             chart_type: bar
-            color: '#613583'
+            color: "#613583"
         - id: ITAS
           title: Infection delayed after sporulation
           description: Infection delayed after sporulation
@@ -1906,5 +1906,5 @@ models:
             default_visible: true
             unit: True/false
             chart_type: bar
-            color: '#dc8add'
+            color: "#dc8add"
       chart_heading: DOWNCAST result chart

@@ -1638,10 +1638,10 @@ models:
         - parameter_code: 3002
           interval: 3600
       weather_data_period_start:
-        - determined_by: INPUT_SCHEMA_PROPERTY
+        - determined_by: FIXED_DATE
           value: "{CURRENT_YEAR}-04-01"
       weather_data_period_end:
-        - determined_by: INPUT_SCHEMA_PROPERTY
+        - determined_by: FIXED_DATE
           value: "{CURRENT_YEAR}-09-01"
     valid_spatial:
       countries:

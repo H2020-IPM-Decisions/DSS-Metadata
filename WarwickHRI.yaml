@@ -88,10 +88,12 @@ models:
                 "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
-                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
+                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
+                                    "Belgium - West-Vlaanderen - Beitem"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
-                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)"]
+                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
+                                    "Inagro (Beitem)"]
                 }
           },
           "required": ["modelId", "databaseLocation"]
@@ -294,10 +296,12 @@ models:
                 "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
-                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
+                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
+                                    "Belgium - West-Vlaanderen - Beitem"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
-                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)"]
+                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
+                                    "Inagro (Beitem)"]
                 }
           },
           "required": ["modelId", "databaseLocation"]
@@ -516,10 +520,12 @@ models:
                 "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
-                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
+                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
+                                    "Belgium - West-Vlaanderen - Beitem"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
-                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)"]
+                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
+                                    "Inagro (Beitem)"]
                 }
           },
           "required": ["modelId", "databaseLocation"]
@@ -747,10 +753,12 @@ models:
                 "default": "Cornwall (Newquay)",
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
-                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton"]
+                                    "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
+                                    "Belgium - West-Vlaanderen - Beitem"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
-                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)"]
+                                    "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
+                                    "Inagro (Beitem)"]
                 }
           },
           "required": ["modelId", "databaseLocation"]

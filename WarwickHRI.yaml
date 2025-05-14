@@ -89,11 +89,11 @@ models:
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
-                                    "Belgium - West-Vlaanderen - Beitem"]
+                                    "België - West-Vlaanderen - Beitem", "België - Antwerpen - Sint-Katelijne-Waver"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
                                     "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
-                                    "Inagro (Beitem)"]
+                                    "Inagro (Beitem)", "Sint-Katelijne-Waver"]
                 }
           },
           "required": ["modelId", "databaseLocation"]
@@ -297,11 +297,11 @@ models:
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
-                                    "Belgium - West-Vlaanderen - Beitem"]
+                                    "België - West-Vlaanderen - Beitem", "België - Antwerpen - Sint-Katelijne-Waver"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
                                     "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
-                                    "Inagro (Beitem)"]
+                                    "Inagro (Beitem)", "Sint-Katelijne-Waver"]
                 }
           },
           "required": ["modelId", "databaseLocation"]
@@ -521,11 +521,11 @@ models:
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
-                                    "Belgium - West-Vlaanderen - Beitem"]
+                                    "België - West-Vlaanderen - Beitem", "België - Antwerpen - Sint-Katelijne-Waver"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
                                     "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
-                                    "Inagro (Beitem)"]
+                                    "Inagro (Beitem)", "Sint-Katelijne-Waver"]
                 }
           },
           "required": ["modelId", "databaseLocation"]
@@ -754,11 +754,11 @@ models:
                 "options": {
                     "enum_titles": ["UK - Cornwall - Newquay", "UK - Kent - Canterbury", "UK - Lancashire - Ormskirk", "UK - Norfolk - Norwich", "UK - Nottingham - Bilsthorpe", 
                                     "UK - Scotland - Blairgowrie", "UK - South Lincolnshire - Boston", "UK - Suffolk - Woodbridge", "UK - Wellesbourne - Warwick", "UK - York - Market Weighton",
-                                    "Belgium - West-Vlaanderen - Beitem"]
+                                    "België - West-Vlaanderen - Beitem", "België - Antwerpen - Sint-Katelijne-Waver"]
                     },
                 "enum":["Cornwall (Newquay)", "Kent (Canterbury)", "Lancashire (Ormskirk)", "Norfolk (Norwich)", "Nottingham (Bilsthorpe)", 
                                     "Scotland (Blairgowrie)", "South Lincolnshire (Boston)", "Suffolk (Woodbridge)", "Wellesbourne (Warwick)", "York (Market Weighton)",
-                                    "Inagro (Beitem)"]
+                                    "Inagro (Beitem)", "Sint-Katelijne-Waver"]
                 }
           },
           "required": ["modelId", "databaseLocation"]

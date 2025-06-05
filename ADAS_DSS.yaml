@@ -11,7 +11,7 @@ organization:
   address: Titan 1 Offices
   postal_code: WV10 9RT
   city: Wolverhampton
-  email: Hannah.Griffiths@adas.co.uk
+  email: Louie.sage@adas.co.uk
   url: https://www.adas.uk/
 models:
   - name: Cutworm Model
@@ -81,7 +81,7 @@ models:
     authors:
       - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock, (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
-        email: (hannah.griffiths@adas.co.uk)
+        email: (Louie.sage@adas.co.uk)
         organization: Rothamsted Experimental Station, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
@@ -262,7 +262,7 @@ models:
           IPM Decisions from publication details by Hannah Griffiths)
         email: >-
           g.jacquemin@cra.wallonie.be, s.chavalle@cra.wallonie.be,
-          m.deproft@cra.wallonie.be, (hannah.griffiths@adas.co.uk)
+          m.deproft@cra.wallonie.be, (Louie.sage@adas.co.uk)
         organization: Walloon Agricultural Research Centre, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
@@ -431,7 +431,7 @@ models:
       - BRSNN
     authors:
       - name: Hannah Griffiths
-        email: Hannah.Griffiths@adas.co.uk
+        email: Louie.sage@adas.co.uk
         organization: ADAS
     execution:
       type: ONTHEFLY
@@ -604,7 +604,7 @@ models:
     authors:
       - name: Charlotte Rowley, Andew Cherrill, Simon R. Leather, Tome W. Pope, (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
-        email: crowley@harper-adams.ac.uk, (hannah.griffiths@adas.co.uk)
+        email: crowley@harper-adams.ac.uk, (Louie.sage@adas.co.uk)
         organization: Centre for Integrated Pest Management, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
@@ -821,7 +821,7 @@ models:
     authors:
       - name: Petros T. Damos, Nikos A. Kouloussis, Dimitris S. Koveos, (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
-        email: petrosdamos@gmail.com, (hannah.griffiths@adas.co.uk)
+        email: petrosdamos@gmail.com, (Louie.sage@adas.co.uk)
         organization: >-
           Laboratory of Applied Zoology and Parasitology, School of Agriculture,
           Faculty of Agriculture, Forestry and Natural Environment,
@@ -1041,7 +1041,7 @@ models:
     authors:
       - name: AHDB, (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
-        email: (hannah.griffiths@adas.co.uk)
+        email: (Louie.sage@adas.co.uk)
         organization: AHDB, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
@@ -1237,7 +1237,7 @@ models:
     authors:
       - name: James Hutton, (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
-        email: (hannah.griffiths@adas.co.uk)
+        email: (Louie.sage@adas.co.uk)
         organization: James Hutton Institute, UK., (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
@@ -1376,7 +1376,7 @@ models:
     authors:
       - name: D.E. te Beest, M.W. Shaw, S. Pietravalle, F. van den Bosch, (Integrated to
           IPM Decisions from publication details by Hannah Griffiths)
-        email: (hannah.griffiths@adas.co.uk)
+        email: (Louie.sage@adas.co.uk)
         organization: (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
@@ -1526,7 +1526,7 @@ models:
       - NNNGW
     authors:
       - name: Glen et al. 2006 (Integrated to IPM Decisions from publication details by Hannah Griffiths)
-        email: (hannah.griffiths@adas.co.uk)
+        email: (Louie.sage@adas.co.uk)
         organization: (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
@@ -1678,7 +1678,7 @@ models:
       - BRSNN
     authors:
       - name: Glen et al. 2006 (Integrated to IPM Decisions from publication details by Hannah Griffiths)
-        email: (hannah.griffiths@adas.co.uk)
+        email: (Louie.sage@adas.co.uk)
         organization: (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY

@@ -23,8 +23,8 @@ models:
     purpose: >-
       To calculate the daily infection risk of brown rust in cereals.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of major leaf diseases in cereals 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
+      With this weather-based simulation model, you can calculate the infection probablility of major leaf diseases in cereals
+      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account
       it serves as an indicator for field inspections.
     citation: ''
     keywords: null
@@ -90,9 +90,18 @@ models:
     purpose: >-
       To calculate the daily infection risk of brown rust in cereals.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of brown rust in cereals 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Brown rust affects both wheat and barley crops. It is also known as leaf rust.  There is large seasonal and geographic variation in brown rust severity. Cold winters may reduce its spread.
+
+      THE DECISION: In wheat, apply a fungicide with activity against brown rust when the disease is seen and conditions are conducive or at T2 and T3 in high-risk situations
+      In barley, use fungicides early to control the disease. However, the azole/SDHI mixes used on other barley diseases will usually provide sufficient control
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -104,7 +113,7 @@ models:
       - TTLWI
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -123,7 +132,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^PUCCRE$", "title": "Model Id", "default":"PUCCRE", "description":"Must be PUCCRE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -132,7 +141,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -196,7 +205,7 @@ models:
           recommended_action: 'Some attention has to be drawn to this disease, especially if this status persists for a longer period of time'
         - explanation: 'Infections are probable'
           recommended_action: 'Field inspections are recommended, especially if this status persists for a longer period of time'
-        
+
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
@@ -209,9 +218,17 @@ models:
     purpose: >-
       To calculate the daily infection risk of powdery mildew in cereals.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of powdery mildew in cereals 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Powdery mildew (Blumeria graminis)can infect all cereals. However, its visual appearance usually outweighs the damage potential, especially during the autumn and winter. In highly-susceptible varieties, yield losses can be up to 20% and early control can be very important. However, the disease generally causes much smaller yield losses (rarely exceeding 10%) and late attacks (after flowering) on the flag-leaf and ear rarely cause significant losses. Crops under stress, late-sown crops, and crops that are growing rapidly in the spring are often particularly prone to attack. Early attacks can reduce tiller number and excessive nitrogen fertiliser can encourage the disease. Mildew can be particularly severe in dense crops.
+
+      THE DECISION: Fungicide treatments may need to be applied between late tillering (GS 29) and before heading (GS 40), to protect leaves from attack of powdery mildew and yield losses.
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -225,7 +242,7 @@ models:
       - HORVS
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -244,7 +261,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^ERYSGR$", "title": "Model Id", "default":"ERYSGR", "description":"Must be ERYSGR"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -253,7 +270,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -329,9 +346,17 @@ models:
     purpose: >-
       To calculate the daily infection risk of tan spot in winter wheat.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of tan spot in winter wheat 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Pyrenophora tritici-repentis (Drechslera tritici-repentis) is the pathogen that causes tan spot. It affects wheat but can also attack barley, rye and some grasses. Tan spot is very common in Sweden, Denmark, Germany and France. However, in the UK, it is only occasionally recorded in disease surveys and rarely causes serious yield or quality (specific weight) losses.
+
+      THE DECISION: Fungicide treatments may need to be applied between beginning of elongation (GS 31) and beginning of grain filling (GS 71), to protect leaves from attack of tan spot and yield losses.
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -341,7 +366,7 @@ models:
       - TRZAW
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -360,7 +385,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^PYRNTR$", "title": "Model Id", "default":"PYRNTR", "description":"Must be PYRNTR"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -369,7 +394,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -445,9 +470,17 @@ models:
     purpose: >-
       To calculate the daily infection risk of septoria leaf spot in winter wheat.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of septoria leaf spot in winter wheat 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Leaf blotch diseases of wheat can be caused by septoria tritici blotch (Zymoseptoria tritici) and staganospora nodorum blotch (Parastagonospora nodorum), which are both favoured by wet conditions. Septoria often results in elongated, oval septoria lesions that are restricted by leaf veins, giving a rectangular appearance. Water-soaked patches often form, surrounded by leaf yellowing or death. Lesions may coalesce to form large areas of necrotic brown tissue. Mature lesions contain characteristic, small (but visible) black fruiting bodies (pycnidia). However, pycnidia are not always visible in immature lesions.
+
+      THE DECISION: Fungicide treatments may need to be applied between stem extension and ear emergence, mainly to protect the upper leaves.
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -457,7 +490,7 @@ models:
       - TRZAW
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -476,7 +509,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^SEPTTR$", "title": "Model Id", "default":"SEPTTR", "description":"Must be SEPTTR"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -485,7 +518,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -561,9 +594,17 @@ models:
     purpose: >-
       To calculate the daily infection risk of yellow rust in winter wheat and winter rye.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of yellow rust in winter wheat and winter rye 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Yellow rust (Puccinia striiformis) is known to attack wheat and rye. The characteristic symptom of yellow rust is of parallel rows of yellowish orange coloured pustules on the leaves of adult plants. Epidemics of yellow rust often start as individual plants, usually in the autumn. Symptoms develop slowly over winter and are often missed until the early spring when small patches or foci of infected plants can be seen in fields.
+
+      THE DECISION: Fungicide treatments may need to be applied between end of tillering (GS 29) and beginning of grain filling (GS 71) to protect leaves from attack of yellow rust and yield losses.
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -574,7 +615,7 @@ models:
       - TTLWI
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -593,7 +634,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^PUCCST$", "title": "Model Id", "default":"PUCCST", "description":"Must be PUCCST"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -602,7 +643,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -678,9 +719,17 @@ models:
     purpose: >-
       To calculate the daily infection risk of ramularia leaf spot in barley.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of ramularia leaf spot in barley 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST Ramularia leaf spot can result in extensive damage to the upper leaves in barley, leading to losses in grain yield and quality. Initially, the fungus grows symptomless and systemically within new plant growth. Diagnosis during these stages requires molecular approaches. Symptoms usually appear on the upper leaves after flowering, but can show earlier in stressed crops or on senescing leaves.
+
+      THE DECISION The most effective timing for fungicide applications against ramularia is a preventative spray during booting (growth stages 45–49). Later applications, up to ear fully emerged (growth stage 59), may also be effective but may be restricted for malting barley crops. Once symptoms develop on the upper leaves post-flowering, treatment is not effective.
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -691,7 +740,7 @@ models:
       - HORVS
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -710,7 +759,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^RAMUCC$", "title": "Model Id", "default":"RAMUCC", "description":"Must be RAMUCC"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -719,7 +768,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -795,9 +844,17 @@ models:
     purpose: >-
       To calculate the daily infection risk of net blotch in barley.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of net blotch in barley 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Net blotch (Pyrenophora teres) is known to attack barley. Infection from splash-borne spores, from infected trash or neighbouring plants, is the most common cause of infection. Symptoms start as individual spots that can easily be mistaken for ramularia leaf spot. These elongate and turn into brown stripes or blotches with a random netting of darker lines along and across the leaf. Symptoms can be extensive in winter but affected leaves die back and new leaves in spring can be symptom-free.
+
+      THE DECISION: Fungicide treatments may need to be applied between start of elongation (GS 30) and full flowering (GS 65), to protect leaves from attack of net blotch and yield losses.
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -808,7 +865,7 @@ models:
       - HORVS
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -827,7 +884,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^PYRNTE$", "title": "Model Id", "default":"PYRNTE", "description":"Must be PYRNTE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -836,7 +893,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -903,7 +960,7 @@ models:
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: Infection risk of leaf blotch in cereals
+  - name: Infection risk of leaf blotch, rhynchosporium, in cereals
     id: RHYNSE
     version: '1.0'
     type_of_decision: Short-term tactical
@@ -912,9 +969,17 @@ models:
     purpose: >-
       To calculate the daily infection risk of leaf blotch in cereals.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of leaf blotch in cereals 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Leaf blotch, also known as leaf scald or rhynchosporium, affects barley, rye, triticale and a number of grasses, particularly ryegrasses. Symptoms often first appear at the base of the leaf close to the stem, then spread to the rest of the leaf, leaf sheaths, ears and grain, particularly in wet conditions.
+
+      THE DECISION: Most current (2025) fungicides have good protectant activity. However, few treatments have good eradicant activity in high-pressure situations. An effective azole, in mixture with a strobilurin or SDHI fungicide, is a good foundation for disease management.
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -927,7 +992,7 @@ models:
       - HORVS
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -946,7 +1011,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^RHYNSE$", "title": "Model Id", "default":"RHYNSE", "description":"Must be RHYNSE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -955,7 +1020,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -1022,18 +1087,26 @@ models:
       chart_heading: 'infection risk'
       chart_groups: []
       result_parameters: []
-  - name: Infection risk of dwarf leaf rust in barley
+  - name: Infection risk of brown rust in barley
     id: PUCCHD
     version: '1.0'
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: https://zepp.info/component/content/article?id=176
     purpose: >-
-      To calculate the daily infection risk of dwarf leaf rust in barley.
+      To calculate the daily infection risk of browen rust in barley.
     description: >-
-      With this weather-based simulation model, you can calculate the infection probablility of dwarf leaf rust in barley 
-      to define periods of high risk. Since no agronomic factors such as sowing date or variety susceptibility are taken into account 
-      it serves as an indicator for field inspections.
+      THE PEST: Brown rust affects both wheat and barley crops. It is also known as leaf rust.  There is large seasonal and geographic variation in brown rust severity. Cold winters may reduce its spread.
+
+      THE DECISION: In barley, use fungicides early to control the disease. However, the azole/SDHI mixes used on other barley diseases will usually provide sufficient control
+
+      THE MODEL: With this weather-based simulation model, you can calculate the infection probability of powdery mildew in cereals  to define periods of high risk.
+
+      THE PARAMETERS  The probability of infection should be understood as an interpretation of weather conditions (temperature and leaf wetness duration) and their influence on the development of an infection.
+
+      SOURCE: Created by ZEPP, Germany; https://zepp.info/sig/
+
+      ASSUMPTIONS: Since no agronomic factors such as sowing date or variety susceptibility are taken into account  it serves as an indicator for field inspections
     citation: ''
     keywords: ''
     platform_validated: true
@@ -1044,7 +1117,7 @@ models:
       - HORVS
     authors:
       - name: Dr. Manfred Röhrig (ISIP), Juliane Schmitt (ZEPP)
-        email: roehrig@isip.de, schmitt@zepp.info 
+        email: roehrig@isip.de, schmitt@zepp.info
         organization: ISIP (technical contact), ZEPP (agronomic contact)
     execution:
       type: ONTHEFLY
@@ -1063,7 +1136,7 @@ models:
       input_schema: |-
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^PUCCHD$", "title": "Model Id", "default":"PUCCHD", "description":"Must be PUCCHD"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -1072,7 +1145,7 @@ models:
             "timeZone": {"type": "string", "default": "Europe/Berlin", "description":"Your time zone, e.g. Europe/London"}
           },
           "required": ["modelId", "crop","timeZone"]
-        } 
+        }
     input:
       weather_parameters:
         - parameter_code: 1002

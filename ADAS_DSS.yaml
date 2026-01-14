@@ -418,7 +418,7 @@ models:
     keywords: none
     platform_validated: true
     pests:
-      - GREENFLY
+      - MYZUPE
     crops:
       - BRSNN
     authors:

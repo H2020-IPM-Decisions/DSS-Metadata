@@ -383,7 +383,7 @@ models:
             chart_type: bar
             color: '#000000'
   - name: Extreme Early Flight of Greenfly Model
-    id: GREENFLY
+    id: MYZUPE
     version: 0.0.1
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
@@ -439,7 +439,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^GREENFLY$", "title": "Model Id", "default":"GREENFLY", "description":"Must be GREENFLY"},
+           "modelId": {"type": "string", "pattern":"^MYZUPE$", "title": "Model Id", "default":"MYZUPE", "description":"Must be MYZUPE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },

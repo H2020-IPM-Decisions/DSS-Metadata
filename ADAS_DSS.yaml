@@ -405,7 +405,7 @@ models:
       THE PARAMETERS: The model uses mean air temperature between January and 
       February the previous winter.
 
-      REGION: ********
+      REGION: UK
 
       ASSUMPTIONS: *******
 
@@ -421,13 +421,14 @@ models:
       - MYZUPE
     crops:
       - BRSNN
+      - BEAVA
     authors:
       - name: Sola Samuel
         email: sola.samuel@adas.co.uk
         organization: ADAS
     execution:
       type: ONTHEFLY
-      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/greenfly/api/runDSS
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/greenfly/api/greenfly/runDSS
       form_method: post
       content_type: application/json
       input_schema_categories:

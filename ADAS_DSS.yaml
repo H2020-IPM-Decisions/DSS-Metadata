@@ -497,7 +497,7 @@ models:
             to be observed.
           recommended_action: >-
             The model currently predicts a high risk of migration into crops.
-      chart_heading: Early Flight of Greenfly
+      chart_heading: First Flight of Myzus
       chart_groups:
         - id: G1
           title: Migration Forecast
@@ -631,18 +631,15 @@ models:
         - explanation: ''
           recommended_action: ''
         - explanation: >-
-            Red Warning indicates that egg laying is likely
-            to be observed.
+            Red Warning indicates that egg laying is likely to be observed.
           recommended_action: >-
             The model currently predicts a high risk of egg laying into crops.
-      chart_heading: Early Flight of Greenfly
+      chart_heading: Egg-Laying of Pea Moth
       chart_groups:
         - id: G1
           title: Migration Forecast
           result_parameter_ids:
             - Temperature
-            - Jan-Feb Mean Temperature
-            - Predicted Flight Day of the Year
       result_parameters:
         - id: Temperature
           title: Total mean temperature

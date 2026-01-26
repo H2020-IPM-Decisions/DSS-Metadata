@@ -382,14 +382,14 @@ models:
             unit: ''
             chart_type: bar
             color: '#000000'
-  - name: Extreme Early Flight of Greenfly Model
+  - name: Myzus Persicae First Fly Model
     id: MYZUPE
     version: 0.0.1
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/greenfly/api/info
-    purpose: Estimates the risk of early flight of myzus persicae
+    purpose: Estimates the risk of first flight of myzus persicae
     description: >-
       THE PEST: Myzus persicae is the primary aphid vector for many damaging
       viruses and has developed resistance to most insecticides.
@@ -530,6 +530,128 @@ models:
             unit: ''
             chart_type: line
             color: '#ff00ff'
+  - name: Pea Moth Egg Laying Model
+    id: LASPNI
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/peamoth/api/info
+    purpose: Estimates the risk of egg laying of cydia nigricana
+    description: >-
+      THE PEST: Cydia nigricana
+
+      THE DECISION: This DSS predicts egg laying into crops.
+
+      THE MODEL: The model estimates the day of the year of egg-laying.   
+
+      THE PARAMETERS: The model does not use parameters.
+
+      REGION: UK
+
+      ASSUMPTIONS: *******
+
+      REFERENCE: *******
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - LASPNI
+    crops:
+      - PIBSX
+      - VICFA
+    authors:
+      - name: Sola Samuel
+        email: sola.samuel@adas.co.uk
+        organization: ADAS
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/peamoth/api/peamoth/runDSS
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.temp_threshold
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {  
+           "modelId": {"type": "string", "pattern":"^LASPNI$", "title": "Model Id", "default":"LASPNI", "description":"Must be LASPNI"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "optionalData" :{   
+              "title":"Optional parameters for the DSS", 
+              "type": "object",
+              "properties": {
+                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
+                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-05-31"}
+              }
+            }
+          },
+          "required": ["modelId"]
+        }  
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-04-01'
+    valid_spatial:
+      countries:
+        - GBR
+        - BEL
+        - LUX
+        - NLD
+        - FRA
+        - DEU
+        - DNK
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            Based on current data available, the model results indicate no 
+            current risk of pest activity.
+          recommended_action: >-
+            The model currently predicts a low risk of egg laying into crops.
+        - explanation: ''
+          recommended_action: ''
+        - explanation: >-
+            Red Warning indicates that egg laying is likely
+            to be observed.
+          recommended_action: >-
+            The model currently predicts a high risk of egg laying into crops.
+      chart_heading: Early Flight of Greenfly
+      chart_groups:
+        - id: G1
+          title: Migration Forecast
+          result_parameter_ids:
+            - Temperature
+            - Jan-Feb Mean Temperature
+            - Predicted Flight Day of the Year
+      result_parameters:
+        - id: Temperature
+          title: Total mean temperature
+          description: Total mean temperature
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff0000'
   - name: Pollen Beetle Migration Model (simplified)
     id: MELIAE
     version: 0.0.3

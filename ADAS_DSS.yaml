@@ -384,7 +384,7 @@ models:
             color: '#000000'
   - name: Myzus Persicae First Fly Model
     id: MYZUPE
-    version: 0.0.1
+    version: 0.0.2
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-

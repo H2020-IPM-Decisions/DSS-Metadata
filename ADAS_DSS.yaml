@@ -384,7 +384,7 @@ models:
             color: '#000000'
   - name: Myzus Persicae First Fly Model
     id: MYZUPE
-    version: 0.0.2
+    version: 0.0.3
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
@@ -394,9 +394,11 @@ models:
       THE PEST: Myzus persicae is the primary aphid vector for many damaging
       viruses and has developed resistance to most insecticides.
 
-
-      THE DECISION: This DSS predicts migration into crops based on air 
-      temperature, and so can be used to evaluate risk to crop.
+      THE DECISION: Management decisions for M. persicae in field crops incorporate
+       both the presence of the aphid in the crop with the crops ability to tolerate
+        or resist direct damage and/or damage from vector bourne diseases. Improved 
+        targeting of aphid monitoring in crop supports better decision on where and 
+        when interventions may be needed. 
 
       THE MODEL: The model estimates the day of the year of 5% of total migration
       using the mean air temperature between January and February the previous
@@ -407,7 +409,9 @@ models:
 
       REGION: UK
 
-      ASSUMPTIONS: *******
+      ASSUMPTIONS: The model was developed based on  regression analysis derived from 
+      the Rothamsted Insect Survey observations across the UK and temperature data 
+      for the relvant 1km location. 
 
       REFERENCE: Hemming, D., Bell, J., Collier, R., Dunbar, T., Dunstone, N., Everatt, M., 
       Eyre, D., Kaye, N., Korycinska, A., Pickup, J., & Scaife, A. A. (2022). 
@@ -448,8 +452,8 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
-                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-05-31"}
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-03-01"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-07-01"}
               }
             }
           },
@@ -460,24 +464,14 @@ models:
         - parameter_code: 1002
           interval: 86400
       weather_data_period_start:
-        - determined_by: INPUT_SCHEMA_PROPERTY
-          value: optionalData.startDate
         - determined_by: FIXED_DATE
-          value: '{CURRENT_YEAR}-01-01'
+          value: '{PREVIOUS_YEAR}-01-01'
       weather_data_period_end:
-        - determined_by: INPUT_SCHEMA_PROPERTY
-          value: optionalData.endDate
         - determined_by: FIXED_DATE
-          value: '{CURRENT_YEAR}-02-28'
+          value: '{PREVIOUS_YEAR}-02-28'
     valid_spatial:
       countries:
         - GBR
-        - BEL
-        - LUX
-        - NLD
-        - FRA
-        - DEU
-        - DNK
       geoJSON: '{}'
     output:
       warning_status_interpretation:
@@ -490,17 +484,24 @@ models:
             current risk of pest activity.
           recommended_action: >-
             The model currently predicts a low risk of migration into crops.
-        - explanation: ''
-          recommended_action: ''
         - explanation: >-
-            Red Warning indicates that 5% of total greenfly migration is likely
-            to be observed.
+            Based on current data available, the model indicates there is a 
+            moderate risk of migration of M. persica into crops.
           recommended_action: >-
-            The model currently predicts a high risk of migration into crops.
+            The model current predicts that migration of M. persicae into crops 
+            is likely to have begun at this location. Vulnerable crops should be 
+            inspected for infestations. 
+        - explanation: >-
+            Based on current data available, the model indicates there is a 
+            high risk of migration of M. persica into crops.
+          recommended_action: >-
+            Red Warning indicates that >5% M. persicae migration is likely 
+            to have begun at this location. Vulnerable crops should be 
+            inspected for infestations.
       chart_heading: First Flight of Myzus
       chart_groups:
         - id: G1
-          title: Migration Forecast
+          title: First Flight of Myzus
           result_parameter_ids:
             - Temperature
             - Jan-Feb Mean Temperature
@@ -519,7 +520,7 @@ models:
           description: Jan-Feb Mean Temperature
           chart_info:
             default_visible: true
-            unit: ''
+            unit: '&deg;C'
             chart_type: line
             color: '#0000ff'
         - id: Predicted Flight Day of the Year
@@ -527,31 +528,68 @@ models:
           description: Predicted Flight Day of the Year
           chart_info:
             default_visible: true
-            unit: ''
+            unit: 'DOY'
             chart_type: line
             color: '#ff00ff'
   - name: Pea Moth Egg Laying Model
     id: LASPNI
-    version: 0.0.1
+    version: 0.0.2
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/peamoth/api/info
     purpose: Estimates the risk of egg laying of cydia nigricana
     description: >-
-      THE PEST: Cydia nigricana
+      THE PEST: Pea moth, Chlorops pumilionis, is one of the most damaging pea 
+      pests in this country and in Europe. The caterpillars (larvae) feed on 
+      peas within the pod. In vining peas, there is a risk of crop rejection 
+      because of contamination of the produce by damaged peas which cannot be 
+      removed mechanically. In combining peas for premium markets including 
+      human consumption or seed, damaged peas are removed by the merchant and 
+      the price paid to the grower is reduced in proportion. 
 
-      THE DECISION: This DSS predicts egg laying into crops.
+      THE DECISION: Spraying should be related to the development of the 
+      insect rather than to the stage of growth of the crop therefore 
+      insecticides should be applied while the larvae are exposed, that is, 
+      from the time of hatching to the time of entering the pods. The 
+      timing of application is critical for maximum control. 
 
-      THE MODEL: The model estimates the day of the year of egg-laying.   
+      THE MODEL: Since pea moth can be a localised problem, overall spraying of 
+      peas over a wide area on any one date is not advisable as local conditions 
+      influence the behaviour of the pest. A system of accurately timing the 
+      application of insecticides is commercially available in the form of 
+      pheromone traps. These traps, when placed in a pea field, attract male 
+      moths and by monitoring the catches in the trap, a grower can decide whether 
+      there is a need to spray, and time any necessary spray application 
+      efficiently on his own farm. The traps were developed in the UK  by 
+      Rothamsted Research and fully tested by PGRO and ADAS.  Pea moth monitoring 
+      systems are available from the following suppliers: 
+      
+      Koppert UK Ltd., 8 Tudor Rose Court, 53 Hollands Road, Haverhill, Suffolk, CB9 8PJ, UK Tel: 01440 704488 www.koppert.co.uk  
+      Dragonfli Ltd., Unit 4 Rippers Court, Sible Hedingham, Halstead, Essex, CO9 3PY, UK Tel: 01376 563322 www.dragonfli.co.uk 
+      Andermatt UK, 47 Compton Road, Brighton, West Sussex, BN1 5AL, UK Tel: 07939 395059 Email: contact@andermattuk.com www.andermattuk.com 
 
-      THE PARAMETERS: The model does not use parameters.
+      Traps are received in sets of one or two, depending on the supplier. One 
+      set is required for each block of peas, for example, a farm having all the 
+      pea fields within a restricted area need only purchase one set of traps, but 
+      in fields of 50 ha or more two sets are required. Traps must be placed in the 
+      pea crop by the middle of May and examined at two-day intervals. The number of 
+      moths caught by each of them is noted on each occasion. Traps can be suspended on 
+      pheromone trap pole kits or fence posts in the field and should be placed at canopy 
+      height, moved upwards at intervals as the crop grows. 
+
+      This DSS provides guidance on when traps should be placed in the field. 
+      Subsequent interpretation of the data should be done following guidance 
+      on the PGRO website: https://www.pgro.org/pea-moth/
+   
+
+      THE PARAMETERS: The model uses fixed dates to alert on when traps should be placed in the field.
 
       REGION: UK
 
-      ASSUMPTIONS: *******
+      ASSUMPTIONS: Requires users to set up traps during key monitoring periods, and follow PGRO guidance.
 
-      REFERENCE: *******
+      REFERENCE: https://www.pgro.org/pea-moth/
     citation: null
     keywords: none
     platform_validated: true
@@ -586,8 +624,8 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
-                "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-05-31"}
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-04-15"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-06-15"}
               }
             }
           },
@@ -598,24 +636,14 @@ models:
         - parameter_code: 1002
           interval: 86400
       weather_data_period_start:
-        - determined_by: INPUT_SCHEMA_PROPERTY
-          value: optionalData.startDate
         - determined_by: FIXED_DATE
-          value: '{CURRENT_YEAR}-01-01'
+          value: '{PREVIOUS_YEAR}-04-15'
       weather_data_period_end:
-        - determined_by: INPUT_SCHEMA_PROPERTY
-          value: optionalData.endDate
         - determined_by: FIXED_DATE
-          value: '{CURRENT_YEAR}-04-01'
+          value: '{PREVIOUS_YEAR}-06-15'
     valid_spatial:
       countries:
         - GBR
-        - BEL
-        - LUX
-        - NLD
-        - FRA
-        - DEU
-        - DNK
       geoJSON: '{}'
     output:
       warning_status_interpretation:
@@ -624,26 +652,51 @@ models:
         - explanation: Missing data.
           recommended_action: Review error message.
         - explanation: >-
-            Based on current data available, the model results indicate no 
-            current risk of pest activity.
+            No current risk of pest activity: traps should be placed in preparation.
           recommended_action: >-
-            The model currently predicts a low risk of egg laying into crops.
-        - explanation: ''
-          recommended_action: ''
+            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week. 
+            Consult PGRO thresholds for accurate spray dates: 
+            https://www.pgro.org/pea-moth/
         - explanation: >-
-            Red Warning indicates that egg laying is likely to be observed.
+            Adult pea moth activity is approaching; traps should now be in place.
           recommended_action: >-
-            The model currently predicts a high risk of egg laying into crops.
+            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week. 
+            Consult PGRO thresholds for accurate spray dates:
+            https://www.pgro.org/pea-moth/
+        - explanation: >-
+            Adult pea moth activity now likely, traps should now be in place.
+          recommended_action: >-
+            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week. 
+            Consult PGRO thresholds for accurate spray dates:
+            https://www.pgro.org/pea-moth/
       chart_heading: Egg-Laying of Pea Moth
       chart_groups:
         - id: G1
           title: Migration Forecast
           result_parameter_ids:
             - Temperature
+            - Risk
+            - DURC
       result_parameters:
         - id: Temperature
-          title: Total mean temperature
-          description: Total mean temperature
+          title: Daily Mean Temperature
+          description: Daily Mean Temperature
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff0000'
+        - id: Risk
+          title: Risk Period
+          description: Risk Period
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ff0000'
+        - id: DURC
+          title: Days Until Risk Change
+          description: Days Until Risk Change
           chart_info:
             default_visible: true
             unit: '&deg;C'
@@ -651,26 +704,36 @@ models:
             color: '#ff0000'
   - name: Gout Fly Adult Emergence Model
     id: CHLPPU
-    version: 0.0.1
+    version: 0.0.2
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/goutfly/api/info
     purpose: Estimates the risk of adult emergence of chlorops pumilionis
     description: >-
-      THE PEST: Chlorops pumilionis
+      THE PEST: Gout fly, Chlorops pumilionis, Gout fly is an occasional 
+      pest of cereals and can affect wheat, barley, and triticale. Its 
+      larvae burrow into shoots to feed, causing ‘deadheart’ symptoms to appear.
 
-      THE DECISION: This DSS predicts adult emergence into crops.
+      THE DECISION: This DSS predicts egg laying into crops. Late-sown winter 
+      and spring crops are at greatest risk from the spring generation of flies.
 
-      THE MODEL: The model estimates the day of the year of adult emergence.   
+      THE MODEL:  The model estimates the day of the year of emergence of the 
+      first generation of adult gout fly, which subsequently lay eggs on crops.    
 
-      THE PARAMETERS: The model does not use parameters.
+      THE PARAMETERS: The model uses air temperature data between January and May.
 
-      REGION: UK
+      REGION: France
 
-      ASSUMPTIONS: *******
+      ASSUMPTIONS: The model was developed based on regression analysis derived 
+      from work undertaken in France in 1980's, and has not since been field 
+      validated. Caution should be taken when interpretting results, and forecasts 
+      risk periods should be used as a prompt for targettted monitoring of 
+      vulnerable crops. 
 
-      REFERENCE: *******
+      REFERENCE: Derron J.O., and Goy, G. (1990) La mouche jaune des chaumes 
+      (Chlorops pumilionis Berk).: biologie, nuisibilite, moyens de lutte. 
+      Revue suisse Agric. 22(2): 101-105 
     citation: null
     keywords: none
     platform_validated: true
@@ -701,7 +764,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^LASPNI$", "title": "Model Id", "default":"LASPNI", "description":"Must be LASPNI"},
+           "modelId": {"type": "string", "pattern":"^CHLPPU$", "title": "Model Id", "default":"CHLPPU", "description":"Must be CHLPPU"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
@@ -728,13 +791,7 @@ models:
           value: '{PREVIOUS_YEAR}-08-31'
     valid_spatial:
       countries:
-        - GBR
-        - BEL
-        - LUX
-        - NLD
         - FRA
-        - DEU
-        - DNK
       geoJSON: '{}'
     output:
       warning_status_interpretation:
@@ -746,21 +803,31 @@ models:
             Based on current data available, the model results indicate no 
             current risk of pest activity.
           recommended_action: >-
-            The model currently predicts a low risk of adult emergence into crops.
-        - explanation: ''
-          recommended_action: ''
+            The model currently predicts a Low risk of gout fly adults laying eggs on plants.
         - explanation: >-
-            Red Warning indicates that adult emergence is likely to be observed.
+            Based on current data available, the model indicates there is a moderate 
+            risk of emergence of gout fly and egg laying in crops.
           recommended_action: >-
-            The model currently predicts a high risk of adult emergence into crops.
+            Gout fly egg laying and larval emergence up to 80% emergence complete. Inspect 
+            vulnerable crops, especially where there have been previous gout fly 
+            infestations. After emergence, larvae will move into central parts of 
+            the plant within 8-10 days.
+        - explanation: >-
+            Adult emergence is >80% complete, egg laying likely to be underway and 
+            larvae may be migrating into plant centres.
+          recommended_action: >-
+            Gout fly egg laying and larval emergence more than 80% complete. Inspect 
+            vulnerable crops, especially where there have been previous gout fly 
+            infestations. Any eggs laid likely to have hatched, and larvae soon to 
+            be moving into central parts of the plant within 8-10 days.
       chart_heading: Adult Emergence of Gout Fly
       chart_groups:
         - id: G1
           title: Migration Forecast
           result_parameter_ids:
             - Temperature
-            - Daily Degree Days
-            - Cumulative Degree Days
+            - DDD
+            - CDD
       result_parameters:
         - id: Temperature
           title: Daily Mean Temperature
@@ -770,20 +837,20 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#ff0000'
-        - id: Daily Degree Days
+        - id: DDD
           title: Daily Degree Days (>4.5°C)
           description: Daily Degree Days (>4.5°C)
           chart_info:
             default_visible: true
-            unit: ''
+            unit: '&deg;C'
             chart_type: line
             color: '#0000ff'
-        - id: Cumulative Degree Days
+        - id: CDD
           title: Cumulative Degree Days
           description: Cumulative Degree Days
           chart_info:
             default_visible: true
-            unit: ''
+            unit: '&deg;C'
             chart_type: line
             color: '#ff00ff'
   - name: Pollen Beetle Migration Model (simplified)

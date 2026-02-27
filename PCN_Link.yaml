@@ -1,0 +1,79 @@
+id: it.horta.dss
+version: '1.0'
+name: PCN
+url: https://www.pcnhub.ac.uk
+logo_url: 'https://www.pcnhub.ac.uk/themes/custom/potatocyst/logo.png'
+languages:
+  - English
+organization:
+  name: PCN Action Scotland
+  country: UK
+  address: The James Hutton Institute, Invergowri
+  postal_code: 'DD2 5DA'
+  city: Dundee
+  email: James.Price@hutton.ac.uk
+  url: https://www.pcnhub.ac.uk
+models:
+  - name: PCN Scenario Planner
+    id: pcn-sp
+    version: 0.0.1
+    type_of_decision: Strategic scenario planning
+    type_of_output: Qualitative risk assessment and scenario comparison
+    description_URL: https://www.pcnhub.ac.uk/dss-planner
+    purpose: Support strategic decision-making for PCN management
+    description: >
+      THE PEST: Potato cyst nematodes (PCN) Globodera pallida and Globodera rostochiensis are soil-borne plant-parasitic nematodes that infect potato roots to divert host resources via syncytia formation and cause significant yield loss. The cyst stage enables long-term survival in soil making management challenging.
+
+    citation: 'James Price et al. (PCN Hub)'
+    keywords: 'potato cyst nematode;PCN;Globodera;crop rotation;resistance;nematicides'
+    platform_validated: true
+    pests:
+      - GLOBPA
+      - GLOBRO
+    crops:
+      - SOLTU
+    authors:
+      - name: James Price
+        email: James.Price@hutton.ac.uk
+        organization: The James Hutton Institute
+    execution:
+      type: LINK
+      endpoint: 'https://dss.pcnhub.ac.uk/'
+      form_method: ''
+      content_type: ''
+      input_schema_categories:
+        hidden: []
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: ''
+    input:
+      weather_parameters: []
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-12-31'
+      field_observation: null
+    valid_spatial:
+      countries:
+        - Scotland/UK
+      geoJSON: ''
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+        - explanation: ''
+          recommended_action: ''
+      chart_heading: ''
+      chart_groups: []
+      result_parameters: []
+  

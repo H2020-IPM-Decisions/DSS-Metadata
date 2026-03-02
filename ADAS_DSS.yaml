@@ -847,7 +847,7 @@ models:
             color: '#e6194b'
   - name: Phoma Leaf Spotting Model
     id: LEPTMA
-    version: 0.0.2
+    version: 0.0.3
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
@@ -880,7 +880,7 @@ models:
         organization: ADAS
     execution:
       type: ONTHEFLY
-      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/phoma/api/phoma/runDSS
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/phoma/api/PhomaLeafSpotting/runDSS
       form_method: post
       content_type: application/json
       input_schema_categories:
@@ -900,7 +900,7 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "rainfallThreshold": {"type": "number", "default":"0.02", "title": "Rainfall Threshold"},
+                "rainfallThreshold": {"type": "number", "default":"0.02", "title": "Rainfall Threshold (mm)"},
                 "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-01-01"},
                 "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-05-31"}
               }

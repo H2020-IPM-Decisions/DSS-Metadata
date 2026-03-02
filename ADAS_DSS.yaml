@@ -855,7 +855,7 @@ models:
             color: '#e6194b'
   - name: Wheat Bulb Fly Adult Emergence Model
     id: HYLECO
-    version: 0.0.1
+    version: 0.0.2
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
@@ -881,12 +881,9 @@ models:
     pests:
       - HYLECO
     crops:
-      - 3CERC
+      - NNNGW
       - 3WHEC
       - 3BARC
-      - 3RYEC
-      - 3OATC
-      - 3TRIC
     authors:
       - name: Sola Samuel
         email: sola.samuel@adas.co.uk

@@ -533,7 +533,7 @@ models:
             color: '#4363d8'
   - name: Pea Moth Egg Laying Model
     id: LASPNI
-    version: 0.0.2
+    version: 0.0.3
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
@@ -686,22 +686,14 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#4363d8'
-        - id: Risk
-          title: Risk Period
-          description: Risk Period
+        - id: Line_At_18
+          title: 18 Degrees
+          description: 18 Degrees
           chart_info:
             default_visible: true
             unit: '&deg;C'
             chart_type: line
             color: '#e6194b'
-        - id: DURC
-          title: Days Until Risk Change
-          description: Days Until Risk Change
-          chart_info:
-            default_visible: true
-            unit: '&deg;C'
-            chart_type: line
-            color: '#3cb44b'
   - name: Gout Fly Adult Emergence Model
     id: CHLPPU
     version: 0.0.2
@@ -854,8 +846,8 @@ models:
             chart_type: line
             color: '#e6194b'
   - name: Wheat Bulb Fly Adult Emergence Model
-    id: HYLECO
-    version: 0.0.2
+    id: PSILRO
+    version: 0.0.3
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
@@ -879,7 +871,7 @@ models:
     keywords: none
     platform_validated: true
     pests:
-      - HYLECO
+      - PSILRO
     crops:
       - NNNGW
       - 3WHEC
@@ -902,7 +894,7 @@ models:
         {
           "type":"object",
           "properties": {  
-           "modelId": {"type": "string", "pattern":"^HYLECO$", "title": "Model Id", "default":"HYLECO", "description":"Must be HYLECO"},
+           "modelId": {"type": "string", "pattern":"^PSILRO$", "title": "Model Id", "default":"PSILRO", "description":"Must be PSILRO"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },

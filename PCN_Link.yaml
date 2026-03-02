@@ -59,7 +59,7 @@ models:
       field_observation: null
     valid_spatial:
       countries:
-        - Scotland/UK
+        - GBR
       geoJSON: ''
     output:
       warning_status_interpretation:

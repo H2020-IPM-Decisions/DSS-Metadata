@@ -847,7 +847,7 @@ models:
             color: '#e6194b'
   - name: Phoma Leaf Spotting Model
     id: LEPTMA
-    version: 0.0.1
+    version: 0.0.2
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
@@ -887,7 +887,7 @@ models:
         hidden:
           - modelId
         internal:
-          - optionalData.temp_threshold
+          - optionalData.rainfallThreshold
       input_schema: |
         {
           "type":"object",
@@ -900,9 +900,9 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "rainfallThreshold": {"type": "number", "default":"0.02", "title": "Seed Rate"},
-                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
-                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-05-31"}
+                "rainfallThreshold": {"type": "number", "default":"0.02", "title": "Rainfall Threshold"},
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-01-01"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-05-31"}
               }
             }
           },
@@ -910,7 +910,7 @@ models:
         }  
     input:
       weather_parameters:
-        - parameter_code: 1002
+        - parameter_code: 2001
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE

@@ -1,4 +1,4 @@
-id: it.horta.dss
+id: pcn.dss
 version: '1.0'
 name: PCN
 url: https://www.pcnhub.ac.uk
@@ -16,13 +16,24 @@ organization:
 models:
   - name: PCN Scenario Planner
     id: pcn-sp
-    version: 0.0.1
+    version: 0.0.2
     type_of_decision: Strategic scenario planning
     type_of_output: Qualitative risk assessment and scenario comparison
     description_URL: https://www.pcnhub.ac.uk/dss-planner
     purpose: Support strategic decision-making for PCN management
     description: >
       THE PEST: Potato cyst nematodes (PCN) Globodera pallida and Globodera rostochiensis are soil-borne plant-parasitic nematodes that infect potato roots to divert host resources via syncytia formation and cause significant yield loss. The cyst stage enables long-term survival in soil making management challenging.
+
+      THE DECISION: To support management of PCN by simulating "what-if" scenarios for crop rotations and varieties, allowing growers to predict future pest levels and yield loss before planting.
+
+      THE MODEL: The model estimates PCN population levels and how they are likely to change over time and predicts how these changes could impact yield under different management strategies.
+
+      PARAMETERS: The model parameters relies on input data on specific field conditions, including initial PCN population level (e.g. eggs per g soil) for each specie present, geographical region, planned rotation lengths, and varietal tolerance/resistance.
+
+      SOURCE: Developed by the Potato Cyst Nematode Hub (PCN Hub) led by the James Hutton Institute as part of UK research initiatives supporting sustainable PCN management.
+      Tool available via: https://www.pcnhub.ac.uk/dss-planner 
+
+      ASSUMPTIONS: The model assumes that the PCN management interventions including rotation and resistance/tolerance ratings of potato varieties will hold true at all scenarios.
 
     citation: 'James Price et al. (PCN Hub)'
     keywords: 'potato cyst nematode;PCN;Globodera;crop rotation;resistance;nematicides'

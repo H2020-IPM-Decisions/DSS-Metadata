@@ -488,9 +488,9 @@ models:
             Based on current data available, the model indicates there is a 
             moderate risk of migration of M. persica into crops.
           recommended_action: >-
-            The model current predicts that migration of M. persicae into crops 
-            is likely to have begun at this location. Vulnerable crops should be 
-            inspected for infestations. 
+            The model current predicts that migration of M. persicae into 
+            crops is likely to have begun at this location. Vulnerable crops 
+            should be inspected for infestations.
         - explanation: >-
             Based on current data available, the model indicates there is a 
             high risk of migration of M. persica into crops.
@@ -498,39 +498,21 @@ models:
             Red Warning indicates that >5% M. persicae migration is likely 
             to have begun at this location. Vulnerable crops should be 
             inspected for infestations.
-      chart_heading: First Flight of Myzus
+      chart_heading: ''
       chart_groups:
-        - id: G1
-          title: First Flight of Myzus
+        - id: ''
+          title: ''
           result_parameter_ids:
-            - Temperature
-            - JF_Mean_Temp
-            - Predicted_Flight_DOY
+            - ''
       result_parameters:
-        - id: Temperature
-          title: Total mean temperature
-          description: Total mean temperature
+        - id: ''
+          title: ''
+          description: ''
           chart_info:
-            default_visible: true
-            unit: '&deg;C'
-            chart_type: line
-            color: '#e6194b'
-        - id: JF_Mean_Temp
-          title: Jan-Feb Mean Temperature
-          description: Jan-Feb Mean Temperature
-          chart_info:
-            default_visible: true
-            unit: '&deg;C'
-            chart_type: line
-            color: '#3cb44b'
-        - id: Predicted_Flight_DOY
-          title: Predicted Flight Day of the Year
-          description: Predicted Flight Day of the Year
-          chart_info:
-            default_visible: true
-            unit: 'DOY'
-            chart_type: line
-            color: '#4363d8'
+            default_visible: false
+            unit: ''
+            chart_type: bar
+            color: '#000000'
   - name: Pea Moth Egg Laying Model
     id: LASPNI
     version: 0.0.3
@@ -597,7 +579,6 @@ models:
       - LASPNI
     crops:
       - PIBSX
-      - VICFA
     authors:
       - name: Sola Samuel
         email: sola.samuel@adas.co.uk
@@ -675,8 +656,7 @@ models:
           title: Migration Forecast
           result_parameter_ids:
             - Temperature
-            - Risk
-            - DURC
+            - Line_At_18
       result_parameters:
         - id: Temperature
           title: Daily Mean Temperature
@@ -687,8 +667,8 @@ models:
             chart_type: line
             color: '#4363d8'
         - id: Line_At_18
-          title: 18 Degrees
-          description: 18 Degrees
+          title: 18 Degrees Threshold
+          description: 18 Degrees Threshold
           chart_info:
             default_visible: true
             unit: '&deg;C'
@@ -900,9 +880,9 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "rainfallThreshold": {"type": "number", "default":"0.02", "title": "Rainfall Threshold (mm)"},
-                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-01-01"},
-                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-05-31"}
+                "rainfallThreshold": {"type": "number", "default":"0.2", "title": "Rainfall Threshold (mm)"},
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-08-01"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-12-31"}
               }
             }
           },
@@ -914,7 +894,7 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-01-01'
+          value: '{PREVIOUS_YEAR}-08-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
           value: '{PREVIOUS_YEAR}-12-01'
@@ -954,34 +934,16 @@ models:
         - id: G1
           title: Migration Forecast
           result_parameter_ids:
-            - Temperature
-            - DDD
-            - CDD
+            - Rainfall
       result_parameters:
-        - id: Temperature
-          title: Daily Mean Temperature
-          description: Daily Mean Temperature
+        - id: Rainfall
+          title: Daily Rainfall
+          description: Daily Rainfall
           chart_info:
             default_visible: true
-            unit: '&deg;C'
+            unit: 'mm'
             chart_type: line
             color: '#4363d8'
-        - id: DDD
-          title: Daily Degree Days (>4.5°C)
-          description: Daily Degree Days (>4.5°C)
-          chart_info:
-            default_visible: true
-            unit: '&deg;C'
-            chart_type: line
-            color: '#3cb44b'
-        - id: CDD
-          title: Cumulative Degree Days
-          description: Cumulative Degree Days
-          chart_info:
-            default_visible: true
-            unit: '&deg;C'
-            chart_type: line
-            color: '#e6194b'
   - name: Pollen Beetle Migration Model (simplified)
     id: MELIAE
     version: 0.0.3

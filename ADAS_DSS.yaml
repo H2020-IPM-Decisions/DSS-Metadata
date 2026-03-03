@@ -825,6 +825,144 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#e6194b'
+  - name: Wheat Bulb Fly Adult Emergence Model
+    id: HYLECO
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/wheatbulbfly/api/info
+    purpose: Estimates the risk of adult emergence of chlorops pumilionis
+    description: >-
+      THE PEST: Wheat Bulb Fly
+
+      THE DECISION: *****
+
+      THE MODEL: *****    
+
+      THE PARAMETERS: *****
+
+      REGION: *****
+
+      ASSUMPTIONS: *****
+
+      REFERENCE: *****
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - HYLECO
+    crops:
+      - NNNGW
+    authors:
+      - name: Sola Samuel
+        email: sola.samuel@adas.co.uk
+        organization: ADAS
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/wheatbulbfly/api/wheatbulbfly/runDSS
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.temp_threshold
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {  
+           "modelId": {"type": "string", "pattern":"^HYLECO$", "title": "Model Id", "default":"HYLECO", "description":"Must be HYLECO"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "optionalData" :{   
+              "title":"Optional parameters for the DSS", 
+              "type": "object",
+              "properties": {
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-08-01"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-01"}
+                "seedRate": {"type": "number", "default":"15", "title": "Seed Rate"},
+                "sowingDate": {"type":"string","format": "date", "title": "Sowing Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-09-01"}
+              }
+            }
+          },
+          "required": ["modelId"]
+        }  
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{PREVIOUS_YEAR}-08-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-04-01'
+    valid_spatial:
+      countries:
+        - GBR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            Based on current data available, the model results indicate no 
+            current risk of pest activity.
+          recommended_action: >-
+            The model currently predicts a Low risk of gout fly adults laying eggs on plants.
+        - explanation: >-
+            Based on current data available, the model indicates there is a moderate 
+            risk of emergence of gout fly and egg laying in crops.
+          recommended_action: >-
+            Gout fly egg laying and larval emergence up to 80% emergence complete. Inspect 
+            vulnerable crops, especially where there have been previous gout fly 
+            infestations. After emergence, larvae will move into central parts of 
+            the plant within 8-10 days.
+        - explanation: >-
+            Adult emergence is >80% complete, egg laying likely to be underway and 
+            larvae may be migrating into plant centres.
+          recommended_action: >-
+            Gout fly egg laying and larval emergence more than 80% complete. Inspect 
+            vulnerable crops, especially where there have been previous gout fly 
+            infestations. Any eggs laid likely to have hatched, and larvae soon to 
+            be moving into central parts of the plant within 8-10 days.
+      chart_heading: Adult Emergence of Gout Fly
+      chart_groups:
+        - id: G1
+          title: Migration Forecast
+          result_parameter_ids:
+            - Temperature
+            - DDD
+            - CDD
+      result_parameters:
+        - id: Temperature
+          title: Daily Mean Temperature
+          description: Daily Mean Temperature
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#4363d8'
+        - id: DDD
+          title: Daily Degree Days (>4.5°C)
+          description: Daily Degree Days (>4.5°C)
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#3cb44b'
+        - id: CDD
+          title: Cumulative Degree Days
+          description: Cumulative Degree Days
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#e6194b'
   - name: Phoma Leaf Spotting Model
     id: LEPTMA
     version: 0.0.3

@@ -1000,7 +1000,7 @@ models:
               "type": "object",
               "properties": {
                 "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-08-01"},
-                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-01"}
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-01"},
                 "seedRate": {"type": "number", "default":"15", "title": "Seed Rate"},
                 "sowingDate": {"type":"string","format": "date", "title": "Sowing Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-09-01"}
               }

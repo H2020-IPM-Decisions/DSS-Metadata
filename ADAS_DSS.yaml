@@ -827,26 +827,43 @@ models:
             color: '#e6194b'
   - name: Phoma Leaf Spotting Model
     id: LEPTMA
-    version: 0.0.3
+    version: 0.0.4
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/phoma/api/info
-    purpose: Estimates the risk of adult emergence of chlorops pumilionis
+    purpose: Estimates the risk of the first signs of phoma leaf spot
     description: >-
-      THE PEST: Wheat Bulb Fly
+      THE PEST: Plenodomus lingam 
+      
+      THE DECISION: The DSS predicts risk of phoma leaf spot. 
+      
+      THE MODEL: The model records the number of rain days from 1st 
+      August to estimate risk. 
+      
+      THE PARAMETERS. The model does not use parameters. 
+      
+      REGION: UK 
+      
+      ASSUMPTIONS: ******* 
+      
+      REFERENCE: The high phoma leaf spot incidences in individual years 
+      could be associated with autumn weather patterns, as rainfall in 
+      August and September has been found to be an important indicator 
+      of epidemic severity, particularly the number of rain-days (16 to 23) 
+      from 1 August, as this is when phoma leaf spot epidemics typically 
+      start following ascospore release from previous oilseed rape crop 
+      debris (Gladders & Symonds 1995, West et al., 2002). 
 
-      THE DECISION: *****
+      Gladders P., Symonds B.V. (1995). Occurrence of canker (Leptosphaeria 
+      maculans) in winter oilseed rape in eastern England, 1977–93. 
+      International Organization for Biological Control Bulletin, 18, 1–11.
 
-      THE MODEL: *****    
-
-      THE PARAMETERS: *****
-
-      REGION: *****
-
-      ASSUMPTIONS: *****
-
-      REFERENCE: *****
+      West J.S., Fitt B.D.L., Biddulph J.E., Huang Y.J. and Balesdent M.H. 
+      (2002). Effects of timing of Leptosphaeria maculans ascospore release 
+      and fungicide regime on phoma leaf spot and phoma stem canker 
+      development on winter oilseed rape (Brassica napus) in 
+      southern England. Plant Pathology 51: pp 454-463.
     citation: null
     keywords: none
     platform_validated: true
@@ -912,27 +929,33 @@ models:
             Based on current data available, the model results indicate no 
             current risk of pest activity.
           recommended_action: >-
-            The model currently predicts a Low risk of gout fly adults laying eggs on plants.
+            Rain days being counted, but not yet approaching the threshold for 
+            inspection. Less than 16 rain days recorded from 1 August, below the 
+            expected rain day risk for phoma ascospore release from previous crop 
+            debris to initiate phoma leaf spot infection. Continue to monitor 
+            number of rain days.
         - explanation: >-
-            Based on current data available, the model indicates there is a moderate 
-            risk of emergence of gout fly and egg laying in crops.
+            Based on current data available, the model results indicate 
+            approaching risk of disease activity. 
           recommended_action: >-
-            Gout fly egg laying and larval emergence up to 80% emergence complete. Inspect 
-            vulnerable crops, especially where there have been previous gout fly 
-            infestations. After emergence, larvae will move into central parts of 
-            the plant within 8-10 days.
+            Approaching threshold for inspection. Currently 16 to 19 rain days 
+            recorded from 1 August, minimum number of expected rain days 
+            recorded to initiate phoma ascospore release from previous crop 
+            debris. Crops approaching risk for the first appearance of phoma 
+            leaf spot. Advised to make plans to regularly inspect oilseed 
+            rape crops.
         - explanation: >-
-            Adult emergence is >80% complete, egg laying likely to be underway and 
-            larvae may be migrating into plant centres.
+            Red Warning indicates that phoma leaf spot is likely to be observed.
           recommended_action: >-
-            Gout fly egg laying and larval emergence more than 80% complete. Inspect 
-            vulnerable crops, especially where there have been previous gout fly 
-            infestations. Any eggs laid likely to have hatched, and larvae soon to 
-            be moving into central parts of the plant within 8-10 days.
-      chart_heading: Adult Emergence of Gout Fly
+            Above threshold for inspection. Currently 20 or more rain days 
+            recorded from 1 August, optimal number of expected rain days recorded 
+            to initiate phoma ascospore release from previous crop debris. Crop at 
+            risk for the first appearance of phoma leaf spot. Inspect oilseed 
+            rape crops regularly for the first appearance of phoma leaf spot.
+      chart_heading: First Signs of Phoma Leaf Spot
       chart_groups:
         - id: G1
-          title: Migration Forecast
+          title: Rainfall Observed
           result_parameter_ids:
             - Rainfall
       result_parameters:
@@ -946,7 +969,7 @@ models:
             color: '#4363d8'
   - name: Wheat Bulb Fly Adult Emergence Model
     id: HYLECO
-    version: 0.0.5
+    version: 0.0.6
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
     description_URL: >-
@@ -1010,7 +1033,7 @@ models:
         }  
     input:
       weather_parameters:
-        - parameter_code: 2001
+        - parameter_code: 1002
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
@@ -1052,16 +1075,16 @@ models:
       chart_heading: Adult Emergence of Gout Fly
       chart_groups:
         - id: G1
-          title: Migration Forecast
+          title: Thermal Time Observed
           result_parameter_ids:
-            - Rainfall
+            - Cumulative_Thermal_Time_After_Sowing
       result_parameters:
-        - id: Rainfall
-          title: Daily Rainfall
-          description: Daily Rainfall
+        - id: Cumulative_Thermal_Time_After_Sowing
+          title: Cumulative Thermal Time After Sowing
+          description: Cumulative Thermal Time After Sowing
           chart_info:
             default_visible: true
-            unit: 'mm'
+            unit: '&deg;Cd'
             chart_type: line
             color: '#4363d8'
   - name: Pollen Beetle Migration Model (simplified)
@@ -1138,7 +1161,7 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "temp_threshold": {"type": "number", "default":"15", "title": "Temperature Threshold"},
+                "temp_threshold": {"type": "number", "default":"300", "title": "Temperature Threshold"},
                 "startDate": {"type":"string","format": "date", "title": "Model Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
                 "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-05-31"}
               }

@@ -834,18 +834,24 @@ models:
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/phoma/api/info
     purpose: Estimates the risk of the first signs of phoma leaf spot
     description: >-
-      THE PEST: Plenodomus lingam 
+      THE PEST: Plenodomus lingam. Phoma leaf spot and stem canker 
+      is one of the most important diseases of winter oilseed rape 
+      in the UK. This disease can progress from the leaf spot phase to 
+      highly damaging stem cankers, with affected stems less able to 
+      obtain water and nutrients, causing lodging and resulting 
+      yield losses. 
       
       THE DECISION: The DSS predicts risk of phoma leaf spot. 
       
       THE MODEL: The model records the number of rain days from 1st 
-      August to estimate risk. 
+      August to estimate risk.
       
-      THE PARAMETERS. The model does not use parameters. 
+      THE PARAMETERS. Daily Rainfall. 
       
       REGION: UK 
       
-      ASSUMPTIONS: ******* 
+      ASSUMPTIONS: A rain day is defined as a day with 0.2mm 
+      or more of total precipitation.
       
       REFERENCE: The high phoma leaf spot incidences in individual years 
       could be associated with autumn weather patterns, as rainfall in 

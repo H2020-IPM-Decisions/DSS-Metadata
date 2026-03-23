@@ -1083,11 +1083,11 @@ models:
         - id: G1
           title: Thermal Time Observed
           result_parameter_ids:
-            - Cumulative_Thermal_Time_After_Sowing
+            - Predicted_Shoots_per_m2
       result_parameters:
-        - id: Cumulative_Thermal_Time_After_Sowing
-          title: Cumulative Thermal Time After Sowing
-          description: Cumulative Thermal Time After Sowing
+        - id: Predicted_Shoots_per_m2
+          title: Predicted Shoot Number Over Time
+          description: Predicted Shoot Number Over Time
           chart_info:
             default_visible: true
             unit: '&deg;Cd'

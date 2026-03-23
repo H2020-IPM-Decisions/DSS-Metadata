@@ -1031,7 +1031,11 @@ models:
                 "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-08-01"},
                 "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-01"},
                 "seedRate": {"type": "number", "default":"15", "title": "Seed Rate"},
-                "sowingDate": {"type":"string","format": "date", "title": "Sowing Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-09-01"}
+                "sowingDate": {"type":"string","format": "date", "title": "Sowing Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-09-01"},
+                "thermalTimeToEmergence": {"type": "number", "default":"150.0", "title": "Thermal Time To Emergence(Cd)"},
+                "sept1ThermalTimeToGS31": {"type": "number", "default":"1582.0", "title": "Thermal Time From Sept 1 to GS31(Cd)"},
+                "thermalTimeDecreasePerDay": {"type": "number", "default":"9.3014706", "title": "Thermal Time Decrease Per Day(Cd)"},
+                "eggNumbersPerM2": {"type": "number", "default":"125", "title": "Egg Numbers(num/m2)"}
               }
             }
           },
@@ -1081,11 +1085,11 @@ models:
       chart_heading: Adult Emergence of Gout Fly
       chart_groups:
         - id: G1
-          title: Thermal Time Observed
+          title: Predicted Shoot Number
           result_parameter_ids:
-            - Predicted_Shoots_per_m2
+            - Predicted_Shoot_Number_Per_M2
       result_parameters:
-        - id: Predicted_Shoots_per_m2
+        - id: Predicted_Shoot_Number_Per_M2
           title: Predicted Shoot Number Over Time
           description: Predicted Shoot Number Over Time
           chart_info:

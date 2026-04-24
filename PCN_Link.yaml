@@ -3,6 +3,7 @@ version: '1.0'
 name: PCN
 url: https://www.pcnhub.ac.uk
 logo_url: 'https://www.pcnhub.ac.uk/themes/custom/potatocyst/logo.png'
+purpose: The Potato Cyst Nematode (PCN) Scenario Planner is a free to use, web-based tool designed to help professional potato growers and agronomists assess PCN risk and forecast potential yield loss without requiring laboratory integration or field mapping data.
 languages:
   - English
 organization:

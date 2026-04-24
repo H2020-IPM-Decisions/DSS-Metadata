@@ -395,10 +395,10 @@ models:
       viruses and has developed resistance to most insecticides.
 
       THE DECISION: Management decisions for M. persicae in field crops incorporate
-       both the presence of the aphid in the crop with the crops ability to tolerate
-        or resist direct damage and/or damage from vector bourne diseases. Improved 
-        targeting of aphid monitoring in crop supports better decision on where and 
-        when interventions may be needed. 
+      both the presence of the aphid in the crop with the crops ability to tolerate
+      or resist direct damage and/or damage from vector bourne diseases. Improved 
+      targeting of aphid monitoring in crop supports better decision on where and 
+      when interventions may be needed. 
 
       THE MODEL: The model estimates the day of the year of 5% of total migration
       using the mean air temperature between January and February the previous
@@ -411,7 +411,7 @@ models:
 
       ASSUMPTIONS: The model was developed based on  regression analysis derived from 
       the Rothamsted Insect Survey observations across the UK and temperature data 
-      for the relvant 1km location. 
+      for the relevant 1km location. 
 
       REFERENCE: Hemming, D., Bell, J., Collier, R., Dunbar, T., Dunstone, N., Everatt, M., 
       Eyre, D., Kaye, N., Korycinska, A., Pickup, J., & Scaife, A. A. (2022). 
@@ -427,9 +427,9 @@ models:
       - BRSNN
       - BEAVA
     authors:
-      - name: Sola Samuel
-        email: sola.samuel@adas.co.uk
-        organization: ADAS
+      - name: Adapted from Hemming et al 2022 by Sola Samuel and Mark Ramsden, ADAS, 2026
+        email: sola.samuel@adas.co.uk, mark.ramsden@adas.co.uk
+        organization: RSK ADAS Ltd
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/greenfly/api/greenfly/runDSS
@@ -452,8 +452,8 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-03-01"},
-                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-07-01"}
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-07-01"}
               }
             }
           },
@@ -465,10 +465,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-01-01'
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-02-28'
+          value: '{CURRENT_YEAR}-02-28'
     valid_spatial:
       countries:
         - GBR
@@ -580,9 +580,9 @@ models:
     crops:
       - PIBSX
     authors:
-      - name: Sola Samuel
-        email: sola.samuel@adas.co.uk
-        organization: ADAS
+      - name: Adapted from PGRO advice by Sola Samuel and Mark Ramsden, ADAS, 2026
+        email: sola.samuel@adas.co.uk, mark.ramsden@adas.co.uk
+        organization: RSK ADAS Ltd
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/peamoth/api/peamoth/runDSS
@@ -605,8 +605,8 @@ models:
               "title":"Optional parameters for the DSS", 
               "type": "object",
               "properties": {
-                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-04-15"},
-                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-06-15"}
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-15"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-15"}
               }
             }
           },
@@ -618,10 +618,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-04-15'
+          value: '{CURRENT_YEAR}-04-15'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-06-15'
+          value: '{CURRENT_YEAR}-06-15'
     valid_spatial:
       countries:
         - GBR
@@ -719,9 +719,9 @@ models:
       - 1TTLG
       - AVEEA
     authors:
-      - name: Sola Samuel
-        email: sola.samuel@adas.co.uk
-        organization: ADAS
+      - name: Adapted from Derron and Goy 1990 by Sola Samuel and Mark Ramsden, ADAS, 2026
+        email: sola.samuel@adas.co.uk, mark.ramsden@adas.co.uk
+        organization: RSK ADAS Ltd
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/goutfly/api/goutfly/runDSS
@@ -757,10 +757,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-01-01'
+          value: '{CURRENT_YEAR}-01-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-08-31'
+          value: '{CURRENT_YEAR}-08-31'
     valid_spatial:
       countries:
         - FRA
@@ -795,9 +795,14 @@ models:
       chart_heading: Adult Emergence of Gout Fly
       chart_groups:
         - id: G1
-          title: Migration Forecast
+          title: Temperature
           result_parameter_ids:
             - Temperature
+            - DDD
+            - CDD
+        - id: G2
+          title: Degree Days
+          result_parameter_ids:
             - DDD
             - CDD
       result_parameters:
@@ -878,9 +883,9 @@ models:
     crops:
       - BRSNN
     authors:
-      - name: Sola Samuel
-        email: sola.samuel@adas.co.uk
-        organization: ADAS
+      - name: Adapted from Gladders and Symonds 1995 and West et al 2002 by Sola Samuel, Phil Walker, and Mark Ramsden, ADAS, 2026
+        email: sola.samuel@adas.co.uk, philip.walker@adas.co.uk, mark.ramsden@adas.co.uk
+        organization: RSK ADAS Ltd
     execution:
       type: ONTHEFLY
       endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/phoma/api/PhomaLeafSpotting/runDSS
@@ -904,8 +909,8 @@ models:
               "type": "object",
               "properties": {
                 "rainfallThreshold": {"type": "number", "default":"0.2", "title": "Rainfall Threshold (mm)"},
-                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-08-01"},
-                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-12-31"}
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-08-01"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-12-31"}
               }
             }
           },
@@ -917,10 +922,10 @@ models:
           interval: 86400
       weather_data_period_start:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-08-01'
+          value: '{CURRENT_YEAR}-08-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: '{PREVIOUS_YEAR}-12-01'
+          value: '{CURRENT_YEAR}-12-01'
     valid_spatial:
       countries:
         - GBR

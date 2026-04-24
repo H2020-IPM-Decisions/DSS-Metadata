@@ -798,8 +798,6 @@ models:
           title: Temperature
           result_parameter_ids:
             - Temperature
-            - DDD
-            - CDD
         - id: G2
           title: Degree Days
           result_parameter_ids:

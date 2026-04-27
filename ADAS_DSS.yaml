@@ -983,31 +983,41 @@ models:
     type_of_output: Risk indication
     description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/wheatbulbfly/api/info
-    purpose: Estimates the risk of adult emergence of chlorops pumilionis
+    purpose: Estimates the capacity of winter cereal crops to tolerate wheat bulb fly infestations
     description: >-
-      THE PEST: Wheat Bulb Fly
+      THE PEST: Although not abundant every year, wheat bulb fly (WBF) is one of the most serious pests of wheat. Despite its name, the pest affects all cereals, with the exception of oats. A single wheat bulb fly larva can attack multiple shoots. Plants with a single shoot during egg hatch are the most vulnerable and may die.
 
-      THE DECISION: *****
+      THE DECISION: The capacity of the crop to tolerate infestations is associated with the number of shoots that can be lost without impacting yield. The number of excess shoots is dependent on drilling date, sowing rate, and winter temperature. WBF egg numbers in the soil pre-drilling provides an estimate of future infestation, and based on this the DSS estimates the risk of impact on yield from shoot loss in the spring.
 
-      THE MODEL: *****    
+      THE MODEL: The model estimates the number of shoots per m2 at GS 31, and reports risk of losses impacting yield based on tolerance to shoot loss.  Number of shoots at emergence is estimated from seed rate (seeds/m2), based on expected germination and establishment success over time.
 
-      THE PARAMETERS: *****
+      THE PARAMETERS: The model uses air the previous year’s air temperature data between drilling and March as a basis for predicting shoot number in the current year. Use inputs drilling date, sowing rate (seeds per m2), and WBF eggs per m2 pre-season. Where eggs per m2 pre-season is not known, historic data suggests most observations are between 50 - 250 eggs per m2.
 
-      REGION: *****
+      REGION: UK
 
-      ASSUMPTIONS: *****
+      ASSUMPTIONS: Calculations assume 500 shoots per m2 is the minimum required to achieve a typical UK commercial wheat yield. The shoot number (shoots per m2) at GS31 needed to tolerate different levels of WBF damage, based on eggs per m2 pre-drilling, are: 
+      -	<125 eggs/m2: High risk = <500, Medium risk = 500-720, Low risk = >720
+      -	125-250 eggs/m2: High risk = <830, Medium risk = 830-940, Low risk = >940
+      -	251-500 eggs/m2: High risk = <1160, Medium risk = 1161-1380, Low risk = >1380
+      -	>500 eggs/m2: High risk <1600, Medium risk = 1601-1820, Low risk = >1820
+      This model does not account for shoot losses associated with other pests or agronomic factors, such as poor establishment.
 
-      REFERENCE: *****
+      REFERENCE: Leybourne, D.J., Storer, K.E., Berry, P. and Ellis, S. (2022) Development of a pest threshold decision support system for minimising damage to winter wheat from wheat bulb fly, Delia coarctata. Annals of Applied Biology, 180:118-131
     citation: null
     keywords: none
     platform_validated: true
     pests:
       - HYLECO
     crops:
-      - 3BARC
+      - HORVW
+      - HORVS
+      - TRZAX
+      - SECCE
+      - 1TTLG
+      - AVEEA
     authors:
-      - name: Sola Samuel
-        email: sola.samuel@adas.co.uk
+      - name: Adapted from Leybourne et al 2022 by Sola Samuel, Kate Storer, and Mark Ramsden, ADAS, 2026
+        email: sola.samuel@adas.co.uk, kate.storer@adas.co.uk, mark.ramsden@adas.co.uk
         organization: ADAS
     execution:
       type: ONTHEFLY
@@ -1065,27 +1075,18 @@ models:
         - explanation: Missing data.
           recommended_action: Review error message.
         - explanation: >-
-            Based on current data available, the model results indicate no 
-            current risk of pest activity.
+            Based on current data available, the model results indicate there is a low risk of WBF larvae removing more shoots than the crop can tolerate.
           recommended_action: >-
-            The model currently predicts a Low risk of gout fly adults laying eggs on plants.
+            The model currently predicts a low risk of the number of shoots that may be lost to WBF larvae impacting yield.
         - explanation: >-
-            Based on current data available, the model indicates there is a moderate 
-            risk of emergence of gout fly and egg laying in crops.
+            Based on current data available, the model indicates there is a moderate risk of shoots lost to WBF larvae will impact on yield.
           recommended_action: >-
-            Gout fly egg laying and larval emergence up to 80% emergence complete. Inspect 
-            vulnerable crops, especially where there have been previous gout fly 
-            infestations. After emergence, larvae will move into central parts of 
-            the plant within 8-10 days.
+            Based on the drilling date, sowing rate, and estimated WBF eggs per m2 provided, there is a moderate risk of the number of shoots lost to WBF larvae impacting yield. Earlier drilling and/or increasing sowing rate may reduce this risk.
         - explanation: >-
-            Adult emergence is >80% complete, egg laying likely to be underway and 
-            larvae may be migrating into plant centres.
+            Based on current data available, the model indicates there is a high risk that shoots lost to WBF larvae will have a significant impact on yield.
           recommended_action: >-
-            Gout fly egg laying and larval emergence more than 80% complete. Inspect 
-            vulnerable crops, especially where there have been previous gout fly 
-            infestations. Any eggs laid likely to have hatched, and larvae soon to 
-            be moving into central parts of the plant within 8-10 days.
-      chart_heading: Adult Emergence of Gout Fly
+            Based on the drilling date, sowing rate, and estimated WBF eggs per m2 provided, there is a high risk shoots lost to WBF larvae significantly impacting yield. Earlier drilling and/or increasing sowing rate may reduce this risk.
+      chart_heading: Predicted Shoot Number
       chart_groups:
         - id: G1
           title: Predicted Shoot Number
@@ -1097,7 +1098,7 @@ models:
           description: Predicted Shoot Number Over Time
           chart_info:
             default_visible: true
-            unit: '&deg;Cd'
+            unit: ''
             chart_type: line
             color: '#4363d8'
   - name: Pollen Beetle Migration Model (simplified)
@@ -1256,7 +1257,7 @@ models:
           description: Temperature threshold for migration
           chart_info:
             default_visible: true
-            unit: ''
+            unit: count
             chart_type: line
             color: '#0000ff'
   - name: Saddle Gall Midge Model

@@ -382,7 +382,7 @@ models:
             unit: ''
             chart_type: bar
             color: '#000000'
-  - name: Myzus Persicae First Fly Model
+  - name: Myzus Persicae Start Of Migration
     id: MYZUPE
     version: 0.0.3
     type_of_decision: Short-term tactical

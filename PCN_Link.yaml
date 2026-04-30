@@ -20,7 +20,7 @@ models:
     type_of_decision: Strategic scenario planning
     type_of_output: Qualitative risk assessment and scenario comparison
     description_URL: https://www.pcnhub.ac.uk/dss-planner
-    purpose: Support strategic decision-making for PCN management
+    purpose: The Potato Cyst Nematode (PCN) Scenario Planner is a free to use, web-based tool designed to help professional potato growers and agronomists assess PCN risk and forecast potential yield loss without requiring laboratory integration or field mapping data.
     description: >
       THE PEST: Potato cyst nematodes (PCN) Globodera pallida and Globodera rostochiensis are soil-borne plant-parasitic nematodes that infect potato roots to divert host resources via syncytia formation and cause significant yield loss. The cyst stage enables long-term survival in soil making management challenging.
 

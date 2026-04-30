@@ -803,6 +803,8 @@ models:
           result_parameter_ids:
             - DDD
             - CDD
+            - CDDMediumRisk
+            - CDDHighRisk
       result_parameters:
         - id: Temperature
           title: Daily Mean Temperature
@@ -828,6 +830,22 @@ models:
             unit: '&deg;C'
             chart_type: line
             color: '#e6194b'
+        - id: CDDMediumRisk
+          title: Cumulative Degree Days at Medium Risk
+          description: Cumulative Degree Days when medium risk threshold is first reached
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#ffa500'
+        - id: CDDHighRisk
+          title: Cumulative Degree Days at High Risk
+          description: Cumulative Degree Days when high risk threshold is first reached
+          chart_info:
+            default_visible: true
+            unit: '&deg;C'
+            chart_type: line
+            color: '#8b0000'
   - name: Phoma Leaf Spotting Model
     id: LEPTMA
     version: 0.0.4

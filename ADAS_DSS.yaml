@@ -438,12 +438,14 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-        internal:
-          - optionalData.temp_threshold
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^MYZUPE$", "title": "Model Id", "default":"MYZUPE", "description":"Must be MYZUPE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -591,12 +593,14 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-        internal:
-          - optionalData.temp_threshold
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^LASPNI$", "title": "Model Id", "default":"LASPNI", "description":"Must be LASPNI"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -729,12 +733,14 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-        internal:
-          - optionalData.temp_threshold
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^CHLPPU$", "title": "Model Id", "default":"CHLPPU", "description":"Must be CHLPPU"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -911,10 +917,13 @@ models:
           - modelId
         internal:
           - optionalData.rainfallThreshold
+        triggered: []
+        user_init: []
+        system: []
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^LEPTMA$", "title": "Model Id", "default":"LEPTMA", "description":"Must be LEPTMA"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -1043,12 +1052,14 @@ models:
       input_schema_categories:
         hidden:
           - modelId
-        internal:
-          - optionalData.rainfallThreshold
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^HYLECO$", "title": "Model Id", "default":"HYLECO", "description":"Must be HYLECO"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"

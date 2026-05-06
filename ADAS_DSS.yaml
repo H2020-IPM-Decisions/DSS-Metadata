@@ -716,8 +716,7 @@ models:
       - HORVS
       - TRZAX
       - SECCE
-      - 1TTLG
-      - AVEEA
+      - TTLSS
     authors:
       - name: Adapted from Derron and Goy 1990 by Sola Samuel and Mark Ramsden, ADAS, 2026
         email: sola.samuel@adas.co.uk, mark.ramsden@adas.co.uk
@@ -1031,8 +1030,7 @@ models:
       - HORVS
       - TRZAX
       - SECCE
-      - 1TTLG
-      - AVEEA
+      - TTLSS
     authors:
       - name: Adapted from Leybourne et al 2022 by Sola Samuel, Kate Storer, and Mark Ramsden, ADAS, 2026
         email: sola.samuel@adas.co.uk, kate.storer@adas.co.uk, mark.ramsden@adas.co.uk

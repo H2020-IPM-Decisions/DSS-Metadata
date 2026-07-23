@@ -1780,7 +1780,7 @@ models:
       sporulation event followed by an infection event within 72 hours triggers
       a red alert (high infection risk).
 
-      THE PARAMETERS: hourly values of maximum temperature, leaf wetness,
+      THE PARAMETERS: hourly values of mean temperature, leaf wetness (preferably at grass/ground level),
       precipitation, relative humidity 
 
       SOURCE: The model is implemented from descriptions in the publication by

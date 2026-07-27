@@ -29,7 +29,7 @@ models:
       before burrowing into roots. Once they've moved into the roots, they
       cannot be controlled using contact treatments (e.g. insecticides). As
       adults continue to lay eggs in the crop, several 'batches' of larvae, at
-      different instars, can be present in the crop. 
+      different instars, can be present in the crop.
 
 
       THE DECISION: The DSS predicts the number of instar 1, 2 or 3 larval
@@ -94,13 +94,13 @@ models:
       input_schema: |
         {
           "type":"object",
-          "properties": { 
+          "properties": {
               "modelId": {"type": "string", "pattern":"^DASGPA$", "title": "Model Id", "default":"DASGPA", "description":"Must be DASGPA"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-              },        
-              "optionalData" :{  
-                "title":"Optional parameters for the DSS",            
+              },
+              "optionalData" :{
+                "title":"Optional parameters for the DSS",
                 "type": "object",
                 "properties": {
                   "startDate": {"type":"string","format": "date", "title": "1st arrival of adult moths (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-01"},
@@ -156,18 +156,18 @@ models:
             any insecticide applications are made.
         - explanation: >-
             Yellow warning indicates that the larval batches surviving to third
-            instar is between 1 and 4. 
+            instar is between 1 and 4.
           recommended_action: >-
             This model runs June - October. The risk of 3rd instar cutwork
             larvae being active in the crop is increasing. The chart 'Instar
             Count' indicates that the number of larval batches forecast to
-            survive to third instar during this period is between 1 and 4. 
+            survive to third instar during this period is between 1 and 4.
             Increasing monitoring efforts in vulnerable crops, and apply
             suitable treatment according to need. Update parameters when any
             insecticide applications are made
         - explanation: >-
             Red warning indicates that there are over 4 larval batches surviving
-            to third instar. 
+            to third instar.
           recommended_action: >-
             This model runs June - October. The risk of lots of 3rd instar
             cutwork larvae being active in the crop is high. The chart 'Instar
@@ -208,7 +208,7 @@ models:
       with poor germination. Susceptible crops are at the highest risk when
       adult midge emergence coincides with ear emergence, particularly growth
       stages 53–59. Larvae that hatch after flowering do not develop properly
-      and cause little damage.  
+      and cause little damage.
 
 
       THE DECISION: The model predicts the emergence of adults and associated
@@ -232,7 +232,7 @@ models:
       THE PARAMETERS: The model uses daily temperature and rainfall
 
       REGION: This DSS was adapted from work carried out in Belgium, and is
-      considered to be applicable, but yet to be validated in, the UK, 
+      considered to be applicable, but yet to be validated in, the UK,
       Luxembourg, Netherlands, France, Germany, Denmark.
 
       ASSUMPTIONS: This DSS assumes that the crop variety use is vulnerable to
@@ -240,7 +240,7 @@ models:
       risk against the vulnerability of the crop growth stage on farm.
 
       REFERENCE: Jocquemin et al. (2014) Crop Protection 58, 6-13.
-      https://doi.org/10.1016/j.cropro.2013.12.021 
+      https://doi.org/10.1016/j.cropro.2013.12.021
     citation: https://doi.org/10.1016/j.cropro.2013.12.021
     keywords: none
     platform_validated: true
@@ -282,7 +282,7 @@ models:
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
             "modelId": {"type": "string", "pattern":"^SITDMO$", "title": "Model Id", "default":"SITDMO", "description":"Must be SITDMO"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -300,7 +300,7 @@ models:
                 "startDate": {"type":"string","format": "date", "title": "Model Start Date/Start of temperature accumulations (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
                 "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-30"}
               }
-            }  
+            }
           },
           "required": ["modelId"]
         }
@@ -344,7 +344,7 @@ models:
           recommended_action: >-
             The risk of emergence of orange wheat blossom midge and migration
             into crops is currently low. Continue to review the risk or
-            emergence up to and throughout crop ear emergence and flowering. 
+            emergence up to and throughout crop ear emergence and flowering.
         - explanation: >-
             This model runs May-June, requiring data from the start of January,
             and is currently collecting data. Based on current data available,
@@ -355,7 +355,7 @@ models:
             into crops is increasing. Suitable rainfall events have taken place,
             and/or daily temperatures are suitable for orange wheat blossom
             midge emergence. Increase monitoring efforts in vulnerable crops
-            approaching and throughout ear emergence or flowering.  
+            approaching and throughout ear emergence or flowering.
         - explanation: >-
             This model runs May-June, requiring data from the start of January,
             and is currently collecting data. Based on current data available,
@@ -396,26 +396,26 @@ models:
 
       THE DECISION: Management decisions for M. persicae in field crops incorporate
       both the presence of the aphid in the crop with the crops ability to tolerate
-      or resist direct damage and/or damage from vector bourne diseases. Improved 
-      targeting of aphid monitoring in crop supports better decision on where and 
-      when interventions may be needed. 
+      or resist direct damage and/or damage from vector bourne diseases. Improved
+      targeting of aphid monitoring in crop supports better decision on where and
+      when interventions may be needed.
 
       THE MODEL: The model estimates the day of the year of 5% of total migration
       using the mean air temperature between January and February the previous
-      winter.   
+      winter.
 
-      THE PARAMETERS: The model uses mean air temperature between January and 
+      THE PARAMETERS: The model uses mean air temperature between January and
       February the previous winter.
 
       REGION: UK
 
-      ASSUMPTIONS: The model was developed based on  regression analysis derived from 
-      the Rothamsted Insect Survey observations across the UK and temperature data 
-      for the relevant 1km location. 
+      ASSUMPTIONS: The model was developed based on  regression analysis derived from
+      the Rothamsted Insect Survey observations across the UK and temperature data
+      for the relevant 1km location.
 
-      REFERENCE: Hemming, D., Bell, J., Collier, R., Dunbar, T., Dunstone, N., Everatt, M., 
-      Eyre, D., Kaye, N., Korycinska, A., Pickup, J., & Scaife, A. A. (2022). 
-      Likelihood of Extreme Early Flight of Myzus persicae (Hemiptera: Aphididae) 
+      REFERENCE: Hemming, D., Bell, J., Collier, R., Dunbar, T., Dunstone, N., Everatt, M.,
+      Eyre, D., Kaye, N., Korycinska, A., Pickup, J., & Scaife, A. A. (2022).
+      Likelihood of Extreme Early Flight of Myzus persicae (Hemiptera: Aphididae)
       Across the UK. Journal of Economic Entomology, 115(5), 1342-1349.
       https://doi.org/10.1093/jee/toac012
     citation: null
@@ -450,8 +450,8 @@ models:
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
+            "optionalData" :{
+              "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
                 "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
@@ -460,7 +460,7 @@ models:
             }
           },
           "required": ["modelId"]
-        }  
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -482,23 +482,23 @@ models:
         - explanation: Missing data.
           recommended_action: Review error message.
         - explanation: >-
-            Based on current data available, the model results indicate no 
+            Based on current data available, the model results indicate no
             current risk of pest activity.
           recommended_action: >-
             The model currently predicts a low risk of migration into crops.
         - explanation: >-
-            Based on current data available, the model indicates there is a 
+            Based on current data available, the model indicates there is a
             moderate risk of migration of M. persica into crops.
           recommended_action: >-
-            The model current predicts that migration of M. persicae into 
-            crops is likely to have begun at this location. Vulnerable crops 
+            The model current predicts that migration of M. persicae into
+            crops is likely to have begun at this location. Vulnerable crops
             should be inspected for infestations.
         - explanation: >-
-            Based on current data available, the model indicates there is a 
+            Based on current data available, the model indicates there is a
             high risk of migration of M. persica into crops.
           recommended_action: >-
-            Red Warning indicates that >5% M. persicae migration is likely 
-            to have begun at this location. Vulnerable crops should be 
+            Red Warning indicates that >5% M. persicae migration is likely
+            to have begun at this location. Vulnerable crops should be
             inspected for infestations.
       chart_heading: ''
       chart_groups:
@@ -524,48 +524,48 @@ models:
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/peamoth/api/info
     purpose: Estimates the risk of egg laying of cydia nigricana
     description: >-
-      THE PEST: Pea moth, Chlorops pumilionis, is one of the most damaging pea 
-      pests in this country and in Europe. The caterpillars (larvae) feed on 
-      peas within the pod. In vining peas, there is a risk of crop rejection 
-      because of contamination of the produce by damaged peas which cannot be 
-      removed mechanically. In combining peas for premium markets including 
-      human consumption or seed, damaged peas are removed by the merchant and 
-      the price paid to the grower is reduced in proportion. 
+      THE PEST: Pea moth, Chlorops pumilionis, is one of the most damaging pea
+      pests in this country and in Europe. The caterpillars (larvae) feed on
+      peas within the pod. In vining peas, there is a risk of crop rejection
+      because of contamination of the produce by damaged peas which cannot be
+      removed mechanically. In combining peas for premium markets including
+      human consumption or seed, damaged peas are removed by the merchant and
+      the price paid to the grower is reduced in proportion.
 
-      THE DECISION: Spraying should be related to the development of the 
-      insect rather than to the stage of growth of the crop therefore 
-      insecticides should be applied while the larvae are exposed, that is, 
-      from the time of hatching to the time of entering the pods. The 
-      timing of application is critical for maximum control. 
+      THE DECISION: Spraying should be related to the development of the
+      insect rather than to the stage of growth of the crop therefore
+      insecticides should be applied while the larvae are exposed, that is,
+      from the time of hatching to the time of entering the pods. The
+      timing of application is critical for maximum control.
 
-      THE MODEL: Since pea moth can be a localised problem, overall spraying of 
-      peas over a wide area on any one date is not advisable as local conditions 
-      influence the behaviour of the pest. A system of accurately timing the 
-      application of insecticides is commercially available in the form of 
-      pheromone traps. These traps, when placed in a pea field, attract male 
-      moths and by monitoring the catches in the trap, a grower can decide whether 
-      there is a need to spray, and time any necessary spray application 
-      efficiently on his own farm. The traps were developed in the UK  by 
-      Rothamsted Research and fully tested by PGRO and ADAS.  Pea moth monitoring 
-      systems are available from the following suppliers: 
-      
-      Koppert UK Ltd., 8 Tudor Rose Court, 53 Hollands Road, Haverhill, Suffolk, CB9 8PJ, UK Tel: 01440 704488 www.koppert.co.uk  
-      Dragonfli Ltd., Unit 4 Rippers Court, Sible Hedingham, Halstead, Essex, CO9 3PY, UK Tel: 01376 563322 www.dragonfli.co.uk 
-      Andermatt UK, 47 Compton Road, Brighton, West Sussex, BN1 5AL, UK Tel: 07939 395059 Email: contact@andermattuk.com www.andermattuk.com 
+      THE MODEL: Since pea moth can be a localised problem, overall spraying of
+      peas over a wide area on any one date is not advisable as local conditions
+      influence the behaviour of the pest. A system of accurately timing the
+      application of insecticides is commercially available in the form of
+      pheromone traps. These traps, when placed in a pea field, attract male
+      moths and by monitoring the catches in the trap, a grower can decide whether
+      there is a need to spray, and time any necessary spray application
+      efficiently on his own farm. The traps were developed in the UK  by
+      Rothamsted Research and fully tested by PGRO and ADAS.  Pea moth monitoring
+      systems are available from the following suppliers:
 
-      Traps are received in sets of one or two, depending on the supplier. One 
-      set is required for each block of peas, for example, a farm having all the 
-      pea fields within a restricted area need only purchase one set of traps, but 
-      in fields of 50 ha or more two sets are required. Traps must be placed in the 
-      pea crop by the middle of May and examined at two-day intervals. The number of 
-      moths caught by each of them is noted on each occasion. Traps can be suspended on 
-      pheromone trap pole kits or fence posts in the field and should be placed at canopy 
-      height, moved upwards at intervals as the crop grows. 
+      Koppert UK Ltd., 8 Tudor Rose Court, 53 Hollands Road, Haverhill, Suffolk, CB9 8PJ, UK Tel: 01440 704488 www.koppert.co.uk
+      Dragonfli Ltd., Unit 4 Rippers Court, Sible Hedingham, Halstead, Essex, CO9 3PY, UK Tel: 01376 563322 www.dragonfli.co.uk
+      Andermatt UK, 47 Compton Road, Brighton, West Sussex, BN1 5AL, UK Tel: 07939 395059 Email: contact@andermattuk.com www.andermattuk.com
 
-      This DSS provides guidance on when traps should be placed in the field. 
-      Subsequent interpretation of the data should be done following guidance 
+      Traps are received in sets of one or two, depending on the supplier. One
+      set is required for each block of peas, for example, a farm having all the
+      pea fields within a restricted area need only purchase one set of traps, but
+      in fields of 50 ha or more two sets are required. Traps must be placed in the
+      pea crop by the middle of May and examined at two-day intervals. The number of
+      moths caught by each of them is noted on each occasion. Traps can be suspended on
+      pheromone trap pole kits or fence posts in the field and should be placed at canopy
+      height, moved upwards at intervals as the crop grows.
+
+      This DSS provides guidance on when traps should be placed in the field.
+      Subsequent interpretation of the data should be done following guidance
       on the PGRO website: https://www.pgro.org/pea-moth/
-   
+
 
       THE PARAMETERS: The model uses fixed dates to alert on when traps should be placed in the field.
 
@@ -605,8 +605,8 @@ models:
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
+            "optionalData" :{
+              "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
                 "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-04-15"},
@@ -615,7 +615,7 @@ models:
             }
           },
           "required": ["modelId"]
-        }  
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -639,19 +639,19 @@ models:
         - explanation: >-
             No current risk of pest activity: traps should be placed in preparation.
           recommended_action: >-
-            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week. 
-            Consult PGRO thresholds for accurate spray dates: 
+            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week.
+            Consult PGRO thresholds for accurate spray dates:
             https://www.pgro.org/pea-moth/
         - explanation: >-
             Adult pea moth activity is approaching; traps should now be in place.
           recommended_action: >-
-            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week. 
+            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week.
             Consult PGRO thresholds for accurate spray dates:
             https://www.pgro.org/pea-moth/
         - explanation: >-
             Adult pea moth activity now likely, traps should now be in place.
           recommended_action: >-
-            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week. 
+            Pea moth traps should be placed in crops in early to mid-May and monitored three times each week.
             Consult PGRO thresholds for accurate spray dates:
             https://www.pgro.org/pea-moth/
       chart_heading: Egg-Laying of Pea Moth
@@ -687,29 +687,29 @@ models:
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/goutfly/api/info
     purpose: Estimates the risk of adult emergence of chlorops pumilionis
     description: >-
-      THE PEST: Gout fly, Chlorops pumilionis, Gout fly is an occasional 
-      pest of cereals and can affect wheat, barley, and triticale. Its 
+      THE PEST: Gout fly, Chlorops pumilionis, Gout fly is an occasional
+      pest of cereals and can affect wheat, barley, and triticale. Its
       larvae burrow into shoots to feed, causing ‘deadheart’ symptoms to appear.
 
-      THE DECISION: This DSS predicts egg laying into crops. Late-sown winter 
+      THE DECISION: This DSS predicts egg laying into crops. Late-sown winter
       and spring crops are at greatest risk from the spring generation of flies.
 
-      THE MODEL:  The model estimates the day of the year of emergence of the 
-      first generation of adult gout fly, which subsequently lay eggs on crops.    
+      THE MODEL:  The model estimates the day of the year of emergence of the
+      first generation of adult gout fly, which subsequently lay eggs on crops.
 
       THE PARAMETERS: The model uses air temperature data between January and May.
 
       REGION: France
 
-      ASSUMPTIONS: The model was developed based on regression analysis derived 
-      from work undertaken in France in 1980's, and has not since been field 
-      validated. Caution should be taken when interpretting results, and forecasts 
-      risk periods should be used as a prompt for targettted monitoring of 
-      vulnerable crops. 
+      ASSUMPTIONS: The model was developed based on regression analysis derived
+      from work undertaken in France in 1980's, and has not since been field
+      validated. Caution should be taken when interpretting results, and forecasts
+      risk periods should be used as a prompt for targettted monitoring of
+      vulnerable crops.
 
-      REFERENCE: Derron J.O., and Goy, G. (1990) La mouche jaune des chaumes 
-      (Chlorops pumilionis Berk).: biologie, nuisibilite, moyens de lutte. 
-      Revue suisse Agric. 22(2): 101-105 
+      REFERENCE: Derron J.O., and Goy, G. (1990) La mouche jaune des chaumes
+      (Chlorops pumilionis Berk).: biologie, nuisibilite, moyens de lutte.
+      Revue suisse Agric. 22(2): 101-105
     citation: null
     keywords: none
     platform_validated: true
@@ -745,8 +745,8 @@ models:
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
+            "optionalData" :{
+              "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
                 "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
@@ -755,7 +755,7 @@ models:
             }
           },
           "required": ["modelId"]
-        }  
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -777,25 +777,25 @@ models:
         - explanation: Missing data.
           recommended_action: Review error message.
         - explanation: >-
-            Based on current data available, the model results indicate no 
+            Based on current data available, the model results indicate no
             current risk of pest activity.
           recommended_action: >-
             The model currently predicts a Low risk of gout fly adults laying eggs on plants.
         - explanation: >-
-            Based on current data available, the model indicates there is a moderate 
+            Based on current data available, the model indicates there is a moderate
             risk of emergence of gout fly and egg laying in crops.
           recommended_action: >-
-            Gout fly egg laying and larval emergence up to 80% emergence complete. Inspect 
-            vulnerable crops, especially where there have been previous gout fly 
-            infestations. After emergence, larvae will move into central parts of 
+            Gout fly egg laying and larval emergence up to 80% emergence complete. Inspect
+            vulnerable crops, especially where there have been previous gout fly
+            infestations. After emergence, larvae will move into central parts of
             the plant within 8-10 days.
         - explanation: >-
-            Adult emergence is >80% complete, egg laying likely to be underway and 
+            Adult emergence is >80% complete, egg laying likely to be underway and
             larvae may be migrating into plant centres.
           recommended_action: >-
-            Gout fly egg laying and larval emergence more than 80% complete. Inspect 
-            vulnerable crops, especially where there have been previous gout fly 
-            infestations. Any eggs laid likely to have hatched, and larvae soon to 
+            Gout fly egg laying and larval emergence more than 80% complete. Inspect
+            vulnerable crops, especially where there have been previous gout fly
+            infestations. Any eggs laid likely to have hatched, and larvae soon to
             be moving into central parts of the plant within 8-10 days.
       chart_heading: Adult Emergence of Gout Fly
       chart_groups:
@@ -860,41 +860,41 @@ models:
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/phoma/api/info
     purpose: Estimates the risk of the first signs of phoma leaf spot
     description: >-
-      THE PEST: Plenodomus lingam. Phoma leaf spot and stem canker 
-      is one of the most important diseases of winter oilseed rape 
-      in the UK. This disease can progress from the leaf spot phase to 
-      highly damaging stem cankers, with affected stems less able to 
-      obtain water and nutrients, causing lodging and resulting 
-      yield losses. 
-      
-      THE DECISION: The DSS predicts risk of phoma leaf spot. 
-      
-      THE MODEL: The model records the number of rain days from 1st 
-      August to estimate risk.
-      
-      THE PARAMETERS. Daily Rainfall. 
-      
-      REGION: UK 
-      
-      ASSUMPTIONS: A rain day is defined as a day with 0.2mm 
-      or more of total precipitation.
-      
-      REFERENCE: The high phoma leaf spot incidences in individual years 
-      could be associated with autumn weather patterns, as rainfall in 
-      August and September has been found to be an important indicator 
-      of epidemic severity, particularly the number of rain-days (16 to 23) 
-      from 1 August, as this is when phoma leaf spot epidemics typically 
-      start following ascospore release from previous oilseed rape crop 
-      debris (Gladders & Symonds 1995, West et al., 2002). 
+      THE PEST: Plenodomus lingam. Phoma leaf spot and stem canker
+      is one of the most important diseases of winter oilseed rape
+      in the UK. This disease can progress from the leaf spot phase to
+      highly damaging stem cankers, with affected stems less able to
+      obtain water and nutrients, causing lodging and resulting
+      yield losses.
 
-      Gladders P., Symonds B.V. (1995). Occurrence of canker (Leptosphaeria 
-      maculans) in winter oilseed rape in eastern England, 1977–93. 
+      THE DECISION: The DSS predicts risk of phoma leaf spot.
+
+      THE MODEL: The model records the number of rain days from 1st
+      August to estimate risk.
+
+      THE PARAMETERS. Daily Rainfall.
+
+      REGION: UK
+
+      ASSUMPTIONS: A rain day is defined as a day with 0.2mm
+      or more of total precipitation.
+
+      REFERENCE: The high phoma leaf spot incidences in individual years
+      could be associated with autumn weather patterns, as rainfall in
+      August and September has been found to be an important indicator
+      of epidemic severity, particularly the number of rain-days (16 to 23)
+      from 1 August, as this is when phoma leaf spot epidemics typically
+      start following ascospore release from previous oilseed rape crop
+      debris (Gladders & Symonds 1995, West et al., 2002).
+
+      Gladders P., Symonds B.V. (1995). Occurrence of canker (Leptosphaeria
+      maculans) in winter oilseed rape in eastern England, 1977–93.
       International Organization for Biological Control Bulletin, 18, 1–11.
 
-      West J.S., Fitt B.D.L., Biddulph J.E., Huang Y.J. and Balesdent M.H. 
-      (2002). Effects of timing of Leptosphaeria maculans ascospore release 
-      and fungicide regime on phoma leaf spot and phoma stem canker 
-      development on winter oilseed rape (Brassica napus) in 
+      West J.S., Fitt B.D.L., Biddulph J.E., Huang Y.J. and Balesdent M.H.
+      (2002). Effects of timing of Leptosphaeria maculans ascospore release
+      and fungicide regime on phoma leaf spot and phoma stem canker
+      development on winter oilseed rape (Brassica napus) in
       southern England. Plant Pathology 51: pp 454-463.
     citation: null
     keywords: none
@@ -928,8 +928,8 @@ models:
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
+            "optionalData" :{
+              "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
                 "rainfallThreshold": {"type": "number", "default":"0.2", "title": "Rainfall Threshold (mm)"},
@@ -939,7 +939,7 @@ models:
             }
           },
           "required": ["modelId"]
-        }  
+        }
     input:
       weather_parameters:
         - parameter_code: 2001
@@ -961,31 +961,31 @@ models:
         - explanation: Missing data.
           recommended_action: Review error message.
         - explanation: >-
-            Based on current data available, the model results indicate no 
+            Based on current data available, the model results indicate no
             current risk of pest activity.
           recommended_action: >-
-            Rain days being counted, but not yet approaching the threshold for 
-            inspection. Less than 16 rain days recorded from 1 August, below the 
-            expected rain day risk for phoma ascospore release from previous crop 
-            debris to initiate phoma leaf spot infection. Continue to monitor 
+            Rain days being counted, but not yet approaching the threshold for
+            inspection. Less than 16 rain days recorded from 1 August, below the
+            expected rain day risk for phoma ascospore release from previous crop
+            debris to initiate phoma leaf spot infection. Continue to monitor
             number of rain days.
         - explanation: >-
-            Based on current data available, the model results indicate 
-            approaching risk of disease activity. 
+            Based on current data available, the model results indicate
+            approaching risk of disease activity.
           recommended_action: >-
-            Approaching threshold for inspection. Currently 16 to 19 rain days 
-            recorded from 1 August, minimum number of expected rain days 
-            recorded to initiate phoma ascospore release from previous crop 
-            debris. Crops approaching risk for the first appearance of phoma 
-            leaf spot. Advised to make plans to regularly inspect oilseed 
+            Approaching threshold for inspection. Currently 16 to 19 rain days
+            recorded from 1 August, minimum number of expected rain days
+            recorded to initiate phoma ascospore release from previous crop
+            debris. Crops approaching risk for the first appearance of phoma
+            leaf spot. Advised to make plans to regularly inspect oilseed
             rape crops.
         - explanation: >-
             Red Warning indicates that phoma leaf spot is likely to be observed.
           recommended_action: >-
-            Above threshold for inspection. Currently 20 or more rain days 
-            recorded from 1 August, optimal number of expected rain days recorded 
-            to initiate phoma ascospore release from previous crop debris. Crop at 
-            risk for the first appearance of phoma leaf spot. Inspect oilseed 
+            Above threshold for inspection. Currently 20 or more rain days
+            recorded from 1 August, optimal number of expected rain days recorded
+            to initiate phoma ascospore release from previous crop debris. Crop at
+            risk for the first appearance of phoma leaf spot. Inspect oilseed
             rape crops regularly for the first appearance of phoma leaf spot.
       chart_heading: First Signs of Phoma Leaf Spot
       chart_groups:
@@ -1021,7 +1021,7 @@ models:
 
       REGION: UK
 
-      ASSUMPTIONS: Calculations assume 500 shoots per m2 is the minimum required to achieve a typical UK commercial wheat yield. The shoot number (shoots per m2) at GS31 needed to tolerate different levels of WBF damage, based on eggs per m2 pre-drilling, are: 
+      ASSUMPTIONS: Calculations assume 500 shoots per m2 is the minimum required to achieve a typical UK commercial wheat yield. The shoot number (shoots per m2) at GS31 needed to tolerate different levels of WBF damage, based on eggs per m2 pre-drilling, are:
       -	<125 eggs/m2: High risk = <500, Medium risk = 500-720, Low risk = >720
       -	125-250 eggs/m2: High risk = <830, Medium risk = 830-940, Low risk = >940
       -	251-500 eggs/m2: High risk = <1160, Medium risk = 1161-1380, Low risk = >1380
@@ -1064,8 +1064,8 @@ models:
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
+            "optionalData" :{
+              "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
                 "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-08-01"},
@@ -1080,7 +1080,7 @@ models:
             }
           },
           "required": ["modelId"]
-        }  
+        }
     input:
       weather_parameters:
         - parameter_code: 1002
@@ -1144,7 +1144,7 @@ models:
       lead to bud abortion and reduced pod set. However, damage rarely results
       in reduced yields for winter crops. Spring crops are more vulnerable, as
       the susceptible green/yellow bud stage often coincides with beetle
-      migration. 
+      migration.
 
 
       THE DECISION: Oilseed rape is only vulnerable if large numbers of pollen
@@ -1154,9 +1154,9 @@ models:
 
       THE MODEL: Daily maximum air temperature is used to predict Migration
       Risk. The default value of 15 degrees celsius is used, as that is the
-      temperature advised in the UK at which pollen beetles will fly.   
+      temperature advised in the UK at which pollen beetles will fly.
 
-      THE PARAMETERS: The model uses Daily maximum air temperature   
+      THE PARAMETERS: The model uses Daily maximum air temperature
 
       REGION: This DSS was adapted from work carried out in the UK, and is
       considered applicable, but not yet validated in, Belgium, Luxembourg,
@@ -1164,7 +1164,7 @@ models:
 
       ASSUMPTIONS: Only to be used during Oilseed rape growth stages 51-59. This
       model is a simplification of a more detailed model described in the paper
-      below. 
+      below.
 
       REFERENCE: Ferguson et al. (2015) Pest Management Science 72, 609-317.
       https://doi.org/10.1002/ps.4069
@@ -1192,14 +1192,14 @@ models:
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
            "modelId": {"type": "string", "pattern":"^MELIAE$", "title": "Model Id", "default":"MELIAE", "description":"Must be MELIAE"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
             },
             "growthStage": {"type": "number", "default": "0","description":"Input current crop growth stage, using the BBCH System. Only crops at growth stage 51-59 (Inflorescence/flower-bud emergence) are vulnerable to damage by pollen beetle"},
-            "optionalData" :{   
-              "title":"Optional parameters for the DSS", 
+            "optionalData" :{
+              "title":"Optional parameters for the DSS",
               "type": "object",
               "properties": {
                 "temp_threshold": {"type": "number", "default":"300", "title": "Temperature Threshold"},
@@ -1209,7 +1209,7 @@ models:
             }
           },
           "required": ["modelId", "growthStage"]
-        }  
+        }
     input:
       weather_parameters:
         - parameter_code: 1004
@@ -1250,7 +1250,7 @@ models:
             less than 15 *C, migration is unlikely. The model currently predicts
             a low risk of migration into crops.  Only crops at growth stage 51 –
             59 are vulnerable to damage, update model parameter to indicate
-            current crop growth stage. 
+            current crop growth stage.
         - explanation: ''
           recommended_action: ''
         - explanation: >-
@@ -1262,7 +1262,7 @@ models:
             greater than 15 *C, migration is likely. The model currently
             predicts a high risk of migration into crops.  Only crops at growth
             stage 51 – 59 are vulnerable to damage, update model parameter to
-            indicate current crop growth stage. 
+            indicate current crop growth stage.
       chart_heading: Pollen Bettle Migration
       chart_groups:
         - id: G1
@@ -1318,7 +1318,7 @@ models:
       recommended action.
 
       THE PARAMETERS: The model uses accumulative daily temperature (500 degree
-      days above 0 degrees C)  
+      days above 0 degrees C)
 
       REGION: This DSS was adapted from work carried out in the UK, and is
       considered applicable, but not yet validated in, Belgium, Luxembourg,
@@ -1330,7 +1330,7 @@ models:
       gall midge to be after 500 day degrees. User must interpret the reported
       risk against the vulnerability of the crop growth stage on farm, and
       undertake  in field monitoring to assess the abundance of emerging
-      adults.   
+      adults.
 
       REFERENCE: Rowley et al (2017) Crop Protection 102, 154-160.
       http://dx.doi.org/10.1016/j.cropro.2017.08.025
@@ -1368,7 +1368,7 @@ models:
       input_schema: |
         {
             "type":"object",
-            "properties": {  
+            "properties": {
               "modelId": {"type": "string", "pattern":"^HAPDMA$", "title": "Model Id", "default":"HAPDMA", "description":"Must be HAPDMA"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -1430,7 +1430,7 @@ models:
             low.  Emergence begins once 500 day degrees is exceeded, and ends
             after 1500 day degrees. The 'Emergence' chart indicates that
             emergence is either unlikely to have started, or is likely to be
-            completed. 
+            completed.
         - explanation: >-
             This model is currently collecting data to run. Based on current
             data available, the model results indicate medium current risk of
@@ -1457,7 +1457,7 @@ models:
             indicates that emergence is likely to have begun, and adult saddle
             gall midge are currently emerging. Monitor vulnerable crops for
             in-field activity and apply suitable treatments according to need.
-            Any applications must be applied before larvae move under the leaf 
+            Any applications must be applied before larvae move under the leaf
             in order to have an effect.
       chart_heading: Cumulative day degrees
       chart_groups:
@@ -1531,14 +1531,14 @@ models:
       enabling users to undertake targeted monitoring and/or mitigating actions
       to reduce the risk of damage to the crop. Typically interventions are more
       effective at the start of male flight, rather than at peak flight
-      periods.   
+      periods.
 
       THE MODEL: A 3-paramater non-linear regression model fits cumulative moth
       captures as a function of accumulated day degrees (Biofix 1st January) for
       all three of the male flights. The model predicts that 1st migration
       begins after 151 day degrees, 2nd migration begins after 673 day degrees,
       and 3rd migration begins after 1303 day degrees. The start of migration
-      events are reported in the DSS warnings to the user. 
+      events are reported in the DSS warnings to the user.
 
       REGION: This DSS was adapted from work carried out in Greece, and is
       considered applicable, but not yet validated in,  Albania, Romania,
@@ -1548,14 +1548,14 @@ models:
       THE PARAMETERS: The model uses Minimum and maximum temperature from the
       1st of January.
 
-      SOURCE: Aristotle University, Greece. 
+      SOURCE: Aristotle University, Greece.
 
       ASSUMPTIONS: There may be three flight periods in southern Europe, one or
       two in northern Europe. Predict flight does not relate to numbers of
       codling moth, or scale of damage caused.Where flight periods overlap, the
-      highest current risk of new migration will be reported. 
+      highest current risk of new migration will be reported.
 
-      REFERENCE: Damos et al. (2018) Bulletin of Insectology 71, 131-142 
+      REFERENCE: Damos et al. (2018) Bulletin of Insectology 71, 131-142
     citation: null
     keywords: none
     platform_validated: true
@@ -1595,7 +1595,7 @@ models:
       input_schema: |
         {
           "type":"object",
-          "properties": {  
+          "properties": {
             "modelId": {"type": "string", "pattern":"^CARPPO$", "title": "Model Id", "default":"CARPPO", "description":"Must be CARPPO"},
             "weatherData": {
               "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
@@ -1607,21 +1607,21 @@ models:
                 "lower_threshold": {"type": "number", "default":"10.1", "title": "Lower Temperature Threshold" },
                 "upper_threshold": {"type": "number", "default": "34.3", "title": "Upper Temperature Threshold" },
                 "firstFlight_a": {"type": "number", "default": "98.7583", "title": "First Flight: Parameter a" },
-                "firstFlight_b": {"type": "number", "default": "69.5118", "title": "First Flight: Parameter b" },        
-                "firstFlight_y": {"type": "number", "default": "468.8300", "title": "First Flight: Parameter y" },         
+                "firstFlight_b": {"type": "number", "default": "69.5118", "title": "First Flight: Parameter b" },
+                "firstFlight_y": {"type": "number", "default": "468.8300", "title": "First Flight: Parameter y" },
                 "secondFlight_a": {"type": "number", "default": "98.7505", "title": "Second Flight: Parameter a" },
                 "secondFlight_b": {"type": "number", "default": "99.9595", "title": "Second Flight: Parameter b" },
                 "secondFlight_y": {"type": "number", "default": "1130.9937", "title": "Second Flight: Parameter y" },
                 "thirdFlight_a": {"type": "number", "default": "106.1449", "title": "Third Flight: Parameter a" },
-                "thirdFlight_b": {"type": "number", "default": "110.2595", "title": "Third Flight: Parameter b" },        
-                "thirdFlight_y": {"type": "number", "default": "1815.8485", "title": "Third Flight: Parameter y" },     
+                "thirdFlight_b": {"type": "number", "default": "110.2595", "title": "Third Flight: Parameter b" },
+                "thirdFlight_y": {"type": "number", "default": "1815.8485", "title": "Third Flight: Parameter y" },
                 "startDate": {"type":"string", "format": "date", "title": "Model Start Date/Biofix (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-01-01"},
                 "endDate": {"type":"string", "format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-09-30"}
               }
-            }            
+            }
           },
           "required": ["modelId"]
-        }  
+        }
     input:
       weather_parameters:
         - parameter_code: 1003
@@ -1760,7 +1760,7 @@ models:
 
       THE MODEL: The second generation is likely to be present when the
       accumulated daily air temperatures, above a baseline temperature of 3ºC,
-      reaches T-Sum 170. 
+      reaches T-Sum 170.
 
       THE PARAMETERS: The model uses Date of last spray application, daily
       temperature
@@ -1772,10 +1772,10 @@ models:
       ASSUMPTIONS: This DSS assumes that the user will update the date of last
       insecticide applications. Its also assumes that no aphids found or
       insecticide treatment applied at 170DD, and restarts calculations. 2nd
-      generation development time is consistent across regions.  
+      generation development time is consistent across regions.
 
       REFERENCE: UK Agricultural and Horticultural Development Board (2022).
-      https://ahdb.org.uk/bydv 
+      https://ahdb.org.uk/bydv
     citation: null
     keywords: none
     platform_validated: true
@@ -1805,12 +1805,12 @@ models:
       input_schema: |
         {
             "type":"object",
-            "properties": {  
+            "properties": {
               "modelId": {"type": "string", "pattern":"^RHOPPA$", "title": "Model Id", "default":"RHOPPA", "description":"Must be RHOPPA"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-              },       
-              "optionalData" :{ 
+              },
+              "optionalData" :{
                 "title":"Optional parameters for the DSS",
                 "type": "object",
                 "properties": {
@@ -1821,11 +1821,11 @@ models:
                   "lowerTemperatureThreshold": {"type": "number", "default":"3", "title": "Lower Temperature Threshold"},
                   "mediumRiskThreshold": {"type": "number", "default":"50", "title": "Medium Risk Threshold"},
                   "highRiskThreshold": {"type": "number", "default":"100", "title": "High Risk Threshold"}
-                }            
+                }
               }
             },
             "required": ["modelId"]
-          }  
+          }
     input:
       weather_parameters:
         - parameter_code: 1001
@@ -1872,12 +1872,12 @@ models:
             and may occur in following 3-5 days. The 'TSUM' chart indicates that
             the accumulated degrees over 3*C since crop emergence or last
             insecticide spray is approaching 170 degrees, which is associated
-            with the emergence of winged aphids that act as vectors for BYDV. 
+            with the emergence of winged aphids that act as vectors for BYDV.
             Increasing monitoring efforts in vulnerable crops, and apply
             suitable treatment according to need. Update parameters when any
             insecticide applications are made.The model assumes no aphids found
             or insecticide treatment applied at 170DD, and restarts
-            calculations. 
+            calculations.
         - explanation: >-
             Based on current data available, conditions have reached or are
             above 100 day-degrees over a base of 3*C.
@@ -1891,7 +1891,7 @@ models:
             suitable treatments according to need. Update parameters when any
             insecticide applications are made. The model assumes no aphids found
             or insecticide treatment applied at 170DD, and restarts
-            calculations. 
+            calculations.
       chart_heading: TSUM Model
       chart_groups:
         - id: G1
@@ -1957,19 +1957,19 @@ models:
     description: >
       THE PEST: Potato late blight is a disease caused by a fungus-like organism
       (Phytophthora infestans) that spreads rapidly in the potato crop canopy
-      and can also infect tubers. 
+      and can also infect tubers.
 
       THE DECISION: The model determines when weather conditions create high
-      risk of infection, to guide targeting of fungicide treatment. 
+      risk of infection, to guide targeting of fungicide treatment.
 
       THE MODEL: A high risk 'Hutton Criteria' period occurs when two
       consecutive days have a minimum temperature of 10°C, and at least six
-      hours of relative humidity at or above 90%. 
+      hours of relative humidity at or above 90%.
 
-      THE PARAMETERS: The model uses daily air temperature and humidity 
+      THE PARAMETERS: The model uses daily air temperature and humidity
 
       SOURCE: James Hutton institute, UK. Introduced in the UK for the 2017
-      season. Dancey et al. 2017 16th Euroblight workshop. 
+      season. Dancey et al. 2017 16th Euroblight workshop.
 
       ASSUMPTIONS: The model does not account for higher temperatures or
       humidity which may occur under crop covers.
@@ -2000,13 +2000,13 @@ models:
       input_schema: |
         {
             "type":"object",
-            "properties": {  
+            "properties": {
               "modelId": {"type": "string", "pattern":"^CHOACU$", "title": "Model Id", "default":"CHOACU", "description":"Must be CHOACU"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
               },
-              "optionalData" :{   
-                "title":"Optional parameters for the DSS", 
+              "optionalData" :{
+                "title":"Optional parameters for the DSS",
                 "type": "object",
                 "properties": {
                   "minimumTemperatureThreshold": {"type": "number", "default":"10", "title": "Minimum Temperature Threshold"},
@@ -2018,7 +2018,7 @@ models:
               }
             },
             "required": ["modelId"]
-          }  
+          }
     input:
       weather_parameters:
         - parameter_code: 1001
@@ -2089,26 +2089,26 @@ models:
     description: >
       THE PEST: Septoria tritici blotch (Zymoseptoria tritici) affects the
       leaves of wheat crops and is particularly damaging to yield when it
-      reduces the green canopy area of the upper leaves during grain filling.   
+      reduces the green canopy area of the upper leaves during grain filling.
 
       THE DECISION: Fungicide treatment to protect the upper leaves may need to
       be applied between stem extension and ear emergence, before symptoms are
-      visible on those leaves.  
+      visible on those leaves.
 
       THE MODEL: At stem extension (growth stage 31) the model uses over-winter
       weather to estimate the potential for a damaging epidemic developing
       during the summer. This information can support treatment decisions.  It
       should be considered along with other risk factors, particularly: septoria
       resistance of the wheat variety, sowing date, location and weather
-      conditions during the emergence of the upper leaves.  
+      conditions during the emergence of the upper leaves.
 
       THE PARAMETERS: the model uses data on minimum temperature and rainfall
-      over-winter.  
+      over-winter.
 
       SOURCE:  Rothamsted Research, UK. The model was developed, tested and
       published in 2009 and has not been implemented previously. te Beest et al.
       2009 European Journal of Plant Pathology; te Beest et al. (2009) Plant
-      Pathology.  
+      Pathology.
 
       ASSUMPTIONS: The model provides an early estimate of the potential for an
       epidemic and should be interpreted in combination with other risk factors.
@@ -2138,13 +2138,13 @@ models:
       input_schema: |
         {
             "type":"object",
-            "properties": {  
+            "properties": {
               "modelId": {"type": "string", "pattern":"^SEPTTR$", "title": "Model Id", "default":"SEPTTR", "description":"Must be SEPTTR"},
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
               },
-              "optionalData" :{   
-                "title":"Optional parameters for the DSS", 
+              "optionalData" :{
+                "title":"Optional parameters for the DSS",
                 "type": "object",
                 "properties": {
                   "minimumTemperatureThreshold": {"type": "number", "default":"0", "title": "Minimum Temperature Threshold"},
@@ -2155,7 +2155,7 @@ models:
               }
             },
             "required": ["modelId"]
-          }  
+          }
     input:
       weather_parameters:
         - parameter_code: 1003
@@ -2243,23 +2243,23 @@ models:
     version: 0.0.1
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: >-  
+    description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/Help/Api/POST-api-ThresholdDSS
     purpose: The purpose of the model is to determine the threshold at which control measures are recommended
     description: >-
-      THE PEST: Grey field slug (Deroceras reticulatum) are the most important slug pest in crops with they causing 
-      over 95% of most slug damage. Slug damage are commonly seed hollowing before and during seed germination leading to patchy fields, 
-      and damage continues on seedlings and young cereal shoots up to GS21. They thrive in humid conditions with large quantities of food. 
-      In most cases, they reside in soil up to 10 cm deep and are 3 to 5 cm in length. Due to its limited food reserve, this slug feeds 
+      THE PEST: Grey field slug (Deroceras reticulatum) are the most important slug pest in crops with they causing
+      over 95% of most slug damage. Slug damage are commonly seed hollowing before and during seed germination leading to patchy fields,
+      and damage continues on seedlings and young cereal shoots up to GS21. They thrive in humid conditions with large quantities of food.
+      In most cases, they reside in soil up to 10 cm deep and are 3 to 5 cm in length. Due to its limited food reserve, this slug feeds
       more frequently under a variety of conditions. The slug can feed and reproduce year-round, regardless of whether it is below or above ground.
-      Seedbeds with clods and plants that are direct drilled or minimally cultivated are likely to be damaged by slugs. Farming activities such as 
+      Seedbeds with clods and plants that are direct drilled or minimally cultivated are likely to be damaged by slugs. Farming activities such as
       ploughing also fail to affect them as they move back to the soil surface to cause damage.
       THE DECISION: Slug refuge traps should be placed in standing cereal crops or in stubble over a one-night period from May to October when weather
       conditions such as temperatures between 5 -25 degrees and moist soil surfaces occur. Slugs should be counted before temperatures rise and they leave refuge traps.
       The trapping should continue until the vulnerable stage of the crop has passed.
       THE THRESHOLD: Crops are considered to be at risk of economic damage where an average of four or more slugs are found per refuge trap.
-      THE ASSESSMENT: Assessment is most effective where periods of slug activity are correctly identified; e.g. after period of wet or humid weather. 
-      REGION: 
+      THE ASSESSMENT: Assessment is most effective where periods of slug activity are correctly identified; e.g. after period of wet or humid weather.
+      REGION:
       ASSUMPTION: This depends on identifying the periods of slug activity for greater chances of trapping them
       REFERENCE: Glen 2005; Glen et al. 2006
 
@@ -2276,7 +2276,7 @@ models:
         organization: (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
-      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/api/ThresholdDSS 
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/api/ThresholdDSS
       form_method: post
       content_type: application/json
       input_schema_categories:
@@ -2293,14 +2293,14 @@ models:
                     "date": {
                         "type": "string",
                         "format": "date",
-                        "title": "Date of Observation (N.B. there should be only one observation per day)"               
+                        "title": "Date of Observation (N.B. there should be only one observation per day)"
                     },
                     "observation": {
                         "type": "number",
-                        "title": "Observation (average number of slugs per trap)"         
+                        "title": "Observation (average number of slugs per trap)"
                    }
                }
-            }           
+            }
         },
         "type": "object",
         "properties": {
@@ -2313,7 +2313,7 @@ models:
                         "type": "array",
                         "title": "Field Observations",
                         "items": {
-                            "$ref": "#/definitions/observations"   
+                            "$ref": "#/definitions/observations"
                         }
                     },
                     "thresholdClass": {
@@ -2321,12 +2321,12 @@ models:
                         "title": "Thresholds",
                         "required": [ "threshold", "risk"],
                         "properties": {
-                          "threshold": {"type": "number", "title": "Pest threshold", "default": 4}  ,     
-                          "risk": {"type": "integer", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)","default": 4}      
+                          "threshold": {"type": "number", "title": "Pest threshold", "default": 4}  ,
+                          "risk": {"type": "integer", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)","default": 4}
                         }
                     }
 
-                    
+
                 },
                "required": [ "observationClass"]
             }
@@ -2350,23 +2350,23 @@ models:
         - explanation: >-
             On average, less than four slugs per trap.
           recommended_action: >-
-            The risk of slug populations under threshold (on average less than four slugs per trap) 
+            The risk of slug populations under threshold (on average less than four slugs per trap)
             requiring management action is low.  In vulnerable crops, continue to monitor slug abundance
-            and consider treatment options where populations are increasing. 
+            and consider treatment options where populations are increasing.
         - explanation: >-
 
           recommended_action: >-
-            On average, four or more slugs per trap. 
+            On average, four or more slugs per trap.
         - explanation: >-
             On average, four or more slugs per trap.
           recommended_action: >-
             The risk of slug populations over threshold (on average four or more slugs per trap) requiring management
             action is high.  In vulnerable crops, continue to monitor slug abundance and consider treatment options
-            where crops require additional protection. 
-      chart_heading: 
+            where crops require additional protection.
+      chart_heading:
       chart_groups:
         - id: G1
-          title: 
+          title:
           result_parameter_ids:
             - Observation
             - FirstThreshold
@@ -2393,25 +2393,25 @@ models:
     version: 0.0.1
     type_of_decision: Short-term tactical
     type_of_output: Risk indication
-    description_URL: >-  
+    description_URL: >-
       https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/Help/Api/POST-api-ThresholdDSS
     purpose: The purpose of the model is to determine the threshold at which control measures are recommended.
     description: >-
-      THE PEST: Grey field slug (Deroceras reticulatum) are the most important slug pest in crops with they causing over 95% of most slug damage. 
+      THE PEST: Grey field slug (Deroceras reticulatum) are the most important slug pest in crops with they causing over 95% of most slug damage.
       The most damage to oilseed rape occurs during the establishment phase (between sowing and the four true leaf stage), with leaf shredding
-      more common than seed hollowing. They thrive in humid conditions with large quantities of food. In most cases, they reside in soil up to 
-      10 cm deep and are 3 to 5 cm in length. Due to its limited food reserve, this slug feeds more frequently under a variety of conditions. 
-      The slug can feed and reproduce year-round, regardless of whether it is below or above ground.  Seedbeds with clods and plants that are 
-      direct drilled or minimally cultivated are likely to be damaged by slugs. Farming activities such as ploughing also fail to affect them 
+      more common than seed hollowing. They thrive in humid conditions with large quantities of food. In most cases, they reside in soil up to
+      10 cm deep and are 3 to 5 cm in length. Due to its limited food reserve, this slug feeds more frequently under a variety of conditions.
+      The slug can feed and reproduce year-round, regardless of whether it is below or above ground.  Seedbeds with clods and plants that are
+      direct drilled or minimally cultivated are likely to be damaged by slugs. Farming activities such as ploughing also fail to affect them
       as they move back to the soil surface to cause damage.
-      THE DECISION: Traps should be placed in standing crops or in stubble over a one-night period from May to October when weather conditions 
-      such as temperatures between 5 -25 degrees and moist soil surfaces occur. Slugs should be counted before temperatures rise and they leave refuge traps. 
+      THE DECISION: Traps should be placed in standing crops or in stubble over a one-night period from May to October when weather conditions
+      such as temperatures between 5 -25 degrees and moist soil surfaces occur. Slugs should be counted before temperatures rise and they leave refuge traps.
       The trapping should continue until the vulnerable stage of the crop has passed.
       THE THRESHOLD: Crops are considered to be at risk of economic damage where an average of one or more slugs are found per refuge trap.
       THE ASSESSMENT: Set up minimum of nine refuge traps per 20 ha (13 in fields larger than 20 ha) in a “W” pattern. Refuge traps can be made from an
       upturned saucer, baited with chicken layers mash. Threshold assessed based on the overall average number of slugs found per trap 24hrs after setting them.
-      REGION: 
-      ASSUMPTION: Assessment is most effective where periods of slug activity are correctly identified; e.g. after period of wet or humid weather. 
+      REGION:
+      ASSUMPTION: Assessment is most effective where periods of slug activity are correctly identified; e.g. after period of wet or humid weather.
       Tracking slug abundance over time is recommended, rather than single assessments.
       REFERENCE: Glen 2005; Glen et al. 2006
 
@@ -2428,7 +2428,7 @@ models:
         organization: (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
-      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/api/ThresholdDSS 
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/threshold/generic/api/ThresholdDSS
       form_method: post
       content_type: application/json
       input_schema_categories:
@@ -2445,11 +2445,11 @@ models:
                     "date": {
                         "type": "string",
                         "format": "date",
-                        "title": "Date of Observation (N.B. there should be only one observation per day)"               
+                        "title": "Date of Observation (N.B. there should be only one observation per day)"
                     },
                     "observation": {
                         "type": "number",
-                        "title": "Observation (average number of slugs per trap)"         
+                        "title": "Observation (average number of slugs per trap)"
                    }
                }
             }
@@ -2465,7 +2465,7 @@ models:
                         "type": "array",
                         "title": "Field Observations",
                         "items": {
-                            "$ref": "#/definitions/observations"   
+                            "$ref": "#/definitions/observations"
                         }
                     },
                     "thresholdClass": {
@@ -2473,8 +2473,8 @@ models:
                         "title": "Thresholds",
                         "required": [ "threshold", "risk"],
                         "properties": {
-                          "threshold": {"type": "number", "title": "Pest threshold", "default": 1}  ,     
-                          "risk": {"type": "integer", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)","default": 4}      
+                          "threshold": {"type": "number", "title": "Pest threshold", "default": 1}  ,
+                          "risk": {"type": "integer", "title": "Risk if the threshold is exceeded (2 = low risk, 3 = medium risk, 4 = high risk)","default": 4}
                         }
 
                     }
@@ -2500,22 +2500,22 @@ models:
           recommended_action: Review error message.
         - explanation: >-
             On average, less than one slugs per trap.
-          recommended_action: >- 
-            The risk of slug populations under threshold (on average less than one slugs per trap) requiring management action is low.  
-            In vulnerable crops, continue to monitor slug abundance and consider treatment options where populations are increasing. 
+          recommended_action: >-
+            The risk of slug populations under threshold (on average less than one slugs per trap) requiring management action is low.
+            In vulnerable crops, continue to monitor slug abundance and consider treatment options where populations are increasing.
         - explanation: >-
- 
+
           recommended_action: >-
 
         - explanation: >-
-            On average, one or more slugs per trap. 
+            On average, one or more slugs per trap.
           recommended_action: >-
-            The risk of slug populations over threshold (on average one or more slugs per trap) requiring management action is high.  
-            In vulnerable crops, continue to monitor slug abundance and consider treatment options where crops require additional protection. 
-      chart_heading: 
+            The risk of slug populations over threshold (on average one or more slugs per trap) requiring management action is high.
+            In vulnerable crops, continue to monitor slug abundance and consider treatment options where crops require additional protection.
+      chart_heading:
       chart_groups:
         - id: G1
-          title: 
+          title:
           result_parameter_ids:
             - Observation
             - FirstThreshold
@@ -2541,22 +2541,22 @@ models:
     id: IPMTOOL
     version: '1.0'
     type_of_decision: Seasonal strategic
-    type_of_output: Guidance on IPM control methods     
+    type_of_output: Guidance on IPM control methods
     description_URL: https://ipmtool.net
-    purpose: Provides guidance on IPM control methods for specific pests, diseases and weeds 
+    purpose: Provides guidance on IPM control methods for specific pests, diseases and weeds
     description: >-
       THE PEST: This IPM planning tool provides information on all the major pests, weeds and diseases of
-      many arable and outdoor horticultural crops. 
+      many arable and outdoor horticultural crops.
       THE DECISION: The user selects the crop types they grow.  The IPM Tool provides a list of the pests,
       weeds and diseases which affect each type of crop, together with identification guides.  The user selects
-      the pests, weeds and diseases which are a problem on their farm. The Tool provides guidance on effective IPM 
+      the pests, weeds and diseases which are a problem on their farm. The Tool provides guidance on effective IPM
       control methods for each of the pests, weeds and diseases selected.  Links are provided to independent sources
-      of information about each method. The user can select those methods appropriate for their farming system.  
-      An IPM crop plan is then produced, recording the IPM control methods planned.  The plan can be updated during 
-      the crop season. 
+      of information about each method. The user can select those methods appropriate for their farming system.
+      An IPM crop plan is then produced, recording the IPM control methods planned.  The plan can be updated during
+      the crop season.
       SOURCE: The IPM Tool was developed by ADAS and SRUC, in a project led by the NFU and funded by Defra.
       ASSUMPTIONS: The IPM Tool provides links to external sources of independent information from reputable
-      sources, but over which the developers of the tool have no control. 
+      sources, but over which the developers of the tool have no control.
 
     citation: ''
     keywords: null
@@ -2629,3 +2629,135 @@ models:
       chart_heading: ''
       chart_groups: []
       result_parameters: []
+  - name: Temp Myzus Persicae Start Of Migration
+    id: MYZUPE_no_location
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/greenfly/api/info
+    purpose: Estimates the risk of first flight of myzus persicae
+    description: >-
+      THE PEST: Myzus persicae is the primary aphid vector for many damaging
+      viruses and has developed resistance to most insecticides.
+
+      THE DECISION: Management decisions for M. persicae in field crops incorporate
+      both the presence of the aphid in the crop with the crops ability to tolerate
+      or resist direct damage and/or damage from vector bourne diseases. Improved
+      targeting of aphid monitoring in crop supports better decision on where and
+      when interventions may be needed.
+
+      THE MODEL: The model estimates the day of the year of 5% of total migration
+      using the mean air temperature between January and February the previous
+      winter.
+
+      THE PARAMETERS: The model uses mean air temperature between January and
+      February the previous winter.
+
+      REGION: UK
+
+      ASSUMPTIONS: The model was developed based on  regression analysis derived from
+      the Rothamsted Insect Survey observations across the UK and temperature data
+      for the relevant 1km location.
+
+      REFERENCE: Hemming, D., Bell, J., Collier, R., Dunbar, T., Dunstone, N., Everatt, M.,
+      Eyre, D., Kaye, N., Korycinska, A., Pickup, J., & Scaife, A. A. (2022).
+      Likelihood of Extreme Early Flight of Myzus persicae (Hemiptera: Aphididae)
+      Across the UK. Journal of Economic Entomology, 115(5), 1342-1349.
+      https://doi.org/10.1093/jee/toac012
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - MYZUPE
+    crops:
+      - BRSNN
+      - BEAVA
+    authors:
+      - name: Adapted from Hemming et al 2022 by Sola Samuel and Mark Ramsden, ADAS, 2026
+        email: sola.samuel@adas.co.uk, mark.ramsden@adas.co.uk
+        organization: RSK ADAS Ltd
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/greenfly/api/greenfly/runDSS
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal: []
+        triggered: []
+        user_init: []
+        system: []
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+           "modelId": {"type": "string", "pattern":"^MYZUPE$", "title": "Model Id", "default":"MYZUPE", "description":"Must be MYZUPE"},
+            "weatherData": {
+              "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+            },
+            "optionalData" :{
+              "title":"Optional parameters for the DSS",
+              "type": "object",
+              "properties": {
+                "startDate": {"type":"string","format": "date", "title": "Filter Start Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-01"},
+                "endDate": {"type":"string","format": "date", "title": "Filter End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-07-01"}
+              }
+            }
+          },
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-01-01'
+      weather_data_period_end:
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-06-30'
+    valid_spatial:
+      countries:
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            Based on current data available, the model results indicate no
+            current risk of pest activity.
+          recommended_action: >-
+            The model currently predicts a low risk of migration into crops.
+        - explanation: >-
+            Based on current data available, the model indicates there is a
+            moderate risk of migration of M. persica into crops.
+          recommended_action: >-
+            The model current predicts that migration of M. persicae into
+            crops is likely to have begun at this location. Vulnerable crops
+            should be inspected for infestations.
+        - explanation: >-
+            Based on current data available, the model indicates there is a
+            high risk of migration of M. persica into crops.
+          recommended_action: >-
+            Red Warning indicates that >5% M. persicae migration is likely
+            to have begun at this location. Vulnerable crops should be
+            inspected for infestations.
+      chart_heading: ''
+      chart_groups:
+        - id: ''
+          title: ''
+          result_parameter_ids:
+            - ''
+      result_parameters:
+        - id: ''
+          title: ''
+          description: ''
+          chart_info:
+            default_visible: false
+            unit: ''
+            chart_type: bar
+            color: '#000000'

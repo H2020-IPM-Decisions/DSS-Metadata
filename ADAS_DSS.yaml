@@ -2629,3 +2629,173 @@ models:
       chart_heading: ''
       chart_groups: []
       result_parameters: []
+  - name: Cutworm Model No Location
+    id: NLDASGPA
+    version: 0.0.4
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/Help/Api/POST-api-DASGPA
+    purpose: Estimates the risk of cutworm larvae surviving to third instar
+    description: >-
+      THE PEST: Cutworm are caterpillars of a few species of moth (e.g. Agrotis
+      species) that feed at the base and roots of various crops. Eggs are laid
+      in late spring, and the first three instar feed on surface vegetation,
+      before burrowing into roots. Once they've moved into the roots, they
+      cannot be controlled using contact treatments (e.g. insecticides). As
+      adults continue to lay eggs in the crop, several 'batches' of larvae, at
+      different instars, can be present in the crop.
+
+
+      THE DECISION: The DSS predicts the number of instar 1, 2 or 3 larval
+      batches that could be active in the crop. When 4 or more batches are
+      predicted, treatment is recommended to prevent high numbers of larvae
+      moving into the crop roots.
+
+      THE MODEL: This model predicts the number of batches of vulnerable larvae
+      (instar 1-3) currently active, based on first appearance of adult moth and
+      subsequent larval development. Significant rainfall events cause high
+      levels of mortality in larvae, which is included in the model.
+
+      THE PARAMETERS: The model uses a model start date is defined as the first
+      day after 1st June where temperature exceeds 12 degrees as a default to
+      predict adult moth arrival. Temperature (to determine growth rates) and
+      rainfall (to determine mortality), ending on the 31st October. Any spray
+      dates can be inputted into the model and are deemed to be 100% effective
+      at removing cutworm from the model, but does not prevent subsequent
+      batches.
+
+      REGION: This DSS was adapted from work carried out in the UK, and is
+      considered applicable, but not yet validated in, Belgium, Luxembourg,
+      Netherlands, France, Germany, Rep. Ireland, and Denmark.
+
+      ASSUMPTION: This DSS assumes first arrival of adult moths to be 1st June;
+      users monitoring abundance in field should edit the parameter to the
+      correct first observation to improve accuracy.
+
+      REFERENCE: Bowden et al. (1983) Annuls of Applied Biology 102, 29-47.
+      https://doi.org/10.1111/j.1744-7348.1983.tb02663.x
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - DASGPA
+    crops:
+      - LACSS
+      - BEASS
+      - SOLTU
+      - BRSSS
+      - DAUCS
+      - PAVSA
+      - ALLSS
+      - CICIN
+      - ASPOF
+      - APUGV
+      - LYPES
+      - FRAAN
+    authors:
+      - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: (Louie.sage@adas.co.uk)
+        organization: Rothamsted Experimental Station, (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/dasgpa/api/DASGPA
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+      input_schema: |
+        {
+          "type":"object",
+          "properties": {
+              "modelId": {"type": "string", "pattern":"^DASGPA$", "title": "Model Id", "default":"DASGPA", "description":"Must be DASGPA"},
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },
+              "optionalData" :{
+                "title":"Optional parameters for the DSS",
+                "type": "object",
+                "properties": {
+                  "startDate": {"type":"string","format": "date", "title": "1st arrival of adult moths (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-06-01"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-10-31"},
+                  "dateOfLastSpray": {"type":"string","format": "date", "title": "Date of Last Spray (YYYY-MM-DD)"}
+                }
+              }
+          },
+          "required": ["modelId"]
+        }
+    input:
+      weather_parameters:
+        - parameter_code: 1002
+          interval: 86400
+        - parameter_code: 2001
+          interval: 86400
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-06-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-10-31'
+    valid_spatial:
+      countries:
+        - GBR
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            This model is currently collecting data to run. Based on current
+            data available, the model results indicate no current risk of pest
+            activity.
+          recommended_action: >-
+            This model runs June - October. The risk of 3rd instar cutwork
+            larvae being active in the crop is low. The chart 'Instar Count'
+            indicates that the number of larval batches forecast to survive to
+            third instar during this period is less zero. Update parameters when
+            any insecticide applications are made.
+        - explanation: >-
+            Yellow warning indicates that the larval batches surviving to third
+            instar is between 1 and 4.
+          recommended_action: >-
+            This model runs June - October. The risk of 3rd instar cutwork
+            larvae being active in the crop is increasing. The chart 'Instar
+            Count' indicates that the number of larval batches forecast to
+            survive to third instar during this period is between 1 and 4.
+            Increasing monitoring efforts in vulnerable crops, and apply
+            suitable treatment according to need. Update parameters when any
+            insecticide applications are made
+        - explanation: >-
+            Red warning indicates that there are over 4 larval batches surviving
+            to third instar.
+          recommended_action: >-
+            This model runs June - October. The risk of lots of 3rd instar
+            cutwork larvae being active in the crop is high. The chart 'Instar
+            Count' indicates that the number of larval batches forecast to
+            survive to third instar during this period 4 or more. Monitor
+            vulnerable crops for in-field activity and apply suitable treatments
+            according to need. Update parameters when any insecticide
+            applications are made.
+      chart_heading: Larval Batches Surviving to Third Instar.
+      chart_groups:
+        - id: G1
+          title: Instar Count
+          result_parameter_ids:
+            - Third_Instar_Count
+      result_parameters:
+        - id: Third_Instar_Count
+          title: Larval Batches Surviving to Third Instar.
+          description: Number of larval batches surviving to third instar.
+          chart_info:
+            default_visible: true
+            unit: count
+            chart_type: line
+            color: '#0000ff'

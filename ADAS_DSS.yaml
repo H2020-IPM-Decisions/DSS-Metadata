@@ -2733,7 +2733,7 @@ models:
           value: '{CURRENT_YEAR}-10-31'
     valid_spatial:
       countries:
-        - GBR
+        - ALL
       geoJSON: '{}'
     output:
       warning_status_interpretation:

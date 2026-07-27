@@ -2681,17 +2681,6 @@ models:
     pests:
       - DASGPA
     crops:
-      - LACSS
-      - BEASS
-      - SOLTU
-      - BRSSS
-      - DAUCS
-      - PAVSA
-      - ALLSS
-      - CICIN
-      - ASPOF
-      - APUGV
-      - LYPES
       - FRAAN
     authors:
       - name: J. Bowden, J. Cochrane, B.J. Emmett, T.E. Minall, P.L Sherlock, (Integrated to

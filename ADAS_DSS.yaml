@@ -949,7 +949,7 @@ models:
           value: '{CURRENT_YEAR}-08-01'
       weather_data_period_end:
         - determined_by: FIXED_DATE
-          value: '{CURRENT_YEAR}-12-01'
+          value: '{CURRENT_YEAR}-12-31'
     valid_spatial:
       countries:
         - GBR

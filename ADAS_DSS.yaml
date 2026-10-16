@@ -2028,7 +2028,7 @@ models:
                   "mediumRiskThreshold": {"type": "number", "title": "Medium Risk Threshold"},
                   "highRiskThreshold": {"type": "number", "title": "High Risk Threshold"}
                 }
-              }
+              },
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
               },

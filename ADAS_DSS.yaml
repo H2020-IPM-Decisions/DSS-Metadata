@@ -2031,7 +2031,7 @@ models:
               },
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-              },
+              }
             },
             "required": ["modelId", "startDate", "endDate", "dateOfIntervention", "durationOfInterventionEffectiveness", "dayDegreeThreshold", "temperatureActivityThreshold", "mediumRiskThreshold", "highRiskThreshold"]
           }
@@ -2046,7 +2046,7 @@ models:
           value: '{PREVIOUS_YEAR}-10-01'
       weather_data_period_end:
         - determined_by: INPUT_SCHEMA_PROPERTY
-          value: optionalData.endDate
+          # value: optionalData.endDate
         - determined_by: FIXED_DATE
           value: '{CURRENT_YEAR}-03-31'
     valid_spatial:

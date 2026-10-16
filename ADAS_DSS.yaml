@@ -1946,6 +1946,215 @@ models:
             unit: ''
             chart_type: line
             color: '#0000ff'
+  - name: Generic TSUM model
+    id: TSUM
+    version: 0.0.1
+    type_of_decision: Short-term tactical
+    type_of_output: Risk indication
+    description_URL: >-
+      https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/rhoppa/Help/Api/POST-api-RHOPPA
+    purpose: Estimates risk of transmission of virus by aphid vectors
+    description: >-
+      THE PEST: Aphids can transmit barley/cereal yellow dwarf viruses (BYDV).
+      Initially, aphids colonise relatively few crop plants. However, the
+      second-generation tends to move away from the plant originally colonised.
+      Controlling this generation is a key part of a BYDV management strategy.
+
+
+      THE DECISION: This DSS indicates the best time to monitor crops for
+      aphids. If infestations are high, and non-chemical control options are
+      unlikely to prevent second generation emergence, treatment should be
+      considered to limit the spread of the virus.
+
+      THE MODEL: The second generation is likely to be present when the
+      accumulated daily air temperatures, above a baseline temperature of 3ºC,
+      reaches T-Sum 170.
+
+      THE PARAMETERS: The model uses Date of last spray application, daily
+      temperature
+
+      REGION: This DSS was adapted from work carried out in the UK, and is
+      considered applicable, but not yet validated in, Belgium, Luxembourg,
+      Netherlands, France, Germany, Rep. Ireland, and Denmark.
+
+      ASSUMPTIONS: This DSS assumes that the user will update the date of last
+      insecticide applications. Its also assumes that no aphids found or
+      insecticide treatment applied at 170DD, and restarts calculations. 2nd
+      generation development time is consistent across regions.
+
+      REFERENCE: UK Agricultural and Horticultural Development Board (2022).
+      https://ahdb.org.uk/bydv
+    citation: null
+    keywords: none
+    platform_validated: true
+    pests:
+      - RHOPPA
+    crops:
+      - TRZAW
+      - HORVW
+    authors:
+      - name: AHDB, (Integrated to
+          IPM Decisions from publication details by Hannah Griffiths)
+        email: (Louie.sage@adas.co.uk)
+        organization: AHDB, (RSK ADAS Ltd)
+    execution:
+      type: ONTHEFLY
+      endpoint: http://localhost:5136
+      form_method: post
+      content_type: application/json
+      input_schema_categories:
+        hidden:
+          - modelId
+        internal:
+          - optionalData.upperTemperatureThreshold
+          - optionalData.lowerTemperatureThreshold
+          - optionalData.mediumRiskThreshold
+          - optionalData.highRiskThreshold
+      input_schema: |
+        {
+            "type":"object",
+            "properties": {
+              "modelId": {"type": "string", "pattern":"^RHOPPA$", "title": "Model Id", "default":"RHOPPA", "description":"Must be RHOPPA"},
+              "properties": {
+                "title": "Configuration parameters",
+                "type": "object",
+                "properties": {
+                  "Biofix": {"type":"string","format": "date", "title": "Model Start Date/Emergence Date (YYYY-MM-DD)"},
+                  "endDate": {"type":"string","format": "date", "title": "Model End Date/Growth Stage 31 (YYYY-MM-DD)"},
+                  "dateOfIntervention": {"type":"string","format": "date", "title": "Date of Intervention (YYYY-MM-DD)"},
+                  "durationOfInterventionEffectiveness": {"type": "number", "title": "Number of Days Intervention is Effective"},
+                  "dayDegreeThreshold": {"type": "number", "title": "Upper Temperature Threshold"},
+                  "temperatureActivityThreshold": {"type": "number", "title": "Lower Temperature Threshold"},
+                  "mediumRiskThreshold": {"type": "number", "title": "Medium Risk Threshold"},
+                  "highRiskThreshold": {"type": "number", "title": "High Risk Threshold"}
+                }
+              }
+              "weatherData": {
+                "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
+              },
+            },
+            "required": ["modelId", "startDate", "endDate", "dateOfIntervention", "durationOfInterventionEffectiveness", "dayDegreeThreshold", "temperatureActivityThreshold", "mediumRiskThreshold", "highRiskThreshold"]
+          }
+    input:
+      weather_parameters:
+        - parameter_code: 1001
+          interval: 3600
+      weather_data_period_start:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.startDate
+        - determined_by: FIXED_DATE
+          value: '{PREVIOUS_YEAR}-10-01'
+      weather_data_period_end:
+        - determined_by: INPUT_SCHEMA_PROPERTY
+          value: optionalData.endDate
+        - determined_by: FIXED_DATE
+          value: '{CURRENT_YEAR}-03-31'
+    valid_spatial:
+      countries:
+        - GBR
+        - BEL
+        - LUX
+        - NLD
+        - FRA
+        - DEU
+        - DNK
+        - IRL
+      geoJSON: '{}'
+    output:
+      warning_status_interpretation:
+        - explanation: ''
+          recommended_action: ''
+        - explanation: Missing data.
+          recommended_action: Review error message.
+        - explanation: >-
+            Based on current data available, the model results indicate low
+            current risk of winged aphids spreading BYDV in crops. Day degrees
+            from establishment/last treatment is below 50.
+          recommended_action: >-
+            This model runs September - March. Update parameters when any
+            insecticide applications are made.
+        - explanation: >-
+            Based on current data available, conditions are between 50-100.
+            day-degrees over a base of 3*C.
+          recommended_action: >-
+            The risk of winged aphids being present in the crop is increasing,
+            and may occur in following 3-5 days. The 'TSUM' chart indicates that
+            the accumulated degrees over 3*C since crop emergence or last
+            insecticide spray is approaching 170 degrees, which is associated
+            with the emergence of winged aphids that act as vectors for BYDV.
+            Increasing monitoring efforts in vulnerable crops, and apply
+            suitable treatment according to need. Update parameters when any
+            insecticide applications are made.The model assumes no aphids found
+            or insecticide treatment applied at 170DD, and restarts
+            calculations.
+        - explanation: >-
+            Based on current data available, conditions have reached or are
+            above 100 day-degrees over a base of 3*C.
+          recommended_action: >-
+            The risk of winged aphids being present in the crop is high, winged
+            aphids likely to be present in crop in coming days. The 'TSUM' chart
+            indicates that the accumulated degrees over 3*C since crop emergence
+            or last insecticide spray is approaching 170 degrees, which is
+            associated with the emergence of winged aphids that act as vectors
+            for BYDV. Monitor vulnerable crops for in-field activity and apply
+            suitable treatments according to need. Update parameters when any
+            insecticide applications are made. The model assumes no aphids found
+            or insecticide treatment applied at 170DD, and restarts
+            calculations.
+      chart_heading: TSUM Model
+      chart_groups:
+        - id: G1
+          title: TSUM
+          result_parameter_ids:
+            - T-Sum
+            - ThresholdLine
+        - id: G2
+          title: Proportion of Day
+          result_parameter_ids:
+            - Proportion_1
+            - Proportion_2
+            - Proportion_3
+      result_parameters:
+        - id: T-Sum
+          title: T-Sum
+          description: Cumulative day degrees over 3 degrees celsius.
+          chart_info:
+            default_visible: true
+            unit: Count
+            chart_type: line
+            color: '#ffa500'
+        - id: ThresholdLine
+          title: Winged aphids likely to emerge
+          description: Winged aphids likely to emerge
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: '#ff0000'
+        - id: Proportion_1
+          title: Proportion of day where temperature exceeds 11 degrees C
+          description: Proportion of day where temperature exceeds 11 degrees C
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: '#008000'
+        - id: Proportion_2
+          title: Proportion of day where temperature was below 6 degrees C
+          description: Proportion of day where temperature was below 6 degrees C
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: '#ff0000'
+        - id: Proportion_3
+          title: Proportion of day where temperature was below 3 degrees C
+          description: Proportion of day where temperature was below 3 degrees C
+          chart_info:
+            default_visible: true
+            unit: ''
+            chart_type: line
+            color: '#0000ff'
   - name: Hutton Criteria Late Blight Model
     id: PHYTIN
     version: 0.0.1

@@ -2015,25 +2015,19 @@ models:
             "type":"object",
             "properties": {
               "modelId": {"type": "string", "pattern":"^RHOPPA$", "title": "Model Id", "default":"RHOPPA", "description":"Must be RHOPPA"},
-              "properties": {
-                "title": "Configuration parameters",
-                "type": "object",
-                "properties": {
-                  "Biofix": {"type":"string","format": "date", "title": "Model Start Date/Emergence Date (YYYY-MM-DD)"},
-                  "endDate": {"type":"string","format": "date", "title": "Model End Date/Growth Stage 31 (YYYY-MM-DD)"},
-                  "dateOfIntervention": {"type":"string","format": "date", "title": "Date of Intervention (YYYY-MM-DD)"},
-                  "durationOfInterventionEffectiveness": {"type": "number", "title": "Number of Days Intervention is Effective"},
-                  "dayDegreeThreshold": {"type": "number", "title": "Upper Temperature Threshold"},
-                  "temperatureActivityThreshold": {"type": "number", "title": "Lower Temperature Threshold"},
-                  "mediumRiskThreshold": {"type": "number", "title": "Medium Risk Threshold"},
-                  "highRiskThreshold": {"type": "number", "title": "High Risk Threshold"}
-                }
-              },
               "weatherData": {
                 "$ref": "https://platform.ipmdecisions.net/api/wx/rest/schema/weatherdata"
-              }
+              },
+                "Biofix": {"type":"string","format": "date", "title": "Model Start Date/Emergence Date (YYYY-MM-DD)"},
+                "endDate": {"type":"string","format": "date", "title": "Model End Date/Growth Stage 31 (YYYY-MM-DD)"},
+                "dateOfIntervention": {"type":"string","format": "date", "title": "Date of Intervention (YYYY-MM-DD)"},
+                "durationOfInterventionEffectiveness": {"type": "number", "title": "Number of Days Intervention is Effective"},
+                "dayDegreeThreshold": {"type": "number", "title": "Upper Temperature Threshold"},
+                "temperatureActivityThreshold": {"type": "number", "title": "Lower Temperature Threshold"},
+                "mediumRiskThreshold": {"type": "number", "title": "Medium Risk Threshold"},
+                "highRiskThreshold": {"type": "number", "title": "High Risk Threshold"}
             },
-            "required": ["modelId", "startDate", "endDate", "dateOfIntervention", "durationOfInterventionEffectiveness", "dayDegreeThreshold", "temperatureActivityThreshold", "mediumRiskThreshold", "highRiskThreshold"]
+            "required": ["modelId", "Biofix", "endDate", "dateOfIntervention", "durationOfInterventionEffectiveness", "dayDegreeThreshold", "temperatureActivityThreshold", "mediumRiskThreshold", "highRiskThreshold"]
           }
     input:
       weather_parameters:

@@ -1999,7 +1999,7 @@ models:
         organization: AHDB, (RSK ADAS Ltd)
     execution:
       type: ONTHEFLY
-      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/tsum/api/genericTsum
+      endpoint: https://app-rsk-adas-dss-dev-001.azurewebsites.net/dss/tsum/api/genericTsum/rundss
       form_method: post
       content_type: application/json
       input_schema_categories:

@@ -2022,12 +2022,12 @@ models:
                 "title": "Optional Parameters for the DSS",
                 "type": "object",
                 "properties": {
-                  "Biofix": {"type":"string","format": "date", "title": "Model Start Date/Emergence Date (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-10-01"},
+                  "Biofix": {"type":"string","format": "date", "title": "Biofix (YYYY-MM-DD)", "default": "{PREVIOUS_YEAR}-10-01"},
                   "endDate": {"type":"string","format": "date", "title": "Model End Date/Growth Stage 31 (YYYY-MM-DD)", "default": "{CURRENT_YEAR}-03-31"},
                   "dateOfIntervention": {"type":"string","format": "date", "title": "Date of Intervention (YYYY-MM-DD)"},
                   "durationOfInterventionEffectiveness": {"type": "number", "title": "Number of Days Intervention is Effective"},
-                  "dayDegreeThreshold": {"type": "number", "default":"170", "title": "Upper Temperature Threshold"},
-                  "temperatureActivityThreshold": {"type": "number", "default":"3", "title": "Lower Temperature Threshold"},
+                  "dayDegreeThreshold": {"type": "number", "default":"170", "title": "Day Degree Threshold"},
+                  "temperatureActivityThreshold": {"type": "number", "default":"3", "title": "Temperature Activity Threshold"},
                   "mediumRiskThreshold": {"type": "number", "default":"50", "title": "Medium Risk Threshold"},
                   "highRiskThreshold": {"type": "number", "default":"100", "title": "High Risk Threshold"}
                 }
